@@ -1,0 +1,37 @@
+{
+  "name": "server",
+  "version": "1.1.0",
+  "license": "MIT",
+  "author": "HackMerced",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "clean": "concurrently \"yarn clean:client\" \"yarn clean:server\"",
+    "clean:client": "cd client && rm -rf ./node_modules yarn.lock",
+    "clean:server": "rm -rf ./node_modules yarn.lock",
+    "setup": "yarn install:server && yarn install:client",
+    "install:client": "cd client && yarn install",
+    "install:server": "yarn install",
+    "start": "concurrently \"yarn start:client\" \"yarn start:server\"",
+    "dev": "concurrently \"yarn start:client\" \"yarn dev:server\"",
+    "start:client": "cd client && yarn build",
+    "start:server": "node server.js",
+    "dev:server": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "concurrently": "^4.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.7.1",
+    "morgan": "^1.9.1",
+    "uniqid": "^5.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1"
+  }
+}

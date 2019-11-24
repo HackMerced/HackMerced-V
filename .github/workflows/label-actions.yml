@@ -1,0 +1,43 @@
+# Configuration for Label Actions - https://github.com/dessant/label-actions
+
+# Specify actions for issues and pull requests
+actions:
+  # Actions taken when the `wontfix` label is added
+  wontfix:
+    # Post a comment
+    comment: >
+      The thread has been temporarily locked.
+    # Lock the thread
+    lock: true
+    # Set a lock reason
+    lockReason: "Broken needs to start from scratch"
+  # Actions taken when the `wontfix` label is removed
+  -wontfix:
+    # Unlock the thread
+    unlock: true
+
+# Optionally, specify configuration settings just for issues
+issues:
+  actions:
+    feature:
+      # Post a comment, `{issue-author}` is an optional placeholder
+      comment: >
+        :wave: @{issue-author}, please use our idea board to request new features.
+      # Close the issue
+      close: true
+    -wontfix:
+      # Reopen the issue
+      open: true
+
+# Optionally, specify configuration settings just for pull requests
+pulls:
+  actions:
+    pizzazz:
+      comment: >
+        ![](https://i.imgur.com/WuduJNk.jpg)
+
+# Limit to only `issues` or `pulls`
+# only: issues
+
+# Repository to extend settings from
+# _extends: repo

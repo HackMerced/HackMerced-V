@@ -1,0 +1,94 @@
+.isEmailValid{
+  display: none;
+  color: red;
+}
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  padding: 10px;
+  float: left;
+}
+
+/*styling for popup modal button*/
+
+.button {
+  position: absolute;
+  font-size: 1em;
+  padding: 20px 35px;
+  color: #fff;
+  background-color: #B996A4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+/*highlighting color when hovering over popup modal button*/
+
+.button:hover {
+  background-color: #CFB5CC;
+  color: black;
+}
+
+/*Styling to dim screen when opening modal*/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  position:fixed;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*styling for the popup*/
+.popup {
+  z-index: -2px;
+  margin: 100px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  text-align: center;
+}
+/*popup header*/
+.popup h2 {
+  font-size: 20px;
+  padding: 25px;
+  text-align: center;
+  margin-top: 0;
+  color: #333;
+}
+
+/*closing fade for popup*/
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: #354e75;
+}
+
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}

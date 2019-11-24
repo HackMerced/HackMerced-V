@@ -1,0 +1,32 @@
+#pinkbackground {
+  background-color: #b996a4;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.App-AboutUs {
+  background-image: linear-gradient(to bottom, #a8b6d6, #b996a4);
+  color: white;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-align: center;
+  margin: 100px 250px 100px 250px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.AboutUs-info h3,
+.AboutUs-goal h3 {
+  color: white;
+  font-size: 30px;
+  font-weight: 30;
+}
+
+.AboutUs-info p,
+.AboutUs-goal p {
+  font-size: 1.15rem;
+}

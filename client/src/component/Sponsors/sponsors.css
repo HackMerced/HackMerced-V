@@ -1,0 +1,284 @@
+.digitalocean {
+  left: 250px;
+  bottom: 235px;
+  position: relative;
+  width: 100%;
+  max-width: 235px;
+  height: 225px;
+}
+.roche {
+  bottom: 190px;
+  right: 300px;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 170px;
+}
+.asucm {
+  left: 510px;
+  position: relative;
+  width: 100%;
+  max-width: 230px;
+  height: 200px;
+}
+.password {
+  /* 1 password logo position & size */
+  left: 120px;
+  bottom: 50px;
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  height: 40px;
+}
+.stickeryou {
+  bottom: 240px;
+  position: relative;
+  right: 120px;
+  width: 240%;
+  max-width: 250px;
+  height: 150px;
+}
+.makeschool {
+  bottom: 215px;
+  position: relative;
+  left: 500px;
+  width: 300%;
+  max-width: 400px;
+  height: 150px;
+}
+.sketch {
+  /* sketch position & size*/
+  top: 70px;
+  position: relative;
+  right: 70px;
+  width: 200%;
+  max-width: 310px;
+  height: 125px;
+}
+.balsamiq {
+  bottom: 40px;
+  position: relative;
+  left: 270px;
+  width: 100%;
+  max-width: 220px;
+  height: 80px;
+}
+
+.jetbrains {
+  bottom: 205px;
+  position: relative;
+  width: 100%;
+  max-width: 170px;
+  height: 190px;
+}
+
+.mlh {
+  width: 100%;
+  max-width: 300px;
+  top: 20px;
+  right: 50px;
+  position: relative;
+}
+
+.App-Sponsors {
+  /* background color */
+  background-color: #e7d9d2;
+}
+
+.Sponsor-right {
+  /* Title - (Sponsors) styling */
+  text-align: center;
+}
+
+.sponsoring {
+  /* entire icons styling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+  min-height: 8vh;
+  border: 0;
+}
+
+.Sponsor-top {
+  /* top icons position & size*/
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.Sponsor-middle {
+  /* top icons position & size*/
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+  position: block;
+  margin-right: 10px;
+}
+
+.Sponsor-bottom {
+  /* top icons position & size*/
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+  position: block;
+  margin-right: 10px;
+}
+
+.Sponsor-row::after {
+  /* row display */
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* iPhone 6, 7, 8 6+, 7+, 8+ ----------- */
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Styles */
+  .digitalocean {
+    left: 200px;
+    bottom: 140px;
+    position: relative;
+    width: 125%;
+    max-width: 200px;
+    height: 150px;
+  }
+
+  .roche {
+    bottom: 125px;
+    right: 125px;
+    position: relative;
+    width: 125%;
+    max-width: 200px;
+    height: 110px;
+  }
+
+  .asucm {
+    left: 15px;
+    top: 165px;
+    position: relative;
+    width: 110%;
+    max-width: 150px;
+    height: 125px;
+  }
+
+  .password {
+    /* 1 password logo position & size */
+    left: 5px;
+    top: 30px;
+    position: relative;
+    width: 150%;
+    max-width: 155px;
+    height: 25px;
+  }
+
+  .stickeryou {
+    bottom: 325px;
+    position: relative;
+    left: 200px;
+    max-width: 325%;
+    width: 300px;
+    height: 125px;
+  }
+
+  .makeschool {
+    bottom: 30px;
+    position: relative;
+    left: 175px;
+    width: 480%;
+    max-width: 500px;
+    height: 150px;
+  }
+
+  .sketch {
+    /* sketch position & size*/
+    top: 150px;
+    position: relative;
+    left: 35px;
+    width: 250%;
+    max-width: 195px;
+    height: 125px;
+  }
+
+  .balsamiq {
+    top: 150px;
+    position: relative;
+    left: -135px;
+    width: 150%;
+    max-width: 250px;
+    height: 80px;
+  }
+
+  .jetbrains {
+    bottom: 100px;
+    position: relative;
+    right: 100px;
+    width: 100%;
+    max-width: 125px;
+    height: 125px;
+  }
+
+  .Sponsor-mlh {
+    width: 100%;
+    max-width: 150px;
+    bottom: 90px;
+    left: 250px;
+    position: relative;
+  }
+
+  .App-Sponsors {
+    /* background color */
+    background-color: #e7d9d2;
+  }
+
+  .Sponsor-right {
+    /* Title - (Sponsors) styling */
+    text-align: center;
+  }
+
+  .sponsoring {
+    /* entire icons styling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 12.5px;
+    padding-right: 12.5px;
+    min-height: 8vh;
+    border: 0;
+  }
+
+  .Sponsor-column {
+    /* top icons position & size*/
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-right: 10px;
+  }
+
+  .Sponsor-middle {
+    /* top icons position & size*/
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-right: 10px;
+  }
+
+  .Sponsor-bottom {
+    /* top icons position & size*/
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .Sponsor-row::after {
+    /* row display */
+    content: "";
+    clear: both;
+    display: table;
+  }
+}

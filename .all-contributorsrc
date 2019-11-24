@@ -1,0 +1,105 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "adriandarian",
+      "name": "Adrian Darian",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/23567187?v=4",
+      "profile": "http://linkedin.com/in/adriandarian/",
+      "contributions": [
+        "review",
+        "projectManagement"
+      ]
+    },
+    {
+      "login": "shiv248",
+      "name": "Shiv Gupta",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15200155?v=4",
+      "profile": "http://shivgupta.xyz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "AndrewCNg24",
+      "name": "Andrew Ng",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/50030044?v=4",
+      "profile": "https://github.com/AndrewCNg24",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "tuwZy58",
+      "name": "tuwZy58",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/51281084?v=4",
+      "profile": "https://github.com/tuwZy58",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "maryharebear",
+      "name": "Mary Francine Delos Reyes",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/55856581?v=4",
+      "profile": "http://linkedin.com/in/maryfrancine",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "gr8monk3ys",
+      "name": "Lorenzo Scaturchio",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31302763?v=4",
+      "profile": "https://github.com/gr8monk3ys",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "SidharthBabu121",
+      "name": "SidharthBabu121",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/43564345?v=4",
+      "profile": "https://github.com/SidharthBabu121",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BusherBridi",
+      "name": "BusherBridi",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/44107397?v=4",
+      "profile": "https://github.com/BusherBridi",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "trumanjchan",
+      "name": "trumanjchan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/43284404?v=4",
+      "profile": "https://github.com/trumanjchan",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "athsiao",
+      "name": "Athena Siaotong",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/48605689?v=4",
+      "profile": "https://www.linkedin.com/in/athena-siaotong/",
+      "contributions": [
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "HackMerced-V",
+  "projectOwner": "HackMerced",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

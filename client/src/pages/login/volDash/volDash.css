@@ -1,0 +1,11 @@
+.volunteer{
+    color: green;
+    background-color: #282c34;
+    min-height: 92vh; /* puts a sectioned size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    text-align: center;
+}

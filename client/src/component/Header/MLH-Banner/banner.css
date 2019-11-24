@@ -1,0 +1,8 @@
+.App-banner{
+    /*Adjusting position of the banner to the top left corner*/
+    width:8.5%;
+    position: absolute;
+    top: -5px;
+    padding-left: 20px;
+    
+}
