@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users/2`)
+    axios.get(`https://jsonplaceholder.typicode.com/users/4`)
       .then(res => {
         this.setState({ person: res.data });
       })
@@ -44,54 +44,17 @@ class Dashboard extends React.Component {
 	  		); 
 		default:
 			return(
-				<div className="App-applicant">
+				<div className="App-user">
 			  	<section className="container">
 				  	<article className="applicant">
-				  	<h1>Error User</h1>
+				  	<h2>Error Unknown User</h2>
+				  	<h1>DEFINE YOURSELF INTRUDER</h1>
 				  	</article>
 			  	</section>
 		  		</div>
 	  		); 
 
 	}
-
-
-
-
-	{/*
-
-
-			<div className="App-applicant">   
-		  		<h5>Welcome {this.state.person.name} to your dashboard</h5>
-			  	<section className="container">
-				  	<article className="applicant">
-				  	</article>
-				  	<h1>User 1</h1>
-			  	</section>
-		  	</div>
-
-
-
-	if(userType == 1){
-		return <div>Loading...</div>
-	}else if(userType == 2){
-		return <div>Loading...</div>
-	}else if (userType == 3){
-
-	}else if (userType == 4){
-
-	}
-	  return (
-	  	<div className="App-applicant">   {/* This code basically puts "Applicant Dash"
-	  		<h5>Welcome {this.state.person.name} to your dashboard</h5>
-		  	<section className="container">					 {/* in the middle of the page
-			  	<article className="applicant">
-			  	<h1>Main Dash</h1>
-			  	</article>
-		  	</section>
-	  	</div>
-	  );
-	  */}
 	}
 
 }

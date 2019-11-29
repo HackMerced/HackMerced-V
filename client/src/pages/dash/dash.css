@@ -1,4 +1,5 @@
-.App-applicant{
+.App-user{
+	color: red;  
     background-color: #282c34;    /* sets background same as main page */
     min-height: 92vh;
     display: flex;
