@@ -1,5 +1,5 @@
-.admin{
-    color: green;
+.App-Admin{
+    color: yellow;
     background-color: #282c34; 
     min-height: 92vh;
     display: flex;

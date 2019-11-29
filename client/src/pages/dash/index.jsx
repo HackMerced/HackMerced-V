@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import Admin from './adminDash';
+import Judge from './judgeDash';
+import Applicant from './applicantDash';
+import Volunteer from './volDash';
 import './dash.css';
-import './'
 
 class Dashboard extends React.Component {
 	constructor(props) {
@@ -12,7 +15,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users/5`)
+    axios.get(`https://jsonplaceholder.typicode.com/users/2`)
       .then(res => {
         this.setState({ person: res.data });
       })
@@ -25,55 +28,27 @@ class Dashboard extends React.Component {
 	switch(userType){
 		case 1:
 			return(
-				<div className="App-applicant">   
-		  		<h5>Welcome {this.state.person.name} to your dashboard</h5>
-			  	<section className="container">
-				  	<article className="applicant">
-				  	</article>
-				  	<h1>User 1</h1>
-			  	</section>
-		  		</div>
+				<Admin user={this.state.person}/>
 	  		); 
 		case 2:
 			return(
-				<div className="App-applicant">   
-		  		<h5>Welcome {this.state.person.name} to your dashboard</h5>
-			  	<section className="container">
-				  	<article className="applicant">
-				  	</article>
-				  	<h1>User 2</h1>
-			  	</section>
-		  		</div>
+				<Volunteer user={this.state.person}/>
 	  		); 
 		case 3:
 			return(
-				<div className="App-applicant">   
-		  		<h5>Welcome {this.state.person.name} to your dashboard</h5>
-			  	<section className="container">
-				  	<article className="applicant">
-				  	</article>
-				  	<h1>User 3</h1>
-			  	</section>
-		  		</div>
+				<Judge user={this.state.person}/>
 	  		); 
 		case 4:
 			return(
-				<div className="App-applicant">   
-		  		<h5>Welcome {this.state.person.name} to your dashboard</h5>
-			  	<section className="container">
-				  	<article className="applicant">
-				  	</article>
-				  	<h1>User 4</h1>
-			  	</section>
-		  		</div>
+				<Applicant user={this.state.person}/>
 	  		); 
 		default:
 			return(
-				<div className="App-applicant">   
+				<div className="App-applicant">
 			  	<section className="container">
 				  	<article className="applicant">
-				  	</article>
 				  	<h1>Error User</h1>
+				  	</article>
 			  	</section>
 		  		</div>
 	  		); 
@@ -84,6 +59,18 @@ class Dashboard extends React.Component {
 
 
 	{/*
+
+
+			<div className="App-applicant">   
+		  		<h5>Welcome {this.state.person.name} to your dashboard</h5>
+			  	<section className="container">
+				  	<article className="applicant">
+				  	</article>
+				  	<h1>User 1</h1>
+			  	</section>
+		  	</div>
+
+
 
 	if(userType == 1){
 		return <div>Loading...</div>

@@ -7,7 +7,7 @@ class Admin extends React.Component {
 	  	<div className="App-Admin">  {/* This code basically puts "Admin Dash"*/}
 		  	<section className="container">			{/* in the middle of the page */}
 			  	<article className="admin">
-			  	<h1>Admin Dash</h1> 
+			  	<h1>Welcome {this.props.user.name} you are in God Mode </h1>
 			  	</article>
 		  	</section>
 	  	</div>

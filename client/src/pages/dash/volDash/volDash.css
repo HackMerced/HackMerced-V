@@ -1,5 +1,5 @@
-.volunteer{
-    color: green;
+.App-vol{
+    color: orange;
     background-color: #282c34;
     min-height: 92vh; /* puts a sectioned size */
     display: flex;
