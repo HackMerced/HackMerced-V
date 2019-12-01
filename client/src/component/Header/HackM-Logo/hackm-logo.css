@@ -1,0 +1,81 @@
+.App-Header {
+    /* background color */
+    background-color: #e7d9d2;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    display: inline-block;
+    height: 100%;
+}
+.header-header {
+    width: 100%;
+    padding-top: 50vh;
+    padding-right:100px;
+    height: 15vh;
+    display: inline-block;
+    height: 100%;
+}
+.hackmlogo {
+    width: 100%;
+    height: 100%;
+    width: 300px;
+    height: 250px;
+    max-height: auto;
+    position: relative;
+    left: 400px;
+    bottom: 5px;
+}
+/* iPhone 6, 7, 8 6+, 7+, 8+ ----------- */
+@media (min-width: 320px) and (max-width: 480px) {
+    /* Styles */
+    .App-Header {
+        /* background color */
+        background-color: #e7d9d2;
+        width: 100%;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .header-header {
+        width: 100%;
+        padding-top: 50vh;
+        padding-right:100px;
+        height: 15vh;
+    }
+    .hackmlogo {
+        width: 100%;
+        height: 100%;
+        width: 200px;
+        height: 160px;
+        max-height: auto;
+        position: relative;
+        left: 125px;
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1200px) {.App-Header {
+    /* background color */
+    background-color: #e7d9d2;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    display: fixed;
+    height: 100%;
+}
+.header-header {
+    width: 100%;
+    padding-top: 50vh;
+    padding-right:100px;
+    height: 15vh;
+    display: inline-block;
+    height: 100%;
+}
+.hackmlogo {
+    width: 100%;
+    height: 100%;
+    width: 300px;
+    height: 250px;
+    max-height: auto;
+    position: relative;
+    left: 400px;
+    bottom: 5px;
+}}
