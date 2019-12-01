@@ -8,7 +8,7 @@ class DashboardBody extends React.Component {
           <div id="DashboardBody">
               <div className = "dash2">
 			    <div className="dashboard-body">
-			  		<h2> User's Dashboard</h2> 
+			  		<h2>Welcome {this.props.user.name}!</h2>
                       </div>
                 </div>
             </div>

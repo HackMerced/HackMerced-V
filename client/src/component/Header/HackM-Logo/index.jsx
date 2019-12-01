@@ -3,7 +3,7 @@ import './hackm-logo.css';
 import HACKMLOGO from "./hackmerced.png";
 
 
-class HackMercedLogo extends React.Component {
+class Logo extends React.Component {
 	render(){
 	  return (
       <div className="App-Header" id="Header">  {/* This code basically puts "Admin Dash"*/}
@@ -14,4 +14,4 @@ class HackMercedLogo extends React.Component {
          );
 	}
 }
-export default HackMercedLogo;
+export default Logo;
