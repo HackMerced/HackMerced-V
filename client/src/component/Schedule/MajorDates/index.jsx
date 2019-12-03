@@ -7,7 +7,7 @@ class MajorDates extends React.Component {
 	  return (
         <div id="MajorDates">
             <div className = "important-dates">
-            <h1> Important Dates </h1>
+            <h1> Upcoming Dates: </h1>
 			 </div>
         </div>
        );

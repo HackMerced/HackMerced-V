@@ -5,32 +5,66 @@
 .dash2 {
     color: white;
     background-color: #e7d9d2;
-    border: 2px #0f0c0c solid;
     padding: 20px;
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); /* Where the magic happens */
-    grid-auto-rows: 150px;
-    grid-gap: 20px;
     margin: 20px;
+    height: 400px;
 }
 .dashboard-body {
     box-sizing:border-box;
     display:inline-block;
     font-family:"didact gothic", sans-serif;
-    line-height:15px;
+    line-height:25px;
     max-width:100%;  
-    background-color: #282c34;    /* sets background same as main page */
-    height: 200px;
+    background-color: #291f09;    /* sets background same as main page */
+    height: 400px;
     width: 100%;
-    width: 150px;
+    width: 1000px;
     text-align:center;
+    display: fixed;
     justify-content: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
+    border-radius: 30px; /* rounded corners */
 }
-/* On mouse-over, add a deeper shadow */
-.dashboard-body:hover{
+
+.start-application {
+    box-sizing:border-box;
+    color:rgb(255, 255, 255);
+    font-family:"didact gothic", sans-serif;
+    font-size:14px;
+    height:55.5px;
+    line-height:40px;
+    max-width:100%;
+    text-align:center;
+    text-size-adjust:100%;
+    color: white;  
+    background-color:#181413;    /* sets background same as main page */
+    height: 50px;
+    width: 100%;
+    width:200px;
+    cursor: pointer;
+    position:relative;
+    left: 535px;
+    bottom: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 100px; /* 5px rounded corners */
+    color: #fff;
+    background-color: #d3d3;
+    text-align: center;
+    width: 13.75rem;
+    height: 2.8125rem;
+    line-height: 2.8125rem;
+    font-size: .875rem;
+    font-weight: 600;
+    letter-spacing: .125rem;
+    position: absolute;
+    overflow: hidden;
+    display: block;
+    text-transform: uppercase;
+    
+}
+.start-application:hover{
     box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
 }

@@ -7,9 +7,14 @@ class DashboardBody extends React.Component {
 	  return (
           <div id="DashboardBody">
               <div className = "dash2">
-			    <div className="dashboard-body">
-			  		<h2>Welcome {this.props.user.name}!</h2>
-                      </div>
+			          <div className="dashboard-body">
+			  		        <h2>Welcome {this.props.user.name}!</h2>
+                </div>
+                     <div className = "start-application">
+                        
+                        <a href = "https://hackmerced.io/signUp">
+                         Start Application  </a>          
+                      </div>  
                 </div>
             </div>
        );

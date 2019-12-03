@@ -15,7 +15,7 @@
   height: 170px;
 }
 .asucm {
-  left: 530px;
+  left: 520px;
   position: relative;
   width: 100%;
   max-width: 250px;
@@ -42,7 +42,7 @@
   bottom: 215px;
   position: relative;
   left: 530px;
-  width: 400%;
+  width: 330%;
   max-width: 500px;
   height: 150px;
 }
@@ -50,7 +50,7 @@
   /* sketch position & size*/
   top: 70px;
   position: relative;
-  right: 50px;
+  right: 60px;
   width: 200%;
   max-width: 310px;
   height: 125px;
@@ -58,9 +58,9 @@
 .balsamiq {
   bottom: 40px;
   position: relative;
-  left: 300px;
+  left: 290px;
   width: 100%;
-  max-width: 230px;
+  max-width: 220px;
   height: 80px;
 }
 
@@ -133,6 +133,26 @@
   content: "";
   clear: both;
   display: table;
+}
+.column:hover{
+  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+  filter: drop-shadow(5px 5px 5px #222);
+}
+.Sponsor-top:hover{
+  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+  filter: drop-shadow(5px 5px 5px #222);
+}
+.Sponsor-middle:hover{
+  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+  filter: drop-shadow(5px 5px 5px #222);
+}
+.Sponsor-bottom:hover{
+  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+  filter: drop-shadow(5px 5px 5px #222);
+}
+.Sponsor-mlh:hover{
+  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 /* iPhone 6, 7, 8 6+, 7+, 8+ ----------- */
