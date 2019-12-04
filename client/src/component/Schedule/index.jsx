@@ -2,6 +2,34 @@ import React from "react";
 import "./Schedule.css";
 
 class Schedule extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name = ["Check In", "Dinner", "Opening Ceremony", "Hacking Starts", "Midnight Snacks", "Breakfast", "Lunch", "Dinner", "Midnight Snacks", "Breakfast", "DevPost Submissions", "Hacking Ends", "Demos/Judging", "Closing Ceremony"],                      // add the name and time in order to each otehr with quotes "Opemning ceremony" first block of tiem should be "8:00 AM"
+      time = ["6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "12:00 AM", "7:00 AM", "1:00 PM", "7:00 PM", "12:00 AM", "7:00 AM", "7:00 AM", "9:00 AM", "10:00 AM", "12:00 PM"]
+    }
+  }
+
+  eventBlocks = () => {
+    var schedule = [];
+    for (var i = 0; i < this.state.name; ++i) {
+      schedule.push(
+        <li>
+          <div className="direction-r">
+            <div className="flag-wrapper">
+              <span className="flag">{this.state.name[i]}</span>
+              <span className="time-wrapper">
+                <span className="time">{this.state.time[i]}</span>
+              </span>
+            </div>
+          </div>
+        </li>
+      );
+    }
+
+    return schedule;
+  }
+
   render() {
     return (
       <div id="Schedule-Background">
@@ -9,104 +37,11 @@ class Schedule extends React.Component {
           <div id="Schedule-Title">Schedule</div>
           <div id="Schedule-Container">
             <ul className="timeline">
-              <li>
-                <div className="direction-r">
-                  <div className="flag-wrapper">
-                    <span className="flag">Opening Ceremony</span>
-                    <span className="time-wrapper">
-                      <span className="time">8:00 AM</span>
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="direction-l">
-                  <div className="flag-wrapper">
-                    <span className="flag">Hacking Begins</span>
-                    <span className="time-wrapper">
-                      <span className="time">9:00 AM</span>
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="direction-r">
-                  <div className="flag-wrapper">
-                    <span className="flag">Lunch</span>
-                    <span className="time-wrapper">
-                      <span className="time">12:00 PM</span>
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="direction-l">
-                  <div className="flag-wrapper">
-                    <span className="flag">Dinner</span>
-                    <span className="time-wrapper">
-                      <span className="time">5:00 PM</span>
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="direction-r">
-                  <div className="flag-wrapper">
-                    <span className="flag">Hacking Ends</span>
-                    <span className="time-wrapper">
-                      <span className="time">9:00 PM</span>
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="direction-l">
-                  <div className="flag-wrapper">
-                    <span className="flag">Closing Ceremony</span>
-                    <span className="time-wrapper">
-                      <span className="time">9:30 PM</span>
-                    </span>
-                  </div>
-                </div>
-              </li>
+              {this.eventBlocks()}
             </ul>
           </div>
         </div>
       </div>
-
-      // <div id="grad">
-      //   <div id="Schedule-Title">
-      //     <h1>Schedule</h1>
-      //     <div id="Schedule-Body">
-      //       <table id="Schedule">
-      //         <tr>
-      //           <td>8:00 - 9:00</td>
-      //           <td>-- Opening Ceremony</td>
-      //         </tr>
-      //         <tr>
-      //           <td>9:00 - 9:30</td>
-      //           <td>-- Hacking Begins</td>
-      //         </tr>
-      //         <tr>
-      //           <td>12:00 - 1:00</td>
-      //           <td>-- Lunch</td>
-      //         </tr>
-      //         <tr>
-      //           <td>5:00 - 6:00</td>
-      //           <td>-- Dinner</td>
-      //         </tr>
-      //         <tr>
-      //           <td>9:00 - 9:30</td>
-      //           <td>-- Hacking Ends</td>
-      //         </tr>
-      //         <tr>
-      //           <td>9:00 - 10:00</td>
-      //           <td>-- Closing Ceremony</td>
-      //         </tr>
-      //       </table>
-      //     </div>
-      //   </div>
-      // </div>
     );
   }
 }

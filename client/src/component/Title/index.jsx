@@ -9,11 +9,11 @@ class Title extends React.Component {
       <article className="App-title" id="Title">
         <section className="title-title">
           {/* Headers */}
-          <h2>HACK'M</h2>
-          <h4>December 7, 2019</h4>
+          <h2>HACK Merced</h2>
+          <h4>February 28 - March 1</h4>
           <div id="js-show-modal" class="launch-button">
             <a href="https://localhackday.mlh.io/build/locations/2418">
-              Sign Up Here
+              Apply Now
               <div class="launch-button__glare"></div>
             </a>
           </div>
