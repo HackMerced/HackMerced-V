@@ -48,19 +48,12 @@
   font-weight: 30;
 }
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-html {
+#html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-body {
+#body {
   margin: 0;
   padding: 0;
   background: #fff;

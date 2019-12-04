@@ -22,11 +22,11 @@
   border-radius: 30px;
 }
 
-.email{
+.login-email{
    padding-right: 165px; /* Left aligns "Email" */
 }
 
-.pass{
+.login-pass{
   padding-right: 135px; /* Left aligns "Password" */
 }
 
