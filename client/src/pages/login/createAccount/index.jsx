@@ -17,24 +17,60 @@ class CreateAccount extends React.Component {
       emailValid: false,
       passwordValid: false,
       formValid: false,
+      hasUserTypedEmail: false,
+      hasUserTypedPass: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderEmailValid();
+    this.renderPassValid();
+  }
+  renderEmailValid(){
+    var isEmailValid = this.state.emailValid;
+    var hasUserTypedEmail = this.state.hasUserTypedEmail;
+    if(!isEmailValid && hasUserTypedEmail){
+      return(
+        <div>
+          <h5> please enter a valid email. </h5>
+        </div>
+        )
+    }
   }
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const object = target.name;
-    const targetType = target.type;
-    this.validateField(object, value);
-
-    this.setState(
-      {
-        [object]: object === "userPassword" ? this.hashMe(value) : value,
-      }
-    );
+  renderPassValid(){
+    var hasUserTypedPass = this.state.hasUserTypedPass;
+    var security = this.state.formErrors.password;
+    if(hasUserTypedPass){
+      if(security === "medium strength"){
+          return(
+            <div>
+            <h5>
+            Medium Strength Password
+            </h5>
+            <h6>
+              you can make this password stronger by adding a special character and an uppercase letter
+            </h6>
+            </div>
+            )
+        }else if(security === "strong strength"){
+          return (
+            <div>
+            <h5>
+            Strong Strength Password 😊
+            </h5>
+            </div>
+            );
+        }else{
+          return(
+            <div>
+              <h5>
+                password must contain 1 letter, 1 number, and 1 symbol
+              </h5>
+            </div>
+            )
+        }
+    }
   }
 
   hashMe(pass) {
@@ -51,18 +87,18 @@ class CreateAccount extends React.Component {
 
   validateField(fieldName, value) {
     let fieldValidation = this.state.formErrors;
-    let emailValid = false;
-    let passwordValid = false;
 
     switch (fieldName) {
       case "userEmail":
+        this.setState({hasUserTypedEmail: true});
         var emailStrength = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        console.log(emailStrength);
+        //console.log(emailStrength);
         fieldValidation.email = (emailStrength != null) ? "" : "is invalid";
         break;
       case "userPassword":
-        var mediumStrength = value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i);
-        var strongStrength = value.match(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i);
+        this.setState({hasUserTypedPass: true});
+        var strongStrength = value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i);
+        var mediumStrength = value.match(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i);
         if(mediumStrength != null){
           fieldValidation.password = "medium strength";
           if(strongStrength != null){
@@ -77,8 +113,8 @@ class CreateAccount extends React.Component {
     this.setState(
       {
         formErrors: fieldValidation,
-        emailValid:  (fieldValidation.email === ""),
-        passwordValid: ((fieldValidation.password === "medium strength") ||  (fieldValidation.password === "strong strength"))
+        emailValid:  (fieldValidation.email === "" && this.state.hasUserTypedEmail),
+        passwordValid: (((fieldValidation.password === "medium strength") ||  (fieldValidation.password === "strong strength")) && this.state.hasUserTypedPass)
       },
       () => {
         this.validateForm();
@@ -88,12 +124,26 @@ class CreateAccount extends React.Component {
 
   validateForm() {
     this.setState({
-      formValid: (this.state.emailValid && this.state.passwordValid)
+      formValid: (this.state.emailValid && this.state.passwordValid && this.state.hasUserTypedPass && this.state.hasUserTypedEmail)
     });
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const object = target.name;
+    const targetType = target.type;
+    this.validateField(object, value);
+    this.setState(
+      {
+        [object]: object === "userPassword" ? this.hashMe(value) : value,
+      }
+    );
   }
 
   handleSubmit(event) {
     console.log(this.state);
+    
     event.preventDefault();
   }
 
@@ -146,6 +196,7 @@ class CreateAccount extends React.Component {
                 onChange={this.handleChange}
                 required
               />
+              {this.renderEmailValid()}
               </section>
               {/* Email input box */}
               <section className="pass">
@@ -161,6 +212,7 @@ class CreateAccount extends React.Component {
                 onChange={this.handleChange}
                 required
               />
+              {this.renderPassValid()}
               </section>
               {/* Hidden input Password */}
               <br></br>
@@ -174,7 +226,6 @@ class CreateAccount extends React.Component {
               <br></br>
             </form>
           </main>
-          <span className="alert">Nope. Try Again.</span>
           <section className="login-text">
             {/* Create an Account Section*/}
             <span>Have an account?  </span>
