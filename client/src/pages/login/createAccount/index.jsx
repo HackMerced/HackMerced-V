@@ -16,9 +16,11 @@ class CreateAccount extends React.Component {
       formErrors: { email: "", password: "" },
       emailValid: false,
       passwordValid: false,
+      doesEmailExist: false,
       formValid: false,
       hasUserTypedEmail: false,
-      hasUserTypedPass: false
+      hasUserTypedPass: false,
+      checkTheEmail: true
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,15 +28,49 @@ class CreateAccount extends React.Component {
     this.renderEmailValid();
     this.renderPassValid();
   }
+
   renderEmailValid(){
     var isEmailValid = this.state.emailValid;
     var hasUserTypedEmail = this.state.hasUserTypedEmail;
+    var emailExist = this.state.doesEmailExist;
     if(!isEmailValid && hasUserTypedEmail){
       return(
         <div>
           <h5> please enter a valid email. </h5>
         </div>
         )
+    }
+    if(emailExist){
+      return(
+        <div>
+          <h5> this email is already taken </h5>
+        </div>
+      )
+    }
+  }
+
+  checkEmail(){
+    if(this.state.emailValid){
+      axios({
+        method: "post",
+        url: "http://localhost:3852/api/attendees/q",
+
+        data: {
+        "myEmail": this.state.userEmail
+        }
+      }).then(response =>{
+        var user = response.data.user;
+        console.log(user);
+        if(user !== "application does not exist"){
+          this.setState({
+            doesEmailExist: true,
+          });
+        }else{
+          this.setState({
+            doesEmailExist: false
+          });
+        }
+      });
     }
   }
 
@@ -85,7 +121,7 @@ class CreateAccount extends React.Component {
     return temp;
   }
 
-  validateField(fieldName, value) {
+  validateFields(fieldName, value) {
     let fieldValidation = this.state.formErrors;
 
     switch (fieldName) {
@@ -117,6 +153,11 @@ class CreateAccount extends React.Component {
         passwordValid: (((fieldValidation.password === "medium strength") ||  (fieldValidation.password === "strong strength")) && this.state.hasUserTypedPass)
       },
       () => {
+        //console.log(this.state.doesEmailExist);
+        //console.log(this.state.hasUserTypedPass);
+        if(this.state.doesEmailExist === false && this.state.checkTheEmail === true){
+          this.checkEmail();
+        }
         this.validateForm();
       }
     );
@@ -124,7 +165,7 @@ class CreateAccount extends React.Component {
 
   validateForm() {
     this.setState({
-      formValid: (this.state.emailValid && this.state.passwordValid && this.state.hasUserTypedPass && this.state.hasUserTypedEmail)
+      formValid: (this.state.emailValid && this.state.passwordValid && this.state.hasUserTypedPass && this.state.hasUserTypedEmail && !(this.state.doesEmailExist))
     });
   }
 
@@ -133,17 +174,60 @@ class CreateAccount extends React.Component {
     const value = target.value;
     const object = target.name;
     const targetType = target.type;
-    this.validateField(object, value);
+    this.validateFields(object, value);
     this.setState(
       {
         [object]: object === "userPassword" ? this.hashMe(value) : value,
+        checkTheEmail: (object === "userEmail") ? true : false
       }
     );
   }
 
   handleSubmit(event) {
+    axios({
+        method: "post",
+        url: "http://localhost:3852/api/attendees",
+        data: {
+          "first": this.state.firstName,
+          "last": this.state.lastName,
+          "myEmail": this.state.userEmail,
+          "myPassword": this.state.userPassword,
+          "myPhone": "",
+          "myAge": "",
+          "myGender": "",
+          "myEthnicity": "",
+          "myShirt": "",
+          "myDiet": "",
+          "mySpecialNeeds": "",
+          "mySchool": {
+              "level": "university",
+              "mySchoolName": "",
+              "myMajor": "",
+              "myYear": "",
+              "mySchoolStanding": ""
+          },
+          "myExperience": {
+              "hackathons": ""
+          },
+          "myResume": "",
+          "myTeam": {
+              "myTeamInfo": {
+                  "code": "",
+                  "myTeamName": "",
+                  "myTeammates": []
+              }
+          },
+          "myLinkedin": "",
+          "myGithub": "",
+          "userSubmitApp": false,
+          "myPhotoPermissions": false
+      }
+      }).then(response =>{
+        var user = response.data.user;
+        console.log(user);
+      });
+
     console.log(this.state);
-    
     event.preventDefault();
   }
 
