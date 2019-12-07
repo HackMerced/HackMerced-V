@@ -16,9 +16,9 @@ class Dashboard extends React.Component {
 		  	<section className="container">					 {/* in the middle of the page */}
 			  	<article className="applicant">
 					<Logo/>
-					<Status/>
+					<Status user={this.props.user}/>
 					<DashboardBody user={this.props.user}/>
-					<TeamCode/>
+					<TeamCode user={this.props.user}/>
 					<MajorDates/>
 			  	</article>
 		  	</section>

@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const Attendee = require("../models").models.Attendee;
+const Attendees = require("../models").models.Attendees;
+const { Keccak } = require('sha3');
+
+//const JsonPatch = require("jsonpatch");
 
 /**
  * @api {post} /api/attendees Add new Attendee(s)
@@ -22,11 +25,13 @@ const Attendee = require("../models").models.Attendee;
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
-router.get("/attendee", async (req, res) => {
-  Attendee.findOne({ email: req.body.email }).then(user => {
-    res.send("Found in Database");
+
+router.get("/attendees", async (req, res) => {
+  Attendees.findOne({ myEmail: req.body.email }).then(user => {
+      res.send("found user");
   });
 });
+
 
 /**
  * @api {patch} /api/attendee Update Attendee(s)
@@ -49,7 +54,25 @@ router.get("/attendee", async (req, res) => {
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
-router.patch("/attendee", async (req, res) => {});
+
+
+router.patch("/attendees", async (req, res) => {
+Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
+    if (user) {
+    Attendees.findOneAndUpdate({ myEmail: req.body.myEmail }, req.body, (error, docs) => {
+        if (error) {
+          console.log(error);
+        }
+      });
+      res.status(200).json({user: "account updated!", secret: process.env.JWT_SECRET});
+    } else {
+      return res.status(404).json({ user: "Application doesn't exist" });
+    }
+
+  })
+
+});
+
 
 /**
  * @api {post} /api/attendees Add new Attendee(s)
@@ -83,20 +106,60 @@ router.patch("/attendee", async (req, res) => {});
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
+
+
 router.post("/attendees", async (req, res) => {
-  Attendee.findOne({ email: req.body.email }).then(user => {
+  Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
+      return res.status(400).json({ myEmail: "Email already exists" });
     } else {
-      Attendee.insertMany(req.body, (error, docs) => {
+      Attendees.insertMany(req.body, (error, docs) => {
         if (error) {
           res.send(error);
-        }
-
-        if (docs) {
-          res.send(docs);
+        }else{
+          res.send({secret: process.env.JWT_SECRET});
         }
       });
+    }
+  })
+});
+
+
+router.post("/attendees/q", async (req, res) => {
+  Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
+    if (user) {
+      console.log(user);
+      return res.status(200).json({ user });
+    } else {
+      return res.status(200).json({ user: "application does not exist" });
+    }
+  });
+});
+
+router.post("/attendees/c", async (req, res) => {
+  Attendees.findOne({myEmail: req.body.myEmail}).then(user => {
+    if (user) {
+      var attemptPassword = req.body.attemptPassword;
+      var userPassword = user.myPassword;
+      var didUserLogIn = false;
+      const hash = new Keccak(256);
+      for (var i = 65; i <= 122; i++) {
+        hash.reset();
+        const attempt = String.fromCharCode(i);
+        hash.update(attemptPassword).update(attempt);
+        const newPass = hash.digest('hex');
+        if(newPass === userPassword){
+          didUserLogIn = true;
+          break;
+        }
+      }
+      if(didUserLogIn){
+        return res.status(200).json({result: "correct", secret: process.env.JWT_SECRET});
+      }else{
+        return res.status(200).json({result: "incorrect"});
+      }
+    }else{
+      return res.status(200).json({ result: "application does not exist" });
     }
   });
 });
