@@ -10,7 +10,6 @@ class MajorDates extends React.Component {
               <header>
               <h1> Upcoming Dates: </h1>
               </header>
-
               <article>
               <h1> Applications Open </h1>
               <p>November 7th, 2019</p>
