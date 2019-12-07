@@ -24,4 +24,9 @@
     transition: 0.3s;
     border-radius: 20px; /* rounded corners */
 }
-
+h1 {
+    color: black;
+}
+p {
+    color: black;
+}

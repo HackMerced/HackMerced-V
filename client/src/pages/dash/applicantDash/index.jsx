@@ -18,8 +18,8 @@ class Dashboard extends React.Component {
 					<Logo/>
 					<Status/>
 					<DashboardBody user={this.props.user}/>
-					<TeamCode/>	  
-					<MajorDates/>	 		
+					<TeamCode/>
+					<MajorDates/>
 			  	</article>
 		  	</section>
 	  	</div>
