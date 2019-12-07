@@ -20,7 +20,7 @@ class MajorDates extends React.Component {
               <p>November 29th, 2019</p>
               </article>
               <article>
-              <h1> HackSC 2020 </h1>
+              <h1> HackMerced 2020 </h1>
               <p>Janurary 31st, 2020</p>
               </article>
 
