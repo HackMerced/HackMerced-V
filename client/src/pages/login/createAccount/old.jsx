@@ -32,32 +32,40 @@ class CreateAccount extends React.Component {
     var hasUserTypedEmail = this.state.hasUserTypedEmail;
     var emailExist = this.state.doesEmailExist;
     if((isEmailValid === false) && hasUserTypedEmail){
-        return(
-          <div>
-            <h5> please enter a valid email. </h5>
-          </div>
-          )
-      }else{
-      if(emailExist){
-        return(
-          <div>
-             <h5> this email is already taken </h5>
-           </div>
-        )                  
-      }
+	    	return(
+	        <div>
+	          <h5> please enter a valid email. </h5>
+	        </div>
+	        )
+	    }else{
+			if(emailExist){
+				      return(
+				        <div>
+				          <h5> this email is already taken </h5>
+				        </div>
+				      )
+			  }
+	    }
     }
+
+  setTheState(object, value){
+  	this.setState({
+            [object]: value,
+          });
   }
 
-  checkEmail(value){
-    axios({
+  checkEmail(){
+    if(this.state.emailValid){
+      axios({
         method: "post",
         url: "http://localhost:3852/api/attendees/q",
+
         data: {
-        "myEmail": value
+        "myEmail": this.state.userEmail
         }
       }).then(response =>{
         var user = response.data.user;
-        //console.log(user);
+        console.log(user);
         if(user !== "application does not exist"){
           this.setState({
             doesEmailExist: true,
@@ -67,12 +75,13 @@ class CreateAccount extends React.Component {
             doesEmailExist: false
           });
         }
-    });
+      });
+    }
   }
 
   renderPassValid(){
-   var hasUserTypedPass = this.state.hasUserTypedPass;
-    var security = this.state.passwordValid;
+    var hasUserTypedPass = this.state.hasUserTypedPass;
+    var security = this.state.formErrors.password;
     if(hasUserTypedPass){
       if(security === "medium strength"){
           return(
@@ -106,8 +115,6 @@ class CreateAccount extends React.Component {
   }
 
   hashMe(pass) {
-    var isPasswordValid = this.state.passwordValid;
-    if(isPasswordValid){
     const hash = new Keccak(256);
     hash.reset();
     hash.update(pass);
@@ -117,28 +124,48 @@ class CreateAccount extends React.Component {
     hash.update(status).update(pepper);
     const temp = hash.digest('hex');
     return temp;
-    }
   }
 
-  validateEmail(fieldName, value){
-    var emailStrength = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-    this.setState({emailValid: (emailStrength != null)});
-    if(emailStrength != null){
-    this.checkEmail(value);      
-    }
-  }
+  validateFields(fieldName, value) {
+    let fieldValidation = this.state.formErrors;
 
-  validatePassword(fieldName,value){
-    var strongStrength = value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i);
-    var mediumStrength = value.match(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i);
-    if(mediumStrength != null){
-      this.setState({passwordValid: "medium strength"});
-      if(strongStrength != null){
-        this.setState({passwordValid: "strong strength"});
+    switch (fieldName) {
+      case "userEmail":
+        this.setState({hasUserTypedEmail: true});
+        var emailStrength = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        //console.log(emailStrength);
+        fieldValidation.email = (emailStrength != null) ? "" : "is invalid";
+        break;
+      case "userPassword":
+        this.setState({hasUserTypedPass: true});
+        var strongStrength = value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i);
+        var mediumStrength = value.match(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i);
+        if(mediumStrength != null){
+          fieldValidation.password = "medium strength";
+          if(strongStrength != null){
+            fieldValidation.password = "strong strength";
+          }
+        }else{
+          fieldValidation.password = "invalid";
+
+        }
+        break;
+    }
+    this.setState(
+      {
+        formErrors: fieldValidation,
+        emailValid:  (fieldValidation.email === "" && this.state.hasUserTypedEmail),
+        passwordValid: (((fieldValidation.password === "medium strength") ||  (fieldValidation.password === "strong strength")) && this.state.hasUserTypedPass)
+      },
+      () => {
+        //console.log(this.state.doesEmailExist);
+        //console.log(this.state.hasUserTypedPass);
+        if(this.state.emailValid === true && this.state.checkTheEmail === true){
+          this.checkEmail();
+        }
+        this.validateForm();
       }
-    }else{
-      this.setState({passwordValid: false});
-    }
+    );
   }
 
   validateForm() {
@@ -153,26 +180,22 @@ class CreateAccount extends React.Component {
     const object = target.name;
     const targetType = target.type;
 
-    if(object === "userPassword"){
-      this.setState({hasUserTypedPass: true});
-      this.validatePassword(object, value);
+    console.log(object);
+    console.log(this.state.checkTheEmail);
+    if(object === "userEmail"){
+    	this.setTheState("checkEmail", true);
     }
+    console.log(this.state.checkTheEmail);
     this.setState(
       {
         [object]: object === "userPassword" ? this.hashMe(value) : value,
       }
     );
-    if(object === "userEmail"){
-      this.setState({hasUserTypedEmail: true});
-      this.validateEmail(object,value);
-    }
-    this.validateForm();
+    this.validateFields(object, value);
+    //console.log(object);
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-    var isFormValid = this.state.formValid;
-    if(isFormValid){
     axios({
         method: "post",
         url: "http://localhost:3852/api/attendees",
@@ -212,10 +235,16 @@ class CreateAccount extends React.Component {
           "myPhotoPermissions": false
       }
       }).then(response =>{
-        var user = response.data;
+        var user = response.data.user;
         console.log(user);
       });
-    }
+
+    console.log(this.state.userEmail);
+    event.preventDefault();
+  }
+
+  properRedirect() {
+    this.props.history.push("/admin");
   }
 
   render() {
