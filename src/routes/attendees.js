@@ -54,6 +54,7 @@ router.get("/attendees", async (req, res) => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
+
 router.patch("/attendees", async (req, res) => {
 Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
     if (user) {
@@ -73,6 +74,7 @@ Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
   })
 
 });
+
 
 /**
  * @api {post} /api/attendees Add new Attendee(s)
@@ -107,6 +109,7 @@ Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
+
 router.post("/attendees", async (req, res) => {
   Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
     if (user) {
@@ -115,10 +118,8 @@ router.post("/attendees", async (req, res) => {
       Attendees.insertMany(req.body, (error, docs) => {
         if (error) {
           res.send(error);
-        }
-
-        if (docs) {
-          res.send(docs);
+        }else{
+          res.send({secret: process.env.JWT_SECRET});
         }
       });
     }

@@ -8,8 +8,6 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tempUser: "admin@hackmerced.io",
-      tempPass: "289e12324de44e47d4a98e4854288df5ad25011e4e52addac2bd54ad24f92b75",
       userEmail: "",
       userPassword: "",
       userKeepLoggedIn: false,
@@ -167,8 +165,9 @@ class Login extends React.Component {
               />
               {/* Hidden input Password */}
               <br></br>
+              {/*}
               <section className="logged-In">
-                {/* Keep me Logged in */}
+                {/* Keep me Logged in 
                 <input
                   type="checkbox"
                   name="userKeepLoggedIn"
@@ -177,6 +176,7 @@ class Login extends React.Component {
                 />
                 Keep me logged in
               </section>
+              */}
               <br></br>
               <br></br>
               <input

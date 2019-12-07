@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom"; //Links Library from React Ro
 import axios from 'axios';
 import { Keccak } from 'sha3';
 const uuidv4 = require('uuid/v4');
+var jwt = require('jsonwebtoken');
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -213,7 +214,16 @@ class CreateAccount extends React.Component {
       }
       }).then(response =>{
         var user = response.data;
-        console.log(user);
+        const JWT_SECRET = response.data.secret;
+        //console.log(user);
+        var token = jwt.sign({ mail: this.state.userEmail }, JWT_SECRET);
+        //console.log(token);
+        sessionStorage.setItem('owl', token);
+        //console.log(sessionStorage.getItem('owl'));
+        //var jwtToken = sessionStorage.getItem('owl');
+        //var decode = jwt.verify(jwtToken, JWT_SECRET);
+        //console.log(decode.mail);
+
       });
     }
   }
@@ -223,7 +233,7 @@ class CreateAccount extends React.Component {
       <div className="App-login">
         <article className="center-the-login">
           <section className="login-title">
-            <h2>Login</h2>
+            <h2>Create Account</h2>
           </section>
           <main>
             <form onSubmit={this.handleSubmit}>
