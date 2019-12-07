@@ -33,21 +33,23 @@ class CreateAccount extends React.Component {
     var isEmailValid = this.state.emailValid;
     var hasUserTypedEmail = this.state.hasUserTypedEmail;
     var emailExist = this.state.doesEmailExist;
-    if(!isEmailValid && hasUserTypedEmail){
-      return(
-        <div>
-          <h5> please enter a valid email. </h5>
-        </div>
-        )
+    if((isEmailValid === false) && hasUserTypedEmail){
+	    	return(
+	        <div>
+	          <h5> please enter a valid email. </h5>
+	        </div>
+	        )
+	    }else{
+			if(emailExist){
+				      return(
+				        <div>
+				          <h5> this email is already taken </h5>
+				        </div>
+				      )
+			  }
+	    }
     }
-    if(emailExist){
-      return(
-        <div>
-          <h5> this email is already taken </h5>
-        </div>
-      )
-    }
-  }
+
 
   checkEmail(){
     if(this.state.emailValid){
@@ -155,7 +157,7 @@ class CreateAccount extends React.Component {
       () => {
         //console.log(this.state.doesEmailExist);
         //console.log(this.state.hasUserTypedPass);
-        if(this.state.doesEmailExist === false && this.state.checkTheEmail === true){
+        if(this.state.emailValid === true && this.state.checkTheEmail === true){
           this.checkEmail();
         }
         this.validateForm();
@@ -227,7 +229,7 @@ class CreateAccount extends React.Component {
         console.log(user);
       });
 
-    console.log(this.state);
+    console.log(this.state.userEmail);
     event.preventDefault();
   }
 
