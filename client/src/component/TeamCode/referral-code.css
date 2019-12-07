@@ -1,6 +1,6 @@
 #Referral {
     color: white;
-    background-color: #e7d9d2;
+    background-color: #291f09;;
     border: 3px #291f09 solid;
     padding: 10px;
     position: relative;
@@ -28,11 +28,11 @@
     font-size: 25px;
     line-height:0px;
     max-width:100%;
-    color:white;  
+    color:black;  
     background-color: #e8ecf3;    /* sets background same as main page */
     height: 150px;
     width: 100%;
-    width: 500px;
+    width: 600px;
     text-align:center;
     justify-content: center;
     box-shadow: 0 4px 8px 0 rgba(241, 236, 236, 0.2);
@@ -41,9 +41,9 @@
 }
 .referralcode {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); /* Where the magic happens */
-    grid-auto-rows: 94px;
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); /* Where the magic happens */
+    grid-auto-rows: 54px;
+    grid-gap: 40px;
     margin: 20px;
     display: flex;
     align-items: center;
