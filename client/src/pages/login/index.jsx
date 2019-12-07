@@ -11,10 +11,7 @@ class Login extends React.Component {
     this.state = {
       userEmail: "",
       userAttemptPassword: "",
-      userPassword: "",
       userKeepLoggedIn: false,
-      doesEmailExist: false,
-      formErrors: { email: "", password: "" },
       emailValid: false,
       passwordValid: false,
       formValid: false,
@@ -79,10 +76,10 @@ class Login extends React.Component {
         "attemptPassword": attemptPassword
         }
       }).then(response =>{
-        console.log(response);
+        //console.log(response);
         var res = response.data.result;
         if(res === "correct"){
-          console.log(response.data.secret)
+          //console.log(response.data.secret)
           const JWT_SECRET = response.data.secret;
           //console.log(user);
           var token = jwt.sign({ mail: this.state.userEmail }, JWT_SECRET);
