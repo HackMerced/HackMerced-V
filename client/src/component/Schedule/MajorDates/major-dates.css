@@ -2,8 +2,8 @@
     background-color: #e8ecf3; 
     border-radius: 40px;
     width: 100%;
-    width: 1000px;
-    position: relative;
+    width: 900px;
+    display: fixed;
     left: 150px;
    
 }
