@@ -28,7 +28,6 @@ const { Keccak } = require('sha3');
 
 router.get("/attendees", async (req, res) => {
   Attendees.findOne({ myEmail: req.body.email }).then(user => {
-    console.log(user);
       res.send("found user");
   });
 });
@@ -141,8 +140,6 @@ router.post("/attendees/c", async (req, res) => {
     if (user) {
       var attemptPassword = req.body.attemptPassword;
       var userPassword = user.myPassword;
-      console.log(attemptPassword);
-      console.log(userPassword);
       var didUserLogIn = false;
       const hash = new Keccak(256);
       for (var i = 65; i <= 122; i++) {
