@@ -9,6 +9,8 @@ class Status extends React.Component {
 			<div className="dash">
 				<div className="status">
 					<h1>Your Status: </h1>
+					{console.log(this.props.user)}
+					<h2>{this.props.user.myStatus}</h2>
 				</div>
 			</div>
 		</div>

@@ -17,16 +17,29 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users/4`)
-      .then(res => {
-        this.setState({ person: res.data });
-      })
+    axios({
+        method: "post",
+        url: "http://localhost:3852/api/attendees/q",
+        data: {
+        "myEmail": "shivanshu.gupta@gmail.com"
+        }
+      }).then(response =>{
+        var user = response.data.user;
+        //console.log(user);
+        if(user !== "application does not exist"){
+          this.setState({
+            person: user
+          });
+        }else{
+          this.props.history.push("/login");
+        }
+    });
   }
 
 	render() {
-	console.log(this.state.person);
-	const userType = this.state.person.id;
-	console.log(userType);
+	//console.log(this.state.person);
+	const userType = this.state.person.myPrivileges;
+	//console.log(userType);
 	switch(userType){
 		case 1:
 			return(
@@ -40,7 +53,7 @@ class Dashboard extends React.Component {
 			return(
 				<Judge user={this.state.person}/>
 	  		); 
-		case 4:
+		case "attendee":
 			return(
 				<Applicant user={this.state.person}/>
 	  		); 
