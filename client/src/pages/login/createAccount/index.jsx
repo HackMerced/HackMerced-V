@@ -122,9 +122,9 @@ class CreateAccount extends React.Component {
   }
 
   validateEmail(fieldName, value){
-    var emailStrength = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-    this.setState({emailValid: (emailStrength != null)});
-    if(emailStrength != null){
+    var emailValidation = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    this.setState({emailValid: (emailValidation != null)});
+    if(emailValidation != null){
     this.checkEmail(value);      
     }
   }
@@ -223,7 +223,6 @@ class CreateAccount extends React.Component {
         //var jwtToken = sessionStorage.getItem('owl');
         //var decode = jwt.verify(jwtToken, JWT_SECRET);
         //console.log(decode.mail);
-
       });
     }
   }

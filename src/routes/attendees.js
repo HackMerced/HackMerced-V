@@ -62,11 +62,8 @@ Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
         if (error) {
           console.log(error);
         }
-        if (docs) {
-          console.log(docs);
-        }
       });
-      res.status(200).json({user: "account updated!"});
+      res.status(200).json({user: "account updated!", secret: process.env.JWT_SECRET});
     } else {
       return res.status(404).json({ user: "Application doesn't exist" });
     }
