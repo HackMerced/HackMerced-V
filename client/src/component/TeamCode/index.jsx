@@ -8,10 +8,6 @@ class ReferralCode extends React.Component {
         <div id="Referral">
             <div className = "referral-code">
                 <h1> Referral Code </h1>
-                </div>
-                <div className= "referralcode">
-                    <h3>Share your code</h3>
-                
             </div>
         </div>
        );
