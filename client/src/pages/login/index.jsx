@@ -27,29 +27,6 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-checkEmail(value){
-    axios({
-        method: "post",
-        url: "http://localhost:3852/api/attendees/q",
-        data: {
-        "myEmail": value
-        }
-      }).then(response =>{
-        var user = response.data.user;
-        //console.log(user);
-        if(user !== "application does not exist"){
-          this.setState({
-            doesEmailExist: true,
-            userPassword: user.myPassword
-          });
-        }else{
-          this.setState({
-            doesEmailExist: false
-          });
-        }
-    });
-  }
-
   hashMe(pass) {
     if(this.state.passwordValid){
       const hash = new Keccak(256);
@@ -60,31 +37,9 @@ checkEmail(value){
     }
   }
 
-  setupToken(){
-    axios({
-        method: "patch",
-        url: "http://localhost:3852/api/attendees",
-        data: {
-        "myEmail": this.state.email
-        }
-      }).then(response =>{
-        const JWT_SECRET = response.data.secret;
-        //console.log(user);
-        var token = jwt.sign({ mail: this.state.userEmail }, JWT_SECRET);
-        //console.log(token);
-        sessionStorage.setItem('owl', token);
-        //console.log(sessionStorage.getItem('owl'));
-        this.props.history.push("/admin");
-
-    });
-  }
-
   validateEmail(fieldName, value){
     var emailValidation = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
     this.setState({emailValid: (emailValidation != null)});
-    if(emailValidation != null){
-      this.checkEmail(value);      
-    }
   }
 
   validatePassword(fieldName,value){
@@ -111,15 +66,36 @@ checkEmail(value){
 
   validateForm() {
     this.setState({
-      formValid: (this.state.emailValid && this.state.passwordValid && this.state.hasUserTypedPass && this.state.hasUserTypedEmail && this.state.doesEmailExist)
+      formValid: (this.state.emailValid && this.state.passwordValid && this.state.hasUserTypedPass && this.state.hasUserTypedEmail)
     });
   }
 
   validateUser(attemptPassword) {
-      if (attemptPassword === this.state.userPassword) {
-        //console.log(true);
-        return true;
-      }
+      axios({
+        method: "post",
+        url: "http://localhost:3852/api/attendees/c",
+        data: {
+        "myEmail": this.state.userEmail,
+        "attemptPassword": attemptPassword
+        }
+      }).then(response =>{
+        console.log(response);
+        var res = response.data.result;
+        if(res === "correct"){
+          console.log(response.data.secret)
+          const JWT_SECRET = response.data.secret;
+          //console.log(user);
+          var token = jwt.sign({ mail: this.state.userEmail }, JWT_SECRET);
+          //console.log(token);
+          sessionStorage.setItem('owl', token);
+          //console.log(sessionStorage.getItem('owl'));
+          this.props.history.push("/admin");
+        }else{
+          this.setState({
+            incorrect: true
+          });
+        }
+      });
     }
 
   handleSubmit(event) {
@@ -127,20 +103,7 @@ checkEmail(value){
     //console.log(this.state.formValid);
     if(this.state.formValid){
       //console.log("made It");
-      const oldPass = this.state.userAttemptPassword;
-      const hash = new Keccak(256);
-      for (var i = 65; i <= 122; i++) {
-        hash.reset();
-        const attempt = String.fromCharCode(i);
-        //console.log(attempt);
-        hash.update(oldPass).update(attempt);
-        const newPass = hash.digest('hex');
-        //console.log(newPass);
-        if (this.validateUser(newPass)) {
-          //console.log(newPass);
-          this.setupToken();
-        }
-      }
+      this.validateUser(this.state.userAttemptPassword);
     }else{
       this.setState({
         incorrect: true
@@ -153,7 +116,7 @@ checkEmail(value){
     const value = target.value;
     const object = target.name;
     const targetType = target.type;
-
+    this.setState({incorrect: false});
     if(object === "userAttemptPassword"){
       this.setState({hasUserTypedPass: true});
       this.validatePassword(object, value);

@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const Attendees = require("../models").models.Attendees;
+const { Keccak } = require('sha3');
+
 //const JsonPatch = require("jsonpatch");
 
 /**
@@ -134,5 +136,34 @@ router.post("/attendees/q", async (req, res) => {
   });
 });
 
+router.post("/attendees/c", async (req, res) => {
+  Attendees.findOne({myEmail: req.body.myEmail}).then(user => {
+    if (user) {
+      var attemptPassword = req.body.attemptPassword;
+      var userPassword = user.myPassword;
+      console.log(attemptPassword);
+      console.log(userPassword);
+      var didUserLogIn = false;
+      const hash = new Keccak(256);
+      for (var i = 65; i <= 122; i++) {
+        hash.reset();
+        const attempt = String.fromCharCode(i);
+        hash.update(attemptPassword).update(attempt);
+        const newPass = hash.digest('hex');
+        if(newPass === userPassword){
+          didUserLogIn = true;
+          break;
+        }
+      }
+      if(didUserLogIn){
+        return res.status(200).json({result: "correct", secret: process.env.JWT_SECRET});
+      }else{
+        return res.status(200).json({result: "incorrect"});
+      }
+    }else{
+      return res.status(200).json({ result: "application does not exist" });
+    }
+  });
+});
 
 module.exports = router;
