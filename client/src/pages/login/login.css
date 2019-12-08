@@ -47,11 +47,34 @@
 }
 
 .signUp-text{
-  padding-top: 50px; /* brings sign-up lower and shrinks down text */
-  font-size: 10px;
+  padding-top: 5px; /* brings sign-up lower and shrinks down text */
+  font-size: 15px;
 }
 
 .signUp-link{
   margin-left: 5px; /* Adds a space between link and text */
 }
 
+input{
+  width: 270px;
+  border-radius: 5px;
+  padding: 10px 65px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  transition-duration: 0.25s;
+}
+
+
+button{
+  width: 270px;
+  background-color: #9A544C;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  transition-duration: 0.25s;
+}

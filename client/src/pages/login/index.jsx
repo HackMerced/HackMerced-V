@@ -147,7 +147,6 @@ class Login extends React.Component {
                 type="email" //This will prompt the user for a valid email before submitting form (client side).
                 id="user"
                 placeholder="Email"
-                style={{ width: 200 }}
                 name="userEmail"
                 value={this.state.value}
                 onChange={this.handleChange}
@@ -159,9 +158,8 @@ class Login extends React.Component {
               </section>
               <input
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 id="pass"
-                style={{ width: 200}}
                 name="userAttemptPassword"
                 //minLength="8"
                 value={this.state.value}
@@ -184,11 +182,10 @@ class Login extends React.Component {
               */}
               <br></br>
               <br></br>
-              <input
+              <button
                 type="submit"
-                style={{ width: 210}}
-                value="Submit"
-              ></input>
+                value="Submit" 
+              >Submit</button>
               {/* Submit */}
               <br></br>
               <br></br>
