@@ -8,11 +8,12 @@ class DashboardBody extends React.Component {
           <div id="DashboardBody">
               <div className = "dash2">
 			          <div className="dashboard-body">
-			  		        <h2>Welcome {this.props.user.first}!</h2>
-                </div>
-                     <div className = "start-application">
+			  		        <h2>Welcome, {this.props.user.first}</h2>
+                    <div className = "start-application">
                         <Link className="signUp-link" to="/signup" title="Join Us!">Start Application </Link>
                       </div>  
+                </div>
+
                 </div>
             </div>
        );

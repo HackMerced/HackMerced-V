@@ -1,6 +1,5 @@
 .App-applicant{
-    color: green;  
-    background-color: #e7d9d2;    /* sets background same as main page */
+    background-image: linear-gradient(#8D78A1, #A05952, #D15F2A);    /* sets background same as main page */
     min-height: 92vh;
     display: fixed;
     flex-direction: column;
@@ -11,7 +10,6 @@
 }
 
 .Dashboard{
-    background-color: #282c34;    /* sets background same as main page */
     color: white; 
     min-height: 92vh;
     display: fixed;
