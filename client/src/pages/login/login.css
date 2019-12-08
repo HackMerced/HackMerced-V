@@ -1,6 +1,6 @@
 .App-login{
     color: black; 
-    background-color: #282c34;    /* sets bg color same to main page */
+    background-image: linear-gradient(#8D78A1, #B69087, #D15F2A);   /* sets bg color same to main page */
     min-height: 92vh;
     display: flex;
     flex-direction: column;
@@ -10,29 +10,40 @@
 }
 
 .login-title{
-  font-size: 25px; 
+  color: #D15F2A;
+  font-size: 45px; 
   position: relative;
 }
 
 .center-the-login{
   position: absolute; /* creates a box with rounded edges */
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 400px;
   background-color: white;
-  border-radius: 30px;
+  border-radius: 5px;
 }
 
 .login-email{
-   padding-right: 165px; /* Left aligns "Email" */
+
+   padding-right: 125px; /* Left aligns "Email" */
+   border-radius: 5px;
+   font-size:18px;
+   font-weight:normal;
+   position:absolute;
+   pointer-events:none;
+   left:5px;
+   top:10px;
+   transition:0.2s ease all; 
 }
 
 .login-pass{
-  padding-right: 135px; /* Left aligns "Password" */
+  padding-right: 125px; /* Left aligns "Password" */
+  border-radius: 5px;
 }
 
 .logged-In{
   padding-right: 70px; /* Left aligns "keep me logged in" */
-  font-size: 15px;
+  font-size: 5px;
 }
 
 .signUp-text{
@@ -43,3 +54,4 @@
 .signUp-link{
   margin-left: 5px; /* Adds a space between link and text */
 }
+

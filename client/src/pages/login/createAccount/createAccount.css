@@ -1,25 +1,27 @@
 .App-login{
-    color: black; 
-    background-color: #282c34;    /* sets bg color same to main page */
-    min-height: 92vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  color: black; 
+  background-image: linear-gradient(#8D78A1, #B69087, #D15F2A);   /* sets bg color same to main page */
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
+
 .login-title{
-  font-size: 25px; 
+  color: #D15F2A;
+  font-size: 45px; 
   position: relative;
 }
 
 .center-the-login{
   position: absolute; /* creates a box with rounded edges */
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 400px;
   background-color: white;
-  border-radius: 30px;
+  border-radius: 5px;
 }
 
 .logged-In{

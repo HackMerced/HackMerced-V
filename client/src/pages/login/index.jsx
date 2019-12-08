@@ -136,17 +136,17 @@ class Login extends React.Component {
       <div className="App-login">
         <article className="center-the-login">
           <section className="login-title">
-            <h2>Login</h2>
+            <h1>Login</h1>
           </section>
           <main>
             <form onSubmit={this.handleSubmit}>
               <section className="email">
                 {/* Email Section */}
-                <p>Email</p>
               </section>
               <input
                 type="email" //This will prompt the user for a valid email before submitting form (client side).
                 id="user"
+                placeholder="Email"
                 style={{ width: 200 }}
                 name="userEmail"
                 value={this.state.value}
@@ -156,12 +156,12 @@ class Login extends React.Component {
               {/* Email input box */}
               <section className="pass">
                 {/* Password Section */}
-                <p>Password</p>
               </section>
               <input
                 type="password"
+                placeholder="password"
                 id="pass"
-                style={{ width: 200 }}
+                style={{ width: 200}}
                 name="userAttemptPassword"
                 //minLength="8"
                 value={this.state.value}
@@ -186,8 +186,8 @@ class Login extends React.Component {
               <br></br>
               <input
                 type="submit"
-                style={{ width: 210 }}
-                value="Lets Go!"
+                style={{ width: 210}}
+                value="Submit"
               ></input>
               {/* Submit */}
               <br></br>
