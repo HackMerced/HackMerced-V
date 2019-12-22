@@ -28,7 +28,9 @@
     "mongodb": "^3.2.7",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
-    "uniqid": "^5.0.3"
+    "sha3": "^2.1.1",
+    "uniqid": "^5.0.3",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "mocha": "^6.1.4",

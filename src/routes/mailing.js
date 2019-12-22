@@ -6,7 +6,15 @@ mailing.get('/mailing', async (req, res) => { res.send('mailing') });
 mailing.post('/mailing/:id', async (req, res) => { });
 */
 
-router.get('/mailing', async (req, res) => { res.send('hello world') });
+//router.get('/mailing', async (req, res) => { res.send('hello world') });
+
+router.get("/mailing", async (req, res) => {
+  Mailing.findOne({ email: req.body.email }).then(user => {
+    console.log(user);
+      res.send("found user");
+  });
+});
+
 /**
  * @api {post} /api/mailing Add new Mailers(s)
  * @apiDescription Adds an array of new mailers(s)
@@ -27,8 +35,12 @@ router.get('/mailing', async (req, res) => { res.send('hello world') });
 router.post("/mailing", async (req, res) => {
   Mailing.findOne({ email: req.body.email }).then(user => {
     if (user) {
+      console.log(user);
+      console.log("user");
       return res.status(400).json({ email: "Email already exists" });
     } else {
+      console.log(user);
+      console.log("else");
       Mailing.insertMany(req.body, (error, docs) => {
         if (error) {
           res.send(error);

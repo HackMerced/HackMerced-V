@@ -1,4 +1,4 @@
-const attendees = require('./attendee');
+const attendees = require('./attendees');
 const mailing = require('./mailing');
 const mentors = require('./mentors');
 const sponsors = require('./sponsors');

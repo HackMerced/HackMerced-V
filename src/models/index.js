@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Attendee = require("./attendee");
+const Attendees = require("./attendees");
 const Team = require("./team");
 const Mailing = require("./mailing");
 
@@ -17,5 +17,5 @@ const db = () => {
   });
 };
 
-var models = { Attendee, Mailing };
+var models = { Attendees, Mailing };
 module.exports = { db, models };
