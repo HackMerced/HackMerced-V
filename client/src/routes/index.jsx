@@ -1,7 +1,9 @@
 import Home from '../pages/home';
 import NeonHeart from '../pages/NeonHeart';
-import Login from '../pages/login';
 import CreateAccount from '../pages/login/createAccount';
+import SignUp from '../pages/signUp';
+import Dashboard from '../pages/dash';
+import Login from '../pages/login';
 
 const routes = [
 {
@@ -19,7 +21,16 @@ const routes = [
 {
 	path: '/create',
 	component: CreateAccount,
+},
+{
+	path: '/signUp',
+	component: SignUp,
+},
+{
+	path: '/dash',
+	component: Dashboard,
 }
+
 ];
 
 export default routes;

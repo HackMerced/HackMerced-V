@@ -1,0 +1,26 @@
+.App-applicant{
+    background-image: linear-gradient(#8D78A1, #A05952, #D15F2A);    /* sets background same as main page */
+    min-height: 92vh;
+    display: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    text-align: center;
+}
+
+.Dashboard{
+    color: white; 
+    min-height: 92vh;
+    display: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+
+

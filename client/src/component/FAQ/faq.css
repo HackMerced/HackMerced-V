@@ -48,6 +48,13 @@
   font-weight: 30;
 }
 
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 #html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -70,7 +77,7 @@
   padding: 4rem;
 }
 
-h3 {
+#h3 {
   font-size: 1.75rem;
   color: #373d51;
   padding: 1.3rem;

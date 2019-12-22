@@ -1,0 +1,29 @@
+#Registration {
+    display: flex;
+}
+
+.dash {
+    color: white;
+    padding: 10px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); /* Where the magic happens */
+    height: 130px;
+}
+.status{
+    box-sizing:border-box;
+    font-family:"didact gothic", sans-serif;
+    font-size:20px;
+    line-height:15px;
+    max-width:100%;
+    text-align:center;
+    text-size-adjust:100%;
+    color: #532A25;  
+    background-color: white;    /* sets background same as main page */
+    height: 130px;
+    width:2000px;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* rounded corners */  
+}
