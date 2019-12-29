@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from "../../../component/Header/HackM-Logo/";
+import Logo from "../../../component/HackM-Logo";
 import Status from "../../../component/Status";
 import DashboardBody from "../../../component/DashboardBody";
 import TeamCode from "../../../component/TeamCode";

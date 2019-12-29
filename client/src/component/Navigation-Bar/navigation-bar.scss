@@ -1,0 +1,163 @@
+/* Reset */
+@import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+
+// colors
+$color-one: #2c3e50;
+$btn-colors: (
+	"green": "#2ecc71",
+	"blue": "#3498db",
+	"purple": "#9b59b6",
+	"navy": "#34495e",
+	"orange": "#e67e22",
+	"red": "#e74c3c"
+);
+
+#navigation-bar {
+  padding: 1vh 0;
+  background-color: #938bc4;
+}
+
+.navigation {
+  /* This adjusts for the content inside the container */
+  text-align: center;
+  width: 12%;
+  font-size: 2vw;
+  float: right;
+
+  .link {
+    /* This adjusts the React Router links */
+    color: white;
+    font-weight: bold;
+    text-decoration: none; /* removes underscores of the links */
+  
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+}
+
+#banner {
+  position: fixed;
+  z-index: 100;
+  top: -5px;
+  padding-left: 20px;
+
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    /* Adjusting position of the banner to the top left corner */
+    width: 80px;
+    right: 10px;
+  }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    /* Adjusting position of the banner to the top left corner */
+    width: 100px;
+  }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    /* Adjusting position of the banner to the top left corner */
+    width: 130px;
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    /* Adjusting position of the banner to the top left corner */
+    width: 150px;
+  }
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    /* Adjusting position of the banner to the top left corner */
+    width: 180px;
+  }
+}
+
+// extenders
+.animate {
+	transition: all 0.3s;
+}
+
+.btn {
+	display: inline-block;
+	line-height: 35px;
+	margin: 8px;
+	padding: 0 15px;
+	font-size: 15px;
+	position: relative;
+	opacity: .999;
+	border-radius: 3px;
+	@extend .animate;
+}
+
+.btn-border-o {
+	background-color: transparent;
+	border: 1px solid #d0d0d0;
+  color: #B8B8B8;
+  overflow-x: visible;
+
+  > a {
+    @each $name,$hex in $btn-colors {
+		
+      &.btn-#{$name} {
+        color: #{hex}
+      }
+    }
+  }
+	
+	&:before,
+	&:after {
+		content: '';
+		border-style: solid;
+		position: absolute;
+		z-index: 5;
+		border-radius: 3px;
+		box-sizing: content-box;
+		@extend .animate;
+	}
+	
+	&:before {
+		width: 0;
+		height: 100%;
+		border-width: 1px 0 1px 0;
+		top: -1px;
+		left: 0;
+		transition-delay: 0.05s;
+	}
+	
+	&:after {
+		width: 100%;
+		height: 0;
+		border-width: 0 1px 0 1px;
+		top: 0;
+		left: -1px;
+	}
+	
+	&:hover {
+		
+		&:before {
+			width: 100%;
+		}
+		
+		&:after {
+			height: 100%;
+		}
+	}
+	
+	@each $name,$hex in $btn-colors {
+		
+		&.btn-#{$name} {
+			
+			&:before,
+			&:after {
+				border-color: #{$hex};
+			}
+			
+			&:hover {
+				color: #{$hex};
+			}
+		}
+	}
+}

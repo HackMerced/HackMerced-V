@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom"; //Switch and Route Library
 
 import Footer from './component//Footer/Footer.jsx';
-import NavigationBar from './component/Header/NavigationBar.jsx'
+import NavigationBar from './component/Navigation-Bar/NavigationBar.jsx'
 import Routes from './routes';
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
 
     return (
     <React.Fragment>
-      {/* <NavigationBar /> */}
+      <NavigationBar />
       <App />
       {/* <Footer /> */}
     </React.Fragment>
