@@ -11,15 +11,13 @@ import "./home.css";
 class Home extends React.Component {
   render() {
     return (
-      <div>
-        <React.Fragment>
-          <Title />
-          <Schedule />
+      <React.Fragment>
+        <Title />
+        {/* <Schedule />
           <Faq />
           <AboutUs />
-          <Sponsors />
-        </React.Fragment>
-      </div>
+          <Sponsors /> */}
+      </React.Fragment>
     );
   }
 }

@@ -26,9 +26,9 @@ class App extends Component {
 
     return (
     <React.Fragment>
-      <NavigationBar />
+      {/* <NavigationBar /> */}
       <App />
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
     );
   }

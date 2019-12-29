@@ -1,26 +1,47 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import "./Title.css";
-import polaroid from "../../assets/Images/polaroid.png";
+import BACKGROUND from "../../assets/Images/Background.png";
+import "./title.scss";
 
 class Title extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { width: 0, height: 0 };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
   render() {
     return (
-      <article className="App-title" id="Title">
-        <section className="title-title">
-          {/* Headers */}
-          <h2>HACK Merced</h2>
-          <h4>February 28 - March 1</h4>
-          <div id="js-show-modal" class="launch-button">
-            <a href="https://localhackday.mlh.io/build/locations/2418">
-              Apply Now
-              <div class="launch-button__glare"></div>
-            </a>
-          </div>
-          {/* popup button trigger */}
-        </section>
-        <img id="title-image" src={polaroid} alt="Italian Trulli"></img>
-      </article>
+      <section id="title" style={this.state}>
+        <img src={BACKGROUND} alt="background" />
+        <div>
+          <h1>HackMerced V</h1>
+          <h3>February 28th - March 1st</h3>
+          <button id="register">
+            <div id="button">
+              <div id="container">
+                <Link to="/login" id="btn">
+                  Register
+                </Link>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
     );
   }
 }

@@ -1,16 +1,18 @@
 * {
-  font-family: "Dosis", sans-serif;
-}
-
-html, body {
-  display: inline;
   padding: 0;
   margin: 0;
   width: 100%;
   height: auto;
+  font-family: "Dosis", sans-serif;
+  overflow-x: hidden;
+  box-sizing: inherit;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
 }
 
+html,
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  height: 100%;
 }

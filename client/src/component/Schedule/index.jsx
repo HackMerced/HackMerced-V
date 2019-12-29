@@ -5,8 +5,8 @@ class Schedule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name = ["Check In", "Dinner", "Opening Ceremony", "Hacking Starts", "Midnight Snacks", "Breakfast", "Lunch", "Dinner", "Midnight Snacks", "Breakfast", "DevPost Submissions", "Hacking Ends", "Demos/Judging", "Closing Ceremony"],                      // add the name and time in order to each otehr with quotes "Opemning ceremony" first block of tiem should be "8:00 AM"
-      time = ["6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "12:00 AM", "7:00 AM", "1:00 PM", "7:00 PM", "12:00 AM", "7:00 AM", "7:00 AM", "9:00 AM", "10:00 AM", "12:00 PM"]
+      name: ["Check In", "Dinner", "Opening Ceremony", "Hacking Starts", "Midnight Snacks", "Breakfast", "Lunch", "Dinner", "Midnight Snacks", "Breakfast", "DevPost Submissions", "Hacking Ends", "Demos/Judging", "Closing Ceremony"],                      // add the name and time in order to each otehr with quotes "Opemning ceremony" first block of tiem should be "8:00 AM"
+      time: ["6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "12:00 AM", "7:00 AM", "1:00 PM", "7:00 PM", "12:00 AM", "7:00 AM", "7:00 AM", "9:00 AM", "10:00 AM", "12:00 PM"]
     }
   }
 
