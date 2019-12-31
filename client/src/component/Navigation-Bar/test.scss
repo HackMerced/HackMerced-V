@@ -34,30 +34,30 @@ h1 {
 	text-align: center;
 }
 
-section {
-	padding: 60px 0 61px;
-	text-align: center;
-	position: relative;
+// section {
+// 	padding: 60px 0 61px;
+// 	text-align: center;
+// 	position: relative;
 	
-	h2 {
-		margin-bottom: 15px;
-		font-weight: normal;
-		font-size: 17px;
-		color: #D2D2D2;
-		text-align: center;
-	}
+// 	h2 {
+// 		margin-bottom: 15px;
+// 		font-weight: normal;
+// 		font-size: 17px;
+// 		color: #D2D2D2;
+// 		text-align: center;
+// 	}
 	
-	&:not(:last-child):after {
-		content: '';
-		width: 70%;
-		height: 1px;
-		border-bottom: 1px dashed $color-one;
-		opacity: .5;
-		position: absolute;
-		bottom: -1px;
-		left: 15%;
-	}
-}
+// 	&:not(:last-child):after {
+// 		content: '';
+// 		width: 70%;
+// 		height: 1px;
+// 		border-bottom: 1px dashed $color-one;
+// 		opacity: .5;
+// 		position: absolute;
+// 		bottom: -1px;
+// 		left: 15%;
+// 	}
+// }
 
 .btn {
 	display: inline-block;
@@ -73,7 +73,6 @@ section {
 
 .btn-border-o {
 	background-color: transparent;
-	border: 1px solid #d0d0d0;
   color: #B8B8B8;
   overflow-x: visible;
 	

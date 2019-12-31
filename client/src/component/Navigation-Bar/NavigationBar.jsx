@@ -6,7 +6,7 @@ import "./navigation-bar.scss";
 class NavigationBar extends React.Component {
   render() {
     return (
-      <div id="navigation-bar">
+      <header id="navigation-bar">
         {/* Banner is sourced and clickable */}
         <Link to="https://mlh.io/seasons/na-2020/events" id="banner">
           <img
@@ -16,7 +16,7 @@ class NavigationBar extends React.Component {
         </Link>
         <section id="navigation-items">
           {/* RR link to Our Hackathon Schedule of home page */}
-          <button className="navigation btn btn-green btn-border-o">
+          <button className="navigation btn btn-orange btn-border-o">
             <Link
               id="schedule"
               className="link"
@@ -27,7 +27,7 @@ class NavigationBar extends React.Component {
             </Link>
           </button>
           {/* RR link to FAQ of home page */}
-          <button className="navigation btn btn-blue btn-border-o">
+          <button className="navigation btn btn-orange btn-border-o">
             <Link
               id="faq"
               className="link"
@@ -38,7 +38,7 @@ class NavigationBar extends React.Component {
             </Link>
           </button>
           {/* RR link to About Us section of home page */}
-          <button className="navigation btn btn-purple btn-border-o">
+          <button className="navigation btn btn-orange btn-border-o">
             <Link id="about" className="link" to="/#about-us" title="About Us!">
               About Us
             </Link>
@@ -55,7 +55,7 @@ class NavigationBar extends React.Component {
             </Link>
           </button>
           {/* RR link to Our Hackathon Schedule of home page */}
-          <button className="navigation btn btn-navy btn-border-o">
+          <button className="navigation btn btn-orange btn-border-o">
             <Link
               id="schedule"
               className="link"
@@ -66,7 +66,7 @@ class NavigationBar extends React.Component {
             </Link>
           </button>
         </section>
-      </div>
+      </header>
     );
   }
 }

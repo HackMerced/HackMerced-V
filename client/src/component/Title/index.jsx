@@ -26,22 +26,25 @@ class Title extends React.Component {
 
   render() {
     return (
-      <section id="title" style={this.state}>
-        <img src={BACKGROUND} alt="background" />
-        <div>
-          <h1>HackMerced V</h1>
-          <h3>February 28th - March 1st</h3>
-          <button id="register">
-            <div id="button">
-              <div id="container">
-                <Link to="/login" id="btn">
-                  Register
-                </Link>
+      <div>
+        <section id="spacer"></section>
+        <section id="title" style={this.state}>
+          <img src={BACKGROUND} alt="background" />
+          <div>
+            <h1>HackMerced V</h1>
+            <h3>February 28th - March 1st</h3>
+            <button id="register">
+              <div id="button">
+                <div id="container">
+                  <Link to="/login" id="btn">
+                    Register
+                  </Link>
+                </div>
               </div>
-            </div>
-          </button>
-        </div>
-      </section>
+            </button>
+          </div>
+        </section>
+      </div>
     );
   }
 }
