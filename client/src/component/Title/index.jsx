@@ -26,9 +26,9 @@ class Title extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="title" style={this.state}>
         <section id="spacer"></section>
-        <section id="title" style={this.state}>
+        <section id="content" style={this.state}>
           <img src={BACKGROUND} alt="background" />
           <div>
             <h1>HackMerced V</h1>

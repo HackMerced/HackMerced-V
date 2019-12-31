@@ -6,17 +6,17 @@ import Title from "../../component/Title";
 import Schedule from "../../component/Schedule";
 import Sponsors from "../../component/Sponsors";
 
-import "./home.css";
+import "./home.scss";
 
 class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Title />
+        <AboutUs />
         {/* <Schedule />
-          <Faq />
-          <AboutUs />
-          <Sponsors /> */}
+        <Faq />
+        <Sponsors /> */}
       </React.Fragment>
     );
   }

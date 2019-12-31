@@ -1,0 +1,44 @@
+#about-us {
+  background-color: #342E40;
+  display: grid;
+  grid-template-areas: "img about";
+  overflow: hidden;
+
+  > img {
+    width: 80%;
+    padding: 20px 0 0 20px;
+  }
+
+  > #about {
+    color: white;
+    padding: 20% 10% 0 0;
+    display: grid;
+    grid-template-areas:
+      "header"
+      "what"
+      "why";
+    line-height: 1cm;
+
+    > #header {
+      font-size: 48px;
+      font-weight: 900;
+      font-style: italic;
+      text-align: right;
+      padding-right: 5px;
+    }
+
+    > #what {
+
+      > h3 {
+        font-size: 36px;
+      }
+    }
+
+    > #why {
+
+      > h3 {
+        font-size: 36px;
+      }
+    }
+  }
+}

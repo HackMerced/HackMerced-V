@@ -9,30 +9,35 @@ $white: #fff;
 }
 
 #title {
-  position: relative;
+  overflow: hidden;
+  
+  > #content {
+    position: relative;
 
-  > img {
-    position: absolute;
-  }
-
-  > div {
-    position: absolute;
-    top: 30%;
-    text-align: center;
-    text-transform: uppercase;
-    color: rgb(255, 255, 255);
-
-    > h1 {
-      font-size: 3rem;
+    > img {
+      position: absolute;
     }
 
-    > h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1%;
-    }
+    > div {
+      position: absolute;
+      top: 30%;
+      text-align: center;
+      text-transform: uppercase;
+      color: rgb(255, 255, 255);
 
-    > h1, h3 {
-      overflow: hidden;
+      > h1 {
+        font-size: 3rem;
+      }
+
+      > h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1%;
+      }
+
+      > h1,
+      h3 {
+        overflow: hidden;
+      }
     }
   }
 }

@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';   //Router Library
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
- 
+
+import './index.scss';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
 library.add(fab, faCheckSquare, faCoffee)
 
 ReactDOM.render((

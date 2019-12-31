@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom"; //Switch and Route Library
 
-import Footer from './component//Footer/Footer.jsx';
-import NavigationBar from './component/Navigation-Bar/NavigationBar.jsx'
-import Routes from './routes';
+import Footer from "./component//Footer/Footer.jsx";
+import NavigationBar from "./component/Navigation-Bar/NavigationBar.jsx";
+import Routes from "./routes";
+import "./App.scss";
 
 class App extends Component {
   render() {
@@ -18,18 +19,18 @@ class App extends Component {
                 path={route.path}
                 component={route.component}
               />
-            )
+            );
           })}
         </Switch>
       </div>
-    )
+    );
 
     return (
-    <React.Fragment>
-      <NavigationBar />
-      <App />
-      {/* <Footer /> */}
-    </React.Fragment>
+      <React.Fragment>
+        <NavigationBar />
+        <App />
+        {/* <Footer /> */}
+      </React.Fragment>
     );
   }
 }
