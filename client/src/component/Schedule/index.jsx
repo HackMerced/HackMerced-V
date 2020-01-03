@@ -1,49 +1,98 @@
 import React from "react";
-import "./Schedule.css";
+
+import "./schedule.scss";
+import BACKGROUND from "../../assets/Images/schedule.png";
 
 class Schedule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ["Check In", "Dinner", "Opening Ceremony", "Hacking Starts", "Midnight Snacks", "Breakfast", "Lunch", "Dinner", "Midnight Snacks", "Breakfast", "DevPost Submissions", "Hacking Ends", "Demos/Judging", "Closing Ceremony"],                      // add the name and time in order to each otehr with quotes "Opemning ceremony" first block of tiem should be "8:00 AM"
-      time: ["6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "12:00 AM", "7:00 AM", "1:00 PM", "7:00 PM", "12:00 AM", "7:00 AM", "7:00 AM", "9:00 AM", "10:00 AM", "12:00 PM"]
-    }
+      name: [
+        "Check In",
+        "Dinner",
+        "Opening Ceremony",
+        "Hacking Starts",
+        "Hacking Ends",
+        "Demos/Judging",
+        "Closing Ceremony"
+      ],
+      time: [
+        "6:00 PM",
+        "7:00 PM",
+        "8:00 PM",
+        "9:00 PM",
+        "9:00 AM",
+        "10:00 AM",
+        "12:00 PM"
+      ],
+      location: [
+        "Outside COB 102",
+        "In between SSB and SSM",
+        "COB 102",
+        "SSB First Floor",
+        "SSB First Floor",
+        "SSB 160",
+        "COB 102"
+      ]
+    };
   }
 
-  eventBlocks = () => {
+  dayOne = ({time, name, location}) => {
     var schedule = [];
-    for (var i = 0; i < this.state.name; ++i) {
+    for (var i = 0; i < 4; ++i) {
       schedule.push(
-        <li>
-          <div className="direction-r">
-            <div className="flag-wrapper">
-              <span className="flag">{this.state.name[i]}</span>
-              <span className="time-wrapper">
-                <span className="time">{this.state.time[i]}</span>
-              </span>
-            </div>
+        <li key={i}>
+          <div>
+            <span className="event-time">{time[i]} - </span>
+            <span className="event-name">{name[i]}</span>
+            <br />
+            <span className="event-location">{location[i]}</span>
           </div>
         </li>
       );
     }
 
     return schedule;
-  }
+  };
+
+  dayTwo = ({time, name, location}) => {
+    var schedule = [];
+    for (var i = 4; i < name.length; ++i) {
+      schedule.push(
+        <li key={i}>
+          <div>
+            <span className="event-time">{time[i]} - </span>
+            <span className="event-name">{name[i]}</span>
+            <br />
+            <span className="event-location">{location[i]}</span>
+          </div>
+        </li>
+      );
+    }
+
+    return schedule;
+  };
 
   render() {
     return (
-      <div id="Schedule-Background">
-        <div id="Schedule-Body">
-          <div id="Schedule-Title">Schedule</div>
-          <div id="Schedule-Container">
-            <ul className="timeline">
-              {this.eventBlocks()}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <section id="schedule">
+        <ul id="schedule-body">
+          <li className="date">
+            <h3>February 28th</h3>
+          </li>
+          <li className="events">
+            <ul className="events-detail">{this.dayOne(this.state)}</ul>
+          </li>
+          <li className="date">
+            <h3>March 1st</h3>
+          </li>
+          <li className="events cf">
+            <ul className="events-detail">{this.dayTwo(this.state)}</ul>
+          </li>
+        </ul>
+      </section>
     );
   }
 }
 
-export default Schedule; //rending Main webpage
+export default Schedule;

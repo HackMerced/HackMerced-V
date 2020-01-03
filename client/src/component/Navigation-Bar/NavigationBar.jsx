@@ -18,7 +18,6 @@ class NavigationBar extends React.Component {
           {/* RR link to Our Hackathon Schedule of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
-              id="schedule"
               className="link"
               to="/#schedule"
               title="HackMerced Schedule"
@@ -29,7 +28,6 @@ class NavigationBar extends React.Component {
           {/* RR link to FAQ of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
-              id="faq"
               className="link"
               to="/#faq"
               title="Frequently Asked Questions"
@@ -39,14 +37,13 @@ class NavigationBar extends React.Component {
           </button>
           {/* RR link to About Us section of home page */}
           <button className="navigation btn btn-orange btn-border-o">
-            <Link id="about" className="link" to="/#about-us" title="About Us!">
+            <Link className="link" to="/#about-us" title="About Us!">
               About Us
             </Link>
           </button>
           {/* RR link to sponsors section of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
-              id="sponsors"
               className="link"
               to="/#sponsors"
               title="Our Sponsors <3"
@@ -57,7 +54,6 @@ class NavigationBar extends React.Component {
           {/* RR link to Our Hackathon Schedule of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
-              id="schedule"
               className="link"
               to="/login"
               title="HackMerced Schedule"

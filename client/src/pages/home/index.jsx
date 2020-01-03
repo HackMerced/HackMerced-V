@@ -1,7 +1,7 @@
 import React from "react";
 
-import Faq from "../../component/FAQ";
-import AboutUs from "../../component/About-Us";
+import FAQ from "../../component/FAQ";
+import About from "../../component/About-Us";
 import Title from "../../component/Title";
 import Schedule from "../../component/Schedule";
 import Sponsors from "../../component/Sponsors";
@@ -13,10 +13,10 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <Title />
-        <AboutUs />
-        {/* <Schedule />
-        <Faq />
-        <Sponsors /> */}
+        <About />
+        <Schedule />
+        {/* <FAQ /> */}
+        {/* <Sponsors /> */}
       </React.Fragment>
     );
   }

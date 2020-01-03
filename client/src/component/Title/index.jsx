@@ -1,35 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import BACKGROUND from "../../assets/Images/Background.png";
 import "./title.scss";
 
 class Title extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { width: 0, height: 0 };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
-
   render() {
     return (
-      <div id="title" style={this.state}>
+      <div id="title">
         <section id="spacer"></section>
-        <section id="content" style={this.state}>
-          <img src={BACKGROUND} alt="background" />
+        <section id="content" >
           <div>
             <h1>HackMerced V</h1>
             <h3>February 28th - March 1st</h3>

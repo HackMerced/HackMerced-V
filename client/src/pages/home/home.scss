@@ -1,0 +1,9 @@
+#home {
+  display: grid;
+  grid-template-areas:
+    "Title"
+    "About"
+    "Schedule"
+    "FAQ"
+    "Sponsors";
+}
