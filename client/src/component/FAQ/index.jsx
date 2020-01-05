@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-import "./faq.css";
+import Accordion from "../Accordion";
+import LAMP_POST from "../../assets/Images/faq.png";
+import "./faq.scss";
 
 class Faqs extends Component {
   constructor(props) {
@@ -26,38 +28,18 @@ class Faqs extends Component {
         "In any HackMerced designated rooms! Just make sure you're comfy so you get proper rest!",
         "All attendees must follow the Major League Hacking’s code of conduct."
       ],
-      active: []
+      active: "active"
     };
   }
 
-  createQNA = () => {
+  createQNA = ({ questions, answers }) => {
     let qna = [];
 
     // Outer loop to create parent
-    for (let i = 0; i < this.state.questions.length; i++) {
+    for (let i = 0; i < questions.length; i++) {
       qna.push(
-        <div className="accordion">
-          <div className="accordion-item">
-            <a
-              onClick={() => {
-                this.setState({ active: i });
-              }}
-              value={i}
-              className={this.state.active === "name" ? "active" : ""}
-            >
-              {this.state.questions[i]}
-            </a>
-            <div
-              onClick={() => {
-                this.setState({ active: "name" });
-              }}
-              className={
-                "content" + (this.state.active === "name" ? "active" : "")
-              }
-            >
-              <p>{this.state.answers[i]}</p>
-            </div>
-          </div>
+        <div label={questions[i]}>
+          <p className="answers">{answers[i]}</p>
         </div>
       );
     }
@@ -66,39 +48,39 @@ class Faqs extends Component {
   };
 
   render() {
-    const items = document.querySelectorAll(".accordion a");
-
-    function toggleAccordion() {
-      this.classList.toggle("active");
-      this.nextElementSibling.classList.toggle("active");
-    }
-
-    items.forEach(item => item.addEventListener("click", toggleAccordion));
-
     return (
-      <div id="FAQ">
-        <div className="container" id="FAQ-Container">
+      <section id="FAQ">
+        <div id="FAQ-container">
           <h2 id="FAQ-Title">Frequently Asked Questions</h2>
-          {this.createQNA()}
-          <div className="prompt">
-            <div className="question">
+          <section id="faq-layout">
+            <Accordion id="accordions" allowMultipleOpen>
+              {this.createQNA(this.state)}
+            </Accordion>
+            <img id="lamp" src={LAMP_POST} alt="lamp post" />
+          </section>
+          <section id="prompt">
+            <div id="question">
               <h3>Any other questions?</h3>
             </div>
-            <div className="answer">
+            <div id="answer">
               <p>
-                Feel free to message us at: 
+                Feel free to message us at:
                 <a
                   href="mailto:general@hackmerced.com?subject=HackMerced Questions&body=Dear HackMerced,"
-                  style={{ textDecoration: "none", color: "#A8B6D6", fontWeight: 'bold'}}
+                  style={{
+                    textDecoration: "none",
+                    color: "#A8B6D6",
+                    fontWeight: "bold"
+                  }}
                 >
                   general@hackmerced.com
                 </a>
                 .
               </p>
             </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </section>
     );
   }
 }

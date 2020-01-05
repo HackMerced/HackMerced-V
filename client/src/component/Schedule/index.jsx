@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./schedule.scss";
-import BACKGROUND from "../../assets/Images/schedule.png";
 
 class Schedule extends React.Component {
   constructor(props) {
