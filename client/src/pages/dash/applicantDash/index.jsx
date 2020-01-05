@@ -4,7 +4,7 @@ import Logo from "../../../component/HackM-Logo";
 import Status from "../../../component/Status";
 import DashboardBody from "../../../component/DashboardBody";
 import TeamCode from "../../../component/TeamCode";
-import MajorDates from "../../../component/Schedule/MajorDates";
+import MajorDates from "../../../component/Major-Dates";
 
 import './applicant.css';
 
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
 					<Status user={this.props.user}/>
 					<DashboardBody user={this.props.user}/>
 					<TeamCode user={this.props.user}/>
-					<MajorDates/>	
+					<MajorDates/>
 			  	</article>
 		  	</section>
 	  	</div>
