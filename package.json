@@ -7,8 +7,8 @@
   "scripts": {
     "test": "mocha",
     "clean": "concurrently \"yarn clean:client\" \"yarn clean:server\"",
-    "clean:client": "cd client && rm -rf ./node_modules yarn.lock",
-    "clean:server": "rm -rf ./node_modules yarn.lock",
+    "clean:client": "cd client && rm -rf ./node_modules",
+    "clean:server": "rm -rf ./node_modules",
     "setup": "yarn install:server && yarn install:client",
     "install:client": "cd client && yarn install",
     "install:server": "yarn install",
