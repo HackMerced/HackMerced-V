@@ -7,7 +7,7 @@ import "./faq.scss";
 class Faqs extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.faq = {
       questions: [
         "Who can attend?",
         "How do teams work?",
@@ -27,8 +27,7 @@ class Faqs extends Component {
         "Bring your ID, computer, and necessary cables! If you plan on spending the night, bring extra clothes, deodorant, toiletries, and a sleeping bag (optional)! We'll have a hardware lab in case you need hardware.",
         "In any HackMerced designated rooms! Just make sure you're comfy so you get proper rest!",
         "All attendees must follow the Major League Hacking’s code of conduct."
-      ],
-      active: "active"
+      ]
     };
   }
 
@@ -38,7 +37,7 @@ class Faqs extends Component {
     // Outer loop to create parent
     for (let i = 0; i < questions.length; i++) {
       qna.push(
-        <div label={questions[i]}>
+        <div label={questions[i]} key={i}>
           <p className="answers">{answers[i]}</p>
         </div>
       );
@@ -54,9 +53,9 @@ class Faqs extends Component {
           <h2 id="FAQ-Title">Frequently Asked Questions</h2>
           <section id="faq-layout">
             <Accordion id="accordions" allowMultipleOpen>
-              {this.createQNA(this.state)}
+              {this.createQNA(this.faq)}
             </Accordion>
-            <img id="lamp" src={LAMP_POST} alt="lamp post" />
+            <img id="lamp" src={LAMP_POST} width="100px" alt="lamp post" />
           </section>
           <section id="prompt">
             <div id="question">

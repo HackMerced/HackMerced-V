@@ -16,7 +16,7 @@ class Home extends React.Component {
         <About />
         <Schedule />
         <FAQ />
-        {/* <Sponsors /> */}
+        <Sponsors />
       </React.Fragment>
     );
   }

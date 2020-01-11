@@ -5,7 +5,7 @@ import "./schedule.scss";
 class Schedule extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.schedule = {
       name: [
         "Check In",
         "Dinner",
@@ -80,13 +80,13 @@ class Schedule extends React.Component {
             <h3>February 28th</h3>
           </li>
           <li className="events">
-            <ul className="events-detail">{this.dayOne(this.state)}</ul>
+            <ul className="events-detail">{this.dayOne(this.schedule)}</ul>
           </li>
           <li className="date">
             <h3>March 1st</h3>
           </li>
           <li className="events cf">
-            <ul className="events-detail">{this.dayTwo(this.state)}</ul>
+            <ul className="events-detail">{this.dayTwo(this.schedule)}</ul>
           </li>
         </ul>
       </section>

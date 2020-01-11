@@ -13,8 +13,18 @@
     }
 
     #faq-layout {
+      margin-top: 2%;
       display: grid;
+      grid-template-columns: 30% 70%;
       grid-template-areas: "accordions lamp";
+
+      #accordions {
+        grid-area: accordions;
+      }
+
+      #lamp {
+        grid-area: lamp;
+      }
     }
   }
 }
