@@ -129,19 +129,19 @@ class Sponsors extends React.Component {
     });
 
     silver.forEach(item => {
-    sponsors.push(
-      <div id="silver" key="silver">
-        {item}
-      </div>
-    );
+      sponsors.push(
+        <div id="silver" key="silver">
+          {item}
+        </div>
+      );
     });
 
     bronze.forEach(item => {
-    sponsors.push(
-      <div id="bronze" key="bronze">
-        {item}
-      </div>
-    );
+      sponsors.push(
+        <div id="bronze" key="bronze">
+          {item}
+        </div>
+      );
     });
 
     return sponsors;

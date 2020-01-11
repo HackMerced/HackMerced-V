@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom"; //Switch and Route Library
 
-import Footer from "./component//Footer/Footer.jsx";
-import NavigationBar from "./component/Navigation-Bar/NavigationBar.jsx";
+import Footer from "./component/Footer";
+import NavigationBar from "./component/Navigation-Bar";
 import Routes from "./routes";
 import "./App.scss";
 
@@ -29,7 +29,7 @@ class App extends Component {
       <React.Fragment>
         <NavigationBar />
         <App />
-        {/* <Footer /> */}
+        <Footer />
       </React.Fragment>
     );
   }

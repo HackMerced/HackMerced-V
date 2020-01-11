@@ -5,12 +5,12 @@
   overflow: hidden;
   padding-bottom: 5%;
 
-  > img {
+  img {
     width: 80%;
     padding: 20px 0 0 20px;
   }
 
-  > #about {
+  #about {
     color: white;
     padding: 20% 10% 0 0;
     display: grid;
@@ -21,7 +21,7 @@
     line-height: 1cm;
     overflow: hidden;
 
-    > #header {
+    #header {
       font-size: 48px;
       font-weight: 900;
       font-style: italic;
@@ -29,19 +29,31 @@
       padding-right: 5px;
     }
 
-    > #what {
+    #what {
+      padding-top: 2%;
 
-      > h3 {
+      h3 {
         font-size: 36px;
         font-weight: 900;
+        overflow: hidden;
+      }
+
+      p {
+        overflow: hidden;
       }
     }
 
-    > #why {
+    #why {
+      padding-top: 2%;
 
-      > h3 {
+      h3 {
         font-size: 36px;
         font-weight: 900;
+        overflow: hidden;
+      }
+
+      p {
+        overflow: hidden;
       }
     }
   }

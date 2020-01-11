@@ -1,5 +1,5 @@
 #sponsors {
-  background-color: #9A544C;
+  background-color: #9a544c;
   color: white;
 
   h2 {
@@ -8,15 +8,17 @@
     text-transform: uppercase;
     margin: 4% 0;
     font-weight: 900;
+    overflow: hidden;
   }
 
   #sponsors-grid {
     padding: 0 2%;
+    overflow: hidden;
     display: grid;
     grid:
-    "platinum" 33%
-    "silver" 33%
-    "bronze" 300px;
+      "platinum" 33%
+      "silver" 33%
+      "bronze" 300px;
   }
 
   #platinum {
@@ -25,8 +27,7 @@
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: auto;
     grid-gap: 2%;
-    grid-template-areas:
-    ". asucm mlh .";
+    grid-template-areas: ". asucm mlh .";
   }
 
   #silver {
@@ -35,8 +36,7 @@
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: auto;
     grid-gap: 2%;
-    grid-template-areas:
-    ". digitalocean roche .";
+    grid-template-areas: ". digitalocean roche .";
   }
 
   #bronze {
@@ -46,8 +46,9 @@
     grid-template-rows: 50% 50%;
     grid-gap: 2%;
     grid-template-areas:
-    "password makeschool stickeryou"
-    "sketch balsamiq jetbrains";
+      "password makeschool stickeryou"
+      "sketch balsamiq jetbrains";
+    overflow: hidden;
   }
 
   #asucm {
@@ -73,7 +74,7 @@
 
   #stickeryou {
     grid-area: stickeryou;
-    width: 50%
+    width: 50%;
   }
 
   #sketch {
