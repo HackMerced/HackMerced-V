@@ -17,6 +17,7 @@ ul#schedule-body {
 }
 
 .date {
+  
   width: 17%;
   padding: 15% 1% 0 0;
   float: left;
@@ -24,6 +25,7 @@ ul#schedule-body {
 
   h3 {
     font-size: 1.5em;
+    overflow: hidden;
   }
 }
 

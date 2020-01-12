@@ -21,6 +21,9 @@
     justify-content: center;
     display: flex;
     font-size: 15px;
-    overflow: hidden;
+
+    .copyright {
+      overflow: hidden;
+    }
   }
 }
