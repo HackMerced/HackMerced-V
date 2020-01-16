@@ -9,20 +9,13 @@
   text-align: center;
 }
 
-<<<<<<< HEAD:client/src/pages/Login/login.css
 .login-title{
   color: #D15F2A;
-  font-size: 55px; 
-=======
-.login-title {
-  color: #d15f2a;
-  font-size: 45px;
->>>>>>> final:client/src/component/Returning/returning.scss
+  font-size: 55px;
   position: relative;
 
 }
 
-<<<<<<< HEAD:client/src/pages/Login/login.css
 h1 {
   overflow: hidden;
   padding-bottom: 5%;
@@ -30,17 +23,12 @@ h1 {
 }
 .center-the-login{
   position: absolute; /* creates a box with rounded edges */
-=======
-.center-the-login {
-  position: absolute;
->>>>>>> final:client/src/component/Returning/returning.scss
   width: 500px;
   height: 400px;
   background-color: white;
   border-radius: 5px;
 }
 
-<<<<<<< HEAD:client/src/pages/Login/login.css
 .login-email{
 
    padding-right: 125px; /* Left aligns "Email" */
@@ -51,20 +39,8 @@ h1 {
    pointer-events:none;
    left:5px;
    top:10px;
-   transition:0.2s ease all; 
- 
-=======
-.login-email {
-  padding-right: 125px;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 0.2s ease all;
->>>>>>> final:client/src/component/Returning/returning.scss
+   transition:0.2s ease all;
+
 }
 
 .login-pass {
