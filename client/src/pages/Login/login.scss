@@ -1,0 +1,28 @@
+#login {
+  background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
+  overflow: hidden;
+
+  #login-container {
+    display: block;
+    border-radius: 5%;
+    background-color: white; // for debugging
+    width: 60%;
+    position: relative;
+    left: 21%;
+    text-align: center;
+    top: 20%;
+    height: 50%;
+    padding: 10%;
+    text-transform: uppercase;
+
+    img {
+      width: 200px;
+    }
+  }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  z-index: 25;
+}

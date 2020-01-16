@@ -7,7 +7,6 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <header id="navigation-bar">
-        {/* Banner is sourced and clickable */}
         <Link to="https://mlh.io/seasons/na-2020/events" id="banner">
           <img
             src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
@@ -15,7 +14,6 @@ class NavigationBar extends React.Component {
           />
         </Link>
         <section id="navigation-items">
-          {/* RR link to Our Hackathon Schedule of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
@@ -25,7 +23,6 @@ class NavigationBar extends React.Component {
               Schedule
             </Link>
           </button>
-          {/* RR link to FAQ of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
@@ -35,13 +32,11 @@ class NavigationBar extends React.Component {
               FAQ
             </Link>
           </button>
-          {/* RR link to About Us section of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link className="link" to="/#about-us" title="About Us!">
               About Us
             </Link>
           </button>
-          {/* RR link to sponsors section of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
@@ -51,11 +46,10 @@ class NavigationBar extends React.Component {
               Sponsors
             </Link>
           </button>
-          {/* RR link to Our Hackathon Schedule of home page */}
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
-              to="/login"
+              to="login"
               title="HackMerced Schedule"
             >
               Login
