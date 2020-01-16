@@ -1,6 +1,6 @@
 .App-sign-up {
   color: magenta;
-  background-color: #282c34; /* sets bg same as main page */
+  background-color: #8D78A1; /* sets bg same as main page */
   min-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 
 #body {
   text-align: center;
-  background-color: #282c34;
+  background-color: #8D78A1;
   color: white;
 }
 

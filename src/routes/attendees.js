@@ -2,8 +2,6 @@ const router = require("express").Router();
 const Attendees = require("../models").models.Attendees;
 const { Keccak } = require('sha3');
 
-//const JsonPatch = require("jsonpatch");
-
 /**
  * @api {post} /api/attendees Add new Attendee(s)
  * @apiDescription Adds an array of new Attendee(s)

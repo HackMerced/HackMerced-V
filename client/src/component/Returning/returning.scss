@@ -1,0 +1,111 @@
+.App-login {
+  color: black;
+  background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+<<<<<<< HEAD:client/src/pages/Login/login.css
+.login-title{
+  color: #D15F2A;
+  font-size: 55px; 
+=======
+.login-title {
+  color: #d15f2a;
+  font-size: 45px;
+>>>>>>> final:client/src/component/Returning/returning.scss
+  position: relative;
+
+}
+
+<<<<<<< HEAD:client/src/pages/Login/login.css
+h1 {
+  overflow: hidden;
+  padding-bottom: 5%;
+  padding-top: 3%;
+}
+.center-the-login{
+  position: absolute; /* creates a box with rounded edges */
+=======
+.center-the-login {
+  position: absolute;
+>>>>>>> final:client/src/component/Returning/returning.scss
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+<<<<<<< HEAD:client/src/pages/Login/login.css
+.login-email{
+
+   padding-right: 125px; /* Left aligns "Email" */
+   border-radius: 5px;
+   font-size:18px;
+   font-weight:normal;
+   position:absolute;
+   pointer-events:none;
+   left:5px;
+   top:10px;
+   transition:0.2s ease all; 
+ 
+=======
+.login-email {
+  padding-right: 125px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+>>>>>>> final:client/src/component/Returning/returning.scss
+}
+
+.login-pass {
+  padding-right: 125px;
+  border-radius: 5px;
+}
+
+.logged-In {
+  padding-right: 70px;
+  font-size: 5px;
+}
+
+.signUp-text {
+  padding-top: 5px;
+  font-size: 15px;
+}
+
+.signUp-link {
+  margin-left: 5px;
+}
+
+input {
+  width: 270px;
+  border-radius: 5px;
+  padding: 10px 65px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  transition-duration: 0.25s;
+  background: lightgrey;
+}
+
+button {
+  width: 270px;
+  background-color: #9a544c;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  transition-duration: 0.25s;
+}
