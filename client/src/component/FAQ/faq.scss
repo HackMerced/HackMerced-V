@@ -19,6 +19,18 @@
       grid-template-columns: 30% 70%;
       grid-template-areas: "accordions lamp";
 
+      .answers {
+        overflow: hidden;
+      }
+
+      .circle {
+        border: 8px solid #fff;
+        border-radius: 50%;
+        width: 20px;
+        height:20px;
+        z-index: 86;
+      }
+
       #accordions {
         grid-area: accordions;
       }
@@ -35,15 +47,28 @@
     font-size: 1.75rem;
     padding: 1.3rem;
     margin: 0;
+    
+    .circle {
+      border: 8px solid #fff;
+        border-radius: 50%;
+        width: 20px;
+        height:20px;
+        z-index: 86;
+    }
   }
 
-  #question,
-  #question h3 {
-    size: 30px;
+  #question {
+    h3 {
+      size: 30px;
+      overflow: hidden;
+    }
   }
 
   #answer {
     size: 30px;
-    margin-left: 10%;
+
+    p {
+      overflow: hidden;
+    }
   }
 }
