@@ -9,7 +9,7 @@ class AboutUs extends React.Component {
       <section id="about-us">
         <img src={PORTRAIT} alt="Merced Portrait" />
         <section id="about">
-          <h2 id="header">About Us</h2>
+          <h2 id="header">ABOUT US</h2>
           <div id="what">
             <h3>What we do</h3>
             <p>
