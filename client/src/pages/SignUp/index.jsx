@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { universities } from "../../constants/universities";
+import axios from "axios";
+import Papa from "papaparse";
 
 import "./signUp.css";
 
@@ -24,23 +25,56 @@ class SignUp extends Component {
       gitHub: "",
       linkedIn: "",
       devpost: "",
-      schoolStanding: "", // undergrad, grad, post doc
+      schoolStanding: "",
       numberOfHackathon: "",
-      codingExperience: "", // <1, 1-2, 2-3, 3-4, 4-5, +5
+      codingExperience: "",
+      universities: []
     };
+
+    this.getData = this.getData.bind(this);
+    this.uniList = this.uniList.bind(this);
     // this.handleInputChange = this.handleInputChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  render() {
-    function uniList() {
-      let result = [];
-      for (let i = 0; i < universities.length; i++) {
-        result.push(<option value={universities[i]}>{universities[i]}</option>);
-      }
-      return result;
+  componentWillMount() {
+    this.getCsvData();
+  }
+
+  fetchCsv() {
+    return fetch("https://raw.githubusercontent.com/MLH/mlh-policies/master/schools.csv").then(response => {
+      let reader = response.body.getReader();
+      let decoder = new TextDecoder("utf-8");
+
+      return reader.read().then(function(result) {
+        return decoder.decode(result.value);
+      });
+    });
+  }
+
+  getData(result) {
+    this.setState({ universities: result.data.slice(1, result.data.length) });
+  }
+
+  async getCsvData() {
+    let csvData = await this.fetchCsv();
+
+    Papa.parse(csvData, {
+      complete: this.getData
+    });
+  }
+
+  uniList({universities}) {
+    let result = [];
+    
+    for (let i = 0; i < universities.length; i++) {
+      result.push(<option value={universities[i]}>{universities[i]}</option>);
     }
 
+    return result;
+  }
+
+  render() {
     return (
       <div id="body">
         <div id="formID">
@@ -69,7 +103,6 @@ class SignUp extends Component {
                 placeholder="Last Name"
               ></input>
             </div>
-            {/* Email */}
             <div>
               <label>
                 Email <font color="red">*</font>
@@ -81,20 +114,17 @@ class SignUp extends Component {
                 placeholder="name@example.com"
               ></input>
             </div>
-            {/* Password */}
             <div>
               <label>
                 Password <font color="red">*</font>
               </label>
-              <input 
-              type="password" 
-              name="password"
-              ref="password"
-              placeholder="Password"
+              <input
+                type="password"
+                name="password"
+                ref="password"
+                placeholder="Password"
               ></input>
             </div>
-
-            {/* Phone Number */}
             <div>
               <label>
                 Phone Number <font color="red">*</font>
@@ -108,7 +138,8 @@ class SignUp extends Component {
             </div>
             <div>
               <lable class="first-hackathon">
-                Is this your first hackathon?</lable>
+                Is this your first hackathon?
+              </lable>
               <input
                 type="radio"
                 id="firstYes"
@@ -126,18 +157,13 @@ class SignUp extends Component {
             </div>
             <div>
               <label>
-                University <font color='red'> * </font>
+                University <font color="red"> * </font>
               </label>
-              {/* <input type="text" name="University" ref="name" placeholder="If High Schooler, Choose Last Option"></input> */}
-              <select class= "form control" name ="school">
-                <option value>
-                  ---Select Option---
-                </option>
-                {uniList()}
+              <select class="form control" name="school">
+                <option value>---Select Option---</option>
+                {this.uniList(this.state)}
               </select>
             </div>
-           
-            {/* Birthday npm install react-datepicker --save*/}
             <div>
               <label>
                 Date of Birth <font color="red">*</font>{" "}
@@ -312,7 +338,7 @@ class SignUp extends Component {
             </div>
             <div>
               <h5>
-                I have read and agree to the MLH Code of Conduct.{" "}
+                I have read and agree to the MLH Code of Conduct.
                 <font color="red">*</font>
               </h5>
               <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
