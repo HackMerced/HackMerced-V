@@ -15,7 +15,7 @@ class Title extends React.Component {
             <button id="register">
               <div id="button">
                 <div id="container">
-                  <Link to="/login" id="btn">
+                  <Link to="/signUp" id="btn">
                     Register
                   </Link>
                 </div>
