@@ -105,11 +105,10 @@ Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
-
 router.post("/attendees", async (req, res) => {
-  Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
+  Attendees.findOne({ email: req.body.myEmail }).then(user => {
     if (user) {
-      return res.status(400).json({ myEmail: "Email already exists" });
+      return res.status(400).json({ email: "Email already exists" });
     } else {
       Attendees.insertMany(req.body, (error, docs) => {
         if (error) {
@@ -122,9 +121,9 @@ router.post("/attendees", async (req, res) => {
   })
 });
 
-
+// Check if user is in DB by email
 router.post("/attendees/q", async (req, res) => {
-  Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
+  Attendees.findOne({ email: req.body.myEmail }).then(user => {
     if (user) {
       return res.status(200).json({ user });
     } else {
@@ -133,11 +132,12 @@ router.post("/attendees/q", async (req, res) => {
   });
 });
 
+// Hash password and check authentication?
 router.post("/attendees/c", async (req, res) => {
-  Attendees.findOne({myEmail: req.body.myEmail}).then(user => {
+  Attendees.findOne({email: req.body.myEmail}).then(user => {
     if (user) {
       var attemptPassword = req.body.attemptPassword;
-      var userPassword = user.myPassword;
+      var userPassword = user.password;
       var didUserLogIn = false;
       const hash = new Keccak(256);
       for (var i = 65; i <= 122; i++) {

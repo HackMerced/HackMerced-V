@@ -1,72 +1,76 @@
 const mongoose = require("mongoose");
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require("uuid/v4");
+const Papa = require("papaparse");
 
-const universities = require("../constants/universities");
+Papa.parse(
+  "https://raw.githubusercontent.com/MLH/mlh-policies/master/schools.csv",
+  {
+    download: false,
+    complete: results => {
+      universities = results.data.slice(1, results.data.length);
+    }
+  }
+);
 
 const attendeeSchema = new mongoose.Schema({
   id: {
     type: String,
     alias: "Unique id for attendee",
-    default: uuidv4(),
+    default: uuidv4()
   },
   timestamp: {
     type: Object,
     alias: "TimeStamp when the Attendee submitted their application.",
-    default: new Date(),
+    default: new Date()
   },
-  first: {
+  firstName: {
     type: String,
     alias: "First Name",
     required: [true, "Attendee's first name is required!"],
     minlength: 3,
-    default: "",
+    default: ""
   },
-  last: {
+  lastName: {
     type: String,
     alias: "Last Name",
     required: [true, "Attendee's last name is required!"],
     minlength: 3,
-    default: "",
+    default: ""
   },
-  myEmail: {
+  email: {
     type: String,
     alias: "Email Address",
     match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     required: [true, "Attendee's email is required!"],
     lowercase: true,
-    default: "",
+    default: ""
   },
-  myPassword: {
-    type: String,
-    alias: "alohomora",
-    default: null,
-    required: [true, " this is required"]
-  },
-  myPhone: {
+  // password: {
+  //   type: String,
+  //   alias: "password",
+  //   default: null,
+  //   required: [true, " this is required"]
+  // },
+  phoneNumber: {
     type: String,
     alias: "Phone Number",
     match: /^[+0-9\s]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
-    default: "+1 (234) 567-8901",
+    default: "+1 (234) 567-8901"
   },
-  myAge: {
+  age: {
     type: Number,
     alias: "Age of Attendee",
     match: /^([0-9])(0)$/,
-    default: 0,
+    default: 0
   },
-  myGender: {
+  gender: {
     type: String,
     alias: "Attendee's Gender",
     lowercase: true,
     default: "",
-    enum: [
-      "male",
-      "female",
-      "other",
-      "",
-    ],
+    enum: ["male", "female", "other", ""]
   },
-  myEthnicity: {
+  ethnicity: {
     type: String,
     alias: "Attendee's ethnicity",
     default: "",
@@ -79,155 +83,182 @@ const attendeeSchema = new mongoose.Schema({
       "white/caucasion",
       "prefer not to answer",
       "other",
-      "",
-    ],
+      ""
+    ]
   },
-  myShirt: {
+  shirtSize: {
     type: String,
     alias: "Shirt Size",
     lowercase: true,
-    enum: ["xs", "s", "m", "l", "xl",""],
-    default: "",
+    enum: ["xs", "s", "m", "l", "xl", ""],
+    default: ""
   },
-  myDiet: {
-    type: String,
-    alias: "Attendee's Dietary Restrictions",
-    lowercase: true,
-    default: "",
-  },
-  mySpecialNeeds: {
-    type: String,
-    alias: "Attendee's Special Needs like allergies",
-    default: "",
-    lowercase: true,
-    default: "",
-  },
-  mySchool: {
+
+  school: {
     type: Object,
     alias: "Attendee's Education Information",
     default: null,
-    level: {
-      type: String,
-      alias: "High School, College, or Boot Camp",
-      default: "university",
-      lowercase: true,
-      enum: ["high school", "community college", "university", "boarding school", "coding boot camp"],
-    },
-    mySchoolName: {
+    schoolName: {
       type: String,
       alias: "Name of the Educational Institution",
       lowercase: true,
       enum: universities,
-      default: "",
+      default: ""
     },
-    myMajor: {
+    major: {
       type: String,
       alias: "major in university",
       lowercase: true,
-      default: "",
+      default: ""
     },
-    myYear: {
+    year: {
       type: String,
       alias: "Year in Educational Institution",
       lowercase: true,
       enum: ["freshman", "sophomore", "junior", "senior", "five+"],
-      default: "",
+      default: ""
     },
-    mySchoolStanding: {
+    schoolStanding: {
       type: String,
-      alias: "type of education persuing",
+      alias: "type of education pursuing",
       lowercase: true,
       enum: ["undergraduate", "graduate", "post doctorate"],
-      default: "",
+      default: ""
     },
+    graduationYear: {
+      type: Number,
+      alias: "year of graduation",
+      default: 2020
+    }
   },
-  myExperience: {
+  dietaryRestrictions: {
+    type: String,
+    alias: "Attendee's Dietary Restrictions",
+    lowercase: true,
+    default: ""
+  },
+  specialNeeds: {
+    type: String,
+    alias: "Attendee's Special Needs like allergies",
+    default: "",
+    lowercase: true,
+    default: ""
+  },
+  experience: {
     type: Object,
     alias: "Attendee's Past Experience",
     default: null,
-    hackathons: {
+    firstHackathon: {
+      type: Boolean,
+      alias: "Is this their first hackathon",
+      default: [true, "First time at a hackathon"]
+    },
+    numberOfPreviousHackathons: {
       type: Number,
       alias: "Number of previous hackathons",
       min: [0, "First time at a hackathon"],
-      default: 0,
+      default: 0
     },
-    myLanguages: {
+    languages: {
       type: [String],
       alias: "Array of Different Programming Languages",
-      default: "",
-      enum: ["java", "javascript", "typescript", "c", "c++", "c#", "go", "f#", "bash", "python", "latex", "assembly", "swift"],
+      default: [],
+      enum: [
+        "java",
+        "javascript",
+        "typescript",
+        "c",
+        "c++",
+        "c#",
+        "go",
+        "f#",
+        "bash",
+        "python",
+        "latex",
+        "assembly",
+        "swift",
+        "kotlin"
+      ]
     },
-  },
-  myResume: {
-    type: String,
-    alias: "Link to Online Resume",
-    lowercase: true,
-    default: "",
-  },
-  myTeam: {
-    type: Object,
-    alias: "Does the Attendee have a team",
-    default: null,
-    myTeamInfo: {
-      code: {
-        type: String,
-        alias: "Unique code for the team",
-        default: null,
-      },
-      myTeamName: {
-        type: String,
-        alias: "Team Name",
-        default: "No Team",
-        lowercase: true,
-      },
-      myTeammates: {
-        type: [String],
-        alias: "Array of fellow teammates",
-        default: [],
-      }
+    resume: {
+      type: String,
+      alias: "Link to Online Resume",
+      lowercase: true,
+      default: ""
+    },
+    linkedIn: {
+      type: String,
+      alias: "Attendee's LinkedIn Portfolio",
+      lowercase: true,
+      default: ""
+    },
+    gitHub: {
+      type: String,
+      alias: "Attendee's GitHub Portfolio",
+      lowercase: true,
+      default: ""
+    },
+    devpost: {
+      type: [String],
+      alias: "Attendee's Devpost Portfolio",
+      lowercase: true,
+      default: ""
     }
   },
-  myLinkedin: {
-    type: String,
-    alias: "Attendee's LinkedIn Portfolio",
-    lowercase: true,
-    default: "",
-  },
-  myGithub: {
-    type: String,
-    alias: "Attendee's GitHub Portfolio",
-    lowercase: true,
-    default: "",
-  },
-  mySites: {
-    type: [String],
-    alias: "Attendee's Other Websites",
-    lowercase: true,
-    default: [""],
-  },
-  myStatus: {
+  // team: {
+  //   type: Object,
+  //   alias: "Does the Attendee have a team",
+  //   default: null,
+  //   myTeamInfo: {
+  //     code: {
+  //       type: String,
+  //       alias: "Unique code for the team",
+  //       default: null,
+  //     },
+  //     myTeamName: {
+  //       type: String,
+  //       alias: "Team Name",
+  //       default: "No Team",
+  //       lowercase: true,
+  //     },
+  //     myTeammates: {
+  //       type: [String],
+  //       alias: "Array of fellow teammates",
+  //       default: [],
+  //     }
+  //   }
+  // },
+  status: {
     type: String,
     alias: "The current status of Attendee",
-    default: "application created",
+    default: "submitted",
     lowercase: true,
-    enum: ["application created","submitted", "accepted", "declined", "waitListed", "checkedIn"],
+    enum: ["submitted", "accepted", "declined", "waitListed", "checkedIn"]
   },
-  myPrivileges: {
-    type: String,
-    alias: "Which type or attendee are they?",
-    default: "attendee",
-    lowercase: true,
-    enum: ["attendee", "volunteer", "mentor", "sponsor", "admin", "ADMIN"],
-  },
-  userSubmitApp: {
+  // privileges: {
+  //   type: String,
+  //   alias: "Which type or attendee are they?",
+  //   default: "attendee",
+  //   lowercase: true,
+  //   enum: ["attendee", "volunteer", "mentor", "sponsor", "admin", "ADMIN"],
+  // },
+  // userSubmitApp: {
+  //   type: Boolean,
+  //   alias: "did the user submit the application?",
+  //   default: false,
+  // },
+  codeOfConduct: {
     type: Boolean,
-    alias: "did the user submit the application?",
-    default: false,
-  },
-  myPhotoPermissions: {
-    type: Boolean,
-    alias: "can we post images of the applicant?",
+    alias: "I have read and agree to the MLH Code of Conduct.",
     default: true,
+    enum: [true, false]
+  },
+  affiliationWithMLH: {
+    type: Boolean,
+    alias:
+      "I further agree to the terms of both the MLH Contest Terms and Conditions and the MLH Privacy Policy.",
+    default: true,
+    enum: [true, false]
   }
 });
 

@@ -12,29 +12,62 @@ class SignUp extends Component {
       lastName: "",
       email: "",
       phoneNumber: "",
-      university: "",
-      birthday: "",
+      age: 18,
       gender: "",
       ethnicity: "",
+      shirtSize: "M",
+      university: "",
       major: "",
-      collegeYear: "",
-      shirtSize: "",
-      dietary: "",
-      allergies: "",
+      year: "",
+      schoolStanding: "",
+      graduationYear: 2020,
+      dietaryRestrictions: "",
+      specialNeeds: "",
+      firstHackathon: true,
       resume: "",
-      gitHub: "",
       linkedIn: "",
       devpost: "",
-      schoolStanding: "",
-      numberOfHackathon: "",
-      codingExperience: "",
+      gitHub: "",
+      codeOfConduct: true,
+      affiliationWithMLH: true,
       universities: []
     };
 
     this.getData = this.getData.bind(this);
     this.uniList = this.uniList.bind(this);
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePhoneNumberChange = this.handlePhoneNumberChange.bind(this);
+    this.handleAgeChange = this.handleAgeChange.bind(this);
+    this.handleGenderChange = this.handleGenderChange.bind(this);
+    this.handleEthnicityChange = this.handleEthnicityChange.bind(this);
+    this.handleFirstHackathonChange = this.handleFirstHackathonChange.bind(
+      this
+    );
+    this.handleUniversityChange = this.handleUniversityChange.bind(this);
+    this.handleMajorChange = this.handleMajorChange.bind(this);
+    this.handleYearChange = this.handleYearChange.bind(this);
+    this.handleGraduationYearChange = this.handleGraduationYearChange.bind(
+      this
+    );
+    this.handleSchoolStandingChange = this.handleSchoolStandingChange.bind(
+      this
+    );
+    this.handleShirtSizeChange = this.handleShirtSizeChange.bind(this);
+    this.handleDietaryRestrictionsChange = this.handleDietaryRestrictionsChange.bind(
+      this
+    );
+    this.handleSpecialNeedsChange = this.handleSpecialNeedsChange.bind(this);
+    this.handleResumeChange = this.handleResumeChange.bind(this);
+    this.handleGitHubChange = this.handleGitHubChange.bind(this);
+    this.handleLinkedInChange = this.handleLinkedInChange.bind(this);
+    this.handleDevpostChange = this.handleDevpostChange.bind(this);
+    this.handleCodeOfConductChange = this.handleCodeOfConductChange.bind(this);
+    this.handleAffiliationWithMLHChange = this.handleAffiliationWithMLHChange.bind(
+      this
+    );
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -42,7 +75,9 @@ class SignUp extends Component {
   }
 
   fetchCsv() {
-    return fetch("https://raw.githubusercontent.com/MLH/mlh-policies/master/schools.csv").then(response => {
+    return fetch(
+      "https://raw.githubusercontent.com/MLH/mlh-policies/master/schools.csv"
+    ).then(response => {
       let reader = response.body.getReader();
       let decoder = new TextDecoder("utf-8");
 
@@ -64,7 +99,7 @@ class SignUp extends Component {
     });
   }
 
-  uniList({universities}) {
+  uniList({ universities }) {
     let result = [];
 
     for (let i = 0; i < universities.length; i++) {
@@ -74,103 +109,268 @@ class SignUp extends Component {
     return result;
   }
 
-  handleChange = event => {
+  handleFirstNameChange = event => {
     this.setState({
       firstName: event.target.value
-    })
+    });
+  };
+
+  handleLastNameChange = event => {
+    this.setState({
+      lastName: event.target.value
+    });
+  };
+
+  handleEmailChange = event => {
+    this.setState({
+      email: event.target.value
+    });
+  };
+
+  handlePhoneNumberChange = event => {
+    this.setState({
+      phoneNumber: event.target.value
+    });
+  };
+
+  handleAgeChange = event => {
+    this.setState({
+      age: event.target.value
+    });
+  };
+
+  handleGenderChange = event => {
+    this.setState({
+      gender: event.target.value
+    });
+  };
+
+  handleEthnicityChange = event => {
+    this.setState({
+      ethnicity: event.target.value
+    });
+  };
+
+  handleFirstHackathonChange = event => {
+    this.setState({
+      firstHackathon: event.target.value
+    });
+  };
+
+  handleUniversityChange = event => {
+    this.setState({
+      university: event.target.value
+    });
+  };
+
+  handleSchoolStandingChange = event => {
+    this.setState({
+      schoolStanding: event.target.value
+    });
+  };
+
+  handleMajorChange = event => {
+    this.setState({
+      major: event.target.value
+    });
+  };
+
+  handleYearChange = event => {
+    this.setState({
+      year: event.target.value
+    });
+  };
+
+  handleGraduationYearChange = event => {
+    this.setState({
+      graduationYear: event.target.value
+    });
+  };
+
+  handleShirtSizeChange = event => {
+    this.setState({
+      shirtSize: event.target.value
+    });
+  };
+
+  handleDietaryRestrictionsChange = event => {
+    this.setState({
+      dietaryRestrictions: event.target.value
+    });
+  };
+
+  handleSpecialNeedsChange = event => {
+    this.setState({
+      specialNeeds: event.target.value
+    });
+  };
+
+  handleResumeChange = event => {
+    this.setState({
+      resume: event.target.value
+    });
+  };
+
+  handleLinkedInChange = event => {
+    this.setState({
+      linkedIn: event.target.value
+    });
+  };
+
+  handleGitHubChange = event => {
+    this.setState({
+      gitHub: event.target.value
+    });
+  };
+
+  handleDevpostChange = event => {
+    this.setState({
+      devpost: event.target.value
+    });
+  };
+
+  handleCodeOfConductChange = event => {
+    this.setState({
+      codeOfConduct: event.target.value
+    });
+  };
+
+  handleAffiliationWithMLHChange = event => {
+    this.setState({
+      affiliationWithMLH: event.target.value
+    });
+  };
+
+  createUser({
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    age,
+    university,
+    major,
+    year,
+    schoolStanding,
+    graduationYear,
+    ethnicity,
+    dietaryRestrictions,
+    specialNeeds,
+    gender,
+    shirtSize,
+    firstHackathon,
+    codeOfConduct,
+    affiliationWithMLH,
+    resume,
+    linkedIn,
+    devpost,
+    gitHub
+  }) {
+    this.setState({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNumber: phoneNumber,
+      age: age,
+      gender: gender,
+      ethnicity: ethnicity,
+      shirtSize: shirtSize,
+      school: {
+        schoolName: university,
+        major: major,
+        year: year,
+        schoolStanding: schoolStanding,
+        graduationYear: graduationYear
+      },
+      dietaryRestrictions: dietaryRestrictions,
+      specialNeeds: specialNeeds,
+      experience: {
+        firstHackathon: firstHackathon,
+        numberOfPreviousHackathons: 0,
+        languages: [],
+        resume: resume,
+        linkedIn: linkedIn,
+        gitHub: gitHub,
+        devpost: devpost,
+      },
+      codeOfConduct: codeOfConduct,
+      affiliationWithMLH: affiliationWithMLH
+    });
   }
 
   handleSubmit = event => {
-    
-  }
+    event.preventDefault();
+
+    const user = this.createUser(this.state);
+
+    axios.post(`https://localhost:3852/api/attendees`, { user }).then(res => {
+      console.log(res);
+    });
+  };
 
   render() {
     return (
-      <div id="body">
+      <section id="body">
         <div id="formID">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div>
               <h1>Application</h1>
-              <label>
-                First Name 
-              </label>
+              <label>First Name</label>
               <input
                 required
                 type="text"
-                name="FirstName"
+                name="first-name"
                 ref="name"
                 placeholder="First Name"
+                onChange={this.handleFirstNameChange}
               ></input>
             </div>
             <div>
-              <label>
-                Last Name 
-              </label>
+              <label>Last Name</label>
               <input
                 type="text"
-                name="LastName"
+                name="last-name"
                 ref="name"
                 placeholder="Last Name"
+                required
+                onChange={this.handleLastNameChange}
               ></input>
             </div>
-            {/* Email */}
             <div>
-              <label>
-                Email 
-              </label>
+              <label>Email</label>
               <input
                 type="email"
-                name="myEmail"
+                name="email"
                 ref="name"
                 placeholder="name@example.com"
+                required
+                onChange={this.handleEmailChange}
               ></input>
             </div>
-            {/* Password */}
             <div>
-              <label>
-                Password 
-              </label>
-              <input 
-              type="password" 
-              name="password"
-              ref="password"
-              placeholder="Password"
-              ></input>
-            </div>
-
-            {/* Phone Number */}
-            <div>
-              <label>
-                Phone Number
-              </label>
+              <label>Phone Number</label>
               <input
                 type="text"
-                name="phoneNumber"
+                name="phone-number"
                 ref="name"
                 placeholder="123-456-7890"
-              ></input>
-            </div>
-             
-             {/* Birthday npm install react-datepicker --save*/}
-             <div>
-               <label>
-                Date of Birth 
-              </label>
-              <input
-                type="date"
-                name="Birthday"
-                ref="name"
-                placeholder="Birthday"
                 required
+                onChange={this.handlePhoneNumberChange}
               ></input>
             </div>
-
-            
             <div>
-              <label>
-                Gender 
-              </label>
-              <select>
+              <label>Age</label>
+              <input
+                type="number"
+                name="age"
+                ref="name"
+                placeholder="18"
+                required
+                onChange={this.handleAgeChange}
+              ></input>
+            </div>
+            <div>
+              <label>Gender</label>
+              <select onChange={this.handleGenderChange} required>
                 <option value="" disabled selected>
                   ---Select Option---
                 </option>
@@ -183,10 +383,8 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label>
-                Race/Ethnicity 
-              </label>
-              <select>
+              <label>Ethnicity</label>
+              <select onChange={this.handleEthnicityChange} required>
                 <option value="" disabled selected>
                   ---Select Option---
                 </option>
@@ -207,88 +405,76 @@ class SignUp extends Component {
                 <option value="Other">Other</option>
               </select>
             </div>
-
-
-            {/* First Hackathon */}
             <div>
-              <lable class="first-hackathon">
-                Is this your first hackathon?</lable>
-              <input
-                type="radio"
-                id="firstYes"
-                name="drone"
-                value="yes"
-              ></input>
-              <p>Yes</p>
-              <input
-                type="radio"
-                id="secondYes"
-                name="drone"
-                value="no"
-              ></input>
-              <p>No</p>
+              <label class="first-hackathon">
+                Is this your first hackathon?
+              </label>
+              <select id="" onChange={this.handleFirstHackathonChange} required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div>
-              <label>
-                University 
-              </label>
-              <select class= "form control" name ="school">
-                <option value>
-                  ---Select Option---
-                </option>
+              <label>University</label>
+              <select
+                class="form control"
+                name="school"
+                onChange={this.handleUniversityChange}
+                required
+              >
+                <option value>---Select Option---</option>
                 {this.uniList(this.state)}
               </select>
             </div>
-           
-           
-            {/* Major */}
             <div>
               <label>College Major</label>
               <input
                 type="text"
-                name="CollegeMajor"
+                name="major"
                 ref="name"
                 placeholder="Major"
+                onChange={this.handleMajorChange}
+                required
               ></input>
             </div>
             <div>
               <label>Year In College</label>
-              <select>
+              <select onChange={this.handleYearChange} required>
                 <option value="" disabled selected>
                   ---Select Option---
                 </option>
                 <option value="Freshman">Freshman</option>
-                <option value="Sophmore">Sophmore</option>
+                <option value="Sophomore">Sophomore</option>
                 <option value="Junior">Junior</option>
                 <option value="Senior">Senior</option>
-                <option value="+5">+5</option>
+                <option value="5+">5+</option>
               </select>
             </div>
             <div>
-              <label>Graduation Date</label>
+              <label>Graduation Year</label>
               <input
-                type="date"
-                name="GradDate"
+                type="number"
+                name="graduation-year"
                 ref="name"
-                placeholder="GradDate"
+                placeholder="2021"
+                onChange={this.handleGraduationYearChange}
+                required
               ></input>
             </div>
             <div>
               <label>School Standing</label>
-              <select>
+              <select onChange={this.handleSchoolStandingChange} required>
                 <option value="" disable selected>
                   ---Select Option---
                 </option>
-                <option value="undergrad">Undergraduate</option>
+                <option value="Undergraduate">Undergraduate</option>
                 <option value="Graduate">Graduate</option>
-                <option value="postDoc">Post Doctorate</option>
+                <option value="PostDoc">Post Doctorate</option>
               </select>
             </div>
             <div>
-              <label>
-                T-Shirt Size 
-              </label>
-              <select>
+              <label>T-Shirt Size</label>
+              <select onChange={this.handleShirtSizeChange} required>
                 <option value="" disabled selected>
                   ---Select Option---
                 </option>
@@ -300,125 +486,111 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label>
-                Dietary Restrictions 
-              </label>
+              <label>Dietary Restrictions</label>
               <input
                 type="text"
-                name="myDiet"
+                name="dietary-restrictions"
                 ref="name"
                 placeholder="No meat, no animal produce, or N/A"
+                onChange={this.handleDietaryRestrictionChange}
+                required
               ></input>
             </div>
             <div>
-              <label>
-                Allergies
-              </label>
+              <label>Special Needs</label>
               <input
                 type="text"
-                name="myAllergies"
+                name="special-needs"
                 ref="name"
                 placeholder="Grass...or N/A"
+                onChange={this.handleSpecialNeedsChange}
+                required
               ></input>
             </div>
             <div>
-              <label>
-                Resume
-              </label>
+              <label>Resume (must upload a link to a public view)</label>
               <input
-                type="file"
+                type="text"
                 name="resume"
                 ref="name"
                 placeholder=""
+                onChange={this.handleResumeChange}
+                required
               ></input>
-              <button type="button" onClick="">
-                Upload
-              </button>
             </div>
             <div>
               <label>GitHub</label>
               <input
                 type="url"
-                name="gitHub"
+                name="github"
                 ref="name"
-                placeholder="github.com/yourusername"
+                placeholder="github.com/username"
+                onChange={this.handleGitHubChange}
               ></input>
             </div>
             <div>
               <label>LinkedIn</label>
               <input
                 type="url"
-                name="LinkedIn"
+                name="linked-in"
                 ref="name"
-                placeholder="linkedin.com/in/yourusername"
+                placeholder="linkedin.com/in/username"
+                onChange={this.handleLinkedInChange}
               ></input>
             </div>
             <div>
               <label>Devpost</label>
               <input
                 type="url"
-                name="Devpost"
+                name="devpost"
                 ref="name"
-                placeholder="devpost.com/yourusername"
+                placeholder="devpost.com/username"
+                onChange={this.handleDevpostChange}
               ></input>
             </div>
-
-
-            
             <div>
-              <h5>
-                I have read and agree to the MLH Code of Conduct.
-                <font color="red">*</font>
-              </h5>
-              <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
-                Code of Conduct
-              </a>
-              <input required type="checkbox" placeholder="Yes"></input>
+              <p>
+                I have read and agree to the{" "}
+                <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
+                  MLH Code of Conduct
+                </a>
+                .
+              </p>
+              <input
+                required
+                type="checkbox"
+                placeholder="Yes"
+                onChange={this.handleCodeOfConductChange}
+              ></input>
               <span>Yes</span>
             </div>
             <div>
-              <h5>
+              <p>
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
                 post-event informational e-mails, and occasional messages about
-                hackathons in-line with the MLH Privacy Policy. I further agree
-                to the terms of both the MLH Contest Terms and Conditions and
-                the MLH Privacy Policy.
-                <font color="red">*</font>
-              </h5>
-              <a href="https://mlh.io/privacy, https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions">
-                Privacy Policies
-              </a>
-              <input required type="checkbox" placeholder="Yes"></input>
-              <span>Yes</span>
-            </div>
-            <div>
-              <h5>
-                I give permission to HackMerced to photograph and video-graph me
-                for the purposes of promoting HackMerced in the future.
-                <font color="red">*</font>
-              </h5>
+                hackathons in-line with the{" "}
+                <a href="https://mlh.io/privacy">MLH Privacy Policy</a>. I
+                further agree to the terms of both the{" "}
+                <a href="https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions">
+                  MLH Contest Terms and Conditions
+                </a>{" "}
+                and the <a href="https://mlh.io/privacy">MLH Privacy Policy</a>.
+              </p>
               <input
-                name="drone"
-                type="radio"
-                value="yes"
-                id="permissionYes"
+                required
+                type="checkbox"
+                placeholder="Yes"
+                onChange={this.handleAffiliationWithMLHChange}
               ></input>
               <span>Yes</span>
-              <input
-                name="drone"
-                type="radio"
-                value="no"
-                id="permissionNo"
-              ></input>
-              <span>No</span>
             </div>
-            <button class="popup" onclick="myFunction()">
+            <button class="popup" type="submit">
               Submit!
             </button>
           </form>
         </div>
-      </div>
+      </section>
     );
   }
 }
