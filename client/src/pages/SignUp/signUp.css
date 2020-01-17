@@ -1,7 +1,6 @@
 .App-sign-up {
   color: magenta;
   min-height: 92vh;
-  text-align: center;
 }
 
 #body {
@@ -45,12 +44,18 @@ input {
 
 a {
   color: rgb(0, 100, 200);
+  position: relative;
+  left: 10%;
 }
 
 #firstYes {
   font-size: medium;
 }
 
+#form {
+  margin: auto;
+  position: relative;
+}
 h1 {
   font-size: 60px;
   font-family: 'Moon';
@@ -60,6 +65,9 @@ h1 {
 
 h5 {
   font-size: 20px;
+  position: relative;
+  left: 15px;
+
 }
 
 #firstYes {
@@ -93,28 +101,49 @@ p {
   display: inline-block;
   position: relative;
   right: 15%;
-  
+  cursor: pointer;
 }
 
 .first-hackathon{
   font-size: 30px;
   font-weight: bolder;
   margin: 10%;
- 
+  cursor: pointer;
+  
 }
 
 button:hover {
   opacity:1;
 }
 
-/*First Name*/
+/*Every input detailed name*/
 
-input[type=text], input[type=password] {
+input[type=text], 
+input[type=password], 
+input[type=email],
+input[type=url] {
   width: 80%;
   padding: 15px;
   margin: 15px 0 22px 0;
   display: inline-block;
-  position: ;
   background: rgb(204, 203, 203);
+  cursor: auto;
+  border-style: inset;
+  border-radius: 5px;
+  position: relative;
+  left: 10%;
+}
 
+label:after {
+  content:" *";
+    color: pink;
+}
+
+input[type=date]{
+  width: 55%;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
 }

@@ -82,7 +82,7 @@ class SignUp extends Component {
             <div>
               <h1>Application</h1>
               <label>
-                First Name <font color="red">*</font>
+                First Name 
               </label>
               <input
                 required
@@ -94,7 +94,7 @@ class SignUp extends Component {
             </div>
             <div>
               <label>
-                Last Name <font color="red">*</font>
+                Last Name 
               </label>
               <input
                 type="text"
@@ -103,9 +103,10 @@ class SignUp extends Component {
                 placeholder="Last Name"
               ></input>
             </div>
+            {/* Email */}
             <div>
               <label>
-                Email <font color="red">*</font>
+                Email 
               </label>
               <input
                 type="email"
@@ -114,70 +115,50 @@ class SignUp extends Component {
                 placeholder="name@example.com"
               ></input>
             </div>
+            {/* Password */}
             <div>
               <label>
-                Password <font color="red">*</font>
+                Password 
               </label>
-              <input
-                type="password"
-                name="password"
-                ref="password"
-                placeholder="Password"
+              <input 
+              type="password" 
+              name="password"
+              ref="password"
+              placeholder="Password"
               ></input>
             </div>
+
+            {/* Phone Number */}
             <div>
               <label>
-                Phone Number <font color="red">*</font>
+                Phone Number
               </label>
               <input
-                type="number"
+                type="text"
                 name="phoneNumber"
                 ref="name"
                 placeholder="123-456-7890"
               ></input>
             </div>
-            <div>
-              <lable class="first-hackathon">
-                Is this your first hackathon?
-              </lable>
-              <input
-                type="radio"
-                id="firstYes"
-                name="drone"
-                value="yes"
-              ></input>
-              <p>Yes</p>
-              <input
-                type="radio"
-                id="secondYes"
-                name="drone"
-                value="no"
-              ></input>
-              <p>No</p>
-            </div>
-            <div>
-              <label>
-                University <font color="red"> * </font>
-              </label>
-              <select class="form control" name="school">
-                <option value>---Select Option---</option>
-                {this.uniList(this.state)}
-              </select>
-            </div>
-            <div>
-              <label>
-                Date of Birth <font color="red">*</font>{" "}
+             
+             {/* Birthday npm install react-datepicker --save*/}
+             <div>
+               <label>
+                Date of Birth 
               </label>
               <input
                 type="date"
                 name="Birthday"
                 ref="name"
                 placeholder="Birthday"
+                required
               ></input>
             </div>
+
+            
             <div>
               <label>
-                Gender <font color="red">*</font>
+                Gender 
               </label>
               <select>
                 <option value="" disabled selected>
@@ -193,7 +174,7 @@ class SignUp extends Component {
             </div>
             <div>
               <label>
-                Race/Ethnicity <font color="red">*</font>
+                Race/Ethnicity 
               </label>
               <select>
                 <option value="" disabled selected>
@@ -216,6 +197,41 @@ class SignUp extends Component {
                 <option value="Other">Other</option>
               </select>
             </div>
+
+
+            {/* First Hackathon */}
+            <div>
+              <lable class="first-hackathon">
+                Is this your first hackathon?</lable>
+              <input
+                type="radio"
+                id="firstYes"
+                name="drone"
+                value="yes"
+              ></input>
+              <p>Yes</p>
+              <input
+                type="radio"
+                id="secondYes"
+                name="drone"
+                value="no"
+              ></input>
+              <p>No</p>
+            </div>
+            <div>
+              <label>
+                University 
+              </label>
+              <select class= "form control" name ="school">
+                <option value>
+                  ---Select Option---
+                </option>
+                {this.uniList(this.state)}
+              </select>
+            </div>
+           
+           
+            {/* Major */}
             <div>
               <label>College Major</label>
               <input
@@ -239,7 +255,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <lable>Graduation Date</lable>
+              <label>Graduation Date</label>
               <input
                 type="date"
                 name="GradDate"
@@ -248,7 +264,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <lable>School Standing</lable>
+              <label>School Standing</label>
               <select>
                 <option value="" disable selected>
                   ---Select Option---
@@ -260,7 +276,7 @@ class SignUp extends Component {
             </div>
             <div>
               <label>
-                T-Shirt Size <font color="red">*</font>
+                T-Shirt Size 
               </label>
               <select>
                 <option value="" disabled selected>
@@ -275,29 +291,29 @@ class SignUp extends Component {
             </div>
             <div>
               <label>
-                Dietary Restrictions <font color="red">*</font>
+                Dietary Restrictions 
               </label>
               <input
                 type="text"
                 name="myDiet"
                 ref="name"
-                placeholder="No meat, no animal produce"
+                placeholder="No meat, no animal produce, or N/A"
               ></input>
             </div>
             <div>
               <label>
-                Allergies<font color="red">*</font>
+                Allergies
               </label>
               <input
                 type="text"
                 name="myAllergies"
                 ref="name"
-                placeholder="Grass..."
+                placeholder="Grass...or N/A"
               ></input>
             </div>
             <div>
               <label>
-                Resume<font color="red">*</font>
+                Resume
               </label>
               <input
                 type="file"
@@ -315,27 +331,30 @@ class SignUp extends Component {
                 type="url"
                 name="gitHub"
                 ref="name"
-                placeholder="github.com/yourusernamehere"
+                placeholder="github.com/yourusername"
               ></input>
             </div>
             <div>
               <label>LinkedIn</label>
               <input
-                type="text"
+                type="url"
                 name="LinkedIn"
                 ref="name"
-                placeholder="LinkedIn"
+                placeholder="linkedin.com/in/yourusername"
               ></input>
             </div>
             <div>
               <label>Devpost</label>
               <input
-                type="text"
+                type="url"
                 name="Devpost"
                 ref="name"
-                placeholder="Idk"
+                placeholder="devpost.com/yourusername"
               ></input>
             </div>
+
+
+            
             <div>
               <h5>
                 I have read and agree to the MLH Code of Conduct.
