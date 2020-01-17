@@ -66,12 +66,22 @@ class SignUp extends Component {
 
   uniList({universities}) {
     let result = [];
-    
+
     for (let i = 0; i < universities.length; i++) {
       result.push(<option value={universities[i]}>{universities[i]}</option>);
     }
 
     return result;
+  }
+
+  handleChange = event => {
+    this.setState({
+      firstName: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
+    
   }
 
   render() {
