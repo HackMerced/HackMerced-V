@@ -1,30 +1,120 @@
 .App-sign-up {
   color: magenta;
-  background-color: #8D78A1; /* sets bg same as main page */
   min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 45px;
   text-align: center;
 }
 
 #body {
-  text-align: center;
-  background-color: #8D78A1;
+  background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
   color: white;
+  padding: 10%;
+  font-family: 'Moon', bold;
+  
 }
 
 #formID {
   border: white;
   border-style: solid;
+  border-width: 10px;
 }
 
 label {
-  margin: 0.1%;
+  margin: 10%;
+  font-size: 30px;
+  font-weight: bolder;
+ 
+}
+
+input {
+  overflow: hidden;
+  color: -internal-light-dark-color(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    
+}
+
+/* Boxes*/
+:placeholder-shown { 
+  font-size: 20px;
+  width: 80%;
+  text-align: left;
 }
 
 a {
   color: rgb(0, 100, 200);
+}
+
+#firstYes {
+  font-size: medium;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: 'Moon';
+  font-weight: bolder;
+  text-align: center;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+#firstYes {
+  font-size: medium;
+  padding-right: 10em;
+ 
+}
+
+select {
+  border: 10px solid;
+  width: 100%;
+  max-width: 50em;
+  text-align: center;
+}
+
+span {
+  font-size: 2em;
+  display: inline-block;
+  text-align: center;
+  box-sizing: inherit;
+}
+p {
+  font-size: 2em;
+  margin: 0 0 1em;
+  display: inline-block;
+  
+}
+
+#firstYes{
+  border: 1px solid #888;
+  display: inline-block;
+  position: relative;
+  right: 15%;
+  
+}
+
+.first-hackathon{
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 10%;
+ 
+}
+
+button:hover {
+  opacity:1;
+}
+
+/*First Name*/
+
+input[type=text], input[type=password] {
+  width: 80%;
+  padding: 15px;
+  margin: 15px 0 22px 0;
+  display: inline-block;
+  position: ;
+  background: rgb(204, 203, 203);
+
 }

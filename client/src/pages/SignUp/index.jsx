@@ -51,6 +51,7 @@ class SignUp extends Component {
           <form>
             {/* First Name */}
             <div>
+              <h1>Application</h1>
               <label>
                 First Name <font color="red">*</font>
               </label>
@@ -74,13 +75,6 @@ class SignUp extends Component {
                 placeholder="Last Name"
               ></input>
             </div>
-            {/* Password */}
-            <div>
-              <label>
-                Password <font color="red">*</font>
-              </label>
-              <input type="password" name="password"></input>
-            </div>
             {/* Email */}
             <div>
               <label>
@@ -93,6 +87,19 @@ class SignUp extends Component {
                 placeholder="name@example.com"
               ></input>
             </div>
+            {/* Password */}
+            <div>
+              <label>
+                Password <font color="red">*</font>
+              </label>
+              <input 
+              type="password" 
+              name="password"
+              ref="password"
+              placeholder="Password"
+              ></input>
+            </div>
+
             {/* Phone Number */}
             <div>
               <label>
@@ -102,50 +109,42 @@ class SignUp extends Component {
                 type="number"
                 name="phoneNumber"
                 ref="name"
-                placeholder="123-456-5432"
+                placeholder="123-456-7890"
               ></input>
             </div>
             {/* First Hackathon */}
             <div>
-              <lable>Is this your first hackathon?</lable>
+              <lable class="first-hackathon">
+                Is this your first hackathon?</lable>
               <input
                 type="radio"
                 id="firstYes"
                 name="drone"
                 value="yes"
               ></input>
-              <lable>Yes</lable>
+              <p>Yes</p>
               <input
                 type="radio"
                 id="secondYes"
                 name="drone"
                 value="no"
               ></input>
-              <span>No</span>
+              <p>No</p>
             </div>
             {/* University */}
             <div>
               <label>
-                University <font color="red">*</font>
+                University <font color='red'> * </font>
               </label>
               {/* <input type="text" name="University" ref="name" placeholder="If High Schooler, Choose Last Option"></input> */}
-              <select>
-                <option value="" disabled selected>
+              <select class= "form control" name ="school">
+                <option value>
                   ---Select Option---
                 </option>
                 {uniList()}
               </select>
             </div>
-            {/* High School */}
-            <div>
-              <label>High School</label>
-              <input
-                type="text"
-                name="HighSchool"
-                ref="name"
-                placeholder="High School"
-              ></input>
-            </div>
+           
             {/* Birthday npm install react-datepicker --save*/}
             <div>
               <label>
@@ -295,7 +294,7 @@ class SignUp extends Component {
             {/* Resume */}
             <div>
               <label>
-                Résumé<font color="red">*</font>
+                Resume<font color="red">*</font>
               </label>
               <input
                 type="file"
