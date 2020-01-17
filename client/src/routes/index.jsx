@@ -10,26 +10,26 @@ const routes = [
     path: "/",
     component: Home
   },
-  {
-    path: "/neon",
-    component: NeonHeart
-  },
-  {
-    path: "/login",
-    component: Login
-  },
-  {
-    path: "/create",
-    component: CreateAccount
-  },
+  // {
+  //   path: "/neon",
+  //   component: NeonHeart
+  // },
+  // {
+  //   path: "/login",
+  //   component: Login
+  // },
+  // {
+  //   path: "/create",
+  //   component: CreateAccount
+  // },
   {
     path: "/signUp",
     component: SignUp
   },
-  {
-    path: "/dash",
-    component: Dashboard
-  }
+  // {
+  //   path: "/dash",
+  //   component: Dashboard
+  // }
 ];
 
 export default routes;

@@ -17,7 +17,7 @@ class NavigationBar extends React.Component {
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
-              to="/#schedule"
+              to="#schedule"
               title="HackMerced Schedule"
             >
               Schedule
@@ -26,27 +26,27 @@ class NavigationBar extends React.Component {
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
-              to="/#faq"
+              to="#faq"
               title="Frequently Asked Questions"
             >
               FAQ
             </Link>
           </button>
           <button className="navigation btn btn-orange btn-border-o">
-            <Link className="link" to="/#about-us" title="About Us!">
+            <Link className="link" to="#about" title="About Us!">
               About Us
             </Link>
           </button>
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
-              to="/#sponsors"
+              to="#sponsors"
               title="Our Sponsors <3"
             >
               Sponsors
             </Link>
           </button>
-          <button className="navigation btn btn-orange btn-border-o">
+          {/* <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
               to="login"
@@ -54,7 +54,7 @@ class NavigationBar extends React.Component {
             >
               Login
             </Link>
-          </button>
+          </button> */}
         </section>
       </header>
     );
