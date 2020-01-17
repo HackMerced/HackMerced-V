@@ -26,13 +26,6 @@ label {
 
 input {
   overflow: hidden;
-  color: -internal-light-dark-color(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    
 }
 
 /* Boxes*/
@@ -118,8 +111,7 @@ button:hover {
 
 /*Every input detailed name*/
 
-input[type=text], 
-input[type=password], 
+input[type=text],  
 input[type=email],
 input[type=url] {
   width: 80%;
@@ -140,10 +132,139 @@ label:after {
 }
 
 input[type=date]{
-  width: 55%;
+  position: relative;
+  width: 45%;
+  color: black;
+  background: transparent;
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  border-width: 10px;
+  border-color: black;
+  right: 5%;
+  margin-top:2%;
+  display: inline-block;
+
 }
+
 
 input[type=date]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   display: none;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -6px;
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent #fff;  
+  }
+  
+
+.gender{
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    /* Styles */
+    background:transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+
+    /* Font settings */
+    font-weight: bold;
+    left: 10%;
+    margin-top:1.5%;
+}
+.gender:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: -6px;
+  border-width: 6px 0 6px 6px;
+  border-style: solid;
+  border-color: transparent #fff;    
+}
+
+.ethnicity {
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* Styles */
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  /* Font settings */
+  font-weight: bold;
+
+  left: 8%;
+  margin-top:1.5%;
+}
+
+.university {
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+  width: 50%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* Styles */
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  /* Font settings */
+  font-weight: bold;
+
+  
+  margin-top:1.5%;
+}
+
+.yearincollege {
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* Styles */
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  /* Font settings */
+  font-weight: bold;
+
+  
+  margin-top:1.5%;
+}
+
+.schoolstanding {
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* Styles */
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  /* Font settings */
+  font-weight: bold;
+
+  
+  margin-top:1.5%;
 }

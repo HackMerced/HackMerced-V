@@ -382,6 +382,7 @@ class SignUp extends Component {
                 </option>
               </select>
             </div>
+
             <div>
               <label>Ethnicity</label>
               <select onChange={this.handleEthnicityChange} required>
@@ -414,6 +415,7 @@ class SignUp extends Component {
                 <option value="No">No</option>
               </select>
             </div>
+
             <div>
               <label>University</label>
               <select
@@ -422,7 +424,9 @@ class SignUp extends Component {
                 onChange={this.handleUniversityChange}
                 required
               >
-                <option value>---Select Option---</option>
+                <option value>
+                  Choose...
+                </option>
                 {this.uniList(this.state)}
               </select>
             </div>
@@ -437,6 +441,8 @@ class SignUp extends Component {
                 required
               ></input>
             </div>
+
+
             <div>
               <label>Year In College</label>
               <select onChange={this.handleYearChange} required>
@@ -450,6 +456,8 @@ class SignUp extends Component {
                 <option value="5+">5+</option>
               </select>
             </div>
+
+
             <div>
               <label>Graduation Year</label>
               <input
@@ -462,6 +470,8 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
+
+
               <label>School Standing</label>
               <select onChange={this.handleSchoolStandingChange} required>
                 <option value="" disable selected>
