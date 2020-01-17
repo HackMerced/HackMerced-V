@@ -26,22 +26,22 @@ const attendeeSchema = new mongoose.Schema({
   firstName: {
     type: String,
     alias: "First Name",
-    required: [true, "Attendee's first name is required!"],
-    minlength: 3,
+    // required: [true, "Attendee's first name is required!"],
+    // minlength: 3,
     default: ""
   },
   lastName: {
     type: String,
     alias: "Last Name",
-    required: [true, "Attendee's last name is required!"],
-    minlength: 3,
+    // required: [true, "Attendee's last name is required!"],
+    // minlength: 3,
     default: ""
   },
   email: {
     type: String,
     alias: "Email Address",
     match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    required: [true, "Attendee's email is required!"],
+    // required: [true, "Attendee's email is required!"],
     lowercase: true,
     default: ""
   },
