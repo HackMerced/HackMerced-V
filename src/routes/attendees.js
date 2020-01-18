@@ -106,15 +106,13 @@ Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
  */
 
 router.post("/attendees", async (req, res) => {
-  Attendees.findOne({ email: req.body.myEmail }).then(user => {
+  Attendees.findOne({ email: req.body.email }).then(user => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
       Attendees.insertMany(req.body, (error, docs) => {
         if (error) {
           res.send(error);
-        }else{
-          res.send({secret: process.env.JWT_SECRET});
         }
       });
     }

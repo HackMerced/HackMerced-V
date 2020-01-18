@@ -55,20 +55,23 @@ const attendeeSchema = new mongoose.Schema({
     type: String,
     alias: "Phone Number",
     match: /^[+0-9\s]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
-    default: "+1 (234) 567-8901"
+    default: "+1 (234) 567-8901",
+    required: [true, "Attendee's phone number is required!"],
   },
   age: {
     type: Number,
     alias: "Age of Attendee",
     match: /^([0-9])(0)$/,
-    default: 0
+    default: 18,
+    required: [true, "Attendee's age is required!"],
   },
   gender: {
     type: String,
     alias: "Attendee's Gender",
     lowercase: true,
     default: "",
-    enum: ["male", "female", "other", ""]
+    enum: ["male", "female", "other", ""],
+    required: [true, "Attendee's gender is required!"],
   },
   ethnicity: {
     type: String,
@@ -83,17 +86,17 @@ const attendeeSchema = new mongoose.Schema({
       "white/caucasion",
       "prefer not to answer",
       "other",
-      ""
-    ]
+    ],
+    required: [true, "Attendee's ethnicity is required!"],
   },
   shirtSize: {
     type: String,
     alias: "Shirt Size",
     lowercase: true,
     enum: ["xs", "s", "m", "l", "xl", ""],
-    default: ""
+    default: "m",
+    required: [true, "Attendee's shirt size is required!"],
   },
-
   school: {
     type: Object,
     alias: "Attendee's Education Information",
@@ -103,46 +106,50 @@ const attendeeSchema = new mongoose.Schema({
       alias: "Name of the Educational Institution",
       lowercase: true,
       enum: universities,
-      default: ""
+      default: "",
+      required: [true, "Attendee's school name is required!"],
     },
     major: {
       type: String,
       alias: "major in university",
       lowercase: true,
-      default: ""
+      default: "undeclared",
+      required: [true, "Attendee's major is required!"],
     },
     year: {
       type: String,
       alias: "Year in Educational Institution",
       lowercase: true,
       enum: ["freshman", "sophomore", "junior", "senior", "five+"],
-      default: ""
+      default: "",
+      required: [true, "Attendee's current year in school is required!"],
     },
     schoolStanding: {
       type: String,
       alias: "type of education pursuing",
       lowercase: true,
       enum: ["undergraduate", "graduate", "post doctorate"],
-      default: ""
+      default: "undergraduate",
+      required: [true, "Attendee's school status is required!"],
     },
     graduationYear: {
       type: Number,
       alias: "year of graduation",
-      default: 2020
+      default: 2020,
+      required: [true, "Attendee's graduation year is required!"],
     }
   },
   dietaryRestrictions: {
     type: String,
     alias: "Attendee's Dietary Restrictions",
     lowercase: true,
-    default: ""
+    default: "",
   },
   specialNeeds: {
     type: String,
     alias: "Attendee's Special Needs like allergies",
-    default: "",
+    default: "N/A",
     lowercase: true,
-    default: ""
   },
   experience: {
     type: Object,
@@ -151,7 +158,7 @@ const attendeeSchema = new mongoose.Schema({
     firstHackathon: {
       type: Boolean,
       alias: "Is this their first hackathon",
-      default: [true, "First time at a hackathon"]
+      default: [true, "First time at a hackathon"],
     },
     numberOfPreviousHackathons: {
       type: Number,
@@ -184,13 +191,14 @@ const attendeeSchema = new mongoose.Schema({
       type: String,
       alias: "Link to Online Resume",
       lowercase: true,
-      default: ""
+      default: "",
+      required: [true, "Attendee's resume link is required!"],
     },
     linkedIn: {
       type: String,
       alias: "Attendee's LinkedIn Portfolio",
       lowercase: true,
-      default: ""
+      default: "",
     },
     gitHub: {
       type: String,
@@ -251,14 +259,16 @@ const attendeeSchema = new mongoose.Schema({
     type: Boolean,
     alias: "I have read and agree to the MLH Code of Conduct.",
     default: true,
-    enum: [true, false]
+    enum: [true, false],
+    required: [true, "Attendee's code of conduct agreement is required!"],
   },
   affiliationWithMLH: {
     type: Boolean,
     alias:
       "I further agree to the terms of both the MLH Contest Terms and Conditions and the MLH Privacy Policy.",
     default: true,
-    enum: [true, false]
+    enum: [true, false],
+    required: [true, "Attendee's affiliation with MLH agreement is required!"],
   }
 });
 

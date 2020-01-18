@@ -265,7 +265,7 @@ class SignUp extends Component {
     devpost,
     gitHub
   }) {
-    this.setState({
+    return {
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -284,17 +284,17 @@ class SignUp extends Component {
       dietaryRestrictions: dietaryRestrictions,
       specialNeeds: specialNeeds,
       experience: {
-        firstHackathon: firstHackathon,
+        firstHackathon: firstHackathon === "Yes" ? true : false,
         numberOfPreviousHackathons: 0,
         languages: [],
         resume: resume,
         linkedIn: linkedIn,
         gitHub: gitHub,
-        devpost: devpost,
+        devpost: devpost
       },
-      codeOfConduct: codeOfConduct,
-      affiliationWithMLH: affiliationWithMLH
-    });
+      codeOfConduct: codeOfConduct === "on" ? true : false,
+      affiliationWithMLH: affiliationWithMLH === "on" ? true : false,
+    };
   }
 
   handleSubmit = event => {
@@ -302,7 +302,9 @@ class SignUp extends Component {
 
     const user = this.createUser(this.state);
 
-    axios.post(`https://localhost:3852/api/attendees`, { user }).then(res => {
+    console.log("before posting to DB: ", user);
+
+    axios.post(`http://localhost:3852/api/attendees`, user).then(res => {
       console.log(res);
     });
   };
@@ -448,7 +450,6 @@ class SignUp extends Component {
               ></input>
             </div>
 
-
             <div>
               <label>Year In College</label>
               <select class = "yearincollege"onChange={this.handleYearChange} required>
@@ -463,7 +464,6 @@ class SignUp extends Component {
               </select>
             </div>
 
-
             <div>
               <label>Graduation Year</label>
               <input
@@ -476,8 +476,6 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-
-
               <label>School Standing</label>
               <select class="schoolstanding" onChange={this.handleSchoolStandingChange} required>
                 <option value="" disable selected>
