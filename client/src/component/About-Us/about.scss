@@ -14,7 +14,7 @@
 
   #about {
     color: white;
-    padding: 20% 10% 0 0;
+    padding: 15% 10% 0 0;
     display: grid;
     grid-template-areas:
       "header"
@@ -24,7 +24,7 @@
     overflow: hidden;
 
     #header {
-      font-size: 58px;
+      font-size: 45px;
       font-weight: 900;
       font-style: italic;
       text-align: right;
@@ -37,34 +37,37 @@
     }
 
     #what {
-      padding-bottom: 5%;
+      padding-bottom: 1%;
+      
 
       h3 {
-        font-size: 46px;
+        font-size: 35px;
         font-weight: 900;
         overflow: hidden;
-        padding-bottom: 1.5%
+        padding-bottom: 1%
       }
 
       p {
         overflow: hidden;
-        font-size: 25px;
+        font-size: 20px;
       }
     }
 
     #why {
-      padding-top: 2%;
+      padding-bottom: 1%;
+      
 
       h3 {
-        font-size: 46px;
+        font-size: 35px;
         font-weight: 900;
         overflow: hidden;
-        padding-bottom: 1.5%
+        padding-bottom: .5%
       }
 
       p {
         overflow: hidden;
-        font-size: 25px;
+        font-size: 20px;
+        padding-right: 5%;
       }
     }
   }

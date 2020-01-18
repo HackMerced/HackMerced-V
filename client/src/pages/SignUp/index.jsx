@@ -320,7 +320,7 @@ class SignUp extends Component {
         <div id="formID">
           <form onSubmit={this.handleSubmit}>
             <div>
-              <h1>Application</h1>
+              <h1 id="applications">Application</h1>
               <label>First Name</label>
               <input
                 required
@@ -387,7 +387,7 @@ class SignUp extends Component {
                   value="---Select Option---"
                   disabled={this.state.defaultDisabled ? true : null}
                 >
-                  ---Select Option---
+                  Choose...
                 </option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -409,7 +409,7 @@ class SignUp extends Component {
                   value="---Select Option---"
                   disabled={this.state.defaultDisabled ? true : null}
                 >
-                  ---Select Option---
+                  Choose...
                 </option>
                 <option value="American Indian or Alaskan Native">
                   American Indian or Alaskan Native
@@ -439,7 +439,7 @@ class SignUp extends Component {
                   value=""
                   disabled={this.state.defaultDisabled ? true : null}
                 >
-                  ---Select Option---
+                  Choose...
                 </option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -458,7 +458,7 @@ class SignUp extends Component {
                   value="---Select Option---"
                   disabled={this.state.defaultDisabled ? true : null}
                 >
-                  ---Select Option---
+                  Choose...
                 </option>
                 {this.uniList(this.state)}
               </select>
@@ -486,7 +486,7 @@ class SignUp extends Component {
                   value="---Select Option---"
                   disabled={this.state.defaultDisabled ? true : null}
                 >
-                  ---Select Option---
+                  Choose...
                 </option>
                 <option value="Freshman">Freshman</option>
                 <option value="Sophomore">Sophomore</option>
@@ -518,7 +518,7 @@ class SignUp extends Component {
                   value="---Select Option---"
                   disabled={this.state.defaultDisabled ? true : null}
                 >
-                  ---Select Option---
+                  Choose...
                 </option>
                 <option value="Undergraduate">Undergraduate</option>
                 <option value="Graduate">Graduate</option>
@@ -539,7 +539,7 @@ class SignUp extends Component {
                   d
                   selecte
                 >
-                  ---Select Option---
+                  Choose...
                 </option>
                 <option value="XS">XS</option>
                 <option value="S">S</option>
@@ -612,7 +612,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div id="code-of-conduct">
-              <p>
+              <p id="conduct">
                 I have read and agree to the
                 <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
                   MLH Code of Conduct
@@ -630,7 +630,7 @@ class SignUp extends Component {
               </div>
             </div>
             <div id="affiliation-with-mlh">
-              <p>
+              <p id="privacy">
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
                 post-event informational e-mails, and occasional messages about

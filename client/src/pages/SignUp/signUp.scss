@@ -38,11 +38,14 @@ label {
   position: relative;
 }
 
-h1 {
+#applications {
   font-size: 60px;
   font-family: 'Moon';
   font-weight: bolder;
   text-align: center;
+  overflow: hidden;
+  padding-bottom: 8%;
+  margin-top: 5%;
 }
 
 h5 {
@@ -51,10 +54,6 @@ h5 {
   left: 15px;
 }
 
-#firstYes {
-  font-size: medium;
-  padding-right: 10em;
-}
 
 select {
   border: 10px solid;
@@ -63,6 +62,7 @@ select {
   text-align: center;
   appearance: none;
   outline: 0;
+ 
 }
 
 ::placeholder {
@@ -220,7 +220,7 @@ label:after {
   margin-top:1.5%;
 }
 
-p {
+p#privacy, #conduct{
   font-size: 1.5em;
   margin: 0 0 1em;
   display: inline-block;
@@ -246,10 +246,14 @@ a {
       grid-area: left;
       width: 190%;
       height: 100%;
+      cursor: pointer;
     }
 
     span {
       grid-area: right;
+      overflow: hidden;
+      margin-bottom: 1.5%;
+      padding-bottom: .5%;
     }
   }
 }
