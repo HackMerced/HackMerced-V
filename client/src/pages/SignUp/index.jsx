@@ -71,7 +71,7 @@ class SignUp extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getCsvData();
   }
 
@@ -536,8 +536,6 @@ class SignUp extends Component {
                 <option
                   value="---Select Option---"
                   disabled={this.state.defaultDisabled ? true : null}
-                  d
-                  selecte
                 >
                   ---Select Option---
                 </option>
