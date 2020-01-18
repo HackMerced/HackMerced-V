@@ -238,7 +238,7 @@ a {
 }
 
 #code-of-conduct, #affiliation-with-mlh {
-  > div {
+  div {
     display: grid;
     grid-template-areas: "left right";
 
@@ -253,28 +253,27 @@ a {
   }
 }
 
-button {
-  background-color: #4CAF50;
-  border: none;
+#submit {
+  width: 270px;
+  background-color: #9a544c;
+  padding: 10px;
   color: white;
-  padding: 125px 32px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  transition-duration: 0.25s;
+  border: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+  margin: 3% 29%;
   overflow: hidden;
+
+  &:hover {
+    box-shadow: 10px 10px 10px black;
+    transform: scale(1.2, 1.2);
+    overflow: hidden;
+  }
 }
 
-button:hover{
-  box-shadow: 10px 20px 10px black;
-  transform: scale(1.2, 1.2);
-  overflow: hidden;
-}
 
-.submit {
-  overflow: hidden;
-  text-align: center;
-  margin-bottom: 5%;
-}

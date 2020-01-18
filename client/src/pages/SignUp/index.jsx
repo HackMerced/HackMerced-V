@@ -640,7 +640,7 @@ class SignUp extends Component {
                 <a href="https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions">
                   MLH Contest Terms and Conditions
                 </a>
-                and the <a href="https://mlh.io/privacy">MLH Privacy Policy</a>.
+                 and the <a href="https://mlh.io/privacy">MLH Privacy Policy</a>.
               </p>
               <div>
                 <input
@@ -652,7 +652,7 @@ class SignUp extends Component {
                 <span>I agree</span>
               </div>
             </div>
-            <div className="submit">
+            <div id="submit">
               <button className="popup" type="submit">
                 Submit!
               </button>
