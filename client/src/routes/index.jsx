@@ -1,9 +1,9 @@
 import Home from "../pages/Home";
-import NeonHeart from "../pages/NeonHeart";
-import CreateAccount from "../pages/createAccount";
+// import NeonHeart from "../pages/NeonHeart";
+// import CreateAccount from "../pages/createAccount";
 import SignUp from "../pages/SignUp";
-import Dashboard from "../pages/dash";
-import Login from "../pages/Login";
+// import Dashboard from "../pages/dash";
+// import Login from "../pages/Login";
 
 const routes = [
   {

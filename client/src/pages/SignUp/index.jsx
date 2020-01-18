@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Papa from "papaparse";
 
-import "./signUp.css";
+import "./signUp.scss";
 
 class SignUp extends Component {
   constructor(props) {
@@ -30,7 +30,8 @@ class SignUp extends Component {
       gitHub: "",
       codeOfConduct: true,
       affiliationWithMLH: true,
-      universities: []
+      universities: [],
+      defaultDisabled: true
     };
 
     this.getData = this.getData.bind(this);
@@ -103,7 +104,11 @@ class SignUp extends Component {
     let result = [];
 
     for (let i = 0; i < universities.length; i++) {
-      result.push(<option value={universities[i]}>{universities[i]}</option>);
+      result.push(
+        <option value={universities[i]} key={i}>
+          {universities[i]}
+        </option>
+      );
     }
 
     return result;
@@ -293,7 +298,7 @@ class SignUp extends Component {
         devpost: devpost
       },
       codeOfConduct: codeOfConduct === "on" ? true : false,
-      affiliationWithMLH: affiliationWithMLH === "on" ? true : false,
+      affiliationWithMLH: affiliationWithMLH === "on" ? true : false
     };
   }
 
@@ -372,8 +377,16 @@ class SignUp extends Component {
             </div>
             <div>
               <label>Gender</label>
-              <select class="gender" onChange={this.handleGenderChange} required>
-                <option value="" disabled selected>
+              <select
+                className="gender"
+                onChange={this.handleGenderChange}
+                required
+                defaultValue={"---Select Option---"}
+              >
+                <option
+                  value="---Select Option---"
+                  disabled={this.state.defaultDisabled ? true : null}
+                >
                   ---Select Option---
                 </option>
                 <option value="Male">Male</option>
@@ -384,12 +397,18 @@ class SignUp extends Component {
                 </option>
               </select>
             </div>
-
             <div>
               <label>Ethnicity</label>
-              <select class= "ethnicity"
-              onChange={this.handleEthnicityChange} required>
-                <option value="" disabled selected>
+              <select
+                className="ethnicity"
+                onChange={this.handleEthnicityChange}
+                required
+                defaultValue={"---Select Option---"}
+              >
+                <option
+                  value="---Select Option---"
+                  disabled={this.state.defaultDisabled ? true : null}
+                >
                   ---Select Option---
                 </option>
                 <option value="American Indian or Alaskan Native">
@@ -409,31 +428,37 @@ class SignUp extends Component {
                 <option value="Other">Other</option>
               </select>
             </div>
-
-
             <div>
-              <label>
-                Is this your first hackathon?
-              </label>
-              <select class="first-hackathon" onChange={this.handleFirstHackathonChange} required>
-              <option value="" disabled selected>
-                  Select
+              <label>Is this your first hackathon?</label>
+              <select
+                className="first-hackathon"
+                onChange={this.handleFirstHackathonChange}
+                required
+              >
+                <option
+                  value=""
+                  disabled={this.state.defaultDisabled ? true : null}
+                >
+                  ---Select Option---
                 </option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
             </div>
-
             <div>
               <label>University</label>
               <select
-                class="university"
+                className="university"
                 name="school"
                 onChange={this.handleUniversityChange}
                 required
+                defaultValue={"---Select Option---"}
               >
-                <option value>
-                  Choose..
+                <option
+                  value="---Select Option---"
+                  disabled={this.state.defaultDisabled ? true : null}
+                >
+                  ---Select Option---
                 </option>
                 {this.uniList(this.state)}
               </select>
@@ -449,12 +474,19 @@ class SignUp extends Component {
                 required
               ></input>
             </div>
-
             <div>
               <label>Year In College</label>
-              <select class = "yearincollege"onChange={this.handleYearChange} required>
-                <option value="" disabled selected>
-                  Select..
+              <select
+                className="yearincollege"
+                onChange={this.handleYearChange}
+                required
+                defaultValue={"---Select Option---"}
+              >
+                <option
+                  value="---Select Option---"
+                  disabled={this.state.defaultDisabled ? true : null}
+                >
+                  ---Select Option---
                 </option>
                 <option value="Freshman">Freshman</option>
                 <option value="Sophomore">Sophomore</option>
@@ -463,7 +495,6 @@ class SignUp extends Component {
                 <option value="5+">5+</option>
               </select>
             </div>
-
             <div>
               <label>Graduation Year</label>
               <input
@@ -477,23 +508,38 @@ class SignUp extends Component {
             </div>
             <div>
               <label>School Standing</label>
-              <select class="schoolstanding" onChange={this.handleSchoolStandingChange} required>
-                <option value="" disable selected>
-                  Select.. 
+              <select
+                className="schoolstanding"
+                onChange={this.handleSchoolStandingChange}
+                required
+                defaultValue={"---Select Option---"}
+              >
+                <option
+                  value="---Select Option---"
+                  disabled={this.state.defaultDisabled ? true : null}
+                >
+                  ---Select Option---
                 </option>
                 <option value="Undergraduate">Undergraduate</option>
                 <option value="Graduate">Graduate</option>
                 <option value="PostDoc">Post Doctorate</option>
               </select>
             </div>
-
-
             <div>
               <label>T-Shirt Size</label>
-              <select class="t-shirt"
-              onChange={this.handleShirtSizeChange} required>
-                <option value="" disabled selected>
-                  Select...
+              <select
+                className="t-shirt"
+                onChange={this.handleShirtSizeChange}
+                required
+                defaultValue={"---Select Option---"}
+              >
+                <option
+                  value="---Select Option---"
+                  disabled={this.state.defaultDisabled ? true : null}
+                  d
+                  selecte
+                >
+                  ---Select Option---
                 </option>
                 <option value="XS">XS</option>
                 <option value="S">S</option>
@@ -524,14 +570,13 @@ class SignUp extends Component {
                 required
               ></input>
             </div>
-
             <div>
-              <label>Resume (must upload a link to a public view)</label>
+              <label>Resume</label>
               <input
                 type="text"
                 name="resume"
                 ref="name"
-                placeholder="Link"
+                placeholder="Must upload a link that can be publicly viewed"
                 onChange={this.handleResumeChange}
                 required
               ></input>
@@ -566,30 +611,25 @@ class SignUp extends Component {
                 onChange={this.handleDevpostChange}
               ></input>
             </div>
-
-
-
-            <div id="mlh-conduct" >
+            <div id="code-of-conduct">
               <p>
-                I have read and agree to the {" "} 
+                I have read and agree to the
                 <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
-                   MLH Code of Conduct
-                   
-                </a>.
+                  MLH Code of Conduct
+                </a>
+                .
               </p>
-              <input
-                required
-                type="checkbox"
-                placeholder="I agree"
-                onChange={this.handleCodeOfConductChange}
-                
-              ></input>
-              <span>I agree</span>
+              <div>
+                <input
+                  required
+                  type="checkbox"
+                  placeholder="I agree"
+                  onChange={this.handleCodeOfConductChange}
+                ></input>
+                <span>I agree</span>
+              </div>
             </div>
-
-
-
-            <div>
+            <div id="affiliation-with-mlh">
               <p>
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
@@ -602,19 +642,20 @@ class SignUp extends Component {
                 </a>
                 and the <a href="https://mlh.io/privacy">MLH Privacy Policy</a>.
               </p>
-              <input
-                required
-                type="checkbox"
-                placeholder="Yes"
-                onChange={this.handleAffiliationWithMLHChange}
-              ></input>
-              <span>I agree</span>
+              <div>
+                <input
+                  required
+                  type="checkbox"
+                  placeholder="Yes"
+                  onChange={this.handleAffiliationWithMLHChange}
+                ></input>
+                <span>I agree</span>
+              </div>
             </div>
-            <div class="submit">
-            <button class="popup" 
-            type="submit">
-              Submit!
-            </button>
+            <div className="submit">
+              <button className="popup" type="submit">
+                Submit!
+              </button>
             </div>
           </form>
         </div>

@@ -1,0 +1,279 @@
+.App-sign-up {
+  color: magenta;
+  min-height: 92vh;
+}
+
+#body {
+  background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
+  color: white;
+  padding: 10%;
+  font-family: 'Moon', bold;
+}
+
+#formID {
+  border: white;
+  border-style: solid;
+  border-width: 10px;
+}
+
+label {
+  margin: 10%;
+  font-size: 30px;
+  font-weight: bolder;
+
+}
+
+:placeholder-shown {
+  font-size: 20px;
+  width: 80%;
+  text-align: left;
+}
+
+#firstYes {
+  font-size: medium;
+}
+
+#form {
+  margin: auto;
+  position: relative;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: 'Moon';
+  font-weight: bolder;
+  text-align: center;
+}
+
+h5 {
+  font-size: 20px;
+  position: relative;
+  left: 15px;
+}
+
+#firstYes {
+  font-size: medium;
+  padding-right: 10em;
+}
+
+select {
+  border: 10px solid;
+  width: 100%;
+  max-width: 50em;
+  text-align: center;
+  appearance: none;
+  outline: 0;
+}
+
+::placeholder {
+  color: black;
+  font-style: bold;
+}
+
+.first-hackathon{
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 10%;
+  cursor: pointer;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=number] {
+  width: 80%;
+  padding: 15px;
+  margin: 15px 0 22px 0;
+  display: inline-block;
+  background: rgb(204, 203, 203);
+  cursor: auto;
+  border-style: inset;
+  border-radius: 5px;
+  position: relative;
+  left: 10%;
+  overflow:hidden;
+  border-width: 10px;
+  border-color: black;
+  background: transparent;
+  text-align: left;
+}
+
+label:after {
+  content: " *";
+  color: pink;
+}
+
+.gender{
+  position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background:transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top:1.5%;
+}
+
+.gender:after {
+  content: "";
+  width: 0;
+  height: 0;
+  right: 16px;
+  top: 50%;
+  margin-top: -6px;
+  border-width: 6px 0 6px 6px;
+  border-style: solid;
+  background: pink;
+}
+
+.gender .dropdown {
+  background:transparent;
+}
+
+.ethnicity {
+  position: relative;
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  left: 8%;
+  margin-top:1.5%;
+}
+
+.university {
+  position: relative;
+  width: 50%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top:1.5%;
+}
+
+.yearincollege {
+  position: relative;
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5%;
+}
+
+.schoolstanding {
+  position: relative;
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5%;
+}
+
+.first-hackathon  {
+  position: relative;
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top:1.5%;
+}
+
+.t-shirt {
+  position: relative;
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top:1.5%;
+}
+
+p {
+  font-size: 1.5em;
+  margin: 0 0 1em;
+  display: inline-block;
+  margin-top: 2%;
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  position: relative;
+  left: 10%;
+  overflow: hidden;
+}
+
+a {
+  color: blue;
+}
+
+#code-of-conduct, #affiliation-with-mlh {
+  > div {
+    display: grid;
+    grid-template-areas: "left right";
+
+    input {
+      grid-area: left;
+    }
+
+    span {
+      grid-area: right;
+    }
+  }
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 125px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button:hover{
+  box-shadow: 10px 20px 10px black;
+  transform: scale(1.2, 1.2);
+  overflow: hidden;
+}
+
+.submit {
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 5%;
+}
