@@ -26,10 +26,11 @@ label {
 
 input {
   overflow: hidden;
-  
+  position: absolute;
+  left: -9999px;
 }
 
-/* Boxes*/
+/*Text on Boxes*/
 :placeholder-shown { 
   font-size: 20px;
   width: 80%;
@@ -37,10 +38,7 @@ input {
   
 }
 
-a {
-  color: blue;
-  
-}
+
 
 #firstYes {
   font-size: medium;
@@ -75,6 +73,9 @@ select {
   width: 100%;
   max-width: 50em;
   text-align: center;
+  appearance: none; 
+  outline: 0; 
+  background: green; 
  
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -82,22 +83,8 @@ select {
   font-style: bold;
 }
 
-span {
-  font-size: 2em;
-  display: inline-block;
-  text-align: center;
-  overflow: hidden;
-  padding-bottom: 10%;
-  margin-top: 2%;
-  margin-left: 10%;
-}
-p {
-  font-size: 2em;
-  margin: 0 0 1em;
-  display: inline-block;
-  position: relative;
-  left: 10%;
-}
+
+
 
 .first-hackathon{
   font-size: 30px;
@@ -137,36 +124,6 @@ label:after {
   content:" *";
     color: pink;
 }
-
-input[type=date]{
-  position: relative;
-  width: 45%;
-  color: black;
-  background: transparent;
-  width: 200px;
-  padding: 10px;
-  margin: 0 auto;
-  cursor: pointer;
-  border-width: 10px;
-  border-color: black;
-  right: 5%;
-  margin-top:2%;
-  display: inline-block;
-
-}
-
-
-input[type=date]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  display: none;
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    margin-top: -6px;
-    border-width: 6px 0 6px 6px;
-    border-style: solid;
-    border-color: transparent #fff;  
-  }
   
 
 .gender{
@@ -191,13 +148,18 @@ input[type=date]::-webkit-inner-spin-button {
   content: "";
   width: 0;
   height: 0;
-  position: absolute;
+ 
   right: 16px;
   top: 50%;
   margin-top: -6px;
   border-width: 6px 0 6px 6px;
   border-style: solid;
-  border-color: transparent #fff;    
+  background: pink;  
+   
+}
+
+.gender .dropdown {
+  background:transparent; 
 }
 
 .ethnicity {
@@ -314,4 +276,69 @@ input[type=date]::-webkit-inner-spin-button {
   margin-top:1.5%;
 }
 
+p {
+  font-size: 1.5em;
+  margin: 0 0 1em;
+  display: inline-block;
+  
+  margin-top: 2%;
+  
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  position: relative;
+  left: 10%;
+  overflow: hidden;
+}
 
+/*Code of Conduct Link */
+a {
+  color: blue;
+  
+}
+
+
+#mlh-conduct{
+  display: grid;
+  grid-template-areas: "left right";
+ 
+}
+
+input[type=checkbox]{
+  grid-area: right;
+ 
+}
+
+/*I agree style*/
+span-grid {
+  grid-area: left;
+}
+
+
+
+/*button for submit*/
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 125px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button:hover{
+  box-shadow: 10px 20px 10px black;
+  transform: scale(1.2, 1.2);
+  overflow: hidden;
+}
+
+.submit {
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 5%;
+}

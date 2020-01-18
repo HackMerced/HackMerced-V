@@ -533,7 +533,7 @@ class SignUp extends Component {
                 type="text"
                 name="resume"
                 ref="name"
-                placeholder=""
+                placeholder="Link"
                 onChange={this.handleResumeChange}
                 required
               ></input>
@@ -571,22 +571,26 @@ class SignUp extends Component {
 
 
 
-            <div>
+            <div id="mlh-conduct" >
               <p>
-                I have read and agree to the{" "}
+                I have read and agree to the {" "} 
                 <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
-                  MLH Code of Conduct
-                </a>
-                .
+                   MLH Code of Conduct
+                   
+                </a>.
               </p>
               <input
                 required
                 type="checkbox"
                 placeholder="I agree"
                 onChange={this.handleCodeOfConductChange}
+                
               ></input>
               <span>I agree</span>
             </div>
+
+
+
             <div>
               <p>
                 I authorize you to share my application/registration information
@@ -608,9 +612,12 @@ class SignUp extends Component {
               ></input>
               <span>I agree</span>
             </div>
-            <button class="popup" type="submit">
+            <div class="submit">
+            <button class="popup" 
+            type="submit">
               Submit!
             </button>
+            </div>
           </form>
         </div>
       </section>
