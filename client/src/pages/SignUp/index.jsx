@@ -370,7 +370,7 @@ class SignUp extends Component {
             </div>
             <div>
               <label>Gender</label>
-              <select onChange={this.handleGenderChange} required>
+              <select class="gender" onChange={this.handleGenderChange} required>
                 <option value="" disabled selected>
                   ---Select Option---
                 </option>
@@ -385,7 +385,8 @@ class SignUp extends Component {
 
             <div>
               <label>Ethnicity</label>
-              <select onChange={this.handleEthnicityChange} required>
+              <select class= "ethnicity"
+              onChange={this.handleEthnicityChange} required>
                 <option value="" disabled selected>
                   ---Select Option---
                 </option>
@@ -406,11 +407,16 @@ class SignUp extends Component {
                 <option value="Other">Other</option>
               </select>
             </div>
+
+
             <div>
-              <label class="first-hackathon">
+              <label>
                 Is this your first hackathon?
               </label>
-              <select id="" onChange={this.handleFirstHackathonChange} required>
+              <select class="first-hackathon" onChange={this.handleFirstHackathonChange} required>
+              <option value="" disabled selected>
+                  Select
+                </option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
@@ -419,13 +425,13 @@ class SignUp extends Component {
             <div>
               <label>University</label>
               <select
-                class="form control"
+                class="university"
                 name="school"
                 onChange={this.handleUniversityChange}
                 required
               >
                 <option value>
-                  Choose...
+                  Choose..
                 </option>
                 {this.uniList(this.state)}
               </select>
@@ -445,9 +451,9 @@ class SignUp extends Component {
 
             <div>
               <label>Year In College</label>
-              <select onChange={this.handleYearChange} required>
+              <select class = "yearincollege"onChange={this.handleYearChange} required>
                 <option value="" disabled selected>
-                  ---Select Option---
+                  Select..
                 </option>
                 <option value="Freshman">Freshman</option>
                 <option value="Sophomore">Sophomore</option>
@@ -473,20 +479,23 @@ class SignUp extends Component {
 
 
               <label>School Standing</label>
-              <select onChange={this.handleSchoolStandingChange} required>
+              <select class="schoolstanding" onChange={this.handleSchoolStandingChange} required>
                 <option value="" disable selected>
-                  ---Select Option---
+                  Select.. 
                 </option>
                 <option value="Undergraduate">Undergraduate</option>
                 <option value="Graduate">Graduate</option>
                 <option value="PostDoc">Post Doctorate</option>
               </select>
             </div>
+
+
             <div>
               <label>T-Shirt Size</label>
-              <select onChange={this.handleShirtSizeChange} required>
+              <select class="t-shirt"
+              onChange={this.handleShirtSizeChange} required>
                 <option value="" disabled selected>
-                  ---Select Option---
+                  Select...
                 </option>
                 <option value="XS">XS</option>
                 <option value="S">S</option>
@@ -517,6 +526,7 @@ class SignUp extends Component {
                 required
               ></input>
             </div>
+
             <div>
               <label>Resume (must upload a link to a public view)</label>
               <input
@@ -558,6 +568,9 @@ class SignUp extends Component {
                 onChange={this.handleDevpostChange}
               ></input>
             </div>
+
+
+
             <div>
               <p>
                 I have read and agree to the{" "}
@@ -569,22 +582,22 @@ class SignUp extends Component {
               <input
                 required
                 type="checkbox"
-                placeholder="Yes"
+                placeholder="I agree"
                 onChange={this.handleCodeOfConductChange}
               ></input>
-              <span>Yes</span>
+              <span>I agree</span>
             </div>
             <div>
               <p>
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
                 post-event informational e-mails, and occasional messages about
-                hackathons in-line with the{" "}
+                hackathons in-line with the
                 <a href="https://mlh.io/privacy">MLH Privacy Policy</a>. I
-                further agree to the terms of both the{" "}
+                further agree to the terms of both the
                 <a href="https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions">
                   MLH Contest Terms and Conditions
-                </a>{" "}
+                </a>
                 and the <a href="https://mlh.io/privacy">MLH Privacy Policy</a>.
               </p>
               <input
@@ -593,7 +606,7 @@ class SignUp extends Component {
                 placeholder="Yes"
                 onChange={this.handleAffiliationWithMLHChange}
               ></input>
-              <span>Yes</span>
+              <span>I agree</span>
             </div>
             <button class="popup" type="submit">
               Submit!

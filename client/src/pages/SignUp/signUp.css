@@ -21,11 +21,12 @@ label {
   margin: 10%;
   font-size: 30px;
   font-weight: bolder;
- 
+  
 }
 
 input {
   overflow: hidden;
+  
 }
 
 /* Boxes*/
@@ -33,12 +34,12 @@ input {
   font-size: 20px;
   width: 80%;
   text-align: left;
+  
 }
 
 a {
-  color: rgb(0, 100, 200);
-  position: relative;
-  left: 10%;
+  color: blue;
+  
 }
 
 #firstYes {
@@ -74,27 +75,28 @@ select {
   width: 100%;
   max-width: 50em;
   text-align: center;
+ 
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  font-style: bold;
 }
 
 span {
   font-size: 2em;
   display: inline-block;
   text-align: center;
-  box-sizing: inherit;
+  overflow: hidden;
+  padding-bottom: 10%;
+  margin-top: 2%;
+  margin-left: 10%;
 }
 p {
   font-size: 2em;
   margin: 0 0 1em;
   display: inline-block;
-  
-}
-
-#firstYes{
-  border: 1px solid #888;
-  display: inline-block;
   position: relative;
-  right: 15%;
-  cursor: pointer;
+  left: 10%;
 }
 
 .first-hackathon{
@@ -105,15 +107,14 @@ p {
   
 }
 
-button:hover {
-  opacity:1;
-}
+
 
 /*Every input detailed name*/
 
 input[type=text],  
 input[type=email],
-input[type=url] {
+input[type=url],
+input[type=number] {
   width: 80%;
   padding: 15px;
   margin: 15px 0 22px 0;
@@ -124,6 +125,12 @@ input[type=url] {
   border-radius: 5px;
   position: relative;
   left: 10%;
+  overflow:hidden;
+  border-width: 10px;
+  border-color: black;
+  background: transparent;
+  text-align: left;
+  
 }
 
 label:after {
@@ -268,3 +275,43 @@ input[type=date]::-webkit-inner-spin-button {
   
   margin-top:1.5%;
 }
+
+.first-hackathon  {
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* Styles */
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  /* Font settings */
+  font-weight: bold;
+
+  
+  margin-top:1.5%;
+}
+
+.t-shirt {
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* Styles */
+  background:transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  /* Font settings */
+  font-weight: bold;
+
+  
+  margin-top:1.5%;
+}
+
+
