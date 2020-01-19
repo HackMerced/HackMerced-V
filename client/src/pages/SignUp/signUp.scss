@@ -62,7 +62,7 @@ select {
   text-align: center;
   appearance: none;
   outline: 0;
- 
+
 }
 
 ::placeholder {
@@ -240,12 +240,10 @@ a {
 #code-of-conduct, #affiliation-with-mlh {
   div {
     display: grid;
-    grid-template-areas: "left right";
+    grid-template-areas: ". . . . . . left right . . . . . .";
 
     input {
       grid-area: left;
-      width: 190%;
-      height: 100%;
       cursor: pointer;
     }
 
