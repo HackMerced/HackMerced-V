@@ -312,6 +312,8 @@ class SignUp extends Component {
     axios.post(`http://localhost:3852/api/attendees`, user).then(res => {
       console.log(res);
     });
+
+    window.location.replace("http://hackmerced.io");
   };
 
   render() {
