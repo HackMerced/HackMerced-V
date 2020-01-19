@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; //Links Library from React Router
+import { Link } from "react-router-dom";
 
 import "./navigation-bar.scss";
 
@@ -17,13 +17,13 @@ class NavigationBar extends React.Component {
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
-              to="#schedule"
+              to="/#schedule"
               title="HackMerced Schedule"
             >
               Schedule
             </Link>
           </button>
-          <button className="navigation btn btn-orange btn-border-o">
+          {/* <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
               to="#faq"
@@ -31,16 +31,16 @@ class NavigationBar extends React.Component {
             >
               FAQ
             </Link>
-          </button>
+          </button> */}
           <button className="navigation btn btn-orange btn-border-o">
-            <Link className="link" to="#about" title="About Us!">
+            <Link className="link" to="/#about" title="About Us!">
               About Us
             </Link>
           </button>
           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
-              to="#sponsors"
+              to="/#sponsors"
               title="Our Sponsors <3"
             >
               Sponsors

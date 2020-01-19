@@ -95,7 +95,8 @@ $btn-colors: (
 
 .btn-border-o {
 	background-color: transparent;
-  color: #B8B8B8;
+	color: #B8B8B8;
+	overflow: hidden;
 
 	&:before,
 	&:after {
