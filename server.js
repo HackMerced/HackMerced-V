@@ -50,7 +50,7 @@ mongoose.connection.on("connected", function() {
 db().then(async () => {
   mongoose.connection.on("error", function(err) {
     console.log(
-      error("Mongoose default connection has occured " + err + " error")
+      error("Mongoose default connection has occurred " + err + " error")
     );
   });
 

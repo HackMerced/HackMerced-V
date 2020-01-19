@@ -1,0 +1,73 @@
+#FAQ {
+  background-color: #342e40;
+
+  #FAQ-container {
+    color: white;
+    padding: 4rem;
+
+    #FAQ-Title {
+      margin-right: 10%;
+      text-transform: uppercase;
+      font-weight: 900;
+      overflow: hidden;
+    }
+
+    #faq-layout {
+      margin-top: 2%;
+      display: grid;
+      grid-template-columns: 30% 70%;
+      grid-template-areas: "accordions lamp";
+
+      .answers {
+        overflow: hidden;
+      }
+
+      .circle {
+        border: 8px solid #fff;
+        border-radius: 50%;
+        width: 20px;
+        height:20px;
+        z-index: 86;
+      }
+
+      #accordions {
+        grid-area: accordions;
+      }
+
+      #lamp {
+        grid-area: lamp;
+      }
+    }
+  }
+}
+
+#prompt {
+  #question {
+    font-size: 1.75rem;
+    padding: 1.3rem;
+    margin: 0;
+    
+    .circle {
+      border: 8px solid #fff;
+        border-radius: 50%;
+        width: 20px;
+        height:20px;
+        z-index: 86;
+    }
+  }
+
+  #question {
+    h3 {
+      size: 20px;
+      overflow: hidden;
+    }
+  }
+
+  #answer {
+    size: 10px;
+
+    p {
+      overflow: hidden;
+    }
+  }
+}

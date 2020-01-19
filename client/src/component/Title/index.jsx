@@ -1,26 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import "./Title.css";
-import polaroid from "../../assets/Images/polaroid.png";
+import "./title.scss";
 
 class Title extends React.Component {
   render() {
     return (
-      <article className="App-title" id="Title">
-        <section className="title-title">
-          {/* Headers */}
-          <h2>HACK'M</h2>
-          <h4>December 7, 2019</h4>
-          <div id="js-show-modal" class="launch-button">
-            <a href="https://localhackday.mlh.io/build/locations/2418">
-              Sign Up Here
-              <div class="launch-button__glare"></div>
-            </a>
+      <div id="title">
+        <section id="spacer"></section>
+        <section id="content" >
+          <div>
+            <h1>HackMerced V</h1>
+            <h3>February 28th - March 1st</h3>
+            <button id="register">
+              <div id="button">
+                <div id="container">
+                  <Link to="/signUp" id="btn">
+                    Register
+                  </Link>
+                </div>
+              </div>
+            </button>
           </div>
-          {/* popup button trigger */}
         </section>
-        <img id="title-image" src={polaroid} alt="Italian Trulli"></img>
-      </article>
+      </div>
     );
   }
 }
