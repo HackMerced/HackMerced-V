@@ -20,11 +20,11 @@ const termination = chalk.bold.magenta;
 
 if (process.env.NODE_ENV === "development") {
   const DB_URI = process.env.MONGO_URI_TESTS;
-  app.use(cors());
 } else {
   const DB_URI = process.env.MONGO_URI_HACKMERCED;
 }
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan("tiny"));

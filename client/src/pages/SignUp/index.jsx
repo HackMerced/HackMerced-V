@@ -309,7 +309,7 @@ class SignUp extends Component {
 
     console.log("before posting to DB: ", user);
 
-    axios.post(`http://localhost:3852/api/attendees`, user).then(res => {
+    axios.post(`/api/attendees`, user).then(res => {
       console.log(res);
     });
 
@@ -557,7 +557,6 @@ class SignUp extends Component {
                 ref="name"
                 placeholder="No meat, no animal produce, or N/A"
                 onChange={this.handleDietaryRestrictionChange}
-                required
               ></input>
             </div>
             <div>
@@ -568,7 +567,6 @@ class SignUp extends Component {
                 ref="name"
                 placeholder="Grass...or N/A"
                 onChange={this.handleSpecialNeedsChange}
-                required
               ></input>
             </div>
             <div>
