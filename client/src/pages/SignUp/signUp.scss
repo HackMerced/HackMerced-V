@@ -271,8 +271,12 @@ a {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 3% 29%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
   overflow: hidden;
+  margin-bottom: 5%;
+  margin-top: 5%;
 
   &:hover {
     box-shadow: 10px 10px 10px black;
@@ -280,5 +284,7 @@ a {
     overflow: hidden;
   }
 }
+
+
 
 
