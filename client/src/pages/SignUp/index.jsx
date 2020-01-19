@@ -309,7 +309,7 @@ class SignUp extends Component {
 
     console.log("before posting to DB: ", user);
 
-    axios.post(`/api/attendees`, user).then(res => {
+    axios.post("http://hackmerced.io/api/attendees", user).then(res => {
       console.log(res);
     });
 
