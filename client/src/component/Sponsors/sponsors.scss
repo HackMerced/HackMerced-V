@@ -18,15 +18,15 @@
     grid:
       "platinum" 33%
       "silver" 33%
-      "bronze" 300px;
+      "bronze" 40%;
   }
 
   #platinum {
     grid-area: platinum;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 18% 25% 25% 25%;
     grid-template-rows: auto;
-    grid-gap: 2%;
+    grid-gap: 5%;
     grid-template-areas: ". asucm mlh .";
     overflow: hidden;
   }
@@ -34,22 +34,25 @@
   #silver {
     grid-area: silver;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 22% 25% 25% 25%;
     grid-template-rows: auto;
-    grid-gap: 2%;
+    grid-gap: 3%;
     grid-template-areas: ". digitalocean roche .";
   }
 
   #bronze {
     grid-area: bronze;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 50% 50%;
-    grid-gap: 2%;
+    grid-template-columns: 25% 23% 23%;
+    grid-template-rows: 55% 50%;
+    grid-gap: 5%;
     grid-template-areas:
-      "password makeschool stickeryou"
-      "sketch balsamiq jetbrains";
+      "jetbrains makeschool stickeryou"
+      "sketch balsamiq password";
     overflow: hidden;
+    text-align: center;
+    position: relative;
+    left: 10%;
   }
 
   #asucm {
@@ -69,49 +72,67 @@
   #roche {
     grid-area: roche;
     overflow: hidden;
-    padding-top: 25%;
+    
   }
 
-  #password {
-    padding-top: 10%;
-    grid-area: password;
+
+  #jetbrains {
+    grid-area: jetbrains;
+    width: 70%;
     overflow: hidden;
+    padding: 5% 0% 0% 0%;
+    position: relative;
+    left: 20%;
+    top: 15%;
   }
+  
 
   #makeschool {
     grid-area: makeschool;
     overflow: hidden;
+    width: 60%;
     position: relative;
-    bottom: 30%;
+    margin: 10% 25% 0%;
+    padding: 0% 0% 50%;
   }
 
   #stickeryou {
     grid-area: stickeryou;
-    width: 50%;
+    width: 60%;
     overflow: hidden;
-
+    position: relative;
+    left: 20%;
+    top: 20%;
   }
 
   #sketch {
     grid-area: sketch;
     overflow: hidden;
+    position: relative;
+    right: 4%;
   }
 
   #balsamiq {
     grid-area: balsamiq;
     overflow: hidden;
     width: 90%;
+    bottom: 20%;
     position: relative;
-    top: 10px;
-
+    left: 10%;
+    
   }
 
-  #jetbrains {
-    grid-area: jetbrains;
-    width: 40%;
-    padding-left: 10%;
+  #password {
+    padding: 10% 0% 0% 0%;
+    grid-area: password;
     overflow: hidden;
+    width: 80%;
+    position: relative;
+    left: 10%;
+   
   }
+
+ 
 
  
 }

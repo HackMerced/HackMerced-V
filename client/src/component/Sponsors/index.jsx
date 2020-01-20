@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./sponsors.scss";
-import ASUCM from "../../assets/Images/asucm_logo.png";
+import ASUCM from "../../assets/Images/asucm.png";
 import PASSWORD from "../../assets/Images/1password.png";
 import DIGITALOCEAN from "../../assets/Images/digitalocean.png";
 import SKETCH from "../../assets/Images/Sketch.png";
@@ -9,7 +9,7 @@ import ROCHE from "../../assets/Images/roche.png";
 import BALSAMIQ from "../../assets/Images/balsamiq.png";
 import STICKERYOU from "../../assets/Images/stickeryoulogo.png";
 import JETBRAINS from "../../assets/Images/jetbrains.png";
-import MAKESCHOOL from "../../assets/Images/makeschool_logo.png";
+import MAKESCHOOL from "../../assets/Images/makeschool.png";
 import MLH from "../../assets/Images/mlh-logo-white.png";
 
 class Sponsors extends React.Component {
@@ -20,48 +20,48 @@ class Sponsors extends React.Component {
         "asucm",
         "digitalocean",
         "roche",
-        "password",
+        "jetbrains",
         "makeschool",
         "stickeryou",
         "sketch",
         "balsamiq",
-        "jetbrains",
+        "password",
         "mlh"
       ],
       image: [
         ASUCM,
         DIGITALOCEAN,
         ROCHE,
-        PASSWORD,
+        JETBRAINS,
         MAKESCHOOL,
         STICKERYOU,
         SKETCH,
         BALSAMIQ,
-        JETBRAINS,
+        PASSWORD,
         MLH
       ],
       alt: [
         "ASUCM",
         "DigitalOcean",
         "Roche",
-        "1Password",
+        "JetBrains",
         "MakeSchool",
         "StickerYou",
         "Sketch",
         "Balsamiq",
-        "JetBrains",
+        "1Password",
         "MLH"
       ],
       url: [
         "https://asucm.ucmerced.edu/",
         "https://digitalocean.com/",
         "https://roche.com/",
-        "https://1password.com/",
+        "https://www.jetbrains.com/",
         "https://www.makeschool.com/",
         "https://www.stickeryou.com/",
         "https://www.sketch.com/",
         "https://balsamiq.com/",
-        "https://www.jetbrains.com/",
+        "https://1password.com/",
         "https://mlh.io/"
       ],
       tier: [
