@@ -3,14 +3,14 @@ import React from "react";
 import "./sponsors.scss";
 import ASUCM from "../../assets/Images/asucm_logo.png";
 import PASSWORD from "../../assets/Images/1password.png";
-import DIGITALOCEAN from "../../assets/Images/DigitalOcean_logo.svg.png";
+import DIGITALOCEAN from "../../assets/Images/digitalocean.png";
 import SKETCH from "../../assets/Images/Sketch.png";
-import ROCHE from "../../assets/Images/Roche_Logo.svg";
-import BALSAMIQ from "../../assets/Images/balsamiq-logo-noborder-print.png";
-import STICKERYOU from "../../assets/Images/stickeryou_logo.png";
+import ROCHE from "../../assets/Images/roche.png";
+import BALSAMIQ from "../../assets/Images/balsamiq.png";
+import STICKERYOU from "../../assets/Images/stickeryoulogo.png";
 import JETBRAINS from "../../assets/Images/jetbrains.png";
 import MAKESCHOOL from "../../assets/Images/makeschool_logo.png";
-import MLH from "../../assets/Images/mlh-logo-color.png";
+import MLH from "../../assets/Images/mlh-logo-white.png";
 
 class Sponsors extends React.Component {
   constructor(props) {
