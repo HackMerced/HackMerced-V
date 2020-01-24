@@ -129,7 +129,7 @@ $btn-colors: (
 	}
 
 	
-	/* Nav bar bug 01/24/2020 ISSUE #7
+	
 	&:hover {
 
 		&:before {
@@ -140,7 +140,6 @@ $btn-colors: (
 			height: 100%;
 		}
 	}
-	*/
 }
 
 @each $name,$hex in $btn-colors {
