@@ -7,46 +7,58 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <header id="navigation-bar">
-        <Link to="https://mlh.io/seasons/na-2020/events" id="banner">
-          <img
-            src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
-            alt="Major League Hacking 2020 Hackathon Season"
-          />
-        </Link>
+        <div>
+          <a href="https://mlh.io/seasons/na-2020/events" id="banner">
+            <img
+              src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
+              alt="Major League Hacking 2020 Hackathon Season"
+            />
+          </a>
+        </div>
         <section id="navigation-items">
-          <button className="navigation btn btn-orange btn-border-o">
-            <Link
-              className="link"
-              to="/#schedule"
-              title="HackMerced Schedule"
+          <a
+                className="navigation"
+                href="#sponsors"
+                alt="Our Sponsors <3"
+              >
+              <button className="link btn btn-orange btn-border-o">
+                    Sponsors
+              </button>
+          </a>
+
+          {/* 
+            <a
+                className="navigation"
+                href="#faq"
+                alt=Frequently Asked Questions"
+              >
+              <button className="link btn btn-orange btn-border-o">
+                    FAQ
+              </button>
+          </a>
+           */}
+           <a
+              className="navigation"
+              href="#schedule"
+              alt="HackMerced Schedule"
             >
-              Schedule
-            </Link>
-          </button>
-          {/* <button className="navigation btn btn-orange btn-border-o">
-            <Link
-              className="link"
-              to="#faq"
-              title="Frequently Asked Questions"
+            <button className="link btn btn-orange btn-border-o">
+                Schedule
+            </button>
+          </a>
+
+          <a 
+              className="navigation" 
+              href="/#about" 
+              alt="About Us!"
             >
-              FAQ
-            </Link>
-          </button> */}
-          <button className="navigation btn btn-orange btn-border-o">
-            <Link className="link" to="/#about" title="About Us!">
-              About Us
-            </Link>
-          </button>
-          <button className="navigation btn btn-orange btn-border-o">
-            <Link
-              className="link"
-              to="/#sponsors"
-              title="Our Sponsors <3"
-            >
-              Sponsors
-            </Link>
-          </button>
-          {/* <button className="navigation btn btn-orange btn-border-o">
+            <button className="link btn btn-orange btn-border-o">
+                About Us
+            </button>
+          </a>
+
+          {/*
+           <button className="navigation btn btn-orange btn-border-o">
             <Link
               className="link"
               to="login"
@@ -54,7 +66,9 @@ class NavigationBar extends React.Component {
             >
               Login
             </Link>
-          </button> */}
+          </button> 
+        */}
+
         </section>
       </header>
     );
