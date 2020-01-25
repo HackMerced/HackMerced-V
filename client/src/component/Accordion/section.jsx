@@ -24,7 +24,7 @@ class AccordionSection extends Component {
       <div key={label}>
         <div onClick={onClick} style={{ cursor: "pointer" }}>
           <div style={{ fontSize: "20px" }}>
-            <div className="line">
+            <div className="line noselect">
               {!isOpen && <span className="bullet">&#9679;</span>}
               {isOpen && <span className="bullet">&#9675;</span>} {label}
             </div>
