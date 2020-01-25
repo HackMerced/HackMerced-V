@@ -7,12 +7,14 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <header id="navigation-bar">
+      {/*
         <Link to="https://mlh.io/seasons/na-2020/events" id="banner">
           <img
             src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
             alt="Major League Hacking 2020 Hackathon Season"
           />
         </Link>
+      */}
         <section id="navigation-items">
           <button className="navigation btn btn-orange btn-border-o">
             <Link

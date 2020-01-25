@@ -60,7 +60,7 @@ class Faqs extends Component {
             <Accordion id="accordions" allowMultipleOpen>
               {this.createQNA(this.faq)}
             </Accordion>
-            <img id="lamp" src={LAMP_POST} width="100px" alt="lamp post" />
+            {/* <img id="lamp" src={LAMP_POST} width="100px" alt="lamp post" /> */}
             
 
             
@@ -77,7 +77,8 @@ class Faqs extends Component {
                   style={{
                     textDecoration: "none",
                     color: "#A8B6D6",
-                    fontWeight: "bold"
+                    fontWeight: "bold",
+                    padding: "0px 0px 0px 4px",
                   }}
                 >
                   general@hackmerced.com

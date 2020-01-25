@@ -1,6 +1,6 @@
 import React from "react";
 
-// import FAQ from "../../component/FAQ";
+import FAQ from "../../component/FAQ";
 import About from "../../component/About-Us";
 import Title from "../../component/Title";
 import Schedule from "../../component/Schedule";
@@ -12,10 +12,10 @@ class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <FAQ />
         <Title />
         <About />
         <Schedule />
-        {/* <FAQ /> */}
         <Sponsors />
       </React.Fragment>
     );
