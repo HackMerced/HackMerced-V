@@ -31,7 +31,6 @@ $btn-colors: (
     color: white;
     font-weight: bold;
     text-decoration: none; /* removes underscores of the links */
-
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
       display: none;
@@ -98,6 +97,12 @@ $btn-colors: (
 	color: #B8B8B8;
 	overflow: hidden;
 
+	button.link {
+		background-color: transparent;
+		border-color: rgba(0,0,0,0);
+		padding: 5px;
+	}
+
 	&:before,
 	&:after {
 		content: '';
@@ -138,17 +143,15 @@ $btn-colors: (
 	}
 
 	@each $name,$hex in $btn-colors {
+		&.btn-#{$name}:hover{
+			color: #{$hex};
+		}
 
 		&.btn-#{$name} {
-
-			&:before,
-			&:after {
+			&:hover > button.link {
 				border-color: #{$hex};
-			}
-
-			&:hover > a {
-				color: #{$hex};
 			}
 		}
 	}
 }
+
