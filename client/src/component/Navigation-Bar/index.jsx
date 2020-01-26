@@ -16,16 +16,11 @@ class NavigationBar extends React.Component {
           </a>
         </div>
         <section id="navigation-items">
-          <a
-                className="navigation"
-                href="#sponsors"
-                alt="Our Sponsors <3"
-              >
-              <button className="link btn btn-orange btn-border-o">
-                    Sponsors
-              </button>
+          <a className="navigation btn btn-orange btn-border-o" href="#sponsors" alt="Our Sponsors <3">
+            <button className="link">
+              Sponsors
+            </button>
           </a>
-
           {/* 
             <a
                 className="navigation"
@@ -37,26 +32,16 @@ class NavigationBar extends React.Component {
               </button>
           </a>
            */}
-           <a
-              className="navigation"
-              href="#schedule"
-              alt="HackMerced Schedule"
-            >
-            <button className="link btn btn-orange btn-border-o">
-                Schedule
+          <a className="navigation btn btn-orange btn-border-o" href="#schedule" alt="HackMerced Schedule">
+            <button className="link">
+              Schedule
             </button>
           </a>
-
-          <a 
-              className="navigation" 
-              href="/#about" 
-              alt="About Us!"
-            >
-            <button className="link btn btn-orange btn-border-o">
-                About Us
+          <a className="navigation btn btn-orange btn-border-o" href="/#about" alt="About Us!">
+            <button className="link">
+              About Us
             </button>
           </a>
-
           {/*
            <button className="navigation btn btn-orange btn-border-o">
             <Link
@@ -68,7 +53,6 @@ class NavigationBar extends React.Component {
             </Link>
           </button> 
         */}
-
         </section>
       </header>
     );

@@ -92,13 +92,16 @@ $btn-colors: (
 	@extend .animate;
 }
 
-
 .btn-border-o {
-
-	//I honestly have no idea what this code is supposed to be doing... @adarian
 	background-color: transparent;
 	color: #B8B8B8;
 	overflow: hidden;
+
+	button.link {
+		background-color: transparent;
+		border-color: rgba(0,0,0,0);
+		padding: 5px;
+	}
 
 	&:before,
 	&:after {
@@ -128,8 +131,6 @@ $btn-colors: (
 		left: -1px;
 	}
 
-	
-	
 	&:hover {
 
 		&:before {
@@ -140,19 +141,17 @@ $btn-colors: (
 			height: 100%;
 		}
 	}
-}
 
-@each $name,$hex in $btn-colors {
-		.btn-#{$name}:hover{
+	@each $name,$hex in $btn-colors {
+		&.btn-#{$name}:hover{
 			color: #{$hex};
 		}
 
-		/*
-		//@adarian
-		.btn-#{$name} {
-			&:hover > a {
-				color: #{$hex};
+		&.btn-#{$name} {
+			&:hover > button.link {
+				border-color: #{$hex};
 			}
 		}
-		*/
 	}
+}
+
