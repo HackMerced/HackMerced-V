@@ -26,11 +26,11 @@ class AccordionSection extends Component {
           <div style={{ fontSize: "20px" }}>
             <div className="line noselect">
               {!isOpen && <span className="bullet">&#9679;</span>}
-              {isOpen && <span className="bullet">&#9675;</span>} {label}
+              {isOpen && <span className="bullet">&#9679;</span>} {label} {/* &#9679; */}
             </div>
           </div>
         </div>
-        {isOpen && <div style={{ padding: "0px 0px 0px 30px" }}>{this.props.children}</div>}
+        {isOpen && <div className="line2">{this.props.children}</div>}
       </div>
     );
   }
