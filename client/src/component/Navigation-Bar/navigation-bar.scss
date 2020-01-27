@@ -100,6 +100,8 @@ $btn-colors: (
 	button.link {
 		background-color: transparent;
 		border-color: rgba(0,0,0,0);
+		border-radius: 16px;
+		height: 40px;
 		padding: 5px;
 	}
 
@@ -139,17 +141,22 @@ $btn-colors: (
 
 		&:after {
 			height: 100%;
+			border-style: solid;
+			color: orange;
 		}
 	}
 
 	@each $name,$hex in $btn-colors {
 		&.btn-#{$name}:hover{
 			color: #{$hex};
+			border-radius: 16px;
 		}
 
 		&.btn-#{$name} {
 			&:hover > button.link {
+				border-style: solid;
 				border-color: #{$hex};
+				border-radius: 16px;
 			}
 		}
 	}
