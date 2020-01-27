@@ -4,7 +4,7 @@ const { Keccak } = require("sha3");
 
 /**
  * @api {get} /api/attendees Get Attendee
- * @apiDescription CHecks if Attendee is in database
+ * @apiDescription Checks if Attendee is in database
  * @apiVersion 1.0.0
  * @apiName Verify Attendee(s)
  * @apiGroup Attendee(s)
@@ -84,24 +84,29 @@ router.patch("/attendees", async (request, response) => {
  * @apiGroup Attendee(s)
  * @apiPermission general
  *
- * @apiReqBody  {String}         ["first":"john"]                     First Name
- * @apiReqBody  {String}         ["last":"smith"]                     Last Name
- * @apiReqBody  {String}         ["email":"john.smith@email.com"]     Email
- * @apiReqBody  {String}         ["phone":"+1(999)999-9999"]          Phone Number
- * @apiReqBody  {Object}         ["school":{info:{...}}]              School
- * @apiReqBody  {Number}         ["age":18]                           Age
- * @apiReqBody  {String}         ["gender":"male"]                    Gender
- * @apiReqBody  {String}         ["shirt":"m"]                        Shirt
- * @apiReqBody  {Array}          ["languages":[...]]                  Languages
- * @apiReqBody  {String}         ["dietary":"bob"]                    Dietary
- * @apiReqBody  {String}         ["needs":"bob"]                      Needs
- * @apiReqBody  {Number}         ["hackathons":0]                     Hackathons
- * @apiReqBody  {Object}         ["team":{info:{...}}]                Team
- * @apiReqBody  {String}         ["linkedin":"linkedin.com/in/user"]  LinkedIn
- * @apiReqBody  {String}         ["github":"github.com/user"]         GitHub
- * @apiReqBody  {String}         ["sites":"website.com"]              Sites
- * @apiReqBody  {String}         ["resume":blob]                      Resume
- * @apiReqBody  {String}         ["required":"attendee"]              Privileges
+ * @apiReqBody  {String}         ["firstName":"James"]                  First Name
+ * @apiReqBody  {String}         ["lastName":"Bond"]                    Last Name
+ * @apiReqBody  {String}         ["email":"john.smith@email.com"]       Email
+ * @apiReqBody  {String}         ["phone":"+1(999) 999-9999"]           Phone Number
+ * @apiReqBody  {Object}         ["school":{                            School Information
+ * @apiReqBody  {String}         ["schoolName":"+1(999)999-9999"]       School Name
+ * @apiReqBody  {String}         ["major":"Computer Science"]           Major
+ * @apiReqBody  {String}         ["year":"Senior"]                      Year in School
+ * @apiReqBody  {String}         ["schoolStanding":"undergraduate"]     School Standing
+ * @apiReqBody  {Number}         ["graduationYear":2020]                Graduation Year
+ * }]
+ * @apiReqBody  {Number}         ["age":18]                             Age
+ * @apiReqBody  {String}         ["gender":"male"]                      Gender
+ * @apiReqBody  {String}         ["shirtSize":"m"]                      Shirt Size
+ * @apiReqBody  {String}         ["dietaryRestrictions":"Vegan"]        Dietary Restrictions
+ * @apiReqBody  {String}         ["specialNeeds":"N/A"]                 Special Needs
+ * @apiReqBody  {Boolean}        ["firstHackathons":true]               First Hackathon
+ * @apiReqBody  {String}         ["linkedin":"linkedin.com/in/user"]    LinkedIn
+ * @apiReqBody  {String}         ["github":"github.com/user"]           GitHub
+ * @apiReqBody  {String}         ["devpost":"devpost.com/user"]         Devpost
+ * @apiReqBody  {String}         ["resume":"url/to/file"]               Resume
+ * @apiReqBody  {Boolean}        ["codeOfConduct":true]                 Code of Conduct
+ * @apiReqBody  {Boolean}        ["affiliationWithMLH":true]            Affiliation With MLH
  *
  * @apiSuccess {Object[]} attendee(s) List of successfully registered attendee(s).
  *
@@ -125,30 +130,41 @@ router.post("/attendees", async (request, response) => {
   });
 });
 
-// Hash password and check authentication?
-router.post("/attendees/authenticate", async (request, response) => {
+/**
+ * @api {get} /api/attendees Authenticate Attendee
+ * @apiDescription Hash password and check authentication
+ * @apiVersion 1.0.0
+ * @apiName Authenticate Attendee(s)
+ * @apiGroup Attendee(s)
+ * @apiPermission public
+ *
+ * @apiHeader {String} Authorization Attendee's access token
+ *
+ * @apiParam  {String}      [email]         Attendee's email
+ * @apiParam  {String}      [password]      Attendee's password
+ *
+ * @apiSuccess {Object[]} Returns user information if in database.
+ *
+ * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
+ * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
+ */
+router.get("/attendees/authenticate", async (request, response) => {
   await Attendees.findOne({ email: request.body.email }).then(user => {
     if (user) {
-      let attemptPassword = request.body.attemptPassword;
-      let userPassword = user.password;
-      let didUserLogIn = false;
+      const loginPassword = request.body.password;
+      const userPassword = user.hashedPassword;
       const hash = new Keccak(256);
 
-      for (var i = 65; i <= 122; i++) {
+      for (var i = 65; i <= 122; ++i) {
         await hash.reset();
         const attempt = String.fromCharCode(i);
-        await hash.update(attemptPassword).update(attempt);
+        await hash.update(loginPassword).update(attempt);
         const newPassword = hash.digest("hex");
 
-        if (newPassword === userPassword) {
-          didUserLogIn = true;
-          break;
-        }
-      }
-
-      return didUserLogIn ? response.status(200).json({ result: "correct", secret: process.env.JWT_SECRET }) : response.status(200).json({ result: "incorrect" });
+        return (newPassword === userPassword ? response.status(200).json({ result: "correct", secret: process.env.JWT_SECRET }) : response.status(200).json({ result: "incorrect" }));
+      } 
     } else {
-      return response.status(200).json({ result: "application does not exist" });
+      return response.status(200).json({ result: "Application does not exist" });
     }
   });
 });

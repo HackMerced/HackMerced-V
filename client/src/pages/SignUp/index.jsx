@@ -61,12 +61,13 @@ class SignUp extends Component {
         data: {
           email: email
         }
-      }).then(response => {
-          this.setState({ user: { ...response.data.user }});
-        }).error(error => {
+      })
+        .then(response => {
+          this.setState({ user: { ...response.data.user } });
+        })
+        .error(error => {
           console.error(error);
-        }
-      );
+        });
     } else {
       this.props.history.push("/login");
     }
@@ -92,7 +93,7 @@ class SignUp extends Component {
     Papa.parse(csvData, {
       complete: this.setState({
         universities: csvData.data.slice(1, csvData.data.length).sort()
-      }),
+      })
     });
   }
 
@@ -115,15 +116,17 @@ class SignUp extends Component {
 
     await axios({
       method: "patch",
-      url: "http://hackmerced.io/api/attendees", 
-      data: { 
-        ...this.state.user, 
-        status: "submitted" 
+      url: "http://hackmerced.io/api/attendees",
+      data: {
+        ...this.state.user,
+        status: "submitted"
       }
-    }).then(async response => {
-      await console.log("Submitted Successfully: ", response);
-      await this.props.history.push("/dashboard");
-    }).error(error => console.error(error));
+    })
+      .then(async response => {
+        await console.log("Submitted Successfully: ", response);
+        await this.props.history.push("/dashboard");
+      })
+      .error(error => console.error(error));
   };
 
   render() {

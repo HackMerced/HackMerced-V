@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Keccak } from "sha3";
 
@@ -13,37 +13,14 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userEmail: "",
-      userAttemptPassword: "",
-      userKeepLoggedIn: false,
-      emailValid: false,
-      passwordValid: false,
-      formValid: false,
-      incorrect: false,
-      hasUserTypedPass: false,
-      hasUserTypedEmail: false,
-      backgroundDimensions: {
-        width: 0,
-        height: 0
-      }
+      email: "",
+      password: "",
+      isEmailValid: false,
+      isPasswordValid: false,
+      incorrectLogin: false
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
   async hashMe(password) {
@@ -55,112 +32,46 @@ class Login extends React.Component {
     }
   }
 
-  validateEmail(fieldName, value) {
+  validateForm({ isEmailValid, isPasswordValid }) {
     this.setState({
-      emailValid: value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) != null
+      incorrectLogin: !(isEmailValid && isPasswordValid)
     });
   }
 
-  validatePassword(fieldName, value) {
-    if (
-      value.match(
-        /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
-      ) != null
-    ) {
-      this.setState({ passwordValid: "medium strength" });
-      if (
-        value.match(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
-        ) != null
-      ) {
-        this.setState({ passwordValid: "strong strength" });
-      }
-    } else {
-      this.setState({ passwordValid: false });
-    }
-  }
-
-  renderIncorrect() {
-    var incorrectAttempt = this.state.incorrect;
-    if (incorrectAttempt) {
-      return <span className="alert">Nope. That is Incorrect.</span>;
-    }
-  }
-
-  validateForm() {
-    this.setState({
-      formValid:
-        this.state.emailValid &&
-        this.state.passwordValid &&
-        this.state.hasUserTypedPass &&
-        this.state.hasUserTypedEmail
-    });
-  }
-
-  validateUser(attemptPassword) {
+  validateUser({ email, password }) {
     axios({
-      method: "post",
-      url: "http://localhost:3852/api/attendees/c",
+      method: "get",
+      url: "http://localhost:3852/api/attendees/authenticate",
       data: {
-        email: this.state.userEmail,
-        attemptPassword: attemptPassword
+        email: email,
+        pssword: password
       }
-    }).then(response => {
-      if (response.data.result === "correct") {
-        //console.log(response.data.secret)
-        const JWT_SECRET = response.data.secret;
-        //console.log(user);
-        var token = jwt.sign({ mail: this.state.userEmail }, JWT_SECRET);
-        //console.log(token);
-        sessionStorage.clear();
-        //console.log(sessionStorage.getItem('owl'));
-        //console.log(sessionStorage.getItem('JWT'));
-        sessionStorage.setItem("owl", token);
-        sessionStorage.setItem("JWT", JWT_SECRET);
-        //console.log(sessionStorage.getItem('owl'));
-        this.props.history.push("/dashboard");
-      } else {
-        this.setState({
-          incorrect: true
-        });
-      }
-    });
+    })
+      .then(response => {
+        if (response.data.result === "correct") {
+          const JWT_SECRET = response.data.secret;
+          const token = jwt.sign({ email: this.state.email }, JWT_SECRET);
+          sessionStorage.clear();
+          sessionStorage.setItem("owl", token);
+          sessionStorage.setItem("JWT", JWT_SECRET);
+          this.props.history.push("/dashboard");
+        } else {
+          this.setState({
+            incorrectLogin: true
+          });
+        }
+      })
+      .error(error => {
+        console.error(error);
+      });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    //console.log(this.state.formValid);
-    if (this.state.formValid) {
-      //console.log("made It");
-      this.validateUser(this.state.userAttemptPassword);
-    } else {
-      this.setState({
-        incorrect: true
-      });
+
+    if (this.state.incorrectLogin) {
+      this.validateUser(this.state);
     }
-  }
-
-  handleChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const object = target.name;
-    this.setState({ incorrect: false });
-
-    if (object === "userAttemptPassword") {
-      this.setState({ hasUserTypedPass: true });
-      this.validatePassword(object, value);
-    }
-
-    this.setState({
-      [object]: object === "userAttemptPassword" ? this.hashMe(value) : value
-    });
-
-    if (object === "userEmail") {
-      this.setState({ hasUserTypedEmail: true });
-      this.validateEmail(object, value);
-    }
-
-    this.validateForm();
   }
 
   render() {
@@ -173,28 +84,68 @@ class Login extends React.Component {
             <section id="email">
               <label>Email</label>
               <input
+                required
                 type="email"
                 name="email"
-                onChange={this.handleChange}
-                required
+                onChange={async event => {
+                  await this.setState(state => ({
+                    ...state,
+                    email: event.target.value,
+                    incorrectLogin: false,
+                    hasUserTypedEmail: true,
+                    isEmailValid:
+                      event.target.value.match(
+                        /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i
+                      ) != null
+                  }));
+
+                  await this.validateForm(this.state);
+                }}
               />
             </section>
             <section id="password">
               <label>Password</label>
               <input
+                required
                 type="password"
                 name="usersAttemptedPassword"
-                onChange={this.handleChange}
-                required
+                onChange={async event => {
+                  await this.setState(state => ({
+                    ...state,
+                    password: this.hashMe(event.target.value),
+                    incorrectLogin: false,
+                    hasUserTypedPassword: true,
+                    isPasswordValid:
+                      event.target.value.match(
+                        /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
+                      ) !== null
+                        ? event.target.value.match(
+                            // eslint-disable-next-line no-useless-escape
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
+                          )
+                          ? "Strong Password"
+                          : "Medium Password"
+                        : false
+                  }));
+
+                  await this.validateForm(this.state);
+                }}
               />
             </section>
+            {this.state.incorrectLogin ? (
+              this.state.isEmailValid ? (
+                <span id="alert">Your Email is Incorrect!</span>
+              ) : (
+                <span id="alert">Your Password is Incorrect!</span>
+              )
+            ) : null}
             <section id="submit">
               <button className="popup" type="submit">
-                Submit!
+                Login
               </button>
             </section>
           </form>
-          <section className="signUp-text">
+          <section id="sign-up-text">
             <span>Don’t have an account?</span>
             <span>
               <Link id="sign-up-link" to="/create-account" title="Join Us!">
