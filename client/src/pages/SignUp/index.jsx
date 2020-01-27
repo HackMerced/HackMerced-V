@@ -565,7 +565,7 @@ class SignUp extends Component {
                 type="text"
                 name="special-needs"
                 ref="name"
-                placeholder="Grass...or N/A"
+                placeholder="Speech Impairment...or N/A"
                 onChange={this.handleSpecialNeedsChange}
               ></input>
             </div>
