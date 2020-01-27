@@ -1,27 +1,30 @@
+
 #FAQ {
   background-color: #342e40;
 
   .grid-container {
     color: white;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-column-gap: 20px;
+    height: 100%;
+    grid-template-columns: 55% auto;
+  }
+
+  #lamp {
+    display: grid;
+    height: 100%;
   }
 
   #FAQ-Title {
-    margin-top: 50%;
-    text-align: center;
+    padding: 5%;
+    margin-top: 12%;
     text-transform: uppercase;
     font-weight: 900;
     overflow: hidden;
   }
 
   #faq-layout {
-    margin-top: 20%;
-    display: grid;
-    // grid-template-rows: 60% 40%;
-    grid-template-areas: "accordions lamp";
-
+    margin-top: 5%;
+    padding: 5%;
     .answers {
       overflow: hidden;
     }
@@ -41,7 +44,9 @@
   }
 
   #prompt {
-    text-align: center;
+    margin-top: 5%;
+    padding: 5%;
+
     #question {
       font-size: 1.75rem;
       padding: 1.3rem;
@@ -69,12 +74,6 @@
       p {
         overflow: hidden;
       }
-    }
-
-    #lamp {
-      grid-area: 40%;
-      max-width: 40%;
-      height: auto;
     }
   }
 }

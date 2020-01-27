@@ -83,9 +83,9 @@ class Faqs extends Component {
             </div>
           </section>
           </div>
-
+          
           <div class="grid-item">
-            <img id="lamp"  src={LAMP_POST} alt="lamp post" />
+          <img id="lamp"  src={LAMP_POST} alt="lamp post" />
           </div>
 
         </div>
