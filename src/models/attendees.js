@@ -45,7 +45,7 @@ const attendeeSchema = new mongoose.Schema({
     lowercase: true,
     default: ""
   },
-  password: {
+  hashedPassword: {
     type: String,
     alias: "password",
     default: null,

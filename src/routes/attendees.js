@@ -20,14 +20,11 @@ const { Keccak } = require("sha3");
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
-router.get("/attendees", async (req, res) => {
-  Attendees.findOne({ email: req.body.email }).then(user => {
-    if (user) {
-      console.log(user);
-      return res.status(200).json({ user });
-    } else {
-      return res.status(200).json({ user: "application does not exist" });
-    }
+router.get("/attendees", async (request, response) => {
+  await Attendees.findOne({ email: request.body.email }).then(user => {
+    return user
+      ? response.status(200).json({ user })
+      : response.status(200).json({ user: "application does not exist" });
   });
 });
 
@@ -53,23 +50,28 @@ router.get("/attendees", async (req, res) => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
-router.patch("/attendees", async (req, res) => {
-  Attendees.findOne({ email: req.body.email }).then(user => {
+router.patch("/attendees", async (request, response) => {
+  await Attendees.findOne({ email: request.body.email }).then(user => {
     if (user) {
-      Attendees.findOneAndUpdate(
-        { email: req.body.email },
-        req.body,
+      await Attendees.findOneAndUpdate(
+        { email: request.body.email },
+        request.body,
         (error, docs) => {
           if (error) {
-            console.log(error);
+            console.error(error);
+          }
+
+          if (docs) {
+            console.log(docs);
           }
         }
       );
-      res
+
+      await response
         .status(200)
         .json({ user: "account updated!", secret: process.env.JWT_SECRET });
     } else {
-      return res.status(404).json({ user: "Application doesn't exist" });
+      return response.status(404).json({ user: "Application doesn't exist" });
     }
   });
 });
@@ -107,16 +109,16 @@ router.patch("/attendees", async (req, res) => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
-router.post("/attendees", async (req, res) => {
-  Attendees.findOne({ email: req.body.email }).then(user => {
+router.post("/attendees", async (request, response) => {
+  await Attendees.findOne({ email: request.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
+      return response.status(400).json({ email: "Email already exists" });
     } else {
-      Attendees.insertMany(req.body, (error, docs) => {
+      await Attendees.insertMany(request.body, (error, docs) => {
         if (error) {
-          res.send(error);
+          response.send(error);
         } else {
-          res.send({ secret: process.env.JWT_SECRET });
+          response.send({ secret: process.env.JWT_SECRET });
         }
       });
     }
@@ -124,35 +126,29 @@ router.post("/attendees", async (req, res) => {
 });
 
 // Hash password and check authentication?
-router.post("/attendees/c", async (req, res) => {
-  Attendees.findOne({ email: req.body.email }).then(user => {
+router.post("/attendees/authenticate", async (request, response) => {
+  await Attendees.findOne({ email: request.body.email }).then(user => {
     if (user) {
-      var attemptPassword = req.body.attemptPassword;
-      var userPassword = user.password;
-      var didUserLogIn = false;
+      let attemptPassword = request.body.attemptPassword;
+      let userPassword = user.password;
+      let didUserLogIn = false;
       const hash = new Keccak(256);
 
       for (var i = 65; i <= 122; i++) {
-        hash.reset();
+        await hash.reset();
         const attempt = String.fromCharCode(i);
-        hash.update(attemptPassword).update(attempt);
-        const newPass = hash.digest("hex");
+        await hash.update(attemptPassword).update(attempt);
+        const newPassword = hash.digest("hex");
 
-        if (newPass === userPassword) {
+        if (newPassword === userPassword) {
           didUserLogIn = true;
           break;
         }
       }
-      
-      if (didUserLogIn) {
-        return res
-          .status(200)
-          .json({ result: "correct", secret: process.env.JWT_SECRET });
-      } else {
-        return res.status(200).json({ result: "incorrect" });
-      }
+
+      return didUserLogIn ? response.status(200).json({ result: "correct", secret: process.env.JWT_SECRET }) : response.status(200).json({ result: "incorrect" });
     } else {
-      return res.status(200).json({ result: "application does not exist" });
+      return response.status(200).json({ result: "application does not exist" });
     }
   });
 });
