@@ -164,7 +164,7 @@ router.get("/attendees/authenticate", async (request, response) => {
         return (newPassword === userPassword ? response.status(200).json({ result: "correct", secret: process.env.JWT_SECRET }) : response.status(200).json({ result: "incorrect" }));
       } 
     } else {
-      return response.status(200).json({ result: "Application does not exist" });
+      return response.status(200).json({ result: "application does not exist" });
     }
   });
 });
