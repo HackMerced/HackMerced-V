@@ -732,11 +732,11 @@ class SignUp extends Component {
                 <span>I agree</span>
               </div>
             </section>
-            <div id="submit">
+            <section id="submit">
               <button className="popup" type="submit">
                 Submit!
               </button>
-            </div>
+            </section>
           </form>
         </div>
       </section>
