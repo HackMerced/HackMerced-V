@@ -450,21 +450,19 @@ class SignUp extends Component {
 
             <div>
               <label>University</label>
-              <select
+              <input
+                list="universities"
+                placeholder="Start typing..."
                 className="university"
-                name="school"
                 onChange={this.handleUniversityChange}
                 required
-                defaultValue={"---Select Option---"}
+              ></input>
+              <datalist
+                id="universities"
+                name="school"
               >
-                <option
-                  value="---Select Option---"
-                  disabled={this.state.defaultDisabled ? true : null}
-                >
-                  Choose...
-                </option>
                 {this.uniList(this.state)}
-              </select>
+              </datalist>
             </div>
             <div>
               <label>College Major</label>
@@ -612,7 +610,7 @@ class SignUp extends Component {
             </div>
             <div id="code-of-conduct">
               <p id="conduct">
-                I have read and agree to the {" "}
+                I have read and agree to the{" "}
                 <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
                   MLH Code of Conduct
                 </a>
@@ -633,13 +631,13 @@ class SignUp extends Component {
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
                 post-event informational e-mails, and occasional messages about
-                hackathons in-line with the {" "}
+                hackathons in-line with the{" "}
                 <a href="https://mlh.io/privacy">MLH Privacy Policy</a>. I
-                further agree to the terms of both the {" "}
+                further agree to the terms of both the{" "}
                 <a href="https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions">
-                  MLH Contest Terms and Conditions {" "}
+                  MLH Contest Terms and Conditions{" "}
                 </a>
-                 and the {" "}<a href="https://mlh.io/privacy">MLH Privacy Policy</a>.
+                and the <a href="https://mlh.io/privacy">MLH Privacy Policy</a>.
               </p>
               <div>
                 <input
