@@ -51,10 +51,10 @@ class Faqs extends Component {
 
   render() {
     return (
-      <section id="FAQ">
+      <section id="faq">
         <div class="grid-container">
           <div class="grid-item">
-          <h2 id="FAQ-Title">Frequently Asked Questions</h2>     
+          <h2 id="faq-Title">Frequently Asked Questions</h2>
           <section id="faq-layout">
             <Accordion id="accordions" allowMultipleOpen>
               {this.createQNA(this.faq)}
@@ -83,7 +83,7 @@ class Faqs extends Component {
             </div>
           </section>
           </div>
-          
+
           <div class="grid-item">
           <img id="lamp"  src={LAMP_POST} alt="lamp post" />
           </div>
