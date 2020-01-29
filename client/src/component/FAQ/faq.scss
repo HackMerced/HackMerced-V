@@ -1,73 +1,78 @@
-#FAQ {
+#faq {
   background-color: #342e40;
 
-  #FAQ-container {
+  .grid-container {
     color: white;
-    padding: 4rem;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 55% auto;
+  }
 
-    #FAQ-Title {
-      margin-right: 10%;
-      text-transform: uppercase;
-      font-weight: 900;
+  #lamp {
+    display: grid;
+    height: 100%;
+  }
+
+  #faq-Title {
+    padding: 5%;
+    margin-top: 12%;
+    text-transform: uppercase;
+    font-weight: 900;
+    overflow: hidden;
+  }
+
+  #faq-layout {
+    margin-top: 5%;
+    padding: 5%;
+    .answers {
       overflow: hidden;
     }
 
-    #faq-layout {
-      margin-top: 2%;
-      display: grid;
-      grid-template-columns: 30% 70%;
-      grid-template-areas: "accordions lamp";
+    .circle {
+      border: 8px solid #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      z-index: 86;
+    }
 
-      .answers {
-        overflow: hidden;
-      }
+    #accordions {
+      align-items: center;
+      grid-area: accordions;
+    }
+  }
+
+  #prompt {
+    margin-top: 5%;
+    padding: 5%;
+
+    #question {
+      font-size: 1.75rem;
+      padding: 1.3rem;
+      margin: 0;
 
       .circle {
         border: 8px solid #fff;
         border-radius: 50%;
         width: 20px;
-        height:20px;
+        height: 20px;
         z-index: 86;
       }
+    }
 
-      #accordions {
-        grid-area: accordions;
-      }
-
-      #lamp {
-        grid-area: lamp;
+    #question {
+      h3 {
+        size: 20px;
+        overflow: hidden;
       }
     }
-  }
-}
 
-#prompt {
-  #question {
-    font-size: 1.75rem;
-    padding: 1.3rem;
-    margin: 0;
-    
-    .circle {
-      border: 8px solid #fff;
-        border-radius: 50%;
-        width: 20px;
-        height:20px;
-        z-index: 86;
-    }
-  }
-
-  #question {
-    h3 {
+    #answer {
       size: 20px;
-      overflow: hidden;
-    }
-  }
 
-  #answer {
-    size: 10px;
-
-    p {
-      overflow: hidden;
+      p {
+        overflow: hidden;
+      }
     }
   }
 }

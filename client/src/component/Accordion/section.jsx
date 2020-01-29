@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./section.scss";
 
 class AccordionSection extends Component {
   static propTypes = {
@@ -22,13 +23,14 @@ class AccordionSection extends Component {
     return (
       <div key={label}>
         <div onClick={onClick} style={{ cursor: "pointer" }}>
-          {label}
-          <div style={{ float: "right" }}>
-            {!isOpen && <span>&#9650;</span>}
-            {isOpen && <span>&#9660;</span>}
+          <div style={{ fontSize: "20px" }}>
+            <div className="line noselect">
+              {!isOpen && <span className="bullet">&#9679;</span>}
+              {isOpen && <span className="bullet">&#9679;</span>} {label} {/* &#9679; */}
+            </div>
           </div>
         </div>
-        {isOpen && <div>{this.props.children}</div>}
+        {isOpen && <div className="line2">{this.props.children}</div>}
       </div>
     );
   }
