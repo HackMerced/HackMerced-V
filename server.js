@@ -1,5 +1,6 @@
 const express = require("express");
-var cors = require('cors');
+const helmet = require('helmet')
+const cors = require('cors');
 const path = require("path");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -8,7 +9,6 @@ const chalk = require("chalk"); // require chalk module to give colors to consol
 require("dotenv").config();
 
 const routes = require("./src/routes");
-const models = require("./src/models");
 const db = require("./src/models").db;
 
 const app = express();
@@ -17,13 +17,7 @@ const error = chalk.bold.yellow;
 const disconnected = chalk.bold.red;
 const termination = chalk.bold.magenta;
 
-
-if (process.env.NODE_ENV === "development") {
-  const DB_URI = process.env.MONGO_URI_TESTS;
-} else {
-  const DB_URI = process.env.MONGO_URI_HACKMERCED;
-}
-
+app.use(helmet())
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -43,8 +37,8 @@ app.use(
 app.use(express.static(path.join(__dirname, "/client/build/")));
 
 // Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get('*', (request, response) =>{
+    response.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 // Connect to MongoDB then open port on defined port in .env
