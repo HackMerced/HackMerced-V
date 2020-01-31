@@ -89,7 +89,7 @@ class Sponsors extends React.Component {
       switch (tier[i]) {
         case "platinum": {
           platinum.push(
-            <div className="sponsor" id={id[i]} key={i}>
+            <div className="sponsor" id={id[i]} key={this.sponsors.id.indexOf(id[i])}>
               <a href={url[i]}>
                 <img src={image[i]} alt={alt[i]} />
               </a>
@@ -99,7 +99,7 @@ class Sponsors extends React.Component {
         }
         case "silver":
           silver.push(
-            <div className="sponsor" id={id[i]} key={i}>
+            <div className="sponsor" id={id[i]} key={this.sponsors.id.indexOf(id[i])}>
               <a href={url[i]}>
                 <img src={image[i]} alt={alt[i]} />
               </a>
@@ -108,7 +108,7 @@ class Sponsors extends React.Component {
           break;
         case "bronze":
           bronze.push(
-            <div className="sponsor" id={id[i]} key={i}>
+            <div className="sponsor" id={id[i]} key={this.sponsors.id.indexOf(id[i])}>
               <a href={url[i]}>
                 <img src={image[i]} alt={alt[i]} />
               </a>

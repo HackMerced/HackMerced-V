@@ -49,14 +49,14 @@ const attendeeSchema = new mongoose.Schema({
     type: String,
     alias: "password",
     default: null,
-    required: [true, " this is required"]
+    required: [true, "A hashed password is required"]
   },
   phoneNumber: {
     type: String,
     alias: "Phone Number",
     match: /^[+0-9\s]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
     default: "+1 (234) 567-8901",
-    required: [true, "Attendee's phone number is required!"]
+    // required: [true, "Attendee's phone number is required!"]
   },
   age: {
     type: Number,
@@ -71,23 +71,23 @@ const attendeeSchema = new mongoose.Schema({
     lowercase: true,
     default: "",
     enum: ["male", "female", "other", ""],
-    required: [true, "Attendee's gender is required!"]
+    // required: [true, "Attendee's gender is required!"]
   },
   ethnicity: {
     type: String,
     alias: "Attendee's ethnicity",
-    default: "",
+    default: "other",
     lowercase: true,
-    enum: [
-      "american indian or alaskan native",
-      "asian/pacific islander",
-      "black or african american",
-      "latino",
-      "white/caucasion",
-      "prefer not to answer",
-      "other"
-    ],
-    required: [true, "Attendee's ethnicity is required!"]
+    // enum: [
+    //   "american indian or alaskan native",
+    //   "asian/pacific islander",
+    //   "black or african american",
+    //   "latino",
+    //   "white/caucasion",
+    //   "prefer not to answer",
+    //   "other"
+    // ],
+    // required: [true, "Attendee's ethnicity is required!"]
   },
   shirtSize: {
     type: String,
@@ -95,7 +95,7 @@ const attendeeSchema = new mongoose.Schema({
     lowercase: true,
     enum: ["xs", "s", "m", "l", "xl", ""],
     default: "m",
-    required: [true, "Attendee's shirt size is required!"]
+    // required: [true, "Attendee's shirt size is required!"]
   },
   school: {
     type: Object,

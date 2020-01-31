@@ -44,7 +44,7 @@ class Login extends React.Component {
       url: "http://localhost:3852/api/attendees/authenticate",
       data: {
         email: email,
-        pssword: password
+        password: password
       }
     })
       .then(response => {
@@ -61,9 +61,7 @@ class Login extends React.Component {
           });
         }
       })
-      .error(error => {
-        console.error(error);
-      });
+      .catch(error => console.error(error));
   }
 
   handleSubmit(event) {
@@ -76,7 +74,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <section id="login" style={this.state.backgroundDimensions}>
+      <section id="login">
         <div id="login-container">
           <img src={LOGO} width="20px" alt="HackMerced Logo" />
           <h2 id="login-title">HackMerced V</h2>
@@ -88,13 +86,15 @@ class Login extends React.Component {
                 type="email"
                 name="email"
                 onChange={async event => {
+                  let value = event.target.value;
+
                   await this.setState(state => ({
                     ...state,
-                    email: event.target.value,
+                    email: value,
                     incorrectLogin: false,
                     hasUserTypedEmail: true,
                     isEmailValid:
-                      event.target.value.match(
+                      value.match(
                         /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i
                       ) != null
                   }));
@@ -110,16 +110,18 @@ class Login extends React.Component {
                 type="password"
                 name="usersAttemptedPassword"
                 onChange={async event => {
+                  let value = event.target.value;
+
                   await this.setState(state => ({
                     ...state,
-                    password: this.hashMe(event.target.value),
+                    password: this.hashMe(value),
                     incorrectLogin: false,
                     hasUserTypedPassword: true,
                     isPasswordValid:
-                      event.target.value.match(
+                      value.match(
                         /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
                       ) !== null
-                        ? event.target.value.match(
+                        ? value.match(
                             // eslint-disable-next-line no-useless-escape
                             /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
                           )
@@ -134,9 +136,9 @@ class Login extends React.Component {
             </section>
             {this.state.incorrectLogin ? (
               this.state.isEmailValid ? (
-                <span id="alert">Your Email is Incorrect!</span>
-              ) : (
                 <span id="alert">Your Password is Incorrect!</span>
+              ) : (
+                <span id="alert">Your Email is Incorrect!</span>
               )
             ) : null}
             <section id="submit">

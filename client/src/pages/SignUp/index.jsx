@@ -62,12 +62,8 @@ class SignUp extends Component {
           email: email
         }
       })
-        .then(response => {
-          this.setState({ user: { ...response.data.user } });
-        })
-        .error(error => {
-          console.error(error);
-        });
+        .then(response => this.setState({ user: { ...response.data.user } }))
+        .catch(error => console.error(error));
     } else {
       this.props.history.push("/login");
     }
@@ -83,7 +79,8 @@ class SignUp extends Component {
       return reader.read().then(result => {
         return decoder.decode(result.value);
       });
-    });
+    })
+    .catch(error => console.error(error));
   }
 
   async getCsvData() {
@@ -92,7 +89,7 @@ class SignUp extends Component {
 
     Papa.parse(csvData, {
       complete: this.setState({
-        universities: csvData.data.slice(1, csvData.data.length).sort()
+        universities: csvData.slice(1, csvData.length).sort()
       })
     });
   }
@@ -122,11 +119,8 @@ class SignUp extends Component {
         status: "submitted"
       }
     })
-      .then(async response => {
-        await console.log("Submitted Successfully: ", response);
-        await this.props.history.push("/dashboard");
-      })
-      .error(error => console.error(error));
+      .then(response => this.props.history.push("/dashboard"))
+      .catch(error => console.error(error));
   };
 
   render() {

@@ -51,7 +51,7 @@ router.get("/attendees", async (request, response) => {
  */
 
 router.patch("/attendees", async (request, response) => {
-  await Attendees.findOne({ email: request.body.email }).then(user => {
+  await Attendees.findOne({ email: request.body.email }).then(async user => {
     if (user) {
       await Attendees.findOneAndUpdate(
         { email: request.body.email },
@@ -115,7 +115,8 @@ router.patch("/attendees", async (request, response) => {
  */
 
 router.post("/attendees", async (request, response) => {
-  await Attendees.findOne({ email: request.body.email }).then(user => {
+  console.log(request.body)
+  await Attendees.findOne({ email: request.body.email }).then(async user => {
     if (user) {
       return response.status(400).json({ email: "Email already exists" });
     } else {
@@ -149,7 +150,7 @@ router.post("/attendees", async (request, response) => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 router.get("/attendees/authenticate", async (request, response) => {
-  await Attendees.findOne({ email: request.body.email }).then(user => {
+  await Attendees.findOne({ email: request.body.email }).then(async user => {
     if (user) {
       const loginPassword = request.body.password;
       const userPassword = user.hashedPassword;

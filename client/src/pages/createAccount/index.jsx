@@ -37,8 +37,8 @@ class CreateAccount extends React.Component {
           gitHub: "",
           devpost: ""
         },
-        codeOfConduct: "",
-        affiliationWithMLH: ""
+        codeOfConduct: true,
+        affiliationWithMLH: true
       },
       formErrors: {
         email: "",
@@ -46,6 +46,7 @@ class CreateAccount extends React.Component {
       },
       isEmailValid: false,
       isPasswordValid: false,
+      passwordType: "",
       doesEmailExist: false,
       isFormValid: false,
       hasUserTypedEmail: false,
@@ -81,20 +82,18 @@ class CreateAccount extends React.Component {
         email: value
       }
     })
-      .then(response => {
+      .then(response =>
         this.setState({
           doesEmailExist:
             response.data.user !== "application does not exist" ? true : false
-        });
-      })
-      .error(error => {
-        console.error(error);
-      });
+        })
+      )
+      .catch(error => console.error(error));
   }
 
-  renderPassValid({ hasUserTypedPassword, passwordValid }) {
+  renderPassValid({ hasUserTypedPassword, passwordType }) {
     if (hasUserTypedPassword) {
-      if (passwordValid === "medium strength") {
+      if (passwordType === "medium strength") {
         return (
           <div>
             <h5>Medium Strength Password</h5>
@@ -104,7 +103,7 @@ class CreateAccount extends React.Component {
             </h6>
           </div>
         );
-      } else if (passwordValid === "strong strength") {
+      } else if (passwordType === "strong strength") {
         return (
           <div>
             {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
@@ -121,8 +120,8 @@ class CreateAccount extends React.Component {
     }
   }
 
-  hashMe(password, { passwordValid }) {
-    if (passwordValid) {
+  hashMe(password, { isPasswordValid }) {
+    if (isPasswordValid) {
       const hash = new Keccak(256);
       hash.reset();
       hash.update(password);
@@ -161,22 +160,21 @@ class CreateAccount extends React.Component {
       axios({
         method: "post",
         url: "http://localhost:3852/api/attendees",
-        data: state => ({
-          ...state.user,
-          first: this.state.firstName,
-          last: this.state.lastName,
-          email: this.state.email,
-          hashedPassword: this.state.password
-        })
-      }).then(response => {
-        const JWT_SECRET = response.data.secret;
-        const token = jwt.sign({ email: this.state.email }, JWT_SECRET);
+        data: this.state.user
+      })
+        .then(response => {
+          console.log("response: ", response);
+          const JWT_SECRET = response.data.secret;
+          console.log("secret: ", JWT_SECRET);
 
-        sessionStorage.clear();
-        sessionStorage.setItem("owl", token);
-        sessionStorage.setItem("JWT", JWT_SECRET);
-        this.props.history.push("/dashboard");
-      });
+          const token = jwt.sign({ email: this.state.user.email }, JWT_SECRET);
+
+          sessionStorage.clear();
+          sessionStorage.setItem("owl", token);
+          sessionStorage.setItem("JWT", JWT_SECRET);
+          this.props.history.push("/dashboard");
+        })
+        .catch(error => console.error(error));
     }
   }
 
@@ -194,10 +192,12 @@ class CreateAccount extends React.Component {
               name="first-name"
               required
               onChange={async event => {
+                let value = event.target.value;
+
                 await this.setState(state => ({
                   user: {
                     ...state.user,
-                    firstName: event.target.value
+                    firstName: value
                   }
                 }));
 
@@ -212,10 +212,12 @@ class CreateAccount extends React.Component {
               name="last-name"
               required
               onChange={async event => {
+                let value = event.target.value;
+
                 await this.setState(state => ({
                   user: {
                     ...state.user,
-                    lastName: event.target.value
+                    lastName: value
                   }
                 }));
 
@@ -230,20 +232,20 @@ class CreateAccount extends React.Component {
               name="email"
               required
               onChange={async event => {
+                let value = event.target.value;
+
                 await this.setState(state => ({
                   user: {
                     ...state.user,
-                    email: event.target.value,
-                    hasUserTypedEmail: true,
-                    isEmailValid:
-                      event.target.value.match(
-                        /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i
-                      ) != null
-                  }
+                    email: value
+                  },
+                  hasUserTypedEmail: true,
+                  isEmailValid:
+                    value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) != null
                 }));
 
                 if (this.state.isEmailValid) {
-                  await this.checkEmail(event.target.value);
+                  await this.checkEmail(value);
                 }
 
                 await this.validateForm(this.state);
@@ -258,23 +260,36 @@ class CreateAccount extends React.Component {
               name="password"
               required
               onChange={async event => {
+                let value = event.target.value;
+
                 await this.setState(state => ({
                   user: {
                     ...state.user,
-                    hashedPassword: this.hashMe(event.target.value, this.state),
-                    hasUserTypedPassword: true,
-                    isPasswordValid:
-                      event.target.value.match(
-                        /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
-                      ) !== null
-                        ? event.target.value.match(
-                            // eslint-disable-next-line no-useless-escape
-                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
-                          )
-                          ? "Strong Password"
-                          : "Medium Password"
-                        : false
-                  }
+                    hashedPassword: this.hashMe(value, this.state)
+                  },
+                  hasUserTypedPassword: true,
+                  isPasswordValid:
+                    value.match(
+                      /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
+                    ) !== null
+                      ? value.match(
+                          // eslint-disable-next-line no-useless-escape
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
+                        )
+                        ? true
+                        : true
+                      : false,
+                  passwordType:
+                    value.match(
+                      /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
+                    ) !== null
+                      ? value.match(
+                          // eslint-disable-next-line no-useless-escape
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
+                        )
+                        ? "Strong Password"
+                        : "Medium Password"
+                      : null
                 }));
 
                 await this.validateForm(this.state);
