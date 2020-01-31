@@ -37,12 +37,12 @@ class Faqs extends Component {
     // Outer loop to create parent
     for (let i = 0; i < questions.length; i++) {
       qna.push(
-        
+
         <div label={questions[i]} key={i}>
-       
+
           <p className="answers">{answers[i]}</p>
         </div>
-        
+
       );
     }
 
@@ -51,21 +51,16 @@ class Faqs extends Component {
 
   render() {
     return (
-      <section id="FAQ">
-        <div id="FAQ-container">
-        
-          <h2 id="FAQ-Title">Frequently Asked Questions</h2>
+      <section id="faq">
+        <div class="grid-container">
+          <div class="grid-item">
+          <h2 id="faq-Title">Frequently Asked Questions</h2>
           <section id="faq-layout">
-          
             <Accordion id="accordions" allowMultipleOpen>
               {this.createQNA(this.faq)}
             </Accordion>
-            <img id="lamp" src={LAMP_POST} width="100px" alt="lamp post" />
-            
-
-            
           </section>
-          <section id="prompt">
+          <section id="prompt" >
             <div id="question">
               <h3>Any other questions?</h3>
             </div>
@@ -77,7 +72,8 @@ class Faqs extends Component {
                   style={{
                     textDecoration: "none",
                     color: "#A8B6D6",
-                    fontWeight: "bold"
+                    fontWeight: "bold",
+                    padding: "0px 0px 0px 4px",
                   }}
                 >
                   general@hackmerced.com
@@ -86,6 +82,12 @@ class Faqs extends Component {
               </p>
             </div>
           </section>
+          </div>
+
+          <div class="grid-item">
+          <img id="lamp"  src={LAMP_POST} alt="lamp post" />
+          </div>
+
         </div>
       </section>
     );

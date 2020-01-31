@@ -355,7 +355,9 @@ class SignUp extends Component {
             </section>
             <section id="university">
               <label>University</label>
-              <select
+              <input
+                list="universities"
+                placeholder="Start typing..."
                 className="university"
                 name="school"
                 onChange={async event => {
@@ -372,20 +374,13 @@ class SignUp extends Component {
                   }));
                 }}
                 required
-                defaultValue={
-                  this.state.user.school.schoolName !== ""
-                    ? this.state.user.school.schoolName
-                    : "---Select Option---"
-                }
+              ></input>
+              <datalist
+                id="universities"
+                name="school"
               >
-                <option
-                  value="---Select Option---"
-                  disabled={this.state.defaultDisabled}
-                >
-                  Choose...
-                </option>
                 {this.uniList(this.state)}
-              </select>
+              </datalist>
             </section>
             <section id="major">
               <label>College Major</label>

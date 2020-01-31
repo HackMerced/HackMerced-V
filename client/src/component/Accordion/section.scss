@@ -1,0 +1,27 @@
+.line{
+  border-left: 3px solid white;
+  margin-left: 6px;
+  overflow-x: visible;
+}
+
+.line2{
+  border-left: 3px double white;
+  margin-left: 6px;
+  padding: 3px 10px 3px 30px;
+}
+
+.bullet{
+  padding: 0px 15px 0px 0px;
+  margin-left: -7px;
+  font-size: 20px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
