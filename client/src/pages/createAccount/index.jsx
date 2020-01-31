@@ -38,7 +38,8 @@ class CreateAccount extends React.Component {
           devpost: ""
         },
         codeOfConduct: true,
-        affiliationWithMLH: true
+        affiliationWithMLH: true,
+        status: "created"
       },
       formErrors: {
         email: "",
@@ -50,7 +51,7 @@ class CreateAccount extends React.Component {
       doesEmailExist: false,
       isFormValid: false,
       hasUserTypedEmail: false,
-      hasUserTypedPassword: false
+      hasUserTypedPassword: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -120,19 +121,18 @@ class CreateAccount extends React.Component {
     }
   }
 
-  hashMe(password, { isPasswordValid }) {
+  async hashMe(password, { isPasswordValid }) {
     if (isPasswordValid) {
       const hash = new Keccak(256);
-      hash.reset();
-      hash.update(password);
+      await hash.reset();
+      await hash.update(password);
       const status = hash.digest("hex");
-      hash.reset();
+      await hash.reset();
       const pepper = String.fromCharCode(
         Math.floor(Math.random() * (90 - 65 + 1) + 65)
       );
-      hash.update(status).update(pepper);
-      const temp = hash.digest("hex");
-      return temp;
+      await hash.update(status).update(pepper);
+      return hash.digest("hex");
     }
   }
 
@@ -163,10 +163,7 @@ class CreateAccount extends React.Component {
         data: this.state.user
       })
         .then(response => {
-          console.log("response: ", response);
           const JWT_SECRET = response.data.secret;
-          console.log("secret: ", JWT_SECRET);
-
           const token = jwt.sign({ email: this.state.user.email }, JWT_SECRET);
 
           sessionStorage.clear();

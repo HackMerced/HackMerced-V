@@ -36,7 +36,7 @@ class SignUp extends Component {
           devpost: ""
         },
         codeOfConduct: "",
-        affiliationWithMLH: ""
+        affiliationWithMLH: "",
       },
       universities: [],
       defaultDisabled: true

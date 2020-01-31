@@ -17,18 +17,22 @@ class Login extends React.Component {
       password: "",
       isEmailValid: false,
       isPasswordValid: false,
-      incorrectLogin: false
+      incorrectLogin: false,
+      passwordType: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async hashMe(password) {
-    if (this.state.passwordValid) {
+  hashMe(password) {
+    console.log("initial hashme: ", password)
+    if (this.state.isPasswordValid) {
       const hash = new Keccak(256);
-      await hash.reset();
-      await hash.update(password);
-      return await hash.digest("hex");
+      hash.reset();
+      hash.update(password.toString());
+      let temp = hash.digest("hex");
+      console.log("valid password: ", temp)
+      return temp;
     }
   }
 
@@ -39,6 +43,7 @@ class Login extends React.Component {
   }
 
   validateUser({ email, password }) {
+    console.log(`email: ${email}, password: ${password}`)
     axios({
       method: "get",
       url: "http://localhost:3852/api/attendees/authenticate",
@@ -48,6 +53,7 @@ class Login extends React.Component {
       }
     })
       .then(response => {
+        console.log(`response: ${response}`)
         if (response.data.result === "correct") {
           const JWT_SECRET = response.data.secret;
           const token = jwt.sign({ email: this.state.email }, JWT_SECRET);
@@ -66,8 +72,10 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log("submit")
 
-    if (this.state.incorrectLogin) {
+    if (!this.state.incorrectLogin) {
+      console.log("valid login")
       this.validateUser(this.state);
     }
   }
@@ -111,13 +119,23 @@ class Login extends React.Component {
                 name="usersAttemptedPassword"
                 onChange={async event => {
                   let value = event.target.value;
+                  let isPasswordValid = value.match(
+                        /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
+                      ) !== null
+                        ? value.match(
+                            // eslint-disable-next-line no-useless-escape
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
+                          )
+                          ? true
+                          : true
+                        : false;
 
                   await this.setState(state => ({
                     ...state,
-                    password: this.hashMe(value),
                     incorrectLogin: false,
                     hasUserTypedPassword: true,
-                    isPasswordValid:
+                    isPasswordValid: isPasswordValid,
+                    passwordType:
                       value.match(
                         /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
                       ) !== null
@@ -127,8 +145,11 @@ class Login extends React.Component {
                           )
                           ? "Strong Password"
                           : "Medium Password"
-                        : false
+                        : false,
+                    password: this.hashMe(value),
                   }));
+
+                  await console.log("input password field: ", this.state.password);
 
                   await this.validateForm(this.state);
                 }}

@@ -241,7 +241,7 @@ const attendeeSchema = new mongoose.Schema({
     alias: "The current status of Attendee",
     default: "submitted",
     lowercase: true,
-    enum: ["submitted", "accepted", "declined", "waitListed", "checkedIn"]
+    enum: ["created", "submitted", "accepted", "declined", "wait listed", "checked in"]
   },
   privileges: {
     type: String,
