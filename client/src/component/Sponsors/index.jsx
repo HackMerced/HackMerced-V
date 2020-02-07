@@ -16,6 +16,41 @@ class Sponsors extends React.Component {
   constructor(props) {
     super(props);
     this.sponsors = {
+      platinum: {
+        id: ["ASUCM", "MLH"],
+        image: [],
+        url: []
+      },
+      gold: {
+        id: [],
+        image: [],
+        url: []
+      },
+      silver: {
+        id: [
+          "Linode",
+          "DigitalOcean",
+          "Roche",
+          "Lawrence Livermore National Laboratory",
+          "Founders"
+        ],
+        image: [],
+        url: []
+      },
+      bronze: {
+        id: [
+          "Sketch",
+          "MakeSchool",
+          "1Password",
+          "JetBrains",
+          "StickerYou",
+          "Balsamiq",
+          "Clerky",
+          "CloudSploit"
+        ],
+        image: [],
+        url: []
+      },
       id: [
         "asucm",
         "digitalocean",
@@ -121,27 +156,15 @@ class Sponsors extends React.Component {
     }
 
     platinum.forEach(item => {
-      sponsors.push(
-        <div id="platinum" key="platinum">
-          {item}
-        </div>
-      );
+      sponsors.push(<div id="platinum">{item}</div>);
     });
 
     silver.forEach(item => {
-      sponsors.push(
-        <div id="silver" key="silver">
-          {item}
-        </div>
-      );
+      sponsors.push(<div id="silver">{item}</div>);
     });
 
     bronze.forEach(item => {
-      sponsors.push(
-        <div id="bronze" key="bronze">
-          {item}
-        </div>
-      );
+      sponsors.push(<div id="bronze">{item}</div>);
     });
 
     return sponsors;
