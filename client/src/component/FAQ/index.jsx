@@ -37,12 +37,9 @@ class Faqs extends Component {
     // Outer loop to create parent
     for (let i = 0; i < questions.length; i++) {
       qna.push(
-
         <div label={questions[i]} key={i}>
-
           <p className="answers">{answers[i]}</p>
         </div>
-
       );
     }
 
@@ -52,42 +49,41 @@ class Faqs extends Component {
   render() {
     return (
       <section id="faq">
-        <div class="grid-container">
-          <div class="grid-item">
-          <h2 id="faq-Title">Frequently Asked Questions</h2>
-          <section id="faq-layout">
-            <Accordion id="accordions" allowMultipleOpen>
-              {this.createQNA(this.faq)}
-            </Accordion>
-          </section>
-          <section id="prompt" >
-            <div id="question">
-              <h3>Any other questions?</h3>
-            </div>
-            <div id="answer">
-              <p>
-                Feel free to message us at:
-                <a
-                  href="mailto:general@hackmerced.com?subject=HackMerced Questions&body=Dear HackMerced,"
-                  style={{
-                    textDecoration: "none",
-                    color: "#A8B6D6",
-                    fontWeight: "bold",
-                    padding: "0px 0px 0px 4px",
-                  }}
-                >
-                  general@hackmerced.com
-                </a>
-                .
-              </p>
-            </div>
-          </section>
+        <div className="grid-container">
+          <div className="grid-item">
+            <h2 id="faq-Title">Frequently Asked Questions</h2>
+            <section id="faq-layout">
+              <Accordion id="accordions" allowMultipleOpen>
+                {this.createQNA(this.faq)}
+              </Accordion>
+            </section>
+            <section id="prompt">
+              <div id="question">
+                <h3>Any other questions?</h3>
+              </div>
+              <div id="answer">
+                <p>
+                  Feel free to message us at:
+                  <a
+                    href="mailto:general@hackmerced.com?subject=HackMerced Questions&body=Dear HackMerced,"
+                    style={{
+                      textDecoration: "none",
+                      color: "#A8B6D6",
+                      fontWeight: "bold",
+                      padding: "0px 0px 0px 4px"
+                    }}
+                  >
+                    general@hackmerced.com
+                  </a>
+                  .
+                </p>
+              </div>
+            </section>
           </div>
 
-          <div class="grid-item">
-          <img id="lamp"  src={LAMP_POST} alt="lamp post" />
+          <div className="grid-item">
+            <img id="lamp" src={LAMP_POST} alt="lamp post" />
           </div>
-
         </div>
       </section>
     );

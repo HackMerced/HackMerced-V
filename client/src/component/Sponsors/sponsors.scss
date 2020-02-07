@@ -14,17 +14,17 @@
   #sponsors-grid {
     padding: 0 2%;
     overflow: hidden;
-    display: grid;
-    grid:
-      "platinum" 33%
-      "silver" 33%
-      "bronze" 40%;
+    // display: grid;
+    // grid:
+    //   "platinum" 33%
+    //   "silver" 33%
+    //   "bronze" 40%;
   }
 
   #platinum {
     grid-area: platinum;
     display: grid;
-    grid-template-columns: 18% 25% 25% 25%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 5%;
     grid-template-areas: ". asucm mlh .";
@@ -72,7 +72,7 @@
   #roche {
     grid-area: roche;
     overflow: hidden;
-    
+
   }
 
 
@@ -85,7 +85,7 @@
     left: 20%;
     top: 15%;
   }
-  
+
 
   #makeschool {
     grid-area: makeschool;
@@ -119,7 +119,7 @@
     bottom: 20%;
     position: relative;
     left: 10%;
-    
+
   }
 
   #password {
@@ -129,10 +129,10 @@
     width: 80%;
     position: relative;
     left: 10%;
-   
+
   }
 
- 
 
- 
+
+
 }
