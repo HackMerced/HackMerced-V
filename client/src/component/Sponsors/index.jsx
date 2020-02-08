@@ -118,47 +118,17 @@ class Sponsors extends React.Component {
   }
 
   createSponsors = ({ platinum, silver, bronze }, type) => {
-    let sponsors = [];
+    let sponsors = [],
+    tier = (type === "platinum") ? platinum : ((type === "silver") ? silver : bronze);
 
-    switch (type) {
-      case "platinum": {
-        for (let i = 0; i < platinum.id.length; ++i) {
-          sponsors.push(
-            <div className="sponsor" id={platinum.id[i]} key={i}>
-              <a href={platinum.url[i]}>
-                <img src={platinum.image[i]} alt={(platinum.id[i])} />
-              </a>
-            </div>
-          );
-        }
-        break;
-      }
-      case "silver": {
-        for (let i = 0; i < silver.id.length; ++i) {
-          sponsors.push(
-            <div className="sponsor" id={silver.id[i]} key={i}>
-              <a href={silver.url[i]}>
-                <img src={silver.image[i]} alt={(silver.id[i])} />
-              </a>
-            </div>
-          );
-        }
-        break;
-      }
-      case "bronze": {
-        for (let i = 0; i < bronze.id.length; ++i) {
-          sponsors.push(
-            <div className="sponsor" id={bronze.id[i]} key={i}>
-              <a href={bronze.url[i]}>
-                <img src={bronze.image[i]} alt={(bronze.id[i])} />
-              </a>
-            </div>
-          );
-        }
-        break;
-      }
-      default:
-        break;
+    for (let i = 0; i < tier.id.length; ++i) {
+      sponsors.push(
+        <div className="sponsor" id={tier.id[i]} key={i}>
+          <a href={tier.url[i]}>
+            <img src={tier.image[i]} alt={(tier.id[i])} />
+          </a>
+        </div>
+      );
     }
 
     return sponsors;
