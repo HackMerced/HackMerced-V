@@ -138,16 +138,16 @@ $white: #fff;
 }
 
 // MOBILE CSS
+@media all and (max-width: 641px) {
 
-
-#spacerMobile {
+#spacer {
   background-color: #8b779e;
   width: 100%;
   height: 80px;
 }
 
-#titleMobile {
-  > #contentMobile {
+#title {
+  > #content {
     position: relative;
     overflow-y: hidden;
     background-image: url("../../assets//Images/Background.png");
@@ -186,7 +186,7 @@ $white: #fff;
   }
 }
 
-#registerMobile {
+#register {
   background-color: #bc4d2b;
   opacity: 70%;
   border: none;
@@ -206,7 +206,7 @@ $white: #fff;
 }
 
 // Button wrap
-#containerMobile {
+#container {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -220,7 +220,7 @@ $white: #fff;
 }
 
 //default button
-#btnMobile {
+#btn {
   color: $white;
   cursor: pointer;
   // display: block;
@@ -242,18 +242,18 @@ $white: #fff;
 ////////////////////////////
 //button two
 //////////////////////////
-#btnMobile {
+#btn {
   letter-spacing: 0;
   font-weight: 900;
 }
 
-#btnMobile:hover,
-#btnMobile:active {
+#btn:hover,
+#btn:active {
   letter-spacing: 5px;
 }
 
-#btnMobile:after,
-#btnMobile:before {
+#btn:after,
+#btn:before {
   backface-visibility: hidden;
   border: 1px solid rgba($white, 0);
   bottom: 0px;
@@ -265,16 +265,17 @@ $white: #fff;
   width: 0;
 }
 
-#btnMobile:hover:after,
-#btnMobile:hover:before {
+#btn:hover:after,
+#btn:hover:before {
   backface-visibility: hidden;
   border-color: $white;
   transition: width 350ms ease-in-out;
   width: 70%;
 }
 
-#btnMobile:hover:before {
+#btn:hover:before {
   bottom: auto;
   top: 0;
   width: 70%;
+}
 }
