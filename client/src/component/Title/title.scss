@@ -136,3 +136,145 @@ $white: #fff;
   top: 0;
   width: 70%;
 }
+
+// MOBILE CSS
+
+
+#spacerMobile {
+  background-color: #8b779e;
+  width: 100%;
+  height: 80px;
+}
+
+#titleMobile {
+  > #contentMobile {
+    position: relative;
+    overflow-y: hidden;
+    background-image: url("../../assets//Images/Background.png");
+    background-position: right;
+    
+    background-size: cover;
+    height: 100vh;
+
+    > div {
+      position: absolute;
+      top: 20%;
+      text-align: center;
+      text-transform: uppercase;
+      color: rgb(255, 255, 255);
+
+      > h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.3rem;
+        margin-bottom: 1%;
+        margin-top: 5%;
+        font-family: 'Moon';
+      }
+
+      > h3 {
+        font-size: 1.5rem;
+        margin-bottom: .8%;
+      }
+
+      > h1,
+      h3 {
+        overflow: hidden;
+        padding-bottom: 5%;
+      }
+    }
+  }
+}
+
+#registerMobile {
+  background-color: #bc4d2b;
+  opacity: 70%;
+  border: none;
+  padding: 20px 20px;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 16px;
+  letter-spacing: 0;
+  width: 50%;
+  > a {
+    border-bottom: 1px solid;
+    color: $white;
+    line-height: 1.4;
+    padding: 0.25em;
+    text-decoration: none;
+  }
+}
+
+// Button wrap
+#containerMobile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+//default button
+#btnMobile {
+  color: $white;
+  cursor: pointer;
+  // display: block;
+  font-size: 100%;
+  font-weight: 400;
+  line-height: 45px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 150%;
+  font-family: 'Moon';
+  letter-spacing: 5%;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+////////////////////////////
+//button two
+//////////////////////////
+#btnMobile {
+  letter-spacing: 0;
+  font-weight: 900;
+}
+
+#btnMobile:hover,
+#btnMobile:active {
+  letter-spacing: 5px;
+}
+
+#btnMobile:after,
+#btnMobile:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba($white, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+#btnMobile:hover:after,
+#btnMobile:hover:before {
+  backface-visibility: hidden;
+  border-color: $white;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+#btnMobile:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}

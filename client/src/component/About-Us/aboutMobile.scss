@@ -1,0 +1,78 @@
+
+#about-usMobile {
+    background-color: #342E40;
+    display: grid;
+    grid-template-areas: "img about";
+    overflow: hidden;
+    padding-bottom: 5%;
+    
+  
+    img {
+      width: 75%;
+      padding: 20px 0 0 20px;
+    }
+    
+  
+    #aboutMobile {
+      color: white;
+      padding: 15% 10% 0 0;
+      display: grid;
+      grid-template-areas:
+        "headerMobile"
+        "whatMobile"
+        "whyMobile";
+      line-height: 1cm;
+      overflow: hidden;
+  
+      #headerMobile {
+        
+        font-size: 45px;
+        font-weight: 900;
+        font-style: italic;
+        text-align: right;
+        padding-right: 5px;
+        overflow: hidden;
+        font-style: bold;
+        font-family: 'Dosis', bold ;
+        text-emphasis-color: white;
+       
+      }
+  
+      #whatMobile {
+        padding-bottom: 1%;
+        
+  
+        h3 {
+          font-size: 35px;
+          font-weight: 900;
+          overflow: hidden;
+          padding-bottom: 1%
+        }
+  
+        p {
+          overflow: hidden;
+          font-size: 20px;
+        }
+      }
+  
+      #whyMobile {
+        padding-bottom: 1%;
+        
+  
+        h3 {
+          font-size: 35px;
+          font-weight: 900;
+          overflow: hidden;
+          padding-bottom: .5%
+        }
+  
+        p {
+          overflow: hidden;
+          font-size: 20px;
+          padding-right: 5%;
+        }
+      }
+    }
+  }
+  
+  
