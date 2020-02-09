@@ -11,6 +11,7 @@ import LINODE from "../../assets/Images/linode.png";
 import DIGITALOCEAN from "../../assets/Images/digitalocean.png";
 import ROCHE from "../../assets/Images/roche.png";
 import FOUNDERS from "../../assets/Images/founders.png";
+import LLNL from "../../assets/Images/llnl.png";
 
 // Bronze Sponsors
 import SKETCH from "../../assets/Images/Sketch.png";
@@ -46,13 +47,14 @@ class Sponsors extends React.Component {
         url: []
       },
       silver: {
-        id: ["Linode", "DigitalOcean", "Roche", "Founders"],
-        image: [LINODE, DIGITALOCEAN, ROCHE, FOUNDERS],
+        id: ["Founders", "Linode", "LLNL", "DigitalOcean", "Roche"],
+        image: [FOUNDERS, LINODE, LLNL, DIGITALOCEAN, ROCHE],
         url: [
-          "https://www.linode.com/",
+          "http://hackmerced.io",
           "https://digitalocean.com/",
+          "https://www.llnl.gov/",
+          "https://www.linode.com/",
           "https://roche.com/",
-          "http://hackmerced.io"
         ]
       },
       bronze: {
