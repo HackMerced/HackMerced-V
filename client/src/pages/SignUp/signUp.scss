@@ -109,7 +109,7 @@ input[type=number] {
   text-align: left;
 }
 
-label:after {
+.required:after {
   content: " *";
   color: pink;
 }
