@@ -1,0 +1,38 @@
+#themes{
+    background-color: #9a544c;
+    color: white;
+
+    img{
+        max-height: auto;
+        max-width: auto;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+        text-transform: uppercase;
+        margin-top: 3%;
+        font-weight: 900;
+        overflow: hidden;
+        margin-bottom: 3%;
+      }
+
+    h3 {
+        overflow: hidden;
+        font-size: x-large;
+    }
+    
+      .grid-container{
+        padding: 4%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        margin-bottom: 5%;
+      }
+    
+      .grid-item{
+        padding: 2%;
+        text-align: center;
+      }
+}
+
