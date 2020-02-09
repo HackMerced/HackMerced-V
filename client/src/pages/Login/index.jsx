@@ -25,13 +25,14 @@ class Login extends React.Component {
   }
 
   hashMe(password) {
-    console.log("initial hashme: ", password)
+    //console.log("initial hashme: ", password)
     if (this.state.isPasswordValid) {
       const hash = new Keccak(256);
       hash.reset();
-      hash.update(password.toString());
+      hash.update(password);
       let temp = hash.digest("hex");
-      console.log("valid password: ", temp)
+      console.log("valid password: ", temp);
+      hash.reset();
       return temp;
     }
   }
@@ -47,12 +48,13 @@ class Login extends React.Component {
     axios({
       method: "get",
       url: "http://localhost:3852/api/attendees/authenticate",
-      data: {
+      params: {
         email: email,
         password: password
       }
     })
       .then(response => {
+      	console.log(response.data);
         console.log(`response: ${response}`)
         if (response.data.result === "correct") {
           const JWT_SECRET = response.data.secret;
@@ -155,9 +157,11 @@ class Login extends React.Component {
                 }}
               />
             </section>
-            {this.state.incorrectLogin ? (
+            {(this.state.email === "") ?
+            	null
+            : this.state.incorrectLogin ? (
               this.state.isEmailValid ? (
-                <span id="alert">Your Password is Incorrect!</span>
+                (this.state.password === "") ? null : <span id="alert">Your Password is Incorrect!</span>
               ) : (
                 <span id="alert">Your Email is Incorrect!</span>
               )

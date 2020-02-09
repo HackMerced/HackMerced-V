@@ -115,7 +115,7 @@ router.patch("/attendees", async (request, response) => {
  */
 
 router.post("/attendees", async (request, response) => {
-  console.log(request.body)
+  //console.log(request.body)
   await Attendees.findOne({ email: request.body.email }).then(async user => {
     if (user) {
       return response.status(400).json({ email: "Email already exists" });
@@ -150,20 +150,27 @@ router.post("/attendees", async (request, response) => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 router.get("/attendees/authenticate", async (request, response) => {
-  await Attendees.findOne({ email: request.body.email }).then(async user => {
+  await Attendees.findOne({ email: request.query.email }).then(async user => {
     if (user) {
-      const loginPassword = request.body.password;
+      const loginPassword = request.query.password;
       const userPassword = user.hashedPassword;
+      //console.log(userPassword);
+      //console.log(loginPassword);
       const hash = new Keccak(256);
-
       for (var i = 65; i <= 122; ++i) {
+        
         await hash.reset();
         const attempt = String.fromCharCode(i);
+        
         await hash.update(loginPassword).update(attempt);
         const newPassword = hash.digest("hex");
-
-        return (newPassword === userPassword ? response.status(200).json({ result: "correct", secret: process.env.JWT_SECRET }) : response.status(200).json({ result: "incorrect" }));
+        if(newPassword === userPassword){
+          return response.status(200).json({ result: "correct", secret: process.env.JWT_SECRET });
+        }
+        //console.log(newPassword);
+        //return (newPassword === userPassword ? response.status(200).json({ result: "correct", secret: process.env.JWT_SECRET }) : response.status(200).json({ result: "incorrect" }));
       } 
+      return response.status(200).json({ result: "incorrect" });
     } else {
       return response.status(200).json({ result: "application does not exist" });
     }
