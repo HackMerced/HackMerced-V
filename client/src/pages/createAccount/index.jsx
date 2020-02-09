@@ -76,10 +76,13 @@ class CreateAccount extends React.Component {
   }
 
   checkEmail(value) {
+    //console.log("checkEmail");
+    //console.log(this.state.user.email);
+    //console.log(value);
     axios({
       method: "get",
       url: "http://localhost:3852/api/attendees",
-      data: {
+      params: {
         email: value
       }
     })
@@ -121,17 +124,17 @@ class CreateAccount extends React.Component {
     }
   }
 
-  async hashMe(password, { isPasswordValid }) {
+  hashMe(password, { isPasswordValid }) {
     if (isPasswordValid) {
       const hash = new Keccak(256);
-      await hash.reset();
-      await hash.update(password);
+      hash.reset();
+      hash.update(password);
       const status = hash.digest("hex");
-      await hash.reset();
+      hash.reset();
       const pepper = String.fromCharCode(
         Math.floor(Math.random() * (90 - 65 + 1) + 65)
       );
-      await hash.update(status).update(pepper);
+      hash.update(status).update(pepper);
       return hash.digest("hex");
     }
   }
@@ -155,7 +158,7 @@ class CreateAccount extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+    //console.log(this.state.user);
     if (this.state.isFormValid) {
       axios({
         method: "post",
@@ -284,8 +287,8 @@ class CreateAccount extends React.Component {
                           // eslint-disable-next-line no-useless-escape
                           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
                         )
-                        ? "Strong Password"
-                        : "Medium Password"
+                        ? "strong strength"
+                        : "medium strength"
                       : null
                 }));
 

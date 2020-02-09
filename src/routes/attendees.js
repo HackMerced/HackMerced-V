@@ -21,7 +21,7 @@ const { Keccak } = require("sha3");
  */
 
 router.get("/attendees", async (request, response) => {
-  await Attendees.findOne({ email: request.body.email }).then(user => {
+  await Attendees.findOne({ email: request.query.email }).then(user => {
     return user
       ? response.status(200).json({ user })
       : response.status(200).json({ user: "application does not exist" });
