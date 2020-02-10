@@ -58,7 +58,7 @@ class Login extends React.Component {
         //console.log(`response: ${response}`)
         if (response.data.result === "correct") {
           const JWT_SECRET = response.data.secret;
-          const token = jwt.sign({ email: this.state.email }, JWT_SECRET);
+          const token = jwt.sign({ mail: this.state.email }, JWT_SECRET);
           sessionStorage.clear();
           sessionStorage.setItem("owl", token);
           sessionStorage.setItem("JWT", JWT_SECRET);

@@ -27,16 +27,15 @@ class Dashboard extends React.Component {
       console.log(JWT_SECRET);
       var decode = jwt.verify(jwtToken, JWT_SECRET);
       var userEmail = decode.mail;
-
       axios({
-        method: "post",
-        url: "http://localhost:3852/api/attendees/q",
-        data: {
-          myEmail: userEmail
+        method: "get",
+        url: "http://localhost:3852/api/attendees",
+        params: {
+          email: userEmail
         }
       }).then(response => {
         var user = response.data.user;
-
+        console.log(user);
         if (user !== "application does not exist") {
           this.setState({
             person: user
@@ -51,7 +50,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const userType = this.state.person.myPrivileges;
+    const userType = this.state.person.privileges;
 
     switch (userType) {
       case 1:
