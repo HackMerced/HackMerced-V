@@ -53,7 +53,6 @@ class CreateAccount extends React.Component {
       hasUserTypedEmail: false,
       hasUserTypedPassword: false,
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -135,6 +134,7 @@ class CreateAccount extends React.Component {
         Math.floor(Math.random() * (90 - 65 + 1) + 65)
       );
       hash.update(status).update(pepper);
+      //console.log(hash.digest("hex"));
       return hash.digest("hex");
     }
   }
@@ -163,11 +163,17 @@ class CreateAccount extends React.Component {
       axios({
         method: "post",
         url: "http://localhost:3852/api/attendees",
-        data: this.state.user
+        data:{
+          firstName: this.state.user.firstName,
+          lastName: this.state.user.lastName,
+          hashedPassword: this.state.user.hashedPassword,
+          email: this.state.user.email
+
+        }
       })
         .then(response => {
           const JWT_SECRET = response.data.secret;
-          const token = jwt.sign({ email: this.state.user.email }, JWT_SECRET);
+          const token = jwt.sign({ mail: this.state.user.email }, JWT_SECRET);
 
           sessionStorage.clear();
           sessionStorage.setItem("owl", token);

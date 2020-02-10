@@ -23,8 +23,8 @@ class Dashboard extends React.Component {
     const JWT_SECRET = sessionStorage.getItem("JWT");
 
     if (JWT_SECRET !== null && jwtToken !== null) {
-      console.log(jwtToken);
-      console.log(JWT_SECRET);
+      //console.log(jwtToken);
+      //console.log(JWT_SECRET);
       var decode = jwt.verify(jwtToken, JWT_SECRET);
       var userEmail = decode.mail;
       axios({
@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
         }
       }).then(response => {
         var user = response.data.user;
-        console.log(user);
+        //console.log(user);
         if (user !== "application does not exist") {
           this.setState({
             person: user
