@@ -31,7 +31,7 @@ class Login extends React.Component {
       hash.reset();
       hash.update(password);
       let temp = hash.digest("hex");
-      console.log("valid password: ", temp);
+      //console.log("valid password: ", temp);
       hash.reset();
       return temp;
     }
@@ -44,7 +44,7 @@ class Login extends React.Component {
   }
 
   validateUser({ email, password }) {
-    console.log(`email: ${email}, password: ${password}`)
+    //console.log(`email: ${email}, password: ${password}`)
     axios({
       method: "get",
       url: "http://localhost:3852/api/attendees/authenticate",
@@ -54,8 +54,8 @@ class Login extends React.Component {
       }
     })
       .then(response => {
-      	console.log(response.data);
-        console.log(`response: ${response}`)
+      	//console.log(response.data);
+        //console.log(`response: ${response}`)
         if (response.data.result === "correct") {
           const JWT_SECRET = response.data.secret;
           const token = jwt.sign({ email: this.state.email }, JWT_SECRET);
@@ -74,10 +74,10 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("submit")
+    //console.log("submit")
 
     if (!this.state.incorrectLogin) {
-      console.log("valid login")
+      //console.log("valid login")
       this.validateUser(this.state);
     }
   }
@@ -150,8 +150,6 @@ class Login extends React.Component {
                         : false,
                     password: this.hashMe(value),
                   }));
-
-                  await console.log("input password field: ", this.state.password);
 
                   await this.validateForm(this.state);
                 }}
