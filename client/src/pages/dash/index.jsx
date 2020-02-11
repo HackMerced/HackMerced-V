@@ -6,7 +6,7 @@ import Judge from "./judgeDash";
 import Applicant from "./applicantDash";
 import Volunteer from "./volDash";
 
-import "./dash.css";
+import "./dash.scss";
 
 const jwt = require("jsonwebtoken");
 
@@ -64,10 +64,16 @@ class Dashboard extends React.Component {
       default:
         return (
           <div className="App-user">
-            <section className="container">
+            <section className="container">          {/* in the middle of the page */}
               <article className="applicant">
-                <h2>Error Unknown User</h2>
-                <h1>DEFINE YOURSELF INTRUDER</h1>
+                <div className="applicant-Box app-left">
+              </div>
+
+              <div className="applicant-Box app-right-top">
+              </div>
+
+              <div className="applicant-Box app-right-bot">
+              </div>
               </article>
             </section>
           </div>

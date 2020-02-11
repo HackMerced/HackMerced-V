@@ -5,13 +5,12 @@
   align-items: center;
   
   .dates-Container{
-    padding: 30px 5px; 
+    padding: 20px 5px; 
     border-radius: 40px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 5px; /* rounded corners */
-    box-shadow: 0 4px 8px 0 rgba(241, 236, 236, 0.2);
     transition: 0.3s;
   }
 
@@ -28,17 +27,12 @@
     p{
       font-size: 20px;
     }
-
-    .gray{
-      background-color: gray;
-    }
-
   }
 
   .important-Date-gray{
     border-radius: 7px;
     padding:7px 7px;
-    background-color: gray;
+    background-color: #a8a4a3;
     h1{
       font-size: 24px;
     }
