@@ -4,69 +4,75 @@ import Papa from "papaparse";
 
 import "./signUp.scss";
 
-const jwt = require("jsonwebtoken");
-
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        age: 18,
-        gender: "",
-        ethnicity: "",
-        shirtSize: "",
-        school: {
-          schoolName: "",
-          major: "",
-          year: "",
-          schoolStanding: "",
-          graduationYear: 2021
-        },
-        dietaryRestrictions: "",
-        specialNeeds: "",
-        experience: {
-          firstHackathon: true,
-          resume: "",
-          linkedIn: "",
-          gitHub: "",
-          devpost: ""
-        },
-        codeOfConduct: "",
-        affiliationWithMLH: "",
-      },
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      age: 18,
+      gender: "",
+      ethnicity: "",
+      shirtSize: "M",
+      university: "",
+      major: "",
+      year: "",
+      schoolStanding: "",
+      graduationYear: 2020,
+      dietaryRestrictions: "",
+      specialNeeds: "",
+      firstHackathon: true,
+      resume: "",
+      linkedIn: "",
+      devpost: "",
+      gitHub: "",
+      codeOfConduct: true,
+      affiliationWithMLH: true,
       universities: [],
       defaultDisabled: true
     };
 
+    this.getData = this.getData.bind(this);
     this.uniList = this.uniList.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePhoneNumberChange = this.handlePhoneNumberChange.bind(this);
+    this.handleAgeChange = this.handleAgeChange.bind(this);
+    this.handleGenderChange = this.handleGenderChange.bind(this);
+    this.handleEthnicityChange = this.handleEthnicityChange.bind(this);
+    this.handleFirstHackathonChange = this.handleFirstHackathonChange.bind(
+      this
+    );
+    this.handleUniversityChange = this.handleUniversityChange.bind(this);
+    this.handleMajorChange = this.handleMajorChange.bind(this);
+    this.handleYearChange = this.handleYearChange.bind(this);
+    this.handleGraduationYearChange = this.handleGraduationYearChange.bind(
+      this
+    );
+    this.handleSchoolStandingChange = this.handleSchoolStandingChange.bind(
+      this
+    );
+    this.handleShirtSizeChange = this.handleShirtSizeChange.bind(this);
+    this.handleDietaryRestrictionsChange = this.handleDietaryRestrictionsChange.bind(
+      this
+    );
+    this.handleSpecialNeedsChange = this.handleSpecialNeedsChange.bind(this);
+    this.handleResumeChange = this.handleResumeChange.bind(this);
+    this.handleGitHubChange = this.handleGitHubChange.bind(this);
+    this.handleLinkedInChange = this.handleLinkedInChange.bind(this);
+    this.handleDevpostChange = this.handleDevpostChange.bind(this);
+    this.handleCodeOfConductChange = this.handleCodeOfConductChange.bind(this);
+    this.handleAffiliationWithMLHChange = this.handleAffiliationWithMLHChange.bind(
+      this
+    );
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   UNSAFE_componentWillMount() {
     this.getCsvData();
-    const jwtToken = sessionStorage.getItem("owl");
-    const JWT_SECRET = sessionStorage.getItem("JWT");
-
-    if (JWT_SECRET !== null && jwtToken !== null) {
-      let decode = jwt.verify(jwtToken, JWT_SECRET);
-      let email = decode.mail;
-
-      axios({
-        method: "get",
-        url: "http://localhost:3852/api/attendees",
-        data: {
-          email: email
-        }
-      })
-        .then(response => this.setState({ user: { ...response.data.user } }))
-        .catch(error => console.error(error));
-    } else {
-      this.props.history.push("/login");
-    }
   }
 
   fetchCsv() {
@@ -76,21 +82,21 @@ class SignUp extends Component {
       let reader = response.body.getReader();
       let decoder = new TextDecoder("utf-8");
 
-      return reader.read().then(result => {
+      return reader.read().then(function(result) {
         return decoder.decode(result.value);
       });
-    })
-    .catch(error => console.error(error));
+    });
+  }
+
+  getData(result) {
+    this.setState({ universities: result.data.slice(1, result.data.length) });
   }
 
   async getCsvData() {
     let csvData = await this.fetchCsv();
-    csvData += "Merced College";
 
     Papa.parse(csvData, {
-      complete: this.setState({
-        universities: csvData.slice(1, csvData.length).sort()
-      })
+      complete: this.getData
     });
   }
 
@@ -108,28 +114,215 @@ class SignUp extends Component {
     return result;
   }
 
-  handleSubmit = async event => {
+  handleFirstNameChange = event => {
+    this.setState({
+      firstName: event.target.value
+    });
+  };
+
+  handleLastNameChange = event => {
+    this.setState({
+      lastName: event.target.value
+    });
+  };
+
+  handleEmailChange = event => {
+    this.setState({
+      email: event.target.value
+    });
+  };
+
+  handlePhoneNumberChange = event => {
+    this.setState({
+      phoneNumber: event.target.value
+    });
+  };
+
+  handleAgeChange = event => {
+    this.setState({
+      age: event.target.value
+    });
+  };
+
+  handleGenderChange = event => {
+    this.setState({
+      gender: event.target.value
+    });
+  };
+
+  handleEthnicityChange = event => {
+    this.setState({
+      ethnicity: event.target.value
+    });
+  };
+
+  handleFirstHackathonChange = event => {
+    this.setState({
+      firstHackathon: event.target.value
+    });
+  };
+
+  handleUniversityChange = event => {
+    this.setState({
+      university: event.target.value
+    });
+  };
+
+  handleSchoolStandingChange = event => {
+    this.setState({
+      schoolStanding: event.target.value
+    });
+  };
+
+  handleMajorChange = event => {
+    this.setState({
+      major: event.target.value
+    });
+  };
+
+  handleYearChange = event => {
+    this.setState({
+      year: event.target.value
+    });
+  };
+
+  handleGraduationYearChange = event => {
+    this.setState({
+      graduationYear: event.target.value
+    });
+  };
+
+  handleShirtSizeChange = event => {
+    this.setState({
+      shirtSize: event.target.value
+    });
+  };
+
+  handleDietaryRestrictionsChange = event => {
+    this.setState({
+      dietaryRestrictions: event.target.value
+    });
+  };
+
+  handleSpecialNeedsChange = event => {
+    this.setState({
+      specialNeeds: event.target.value
+    });
+  };
+
+  handleResumeChange = event => {
+    this.setState({
+      resume: event.target.value
+    });
+  };
+
+  handleLinkedInChange = event => {
+    this.setState({
+      linkedIn: event.target.value
+    });
+  };
+
+  handleGitHubChange = event => {
+    this.setState({
+      gitHub: event.target.value
+    });
+  };
+
+  handleDevpostChange = event => {
+    this.setState({
+      devpost: event.target.value
+    });
+  };
+
+  handleCodeOfConductChange = event => {
+    this.setState({
+      codeOfConduct: event.target.value
+    });
+  };
+
+  handleAffiliationWithMLHChange = event => {
+    this.setState({
+      affiliationWithMLH: event.target.value
+    });
+  };
+
+  createUser({
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    age,
+    university,
+    major,
+    year,
+    schoolStanding,
+    graduationYear,
+    ethnicity,
+    dietaryRestrictions,
+    specialNeeds,
+    gender,
+    shirtSize,
+    firstHackathon,
+    codeOfConduct,
+    affiliationWithMLH,
+    resume,
+    linkedIn,
+    devpost,
+    gitHub
+  }) {
+    return {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNumber: phoneNumber,
+      age: age,
+      gender: gender,
+      ethnicity: ethnicity,
+      shirtSize: shirtSize,
+      school: {
+        schoolName: university,
+        major: major,
+        year: year,
+        schoolStanding: schoolStanding,
+        graduationYear: graduationYear
+      },
+      dietaryRestrictions: dietaryRestrictions,
+      specialNeeds: specialNeeds,
+      experience: {
+        firstHackathon: firstHackathon === "Yes" ? true : false,
+        numberOfPreviousHackathons: 0,
+        languages: [],
+        resume: resume,
+        linkedIn: linkedIn,
+        gitHub: gitHub,
+        devpost: devpost
+      },
+      codeOfConduct: codeOfConduct === "on" ? true : false,
+      affiliationWithMLH: affiliationWithMLH === "on" ? true : false
+    };
+  }
+
+  handleSubmit = event => {
     event.preventDefault();
 
-    await axios({
-      method: "patch",
-      url: "http://hackmerced.io/api/attendees",
-      data: {
-        ...this.state.user,
-        status: "submitted"
-      }
-    })
-      .then(response => this.props.history.push("/dashboard"))
-      .catch(error => console.error(error));
+    const user = this.createUser(this.state);
+
+    console.log("before posting to DB: ", user);
+
+    axios.post("http://hackmerced.io/api/attendees", user).then(res => {
+      console.log(res);
+    });
+
+    window.location.replace("http://hackmerced.io");
   };
 
   render() {
     return (
-      <section id="body">
+      <section id="App-sign-up">
         <div id="formID">
           <form onSubmit={this.handleSubmit}>
-            <h1 id="applications">Application</h1>
-            <section id="first-name">
+            <div>
+              <h1 id="applications">Application</h1>
               <label>First Name</label>
               <input
                 required
@@ -137,20 +330,10 @@ class SignUp extends Component {
                 name="first-name"
                 ref="name"
                 placeholder="First Name"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      firstName: value
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.firstName}
+                onChange={this.handleFirstNameChange}
               ></input>
-            </section>
-            <section id="last-name">
+            </div>
+            <div>
               <label>Last Name</label>
               <input
                 type="text"
@@ -158,20 +341,10 @@ class SignUp extends Component {
                 ref="name"
                 placeholder="Last Name"
                 required
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      lastName: value
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.lastName}
+                onChange={this.handleLastNameChange}
               ></input>
-            </section>
-            <section id="email">
+            </div>
+            <div>
               <label>Email</label>
               <input
                 type="email"
@@ -179,20 +352,10 @@ class SignUp extends Component {
                 ref="name"
                 placeholder="name@example.com"
                 required
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      email: value
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.email}
+                onChange={this.handleEmailChange}
               ></input>
-            </section>
-            <section id="phone-number">
+            </div>
+            <div>
               <label>Phone Number</label>
               <input
                 type="text"
@@ -200,20 +363,10 @@ class SignUp extends Component {
                 ref="name"
                 placeholder="123-456-7890"
                 required
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      phoneNumber: value
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.phoneNumber}
+                onChange={this.handlePhoneNumberChange}
               ></input>
-            </section>
-            <section id="age">
+            </div>
+            <div>
               <label>Age</label>
               <input
                 type="number"
@@ -221,43 +374,20 @@ class SignUp extends Component {
                 ref="name"
                 placeholder="18"
                 required
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      age: Number(value)
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.age}
+                onChange={this.handleAgeChange}
               ></input>
-            </section>
-            <section id="gender">
+            </div>
+            <div>
               <label>Gender</label>
               <select
                 className="gender"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      gender: value
-                    }
-                  }));
-                }}
+                onChange={this.handleGenderChange}
                 required
-                defaultValue={
-                  this.state.user.gender !== ""
-                    ? this.state.user.gender
-                    : "---Select Option---"
-                }
+                defaultValue={"---Select Option---"}
               >
                 <option
                   value="---Select Option---"
-                  disabled={this.state.defaultDisabled}
+                  disabled={this.state.defaultDisabled ? true : null}
                 >
                   Choose...
                 </option>
@@ -268,31 +398,18 @@ class SignUp extends Component {
                   Prefer not to Answer
                 </option>
               </select>
-            </section>
-            <section id="ethnicity">
+            </div>
+            <div>
               <label>Ethnicity</label>
               <select
                 className="ethnicity"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      ethnicity: value
-                    }
-                  }));
-                }}
-                uired
-                defaultValue={
-                  this.state.user.ethnicity !== ""
-                    ? this.state.user.ethnicity
-                    : "---Select Option---"
-                }
+                onChange={this.handleEthnicityChange}
+                required
+                defaultValue={"---Select Option---"}
               >
                 <option
                   value="---Select Option---"
-                  disabled={this.state.defaultDisabled}
+                  disabled={this.state.defaultDisabled ? true : null}
                 >
                   Choose...
                 </option>
@@ -312,61 +429,32 @@ class SignUp extends Component {
                 </option>
                 <option value="Other">Other</option>
               </select>
-            </section>
-            <section id="first-hackathon">
+            </div>
+            <div>
               <label>Is this your first hackathon?</label>
               <select
                 className="first-hackathon"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      experience: {
-                        ...state.user.experience,
-                        firstHackathon: value
-                      }
-                    }
-                  }));
-                }}
-                defaultValue={
-                  this.state.user.experience.firstHackathon
-                    ? this.state.user.experience.firstHackathon
-                    : "---Select Option---"
-                }
+                onChange={this.handleFirstHackathonChange}
                 required
               >
                 <option
-                  value="---Select Option---"
-                  disabled={this.state.defaultDisabled}
+                  value="Choose.."
+                  disabled={this.state.defaultDisabled ? true : null}
                 >
                   Choose...
                 </option>
-                <option value={true}>Yes</option>
-                <option value={false}>No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
-            </section>
-            <section id="university">
+            </div>
+
+            <div>
               <label>University</label>
               <input
                 list="universities"
                 placeholder="Start typing..."
                 className="university"
-                name="school"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      school: {
-                        ...state.user.school,
-                        schoolName: value
-                      }
-                    }
-                  }));
-                }}
+                onChange={this.handleUniversityChange}
                 required
               ></input>
               <datalist
@@ -375,58 +463,29 @@ class SignUp extends Component {
               >
                 {this.uniList(this.state)}
               </datalist>
-            </section>
-            <section id="major">
+            </div>
+            <div>
               <label>College Major</label>
               <input
                 type="text"
                 name="major"
                 ref="name"
                 placeholder="Major"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      school: {
-                        ...state.user.school,
-                        major: value
-                      }
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.school.major}
+                onChange={this.handleMajorChange}
                 required
               ></input>
-            </section>
-            <section id="year-in-college">
+            </div>
+            <div>
               <label>Year In College</label>
               <select
-                className="year-in-college"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      school: {
-                        ...state.user.school,
-                        year: value
-                      }
-                    }
-                  }));
-                }}
+                className="yearincollege"
+                onChange={this.handleYearChange}
                 required
-                defaultValue={
-                  this.state.user.school.schoolStanding !== ""
-                    ? this.state.user.school.schoolStanding
-                    : "---Select Option---"
-                }
+                defaultValue={"---Select Option---"}
               >
                 <option
                   value="---Select Option---"
-                  disabled={this.state.defaultDisabled}
+                  disabled={this.state.defaultDisabled ? true : null}
                 >
                   Choose...
                 </option>
@@ -436,58 +495,29 @@ class SignUp extends Component {
                 <option value="Senior">Senior</option>
                 <option value="5+">5+</option>
               </select>
-            </section>
-            <section id="graduation-year">
+            </div>
+            <div>
               <label>Graduation Year</label>
               <input
                 type="number"
                 name="graduation-year"
                 ref="name"
                 placeholder="2021"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      school: {
-                        ...state.user.school,
-                        graduationYear: Number(value)
-                      }
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.school.graduationYear}
+                onChange={this.handleGraduationYearChange}
                 required
               ></input>
-            </section>
-            <section id="school-standing">
+            </div>
+            <div>
               <label>School Standing</label>
               <select
-                className="school-standing"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      school: {
-                        ...state.user.school,
-                        schoolStanding: value
-                      }
-                    }
-                  }));
-                }}
+                className="schoolstanding"
+                onChange={this.handleSchoolStandingChange}
                 required
-                defaultValue={
-                  this.state.user.school.schoolStanding !== ""
-                    ? this.state.user.school.schoolStanding
-                    : "---Select Option---"
-                }
+                defaultValue={"---Select Option---"}
               >
                 <option
                   value="---Select Option---"
-                  disabled={this.state.defaultDisabled}
+                  disabled={this.state.defaultDisabled ? true : null}
                 >
                   Choose...
                 </option>
@@ -495,31 +525,18 @@ class SignUp extends Component {
                 <option value="Graduate">Graduate</option>
                 <option value="PostDoc">Post Doctorate</option>
               </select>
-            </section>
-            <section id="shirt-size">
+            </div>
+            <div>
               <label>T-Shirt Size</label>
               <select
-                className="shirt-size"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      shirtSize: value
-                    }
-                  }));
-                }}
+                className="t-shirt"
+                onChange={this.handleShirtSizeChange}
                 required
-                defaultValue={
-                  this.state.user.shirtSize !== ""
-                    ? this.state.user.shirtSize
-                    : "---Select Option---"
-                }
+                defaultValue={"---Select Option---"}
               >
                 <option
                   value="---Select Option---"
-                  disabled={this.state.defaultDisabled}
+                  disabled={this.state.defaultDisabled ? true : null}
                 >
                   Choose...
                 </option>
@@ -529,141 +546,69 @@ class SignUp extends Component {
                 <option value="L">L</option>
                 <option value="XL">XL</option>
               </select>
-            </section>
-            <section id="dietary-restrictions">
+            </div>
+            <div>
               <label>Dietary Restrictions</label>
               <input
                 type="text"
                 name="dietary-restrictions"
                 ref="name"
                 placeholder="No meat, no animal produce, or N/A"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      dietaryRestrictions: value
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.dietaryRestrictions}
+                onChange={this.handleDietaryRestrictionChange}
               ></input>
-            </section>
-            <section id="special-needs">
+            </div>
+            <div>
               <label>Special Needs</label>
               <input
                 type="text"
                 name="special-needs"
                 ref="name"
-                placeholder="Speech Impairment... or N/A"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      specialNeeds: value
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.specialNeeds}
+                placeholder="Speech Impairment...or N/A"
+                onChange={this.handleSpecialNeedsChange}
               ></input>
-            </section>
-            <section id="resume">
+            </div>
+            <div>
               <label>Resume</label>
               <input
                 type="text"
                 name="resume"
                 ref="name"
                 placeholder="Must upload a link that can be publicly viewed"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      experience: {
-                        ...state.user.experience,
-                        resume: value
-                      }
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.experience.resume}
+                onChange={this.handleResumeChange}
                 required
               ></input>
-            </section>
-            <section id="github">
+            </div>
+            <div>
               <label>GitHub</label>
               <input
                 type="url"
                 name="github"
                 ref="name"
                 placeholder="github.com/username"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      experience: {
-                        ...state.user.experience,
-                        gitHub: value
-                      }
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.experience.gitHub}
+                onChange={this.handleGitHubChange}
               ></input>
-            </section>
-            <section id="linked-in">
+            </div>
+            <div>
               <label>LinkedIn</label>
               <input
                 type="url"
                 name="linked-in"
                 ref="name"
                 placeholder="linkedin.com/in/username"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      experience: {
-                        ...state.user.experience,
-                        linkedIn: value
-                      }
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.experience.linkedIn}
+                onChange={this.handleLinkedInChange}
               ></input>
-            </section>
-            <section id="devpost">
+            </div>
+            <div>
               <label>Devpost</label>
               <input
                 type="url"
                 name="devpost"
                 ref="name"
                 placeholder="devpost.com/username"
-                onChange={async event => {
-                  let value = event.target.value;
-
-                  await this.setState(state => ({
-                    user: {
-                      ...state.user,
-                      experience: {
-                        ...state.user.experience,
-                        devpost: value
-                      }
-                    }
-                  }));
-                }}
-                defaultValue={this.state.user.experience.devpost}
+                onChange={this.handleDevpostChange}
               ></input>
-            </section>
-            <section id="code-of-conduct">
+            </div>
+            <div id="code-of-conduct">
               <p id="conduct">
                 I have read and agree to the{" "}
                 <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
@@ -676,22 +621,12 @@ class SignUp extends Component {
                   required
                   type="checkbox"
                   placeholder="I agree"
-                  onChange={async event => {
-                    let value = event.target.value;
-
-                    await this.setState(state => ({
-                      user: {
-                        ...state.user,
-                        firstName: value === "on" ? true : null
-                      }
-                    }));
-                  }}
-                  checked={this.state.user.codeOfConduct ? "on" : null}
+                  onChange={this.handleCodeOfConductChange}
                 ></input>
                 <span>I agree</span>
               </div>
-            </section>
-            <section id="affiliation-with-mlh">
+            </div>
+            <div id="affiliation-with-mlh">
               <p id="privacy">
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
@@ -709,26 +644,16 @@ class SignUp extends Component {
                   required
                   type="checkbox"
                   placeholder="Yes"
-                  onChange={async event => {
-                    let value = event.target.value;
-
-                    await this.setState(state => ({
-                      user: {
-                        ...state.user,
-                        firstName: value === "on" ? true : null
-                      }
-                    }));
-                  }}
-                  checked={this.state.user.affiliationWithMLH ? "on" : null}
+                  onChange={this.handleAffiliationWithMLHChange}
                 ></input>
                 <span>I agree</span>
               </div>
-            </section>
-            <section id="submit">
-              <button className="popup" type="submit">
+            </div>
+            <div id="submit">
+              <button class="popup" type="submit">
                 Submit!
               </button>
-            </section>
+            </div>
           </form>
         </div>
       </section>

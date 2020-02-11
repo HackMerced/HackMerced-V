@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Keccak } from "sha3";
+import LOGO from "../../assets/Images/logo.png";
 
 import "./createAccount.scss";
 
@@ -186,17 +187,19 @@ class CreateAccount extends React.Component {
 
   render() {
     return (
-      <section id="create-account">
+    <section id="create-account">
+      <div id="create-container">
         <section id="create-account-title">
-          <h2>Create Account</h2>
+        <img src={LOGO} width="20px" alt="HackMerced Logo" />
+          <h2>REGISTER NOW</h2>
         </section>
         <form onSubmit={this.handleSubmit}>
           <section id="first-name">
-            <label>First Name</label>
             <input
               type="text"
               name="first-name"
               required
+              placeholder="First Name"
               onChange={async event => {
                 let value = event.target.value;
 
@@ -212,11 +215,11 @@ class CreateAccount extends React.Component {
             />
           </section>
           <section id="last-name">
-            <label>Last Name</label>
             <input
               type="text"
               name="last-name"
               required
+              placeholder="Last Name"
               onChange={async event => {
                 let value = event.target.value;
 
@@ -232,10 +235,10 @@ class CreateAccount extends React.Component {
             />
           </section>
           <section id="email">
-            <label>Email</label>
             <input
               type="email"
               name="email"
+              placeholder="Email"
               required
               onChange={async event => {
                 let value = event.target.value;
@@ -260,11 +263,11 @@ class CreateAccount extends React.Component {
             {this.renderEmailValid(this.state)}
           </section>
           <section id="password">
-            <label>Password</label>
             <input
               type="password"
               name="password"
               required
+              placeholder="Password"
               onChange={async event => {
                 let value = event.target.value;
 
@@ -305,19 +308,20 @@ class CreateAccount extends React.Component {
           </section>
           <section id="submit">
             <button className="popup" type="submit">
-              Create Account
+              Create!
             </button>
           </section>
         </form>
-        <section className="login-text">
+        <section className="signUp-text">
           <span>Have an account?</span>
           <span>
-            <Link className="login-link" to="/login" title="Log in!">
+            <Link className="signUp-link" to="/login" title="Log in!">
               Log in!
             </Link>
           </span>
         </section>
-      </section>
+      </div>
+    </section>
     );
   }
 }

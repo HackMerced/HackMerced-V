@@ -6,15 +6,11 @@ class Status extends React.Component {
 	render(){
 	 //{console.log(this.props.user)}
 	  return (
-        <div id="Registration">
-			<div className="dash">
-				<div className="status">
-					<h1>Your Status: </h1>
-					<h2>{this.props.user.myStatus}</h2>
+			<div>
+				<div className="app-status">
+					<h1>Application Status: {this.props.user.status}</h1>
 				</div>
 			</div>
-		</div>
-                
         );
 	}
 }

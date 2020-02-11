@@ -1,40 +1,79 @@
 #create-account {
   color: black; 
   background-image: linear-gradient(#8D78A1, #B69087, #D15F2A);   /* sets bg color same to main page */
-  min-height: 92vh;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
 
   #create-account-title{
     color: #D15F2A;
-    font-size: 50px; 
+    font-size: 20px; 
     position: relative;
   }
-}
+  #create-container {
+  display: block;
+  border-radius: 4.5%;
+  background-color: white; // for debugging
+  width: 80vh;
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+
+    img {
+      margin-top: 5%;
+      width: 170px;
+    }
+  }
 
 
+  input[type=email],
+  input[type=password],
+  input[type=text] {
+    width: 80%;
+    padding: 15px;
+    font-size: 15px;
+    margin: 15px 0 22px 0;
+    display: inline-block;
+    background: rgb(204, 203, 203);
+    cursor: auto;
+    border-style: inset;
+    border-radius: 5px;
+    position: relative;
+    overflow:hidden;
+    border-width: 10px;
+    border-color: black;
+    background: transparent;
+    text-align: left;
+  }
 
-.center-the-login{
-  position: absolute; /* creates a box with rounded edges */
-  width: 450px;
-  height: 500px;
-  background-color: white;
-  border-radius: 5px;
-}
 
-.logged-In{
-  padding-right: 70px; /* Left aligns "keep me logged in" */
-  font-size: 15px;
-}
+  button {
+    width: 270px;
+    background-color: #9a544c;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px;
+    transition-duration: 0.25s;
+  }
 
-.signUp-text{
-  padding-top: 10px; /* brings sign-up lower and shrinks down text */
-  font-size: 15px;
-}
 
-.signUp-link{
-  margin-left: 5px; /* Adds a space between link and text */
+  .logged-In{
+    padding-right: 70px; /* Left aligns "keep me logged in" */
+    font-size: 15px;
+  }
+
+  .signUp-text{
+    padding-top: 10px; /* brings sign-up lower and shrinks down text */
+    font-size: 15px;
+  }
+
+  .signUp-link{
+    margin-left: 5px; /* Adds a space between link and text */
+  }
+
 }

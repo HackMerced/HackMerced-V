@@ -1,0 +1,38 @@
+#DashboardBody {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+.dash-Container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* rounded corners */
+    padding-bottom: 130px;
+}
+
+  button {
+    width: 50%;
+    background-color: #9a544c;
+    padding: 6px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: inherit;
+    transition-duration: 0.25s;
+  }
+
+  .dash-Wel{
+    font-size: 50px;
+    padding-bottom: 10px;
+  }
+
+
+}

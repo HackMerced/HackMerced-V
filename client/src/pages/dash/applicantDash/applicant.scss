@@ -1,0 +1,40 @@
+.App-applicant{
+  background-color: #e7d9d2;    /* sets background same as main page */
+  /*
+  min-height: 92vh;
+  display: fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+*/
+
+  .applicant{
+    padding-left: 50px;
+    padding-top: 80px; 
+    padding-right: 20px;
+    padding-bottom: 10px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto 20px 250px;
+    grid-template-rows: 150px 470px;
+  }
+
+  .applicant-Box {
+    background-color: orange;
+    border-radius: 5px;
+    font-size: 150%;
+  }
+
+  .app-left {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+  .app-right-top {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .app-right-bot {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}

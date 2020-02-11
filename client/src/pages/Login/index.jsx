@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Keccak } from "sha3";
-
-import Returning from "../../component/Returning";
 import LOGO from "../../assets/Images/logo.png";
 import "./login.scss";
 
@@ -86,15 +84,17 @@ class Login extends React.Component {
     return (
       <section id="login">
         <div id="login-container">
+        <section id="login-title">
           <img src={LOGO} width="20px" alt="HackMerced Logo" />
-          <h2 id="login-title">HackMerced V</h2>
+          <h2>WELCOME!</h2>
+        </section>	
           <form onSubmit={this.handleSubmit}>
             <section id="email">
-              <label>Email</label>
               <input
                 required
                 type="email"
                 name="email"
+                placeholder = "Email"
                 onChange={async event => {
                   let value = event.target.value;
 
@@ -114,11 +114,11 @@ class Login extends React.Component {
               />
             </section>
             <section id="password">
-              <label>Password</label>
               <input
                 required
                 type="password"
                 name="usersAttemptedPassword"
+                placeholder = "Password"
                 onChange={async event => {
                   let value = event.target.value;
                   let isPasswordValid = value.match(
@@ -170,10 +170,10 @@ class Login extends React.Component {
               </button>
             </section>
           </form>
-          <section id="sign-up-text">
+          <section className="login-text">
             <span>Don’t have an account?</span>
             <span>
-              <Link id="sign-up-link" to="/create-account" title="Join Us!">
+              <Link className="login-link" to="/create-account" title="Join Us!">
                 Sign Up!
               </Link>
             </span>

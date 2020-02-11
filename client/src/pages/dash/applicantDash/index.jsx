@@ -1,12 +1,9 @@
 import React from 'react';
-
-import Logo from "../../../component/HackM-Logo/";
-import Status from "../../../component/Status";
 import DashboardBody from "../../../component/DashboardBody";
 import TeamCode from "../../../component/TeamCode";
 import MajorDates from "../../../component/Major-Dates";
 
-import './applicant.css';
+import './applicant.scss';
 
 
 class Dashboard extends React.Component {
@@ -15,11 +12,17 @@ class Dashboard extends React.Component {
 	  	<div className="App-applicant">   {/* This code basically puts "Applicant Dash"*/}
 		  	<section className="container">					 {/* in the middle of the page */}
 			  	<article className="applicant">
-					<Logo/>
-					<Status user={this.props.user}/>
-					<DashboardBody user={this.props.user}/>
-					<TeamCode user={this.props.user}/>
-					<MajorDates/>
+			  		<div className="applicant-Box app-left">
+						<DashboardBody user={this.props.user}/>
+					</div>
+
+					<div className="applicant-Box app-right-top">
+						<TeamCode user={this.props.user}/>
+					</div>
+
+					<div className="applicant-Box app-right-bot">
+						<MajorDates/>
+					</div>
 			  	</article>
 		  	</section>
 	  	</div>
