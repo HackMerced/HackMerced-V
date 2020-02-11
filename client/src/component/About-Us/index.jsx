@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./about.scss";
+
 import PORTRAIT from "../../assets/Images/film.png";
 
 class AboutUs extends React.Component {
@@ -35,4 +36,5 @@ class AboutUs extends React.Component {
     );
   }
 }
+
 export default AboutUs;
