@@ -84,7 +84,7 @@ class SignUp extends Component {
       let reader = response.body.getReader();
       let decoder = new TextDecoder("utf-8");
 
-      return reader.read().then(function(result) {
+      return reader.read().then(function (result) {
         return decoder.decode(result.value);
       });
     });
@@ -317,16 +317,21 @@ class SignUp extends Component {
 
     axios.post("http://hackmerced.io/api/attendees", user).then(res => {
       console.log(res);
+
+          return(
+            <div class ="toast toast--visible toast--success toast--error">Confirmation Email Sent</div>
+          );
     });
 
-    axios.post("https://mail.zoho.com/api/accounts/688649681/messages")
-    .then({
-      
-      "fromAddress": "general@hackmerced.com",
-      "toAddress": this.state.email,
-      "subject": "HackMerced",
-      "content" : "Success your in!"
-     });
+    // axios.post("https://mail.zoho.com/api/accounts/688649681/messages", {
+    //   "fromAddress": "general@hackmerced.com",
+    //   "toAddress": this.state.email,
+    //   "subject": "HackMerced",
+    //   "content": "Success your in!"
+    // })
+    //   .then(response => {
+    //     console.log(response);
+    //   });
 
 
     window.location.replace("http://hackmerced.io");
@@ -339,7 +344,7 @@ class SignUp extends Component {
           <form onSubmit={this.handleSubmit}>
             <div>
               <h1 id="applications">Application</h1>
-              <label className = "required">First Name</label>
+              <label className="required">First Name</label>
               <input
                 required
                 type="text"
@@ -350,7 +355,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label className = "required">Last Name</label>
+              <label className="required">Last Name</label>
               <input
                 type="text"
                 name="last-name"
@@ -361,7 +366,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label className = "required">Email</label>
+              <label className="required">Email</label>
               <input
                 type="email"
                 name="email"
@@ -372,7 +377,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label className = "required">Phone Number</label>
+              <label className="required">Phone Number</label>
               <input
                 type="text"
                 name="phone-number"
@@ -383,7 +388,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label className = "required">Age</label>
+              <label className="required">Age</label>
               <input
                 type="number"
                 name="age"
@@ -416,7 +421,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label className = "required">Ethnicity</label>
+              <label className="required">Ethnicity</label>
               <select
                 className="ethnicity"
                 onChange={this.handleEthnicityChange}
@@ -447,7 +452,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label className = "required">Is this your first hackathon?</label>
+              <label className="required">Is this your first hackathon?</label>
               <select
                 className="first-hackathon"
                 onChange={this.handleFirstHackathonChange}
@@ -464,7 +469,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label className = "required">University</label>
+              <label className="required">University</label>
               <input
                 list="universities"
                 placeholder="Start typing..."
@@ -480,7 +485,7 @@ class SignUp extends Component {
               </datalist>
             </div>
             <div>
-              <label className = "required">College Major</label>
+              <label className="required">College Major</label>
               <input
                 type="text"
                 name="major"
@@ -491,7 +496,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label className = "required">Year In College</label>
+              <label className="required">Year In College</label>
               <select
                 className="yearincollege"
                 onChange={this.handleYearChange}
@@ -512,7 +517,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label className = "required">Graduation Year</label>
+              <label className="required">Graduation Year</label>
               <input
                 type="number"
                 name="graduation-year"
@@ -523,7 +528,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label className = "required">School Standing</label>
+              <label className="required">School Standing</label>
               <select
                 className="schoolstanding"
                 onChange={this.handleSchoolStandingChange}
@@ -542,7 +547,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label className = "required">T-Shirt Size</label>
+              <label className="required">T-Shirt Size</label>
               <select
                 className="t-shirt"
                 onChange={this.handleShirtSizeChange}
@@ -583,7 +588,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label className = "required">Resume</label>
+              <label className="required">Resume</label>
               <input
                 type="text"
                 name="resume"
@@ -624,7 +629,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div id="code-of-conduct">
-              <p id="conduct" className = "required">
+              <p id="conduct" className="required">
                 I have read and agree to the{" "}
                 <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
                   MLH Code of Conduct
@@ -642,7 +647,7 @@ class SignUp extends Component {
               </div>
             </div>
             <div id="affiliation-with-mlh">
-              <p id="privacy" className = "required">
+              <p id="privacy" className="required">
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
                 post-event informational e-mails, and occasional messages about
@@ -666,7 +671,7 @@ class SignUp extends Component {
             </div>
             <div id="submit">
               <button class="popup" type="submit">
-                {(!this.state.loader) ? "Submit!" : <Loader/>}
+                {(!this.state.loader) ? "Submit!" : <Loader />}
               </button>
             </div>
           </form>

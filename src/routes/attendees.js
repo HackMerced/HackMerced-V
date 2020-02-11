@@ -114,6 +114,7 @@ router.post("/attendees", async (req, res) => {
         if (error) {
           res.send(error);
         }
+        res.status(200).json({submitted: "Application successfully submitted!"})
       });
     }
   })
