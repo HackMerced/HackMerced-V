@@ -59,9 +59,9 @@ class Sponsors extends React.Component {
       },
       bronze: {
         id: [
-          "Sketch",
           "MakeSchool",
-          "1Password",
+          "Sketch",
+          "OnePassword",
           "JetBrains",
           "StickerYou",
           "Balsamiq",
@@ -77,9 +77,9 @@ class Sponsors extends React.Component {
           "Wolfram",
           "StickerMule"
         ],
-        image: [
-          SKETCH,
+        image: [  
           MAKESCHOOL,
+          SKETCH,
           PASSWORD,
           JETBRAINS,
           STICKERYOU,
@@ -97,8 +97,8 @@ class Sponsors extends React.Component {
           STICKERMULE
         ],
         url: [
-          "https://www.sketch.com/",
           "https://www.makeschool.com/",
+          "https://www.sketch.com/",
           "https://1password.com/",
           "https://www.jetbrains.com/",
           "https://www.stickeryou.com/",
