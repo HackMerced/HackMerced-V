@@ -188,6 +188,59 @@ class CreateAccount extends React.Component {
   render() {
     return (
     <section id="create-account">
+
+    <section className="createPassword" id="password">
+          <div className="myClass">
+            <input
+              type="password"
+              name="password"
+              class="myText"
+              required
+              placeholder="Password"
+              onChange={async event => {
+                let value = event.target.value;
+
+                await this.setState(state => ({
+                  user: {
+                    ...state.user,
+                    hashedPassword: this.hashMe(value, this.state)
+                  },
+                  hasUserTypedPassword: true,
+                  isPasswordValid:
+                    value.match(
+                      /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
+                    ) !== null
+                      ? value.match(
+                          // eslint-disable-next-line no-useless-escape
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
+                        )
+                        ? true
+                        : true
+                      : false,
+                  passwordType:
+                    value.match(
+                      /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i
+                    ) !== null
+                      ? value.match(
+                          // eslint-disable-next-line no-useless-escape
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
+                        )
+                        ? "strong strength"
+                        : "medium strength"
+                      : null
+                }));
+
+                await this.validateForm(this.state);
+              }}
+            />
+            <button class="passButton" type="button">a</button>
+            {this.renderPassValid(this.state)}
+          </div>
+          </section>
+
+
+
+
       <div id="create-container">
         <section id="create-account-title">
         <img src={LOGO} width="20px" alt="HackMerced Logo" />
@@ -262,7 +315,8 @@ class CreateAccount extends React.Component {
             />
             {this.renderEmailValid(this.state)}
           </section>
-          <section id="password">
+          <section className="createPassword" id="password">
+            <div className="passwordInput">
             <input
               type="password"
               name="password"
@@ -304,10 +358,14 @@ class CreateAccount extends React.Component {
                 await this.validateForm(this.state);
               }}
             />
+            </div>
             {this.renderPassValid(this.state)}
+            <div className = "seePass">
+              <button type="button">a</button>
+            </div>
           </section>
-          <section id="submit">
-            <button className="popup" type="submit">
+          <section className="createAcc" id="submit">
+            <button type="submit">
               Create!
             </button>
           </section>

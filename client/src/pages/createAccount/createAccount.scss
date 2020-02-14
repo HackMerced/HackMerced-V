@@ -4,9 +4,11 @@
   overflow: hidden;
   padding-top: 80px;
   padding-bottom: 80px;
+  /*
   display: flex;
   flex-direction: column;
   align-items: center;
+  */
 
   #create-account-title{
     color: #D15F2A;
@@ -30,7 +32,6 @@
 
 
   input[type=email],
-  input[type=password],
   input[type=text] {
     width: 80%;
     padding: 15px;
@@ -49,16 +50,64 @@
     text-align: left;
   }
 
-
-  button {
-    width: 270px;
-    background-color: #9a544c;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  .myClass{
+    .passButton{
+    color: red;
+    margin-left: 0px; 
     font-size: 24px;
-    transition-duration: 0.25s;
+    }
+
+    .myText{
+      padding: 15px;
+      font-size: 15px;
+      margin: 15px 0 22px 0;
+      background: rgb(204, 203, 203);
+      border-style: inset;
+      border-radius: 5px;
+      overflow:hidden;
+      border-width: 10px;
+      border-color: black;
+      background: transparent;
+      text-align: left;
+    }
+  }
+
+  .createPassword{
+    input[type=password]{
+      clear: none;
+      width: 50%;
+      padding: 15px;
+      font-size: 15px;
+      margin: 15px 0 22px 0;
+      background: rgb(204, 203, 203);
+      border-style: inset;
+      border-radius: 5px;
+      overflow:hidden;
+      border-width: 10px;
+      border-color: black;
+      background: transparent;
+      text-align: left;
+    }
+    button {
+      display:flex;
+      color: red;
+      margin-left: 0px; 
+      font-size: 24px;
+      width: auto;
+    }
+  }
+
+  .createAcc{
+    button {
+      width: 270px;
+      background-color: #9a544c;
+      padding: 10px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 24px;
+      transition-duration: 0.25s;
+    }
   }
 
 
