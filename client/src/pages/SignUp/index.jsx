@@ -566,7 +566,7 @@ class SignUp extends Component {
                 name="dietary-restrictions"
                 ref="name"
                 placeholder="No meat, no animal produce"
-                onChange={this.handleDietaryRestrictionChange}
+                onChange={this.handleDietaryRestrictionsChange}
               ></input>
             </div>
             <div>
