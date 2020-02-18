@@ -105,14 +105,14 @@ Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
 
 router.post("/attendees", async (req, res) => {
   Attendees.findOne({ email: req.body.email }).then(user => {
-    if (user) {
+    if (user !== null) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
       Attendees.insertMany(req.body, (error, docs) => {
         if (error) {
-          res.send(error);
+          return res.status(500).send(error);
         }
-        res.status(200).json({submitted: "Application successfully submitted!"})
+        return res.status(200).json({submitted: "Application successfully submitted!"})
       });
     }
   })
