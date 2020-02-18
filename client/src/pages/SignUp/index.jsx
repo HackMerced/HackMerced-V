@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Papa from "papaparse";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+import Loader from "../../component/Loader";
 import "./signUp.scss";
 
 class SignUp extends Component {
@@ -31,7 +34,8 @@ class SignUp extends Component {
       codeOfConduct: true,
       affiliationWithMLH: true,
       universities: [],
-      defaultDisabled: true
+      defaultDisabled: true,
+      loader: "Submit!"
     };
 
     this.getData = this.getData.bind(this);
@@ -70,6 +74,26 @@ class SignUp extends Component {
     );
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  successToast = () => {
+    toast("Your application has been successfully submitted!", {
+      position: toast.POSITION.TOP_CENTER,
+      className: "toast-success",
+      autoClose: 8000,
+      draggable: false
+    });
+  };
+
+  errorToast = () => {
+    toast.error(
+      "There was an error submitting your application, please try again!",
+      {
+        position: toast.POSITION_TOP_CENTER,
+        className: "toast-error",
+        draggable: false
+      }
+    );
+  };
 
   UNSAFE_componentWillMount() {
     this.getCsvData();
@@ -309,11 +333,25 @@ class SignUp extends Component {
 
     console.log("before posting to DB: ", user);
 
-    axios.post("http://hackmerced.io/api/attendees", user).then(res => {
-      console.log(res);
+    this.setState({
+      loader: ""
     });
 
-    window.location.replace("http://hackmerced.io");
+    axios
+      .post("http://localhost:3852/api/attendees", user)
+      .then(response => {
+        if (response.data.submitted === "Application successfully submitted!") {
+          this.successToast();
+          this.setState({
+            loader: "Submitted!"
+          });
+        } else {
+          this.errorToast();
+        }
+      })
+      .catch(this.errorToast);
+
+    // window.location.replace("http://hackmerced.io");
   };
 
   render() {
@@ -323,7 +361,7 @@ class SignUp extends Component {
           <form onSubmit={this.handleSubmit}>
             <div>
               <h1 id="applications">Application</h1>
-              <label>First Name</label>
+              <label className="required">First Name</label>
               <input
                 required
                 type="text"
@@ -334,7 +372,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label>Last Name</label>
+              <label className="required">Last Name</label>
               <input
                 type="text"
                 name="last-name"
@@ -345,7 +383,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label>Email</label>
+              <label className="required">Email</label>
               <input
                 type="email"
                 name="email"
@@ -356,7 +394,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label>Phone Number</label>
+              <label className="required">Phone Number</label>
               <input
                 type="text"
                 name="phone-number"
@@ -367,18 +405,20 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label>Age</label>
+              <label className="required">Age</label>
               <input
                 type="number"
                 name="age"
                 ref="name"
                 placeholder="18"
                 required
+                min={17}
+                max={100}
                 onChange={this.handleAgeChange}
               ></input>
             </div>
             <div>
-              <label>Gender</label>
+              <label className="required">Gender</label>
               <select
                 className="gender"
                 onChange={this.handleGenderChange}
@@ -400,7 +440,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label>Ethnicity</label>
+              <label className="required">Ethnicity</label>
               <select
                 className="ethnicity"
                 onChange={this.handleEthnicityChange}
@@ -431,7 +471,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label>Is this your first hackathon?</label>
+              <label className="required">Is this your first hackathon?</label>
               <select
                 className="first-hackathon"
                 onChange={this.handleFirstHackathonChange}
@@ -447,9 +487,8 @@ class SignUp extends Component {
                 <option value="No">No</option>
               </select>
             </div>
-
             <div>
-              <label>University</label>
+              <label className="required">University</label>
               <input
                 list="universities"
                 placeholder="Start typing..."
@@ -457,15 +496,12 @@ class SignUp extends Component {
                 onChange={this.handleUniversityChange}
                 required
               ></input>
-              <datalist
-                id="universities"
-                name="school"
-              >
+              <datalist id="universities" name="school">
                 {this.uniList(this.state)}
               </datalist>
             </div>
             <div>
-              <label>College Major</label>
+              <label className="required">College Major</label>
               <input
                 type="text"
                 name="major"
@@ -476,7 +512,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label>Year In College</label>
+              <label className="required">Year In College</label>
               <select
                 className="yearincollege"
                 onChange={this.handleYearChange}
@@ -497,7 +533,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label>Graduation Year</label>
+              <label className="required">Graduation Year</label>
               <input
                 type="number"
                 name="graduation-year"
@@ -508,7 +544,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div>
-              <label>School Standing</label>
+              <label className="required">School Standing</label>
               <select
                 className="schoolstanding"
                 onChange={this.handleSchoolStandingChange}
@@ -527,7 +563,7 @@ class SignUp extends Component {
               </select>
             </div>
             <div>
-              <label>T-Shirt Size</label>
+              <label className="required">T-Shirt Size</label>
               <select
                 className="t-shirt"
                 onChange={this.handleShirtSizeChange}
@@ -553,8 +589,8 @@ class SignUp extends Component {
                 type="text"
                 name="dietary-restrictions"
                 ref="name"
-                placeholder="No meat, no animal produce, or N/A"
-                onChange={this.handleDietaryRestrictionChange}
+                placeholder="No meat, no animal produce"
+                onChange={this.handleDietaryRestrictionsChange}
               ></input>
             </div>
             <div>
@@ -563,12 +599,12 @@ class SignUp extends Component {
                 type="text"
                 name="special-needs"
                 ref="name"
-                placeholder="Speech Impairment...or N/A"
+                placeholder="Speech Impairment"
                 onChange={this.handleSpecialNeedsChange}
               ></input>
             </div>
             <div>
-              <label>Resume</label>
+              <label className="required">Resume</label>
               <input
                 type="text"
                 name="resume"
@@ -609,7 +645,7 @@ class SignUp extends Component {
               ></input>
             </div>
             <div id="code-of-conduct">
-              <p id="conduct">
+              <p id="conduct" className="required">
                 I have read and agree to the{" "}
                 <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
                   MLH Code of Conduct
@@ -627,7 +663,7 @@ class SignUp extends Component {
               </div>
             </div>
             <div id="affiliation-with-mlh">
-              <p id="privacy">
+              <p id="privacy" className="required">
                 I authorize you to share my application/registration information
                 for event administration, ranking, MLH administration, pre- and
                 post-event informational e-mails, and occasional messages about
@@ -651,11 +687,18 @@ class SignUp extends Component {
             </div>
             <div id="submit">
               <button class="popup" type="submit">
-                Submit!
+                {this.state.loader === "Submit!" ? (
+                  this.state.loader
+                ) : this.state.loader === "Submitted!" ? (
+                  this.state.loader
+                ) : (
+                  <Loader />
+                )}
               </button>
             </div>
           </form>
         </div>
+        <ToastContainer />
       </section>
     );
   }
