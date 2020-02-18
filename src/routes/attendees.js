@@ -1,6 +1,8 @@
 const router = require("express").Router();
+const { Keccak } = require("sha3");
+const axios = require("axios");
+
 const Attendees = require("../models").models.Attendees;
-const { Keccak } = require('sha3');
 
 /**
  * @api {get} /api/attendees Get Attendee
@@ -28,7 +30,6 @@ router.get("/attendees", async (request, response) => {
   });
 });
 
-
 /**
  * @api {patch} /api/attendee Update Attendee(s)
  * @apiDescription Updates an array of Attendee(s)
@@ -51,24 +52,26 @@ router.get("/attendees", async (request, response) => {
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
-
 router.patch("/attendees", async (req, res) => {
-Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
+  Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
     if (user) {
-    Attendees.findOneAndUpdate({ myEmail: req.body.myEmail }, req.body, (error, docs) => {
-        if (error) {
-          console.log(error);
+      Attendees.findOneAndUpdate(
+        { myEmail: req.body.myEmail },
+        req.body,
+        (error, docs) => {
+          if (error) {
+            console.log(error);
+          }
         }
-      });
-      res.status(200).json({user: "account updated!", secret: process.env.JWT_SECRET});
+      );
+      res
+        .status(200)
+        .json({ user: "account updated!", secret: process.env.JWT_SECRET });
     } else {
       return res.status(404).json({ user: "Application doesn't exist" });
     }
-
-  })
-
+  });
 });
-
 
 /**
  * @api {post} /api/attendees Add new Attendee(s)
@@ -102,8 +105,7 @@ Attendees.findOne({ myEmail: req.body.myEmail }).then(user => {
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
-
-router.post("/attendees", async (req, res) => {
+router.post("/attendees", (req, res) => {
   Attendees.findOne({ email: req.body.email }).then(user => {
     if (user !== null) {
       return res.status(400).json({ email: "Email already exists" });
@@ -112,10 +114,35 @@ router.post("/attendees", async (req, res) => {
         if (error) {
           return res.status(500).send(error);
         }
-        return res.status(200).json({submitted: "Application successfully submitted!"})
+
+        //! There is an error with the account id we have
+        // TODO: obtain correct account id and pass correct headers if we want to use the email client
+        // try {
+        //   axios
+        //     .post(
+        //       `https://mail.zoho.com/api/accounts/${process.env.ZOHO_ACCOUNT_ID}/messages`,
+        //       {
+        //         fromAddress: "general@hackmerced.com",
+        //         toAddress: "adarian641@gmail.com",
+        //         subject: "HackMerced",
+        //         content: "Success your in!"
+        //       }
+        //     )
+        //     .finally(() => {
+        //       return res
+        //         .status(200)
+        //         .json({ submitted: "Application successfully submitted!" });
+        //     });
+        // } catch (err) {
+        //   console.error("GG", err);
+        // }
+
+        return res
+          .status(200)
+          .json({ submitted: "Application successfully submitted!" });
       });
     }
-  })
+  });
 });
 
 // Check if user is in DB by email
@@ -131,7 +158,7 @@ router.post("/attendees/q", async (req, res) => {
 
 // Hash password and check authentication?
 router.post("/attendees/c", async (req, res) => {
-  Attendees.findOne({email: req.body.myEmail}).then(user => {
+  Attendees.findOne({ email: req.body.myEmail }).then(user => {
     if (user) {
       var attemptPassword = req.body.attemptPassword;
       var userPassword = user.password;
@@ -141,18 +168,20 @@ router.post("/attendees/c", async (req, res) => {
         hash.reset();
         const attempt = String.fromCharCode(i);
         hash.update(attemptPassword).update(attempt);
-        const newPass = hash.digest('hex');
-        if(newPass === userPassword){
+        const newPass = hash.digest("hex");
+        if (newPass === userPassword) {
           didUserLogIn = true;
           break;
         }
       }
-      if(didUserLogIn){
-        return res.status(200).json({result: "correct", secret: process.env.JWT_SECRET});
-      }else{
-        return res.status(200).json({result: "incorrect"});
+      if (didUserLogIn) {
+        return res
+          .status(200)
+          .json({ result: "correct", secret: process.env.JWT_SECRET });
+      } else {
+        return res.status(200).json({ result: "incorrect" });
       }
-    }else{
+    } else {
       return res.status(200).json({ result: "application does not exist" });
     }
   });

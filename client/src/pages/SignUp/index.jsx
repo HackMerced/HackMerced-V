@@ -35,7 +35,7 @@ class SignUp extends Component {
       affiliationWithMLH: true,
       universities: [],
       defaultDisabled: true,
-      loader: false
+      loader: "Submit!"
     };
 
     this.getData = this.getData.bind(this);
@@ -80,7 +80,7 @@ class SignUp extends Component {
       position: toast.POSITION.TOP_CENTER,
       className: "toast-success",
       autoClose: 8000,
-      draggable: false,
+      draggable: false
     });
   };
 
@@ -90,10 +90,10 @@ class SignUp extends Component {
       {
         position: toast.POSITION_TOP_CENTER,
         className: "toast-error",
-        draggable: false,
+        draggable: false
       }
     );
-  }
+  };
 
   UNSAFE_componentWillMount() {
     this.getCsvData();
@@ -334,30 +334,22 @@ class SignUp extends Component {
     console.log("before posting to DB: ", user);
 
     this.setState({
-      loader: true
+      loader: ""
     });
 
     axios
-      .get("http://localhost:3852/api/attendees", {
-        params: {
-          email: this.state.email
+      .post("http://localhost:3852/api/attendees", user)
+      .then(response => {
+        if (response.data.submitted === "Application successfully submitted!") {
+          this.successToast();
+          this.setState({
+            loader: "Submitted!"
+          });
+        } else {
+          this.errorToast();
         }
       })
-      .then(response => {
-        console.log(response);
-        console.log(response.data.user.status == "submitted" ? "ok" : "not ok");
-      }).catch(this.errorToast)
-      .finally(this.successToast );
-
-    // axios.post("https://mail.zoho.com/api/accounts/688649681/messages", {
-    //   "fromAddress": "general@hackmerced.com",
-    //   "toAddress": this.state.email,
-    //   "subject": "HackMerced",
-    //   "content": "Success your in!"
-    // })
-    //   .then(response => {
-    //     console.log(response);
-    //   });
+      .catch(this.errorToast);
 
     // window.location.replace("http://hackmerced.io");
   };
@@ -695,7 +687,13 @@ class SignUp extends Component {
             </div>
             <div id="submit">
               <button class="popup" type="submit">
-                {!this.state.loader ? "Submit!" : <Loader />}
+                {this.state.loader === "Submit!" ? (
+                  this.state.loader
+                ) : this.state.loader === "Submitted!" ? (
+                  this.state.loader
+                ) : (
+                  <Loader />
+                )}
               </button>
             </div>
           </form>
