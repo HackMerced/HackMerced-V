@@ -2,9 +2,9 @@ import React from "react";
 import "./themes.scss";
 
 //The theme pictures
-import SOCIAL from "../../assets/Images/social_good.jpg";
-import SUSTAIN from "../../assets/Images/sustainability.jpg";
-import HEALTH from "../../assets/Images/health.jpg";
+import SOCIAL from "../../assets/Images/social good.png";
+import SUSTAIN from "../../assets/Images/sustainability.png";
+import HEALTH from "../../assets/Images/medical.png";
 
 class Themes extends React.Component{
     constructor(props){
