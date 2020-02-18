@@ -338,7 +338,7 @@ class SignUp extends Component {
     });
 
     axios
-      .post("http://localhost:3852/api/attendees", user)
+      .post("http://hackmerced.io/api/attendees", user)
       .then(response => {
         if (response.data.submitted === "Application successfully submitted!") {
           this.successToast();
