@@ -26,6 +26,7 @@
     "react-modal": "^3.11.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-toastify": "^5.5.0",
     "sha3": "^2.1.0",
     "uuid": "^3.3.3"
   },
