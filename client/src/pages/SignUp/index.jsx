@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Papa from "papaparse";
-import Loader from "../../component/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+import Loader from "../../component/Loader";
 import "./signUp.scss";
 
 class SignUp extends Component {
@@ -73,6 +75,26 @@ class SignUp extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  successToast = () => {
+    toast("Your application has been successfully submitted!", {
+      position: toast.POSITION.TOP_CENTER,
+      className: "toast-success",
+      autoClose: 80000,
+      draggable: false,
+    });
+  };
+
+  errorToast = () => {
+    toast.error(
+      "There was an error submitting your application, please try again!",
+      {
+        position: toast.POSITION_TOP_CENTER,
+        className: "toast-error",
+        draggable: false,
+      }
+    );
+  }
+
   UNSAFE_componentWillMount() {
     this.getCsvData();
   }
@@ -84,7 +106,7 @@ class SignUp extends Component {
       let reader = response.body.getReader();
       let decoder = new TextDecoder("utf-8");
 
-      return reader.read().then(function (result) {
+      return reader.read().then(function(result) {
         return decoder.decode(result.value);
       });
     });
@@ -315,6 +337,18 @@ class SignUp extends Component {
       loader: true
     });
 
+    axios
+      .get("http://localhost:3852/api/attendees", {
+        params: {
+          email: this.state.email
+        }
+      })
+      .then(response => {
+        console.log(response);
+        console.log(response.data.user.status == "submitted" ? "ok" : "not ok");
+      }).catch(this.errorToast)
+      .finally(this.successToast );
+
     // axios.post("https://mail.zoho.com/api/accounts/688649681/messages", {
     //   "fromAddress": "general@hackmerced.com",
     //   "toAddress": this.state.email,
@@ -325,8 +359,7 @@ class SignUp extends Component {
     //     console.log(response);
     //   });
 
-
-    window.location.replace("http://hackmerced.io");
+    // window.location.replace("http://hackmerced.io");
   };
 
   render() {
@@ -387,6 +420,8 @@ class SignUp extends Component {
                 ref="name"
                 placeholder="18"
                 required
+                min={17}
+                max={100}
                 onChange={this.handleAgeChange}
               ></input>
             </div>
@@ -469,10 +504,7 @@ class SignUp extends Component {
                 onChange={this.handleUniversityChange}
                 required
               ></input>
-              <datalist
-                id="universities"
-                name="school"
-              >
+              <datalist id="universities" name="school">
                 {this.uniList(this.state)}
               </datalist>
             </div>
@@ -663,11 +695,12 @@ class SignUp extends Component {
             </div>
             <div id="submit">
               <button class="popup" type="submit">
-                {(!this.state.loader) ? "Submit!" : <Loader />}
+                {!this.state.loader ? "Submit!" : <Loader />}
               </button>
             </div>
           </form>
         </div>
+        <ToastContainer />
       </section>
     );
   }

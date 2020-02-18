@@ -3,11 +3,15 @@
   min-height: 92vh;
 }
 
+.toast-success {
+  color: black;
+}
+
 #body {
   background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
   color: white;
   padding: 10%;
-  font-family: 'Moon', bold;
+  font-family: "Moon", bold;
 }
 
 #formID {
@@ -20,7 +24,6 @@ label {
   margin: 10%;
   font-size: 30px;
   font-weight: bolder;
-
 }
 
 :placeholder-shown {
@@ -40,7 +43,7 @@ label {
 
 #applications {
   font-size: 60px;
-  font-family: 'Moon';
+  font-family: "Moon";
   font-weight: bolder;
   text-align: center;
   overflow: hidden;
@@ -48,13 +51,11 @@ label {
   margin-top: 5%;
 }
 
-
 h5 {
   font-size: 20px;
   position: relative;
   left: 15px;
 }
-
 
 select {
   border: 10px solid;
@@ -63,7 +64,6 @@ select {
   text-align: center;
   appearance: none;
   outline: 0;
-
 }
 
 ::placeholder {
@@ -71,7 +71,7 @@ select {
   font-style: bold;
 }
 
-.first-hackathon{
+.first-hackathon {
   font-size: 30px;
   font-weight: bolder;
   margin: 20%;
@@ -81,18 +81,19 @@ select {
   padding: 10px;
   margin: 0 auto;
   border-radius: 5px;
-  background:transparent;
+  background: transparent;
   color: black;
   outline: none;
   cursor: pointer;
   font-weight: bold;
-  margin-top:1.5%;
+  margin-top: 1.5%;
 }
 
-input[type=text],
-input[type=email],
-input[type=url],
-input[type=number], input[list=universities] {
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[list="universities"] {
   width: 80%;
   padding: 15px;
   margin: 15px 0 22px 0;
@@ -103,7 +104,7 @@ input[type=number], input[list=universities] {
   border-radius: 5px;
   position: relative;
   left: 10%;
-  overflow:hidden;
+  overflow: hidden;
   border-width: 10px;
   border-color: black;
   background: transparent;
@@ -115,20 +116,20 @@ input[type=number], input[list=universities] {
   color: pink;
 }
 
-.gender{
+.gender {
   position: relative;
-    width: 200px;
-    padding: 10px;
-    margin: 0 auto;
-    border-radius: 5px;
-    display: inline-block;
-    background:transparent;
-    color: black;
-    outline: none;
-    cursor: pointer;
-    font-weight: bold;
-    left: 10%;
-    margin-top:1.5%;
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: inline-block;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  left: 10%;
+  margin-top: 1.5%;
 }
 
 .gender:after {
@@ -144,7 +145,7 @@ input[type=number], input[list=universities] {
 }
 
 .gender .dropdown {
-  background:transparent;
+  background: transparent;
 }
 
 .ethnicity {
@@ -159,7 +160,7 @@ input[type=number], input[list=universities] {
   cursor: pointer;
   font-weight: bold;
   left: 8%;
-  margin-top:1.5%;
+  margin-top: 1.5%;
 }
 
 .university {
@@ -168,12 +169,12 @@ input[type=number], input[list=universities] {
   padding: 10px;
   margin: 0 auto;
   border-radius: 5px;
-  background:transparent;
+  background: transparent;
   color: black;
   outline: none;
   cursor: pointer;
   font-weight: bold;
-  margin-top:1.5%;
+  margin-top: 1.5%;
 }
 
 .yearincollege {
@@ -204,18 +205,18 @@ input[type=number], input[list=universities] {
   margin-top: 1.5%;
 }
 
-.first-hackathon  {
+.first-hackathon {
   position: relative;
   width: 20%;
   padding: 10px;
   margin: 0 auto;
   border-radius: 5px;
-  background:transparent;
+  background: transparent;
   color: black;
   outline: none;
   cursor: pointer;
   font-weight: bold;
-  margin-top:1.5%;
+  margin-top: 1.5%;
 }
 
 .t-shirt {
@@ -224,15 +225,16 @@ input[type=number], input[list=universities] {
   padding: 10px;
   margin: 0 auto;
   border-radius: 5px;
-  background:transparent;
+  background: transparent;
   color: black;
   outline: none;
   cursor: pointer;
   font-weight: bold;
-  margin-top:1.5%;
+  margin-top: 1.5%;
 }
 
-p#privacy, #conduct{
+p#privacy,
+#conduct {
   font-size: 1.5em;
   margin: 0 0 1em;
   display: inline-block;
@@ -249,12 +251,13 @@ a {
   color: blue;
 }
 
-#code-of-conduct, #affiliation-with-mlh {
+#code-of-conduct,
+#affiliation-with-mlh {
   div {
     display: grid;
     grid-template-areas: ". . . . . . left right . . . . . .";
 
-    input[type=checkbox] {
+    input[type="checkbox"] {
       grid-area: left;
       cursor: pointer;
       margin: 0% 25% 10%;
@@ -264,8 +267,7 @@ a {
       grid-area: right;
       overflow: hidden;
       margin: 0% 0% 5%;
-      padding:0% 0% 10%;
-      
+      padding: 0% 0% 10%;
     }
   }
 }
@@ -283,26 +285,19 @@ a {
   text-align: center;
   text-decoration: none;
 
-  
-  justify-content:center;
- 
+  justify-content: center;
+
   max-width: 300px;
   margin: 3% auto;
   overflow: hidden;
 
   &:hover {
     box-shadow: 10px 10px 10px black;
-    
   }
 }
 
 .popup {
- 
   position: relative;
-  justify-content:center;
+  justify-content: center;
   text-align: center;
 }
-
-
-
-
