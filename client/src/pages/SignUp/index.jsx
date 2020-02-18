@@ -79,7 +79,7 @@ class SignUp extends Component {
     toast("Your application has been successfully submitted!", {
       position: toast.POSITION.TOP_CENTER,
       className: "toast-success",
-      autoClose: 80000,
+      autoClose: 8000,
       draggable: false,
     });
   };

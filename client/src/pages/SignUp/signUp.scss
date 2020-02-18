@@ -3,8 +3,21 @@
   min-height: 92vh;
 }
 
-.toast-success {
-  color: black;
+.toast-success, .toast-error {
+  color: #fcf6f4;
+  background-color: #99544c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Toastify__toast-body {
+  flex: none;
+}
+
+.Toastify__progress-bar,
+.Toastify__progress-bar--animated,
+.Toastify__progress-bar--default {
+  background: white;
 }
 
 #body {
