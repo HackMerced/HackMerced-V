@@ -92,7 +92,7 @@ select {
 input[type=text],
 input[type=email],
 input[type=url],
-input[type=number] {
+input[type=number], input[list=universities] {
   width: 80%;
   padding: 15px;
   margin: 15px 0 22px 0;
