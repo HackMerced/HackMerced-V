@@ -315,14 +315,6 @@ class SignUp extends Component {
       loader: true
     });
 
-    axios.post("http://hackmerced.io/api/attendees", user).then(res => {
-      console.log(res);
-
-          return(
-            <div class ="toast toast--visible toast--success toast--error">Confirmation Email Sent</div>
-          );
-    });
-
     // axios.post("https://mail.zoho.com/api/accounts/688649681/messages", {
     //   "fromAddress": "general@hackmerced.com",
     //   "toAddress": this.state.email,
