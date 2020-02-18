@@ -3,30 +3,28 @@ const Attendees = require("../models").models.Attendees;
 const { Keccak } = require('sha3');
 
 /**
- * @api {post} /api/attendees Add new Attendee(s)
- * @apiDescription Adds an array of new Attendee(s)
+ * @api {get} /api/attendees Get Attendee
+ * @apiDescription Checks if Attendee is in database
  * @apiVersion 1.0.0
- * @apiName Add new Attendee(s)
+ * @apiName Verify Attendee(s)
  * @apiGroup Attendee(s)
- * @apiPermission admin
+ * @apiPermission public
  *
- * @apiHeader {String} Authorization  Attendee's access token
+ * @apiHeader {String} Authorization Attendee's access token
  *
- * @apiParam  {Number{1-}}         [page=1]     List page
- * @apiParam  {Number{1-100}}      [perPage=1]  Users per page
- * @apiParam  {String}             [name]       User's name
  * @apiParam  {String}             [email]      User's email
- * @apiParam  {String=user,admin}  [role]       User's role
  *
- * @apiSuccess {Object[]} attendee(s) List of successfully registered attendee(s).
+ * @apiSuccess {Object[]} Returns user information if in database.
  *
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
 
-router.get("/attendees", async (req, res) => {
-  Attendees.findOne({ myEmail: req.body.email }).then(user => {
-      res.send("found user");
+router.get("/attendees", async (request, response) => {
+  await Attendees.findOne({ email: request.query.email }).then(user => {
+    return user
+      ? response.status(200).json({ user })
+      : response.status(200).json({ user: "application does not exist" });
   });
 });
 
