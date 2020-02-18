@@ -5,7 +5,6 @@ on:
     # Sequence of patterns matched against refs/heads
     branches:
       - 'feature/*' # Push events to branches matching refs/heads/feature/*
-      - 'actions/*' # Push events to branches matching refs/heads/actions/*
       - 'develop' # Push events to branches matching refs/heads/develop
       - 'master' # Push events to branches matching refs/heads/master
 
@@ -33,6 +32,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Make sure the project is completely clean
+      run: |
+        echo 'Double checking it is a clean project'
+        yarn clean
+
     - name: Setup 
       env:
         NODE_ENV: ${{ secrets.NODE_ENV }}
@@ -43,3 +47,8 @@ jobs:
         ls -l
         echo 'Running Setup...'
         yarn setup
+
+    - name: Run Server/Build React
+      run: |
+        echo 'Running Express Server and Building React Application...'
+        yarn start
