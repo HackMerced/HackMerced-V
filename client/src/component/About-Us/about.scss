@@ -1,3 +1,4 @@
+
 #about-us {
   background-color: #342E40;
   display: grid;
@@ -7,7 +8,7 @@
   
 
   img {
-    width: 80%;
+    width: 75%;
     padding: 20px 0 0 20px;
   }
   
@@ -68,6 +69,95 @@
         overflow: hidden;
         font-size: 20px;
         padding-right: 5%;
+      }
+    }
+  }
+}
+
+
+
+
+
+// MOBILE CSS
+@media all and (max-width: 641px) {
+  #about-us {
+    background-color: #342E40;
+    display: grid;
+    grid-template-areas: "img about";
+    overflow: hidden;
+    padding-bottom: 5%;
+    
+    img {
+      width: 0;
+      padding: 0px 0 0 0px;
+    }
+   
+    
+  
+    #about {
+      color: white;
+      padding: 10% 10% 10% 10%;
+      display: grid;
+      grid-template-areas:
+        "header"
+        "what"
+        "why";
+      line-height: 1cm;
+      overflow: hidden;
+  
+      #header {
+        
+        font-size: 55px;
+        font-weight: 1000;
+        font-style: italic;
+        text-align: center;
+        padding-bottom: 5%;
+        overflow: hidden;
+        font-style: bold;
+        font-family: 'Dosis', bold ;
+        text-emphasis-color: white;
+       
+      }
+  
+      #what {
+        padding-bottom: 5%;
+        text-align: center;
+        
+  
+        h3 {
+          font-size: 35px;
+          font-weight: 900;
+          overflow: hidden;
+          padding-bottom: 1%
+        }
+  
+        p {
+          overflow: hidden;
+          font-size: 20px;
+          text-align: center;
+          padding-bottom: 0.7%;
+        }
+      }
+  
+      #why {
+        padding-bottom: 1%;
+        text-align: center;
+        
+  
+        h3 {
+          font-size: 35px;
+          font-weight: 900;
+          overflow: hidden;
+          padding-bottom: .5%
+        }
+  
+        p {
+          overflow: hidden;
+          font-size: 20px;
+          text-align: center;
+          padding-bottom: 3px;
+          
+        }
       }
     }
   }

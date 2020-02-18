@@ -1,16 +1,36 @@
 import React from "react";
 
 import "./sponsors.scss";
+
+// Platinum Sponsors
 import ASUCM from "../../assets/Images/asucm.png";
-import PASSWORD from "../../assets/Images/1password.png";
-import DIGITALOCEAN from "../../assets/Images/digitalocean.png";
-import SKETCH from "../../assets/Images/Sketch.png";
-import ROCHE from "../../assets/Images/roche.png";
-import BALSAMIQ from "../../assets/Images/balsamiq.png";
-import STICKERYOU from "../../assets/Images/stickeryoulogo.png";
-import JETBRAINS from "../../assets/Images/jetbrains.png";
-import MAKESCHOOL from "../../assets/Images/makeschool.png";
 import MLH from "../../assets/Images/mlh-logo-white.png";
+
+// Silver Sponsors
+import LINODE from "../../assets/Images/linode.png";
+import DIGITALOCEAN from "../../assets/Images/digitalocean.png";
+import ROCHE from "../../assets/Images/roche.png";
+import FOUNDERS from "../../assets/Images/founders.png";
+import LLNL from "../../assets/Images/llnl.png";
+
+// Bronze Sponsors
+import SKETCH from "../../assets/Images/Sketch.png";
+import MAKESCHOOL from "../../assets/Images/makeschool.png";
+import PASSWORD from "../../assets/Images/1password.png";
+import JETBRAINS from "../../assets/Images/jetbrains.png";
+import STICKERYOU from "../../assets/Images/stickeryoulogo.png";
+import BALSAMIQ from "../../assets/Images/balsamiq.png";
+import CLERKY from "../../assets/Images/clerky.png";
+import CLOUDSPLOIT from "../../assets/Images/cloudsploit.png";
+import MAKEYMAKEY from "../../assets/Images/makey makey.png";
+import EGGHEAD from "../../assets/Images/egghead.png";
+import DESMOS from "../../assets/Images/desmos.png";
+import AOPS from "../../assets/Images/aops.png";
+import BUGSEE from "../../assets/Images/bugsee.png";
+import MAGOOSH from "../../assets/Images/magoosh.png";
+import CITRIS from "../../assets/Images/citris.png";
+import WOLFRAM from "../../assets/Images/wolfram.png";
+import STICKERMULE from "../../assets/Images/sticker-mule-logo-light.png";
 
 class Sponsors extends React.Component {
   constructor(props) {
@@ -18,8 +38,8 @@ class Sponsors extends React.Component {
     this.sponsors = {
       platinum: {
         id: ["ASUCM", "MLH"],
-        image: [],
-        url: []
+        image: [ASUCM, MLH],
+        url: ["https://asucm.ucmerced.edu/", "https://mlh.io/"]
       },
       gold: {
         id: [],
@@ -27,145 +47,91 @@ class Sponsors extends React.Component {
         url: []
       },
       silver: {
-        id: [
-          "Linode",
-          "DigitalOcean",
-          "Roche",
-          "Lawrence Livermore National Laboratory",
-          "Founders"
-        ],
-        image: [],
-        url: []
+        id: ["Founders", "Linode", "LLNL", "DigitalOcean", "Roche"],
+        image: [FOUNDERS, LINODE, LLNL, DIGITALOCEAN, ROCHE],
+        url: [
+          "http://hackmerced.io",
+          "https://digitalocean.com/",
+          "https://www.llnl.gov/",
+          "https://www.linode.com/",
+          "https://roche.com/",
+        ]
       },
       bronze: {
         id: [
-          "Sketch",
           "MakeSchool",
-          "1Password",
+          "Sketch",
+          "OnePassword",
           "JetBrains",
           "StickerYou",
           "Balsamiq",
           "Clerky",
-          "CloudSploit"
+          "CloudSploit",
+          "MakeyMakey",
+          "Egghead",
+          "Desmos",
+          "AoPS",
+          "Bugsee",
+          "Magoosh",
+          "CITRIS",
+          "Wolfram",
+          "StickerMule"
         ],
-        image: [],
-        url: []
-      },
-      id: [
-        "asucm",
-        "digitalocean",
-        "roche",
-        "jetbrains",
-        "makeschool",
-        "stickeryou",
-        "sketch",
-        "balsamiq",
-        "password",
-        "mlh"
-      ],
-      image: [
-        ASUCM,
-        DIGITALOCEAN,
-        ROCHE,
-        JETBRAINS,
-        MAKESCHOOL,
-        STICKERYOU,
-        SKETCH,
-        BALSAMIQ,
-        PASSWORD,
-        MLH
-      ],
-      alt: [
-        "ASUCM",
-        "DigitalOcean",
-        "Roche",
-        "JetBrains",
-        "MakeSchool",
-        "StickerYou",
-        "Sketch",
-        "Balsamiq",
-        "1Password",
-        "MLH"
-      ],
-      url: [
-        "https://asucm.ucmerced.edu/",
-        "https://digitalocean.com/",
-        "https://roche.com/",
-        "https://www.jetbrains.com/",
-        "https://www.makeschool.com/",
-        "https://www.stickeryou.com/",
-        "https://www.sketch.com/",
-        "https://balsamiq.com/",
-        "https://1password.com/",
-        "https://mlh.io/"
-      ],
-      tier: [
-        "platinum",
-        "silver",
-        "silver",
-        "bronze",
-        "bronze",
-        "bronze",
-        "bronze",
-        "bronze",
-        "bronze",
-        "platinum"
-      ]
+        image: [  
+          MAKESCHOOL,
+          SKETCH,
+          PASSWORD,
+          JETBRAINS,
+          STICKERYOU,
+          BALSAMIQ,
+          CLERKY,
+          CLOUDSPLOIT,
+          MAKEYMAKEY,
+          EGGHEAD,
+          DESMOS,
+          AOPS,
+          BUGSEE,
+          MAGOOSH,
+          CITRIS,
+          WOLFRAM,
+          STICKERMULE
+        ],
+        url: [
+          "https://www.makeschool.com/",
+          "https://www.sketch.com/",
+          "https://1password.com/",
+          "https://www.jetbrains.com/",
+          "https://www.stickeryou.com/",
+          "https://balsamiq.com/",
+          "https://www.clerky.com/",
+          "https://cloudsploit.com/",
+          "https://makeymakey.com/",
+          "https://egghead.io/",
+          "https://www.desmos.com/",
+          "https://artofproblemsolving.com/",
+          "https://www.bugsee.com/",
+          "https://magoosh.com/",
+          "https://citris.ucmerced.edu/",
+          "https://www.wolframalpha.com/",
+          "https://www.stickermule.com/"
+        ]
+      }
     };
   }
 
-  createSponsors = ({ id, image, alt, url, tier }) => {
+  createSponsors = ({ platinum, silver, bronze }, type) => {
     let sponsors = [],
-      platinum = [],
-      silver = [],
-      bronze = [];
+    tier = (type === "platinum") ? platinum : ((type === "silver") ? silver : bronze);
 
-    for (let i = 0; i < id.length; ++i) {
-      switch (tier[i]) {
-        case "platinum": {
-          platinum.push(
-            <div className="sponsor" id={id[i]} key={i}>
-              <a href={url[i]}>
-                <img src={image[i]} alt={alt[i]} />
-              </a>
-            </div>
-          );
-          break;
-        }
-        case "silver":
-          silver.push(
-            <div className="sponsor" id={id[i]} key={i}>
-              <a href={url[i]}>
-                <img src={image[i]} alt={alt[i]} />
-              </a>
-            </div>
-          );
-          break;
-        case "bronze":
-          bronze.push(
-            <div className="sponsor" id={id[i]} key={i}>
-              <a href={url[i]}>
-                <img src={image[i]} alt={alt[i]} />
-              </a>
-            </div>
-          );
-          break;
-        default:
-          break;
-      }
+    for (let i = 0; i < tier.id.length; ++i) {
+      sponsors.push(
+        <div className="sponsor" id={tier.id[i]} key={i}>
+          <a href={tier.url[i]}>
+            <img src={tier.image[i]} alt={(tier.id[i])} />
+          </a>
+        </div>
+      );
     }
-
-    platinum.forEach(item => {
-      sponsors.push(<div id="platinum">{item}</div>);
-    });
-
-    silver.forEach(item => {
-      sponsors.push(<div id="silver">{item}</div>);
-    });
-
-    bronze.forEach(item => {
-      sponsors.push(<div id="bronze">{item}</div>);
-    });
 
     return sponsors;
   };
@@ -174,7 +140,17 @@ class Sponsors extends React.Component {
     return (
       <section id="sponsors">
         <h2>Sponsors</h2>
-        <div id="sponsors-grid">{this.createSponsors(this.sponsors)}</div>
+        <div id="sponsors-grid">
+          <div id="platinum">
+            {this.createSponsors(this.sponsors, "platinum")}
+          </div>
+          <div id="silver">
+            {this.createSponsors(this.sponsors, "silver")}
+          </div>
+          <div id="bronze">
+            {this.createSponsors(this.sponsors, "bronze")}
+          </div>
+        </div>
       </section>
     );
   }
