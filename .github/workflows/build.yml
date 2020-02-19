@@ -4,9 +4,10 @@ on:
   pull_request:
     # Sequence of patterns matched against refs/heads
     branches:
-      - 'feature/*' # Push events to branches matching refs/heads/feature/*
-      - 'develop' # Push events to branches matching refs/heads/develop
-      - 'master' # Push events to branches matching refs/heads/master
+      - bug/* # Push events to branches matching refs/heads/bug/*
+      - feature/* # Push events to branches matching refs/heads/feature/*
+      - develop # Push events to branches matching refs/heads/develop
+      - master # Push events to branches matching refs/heads/master
 
     # Sequence of patterns matched against refs/tags
     tags:
@@ -25,7 +26,7 @@ jobs:
 
     steps:
     - name: Checkout to current branch
-      uses: actions/checkout
+      uses: actions/checkout@v2
 
     - name: Configure Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v0
