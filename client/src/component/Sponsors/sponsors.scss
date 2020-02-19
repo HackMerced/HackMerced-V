@@ -2,9 +2,8 @@
   background-color: #9a544c;
   color: white;
 
-  img{
+  img {
     display: block;
-    
   }
 
   h2 {
@@ -35,9 +34,9 @@
   #silver {
     grid-area: silver;
     display: grid;
-    grid-template-areas: 
-    " Founders Linode LLNL"
-    "DigitalOcean . Roche ";
+    grid-template-areas:
+      " Founders Linode LLNL"
+      "DigitalOcean . Roche ";
   }
 
   #bronze {
@@ -48,8 +47,7 @@
     overflow: hidden; // This is a quick fix. Change later
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto auto auto;
- 
-        margin-bottom: 3%;
+    margin-bottom: 3%;
   }
 
   #ASUCM {
@@ -58,25 +56,26 @@
     left: 60%;
     position: relative;
   }
+
   #MLH {
-  padding-top: 10%;
-  width: 50%;
-  position: relative;
-  left: 10%;
+    padding-top: 10%;
+    width: 50%;
+    position: relative;
+    left: 10%;
   }
 
-  #Linode{
+  #Linode {
     width: 70%;
     position: relative;
     top: 20%;
     left: 10%;
-  
-  } 
+  }
 
   #LLNL {
     width: 70%;
     padding-top: 10%;
   }
+
   #DigitalOcean {
     width: 70%;
     padding-top: 10%;
@@ -91,11 +90,8 @@
     position: relative;
     left: 50%;
     bottom: 10%;
-   
-  
-}
+  }
 
-  
   #MakeSchool {
     width: 45%;
     position: relative;
@@ -108,8 +104,7 @@
     position: relative;
     top: 30%;
     left: 10%;
-  } 
-
+  }
 
   #OnePassword {
     width: 65%;
@@ -131,7 +126,6 @@
     top: 20%;
   }
 
-
   #Balsamiq {
     width: 70%;
     position: relative;
@@ -142,69 +136,75 @@
   #Clerky {
     width: 60%;
     position: relative;
-    top:40%;
+    top: 40%;
     left: 10%;
   }
+
   #CloudSploit {
     width: 60%;
     position: relative;
-    top:40%;
+    top: 40%;
     right: 10%;
   }
+
   #MakeyMakey {
     width: 40%;
     position: relative;
-    top:10%;
+    top: 10%;
     left: 40%;
   }
-  #Egghead{
+
+  #Egghead {
     width: 70%;
     position: relative;
     top: 30%;
     left: 10%;
   }
-  #Desmos{
+
+  #Desmos {
     width: 60%;
     position: relative;
-    top:40%;
+    top: 40%;
     left: 10%;
   }
-  #AoPS{
+
+  #AoPS {
     width: 70%;
     position: relative;
     top: 20%;
     right: 15%;
   }
 
-  #Bugsee{
+  #Bugsee {
     width: 45%;
     position: relative;
-    top:10%;
+    top: 10%;
     left: 35%;
   }
 
-  #Magoosh{
+  #Magoosh {
     width: 70%;
     position: relative;
     top: 45%;
     left: 10%;
   }
 
-
-  #CITRIS{
+  #CITRIS {
     width: 60%;
     position: relative;
-    top:30%;
+    top: 30%;
     left: 10%;
   }
-  #Wolfram{
+
+  #Wolfram {
     width: 40%;
     position: relative;
     top: 20%;
   }
-#StickerMule{
-  width: 70%;
-  position: relative;
-  left: 160%;
-}
+  
+  #StickerMule {
+    width: 70%;
+    position: relative;
+    left: 160%;
+  }
 }
