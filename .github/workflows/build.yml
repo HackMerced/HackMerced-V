@@ -34,16 +34,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Setup 
-      env:
-        NODE_ENV: ${{ secrets.NODE_ENV }}
-        PORT: ${{ secrets.PORT }}
-        MONGO_URI_TESTS: ${{ secrets.MONGO_URI_TESTS }}
-        CI: true
       run: |
         echo 'Running Setup...'
         yarn setup
 
     - name: Run Server/Build React
+      env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          PORT: ${{ secrets.PORT }}
+          MONGO_URI_TESTS: ${{ secrets.MONGO_URI_TESTS }}
+          CI: true
       run: |
         echo 'Running Express Server and Building React Application...'
         yarn start
