@@ -51,9 +51,9 @@ class Sponsors extends React.Component {
         image: [FOUNDERS, LINODE, LLNL, DIGITALOCEAN, ROCHE],
         url: [
           "http://hackmerced.io",
-          "https://digitalocean.com/",
-          "https://www.llnl.gov/",
           "https://www.linode.com/",
+          "https://www.llnl.gov/",
+          "https://digitalocean.com/",
           "https://roche.com/",
         ]
       },
@@ -74,10 +74,9 @@ class Sponsors extends React.Component {
           "Bugsee",
           "Magoosh",
           "CITRIS",
-          "Wolfram",
-          "StickerMule"
+          "Wolfram"
         ],
-        image: [  
+        image: [
           MAKESCHOOL,
           SKETCH,
           PASSWORD,
@@ -93,8 +92,7 @@ class Sponsors extends React.Component {
           BUGSEE,
           MAGOOSH,
           CITRIS,
-          WOLFRAM,
-          STICKERMULE
+          WOLFRAM
         ],
         url: [
           "https://www.makeschool.com/",
@@ -112,8 +110,7 @@ class Sponsors extends React.Component {
           "https://www.bugsee.com/",
           "https://magoosh.com/",
           "https://citris.ucmerced.edu/",
-          "https://www.wolframalpha.com/",
-          "https://www.stickermule.com/"
+          "https://www.wolframalpha.com/"
         ]
       }
     };
