@@ -4,10 +4,10 @@ on:
   pull_request:
     # Sequence of patterns matched against refs/heads
     branches:
-      - 'feature/*' # Push events to branches matching refs/heads/feature/*
-      - 'actions/*' # Push events to branches matching refs/heads/actions/*
-      - 'develop' # Push events to branches matching refs/heads/develop
-      - 'master' # Push events to branches matching refs/heads/master
+      - bug/* # Push events to branches matching refs/heads/bug/*
+      - feature/* # Push events to branches matching refs/heads/feature/*
+      - develop # Push events to branches matching refs/heads/develop
+      - master # Push events to branches matching refs/heads/master
 
     # Sequence of patterns matched against refs/tags
     tags:
@@ -21,25 +21,36 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 11.x, 12.x]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node-version: [11.x]
+        os: [ubuntu-latest]
 
     steps:
     - name: Checkout to current branch
-      uses: actions/checkout
+      uses: actions/checkout@v2
 
     - name: Configure Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v0
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
     - name: Setup 
-      env:
-        NODE_ENV: ${{ secrets.NODE_ENV }}
-        PORT: ${{ secrets.PORT }}
-        MONGO_URI_TESTS: ${{ secrets.MONGO_URI_TESTS }}
-        CI: true
       run: |
-        ls -l
         echo 'Running Setup...'
         yarn setup
+
+    - name: Test Server
+      env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          PORT: ${{ secrets.PORT }}
+          MONGO_URI_TESTS: ${{ secrets.MONGO_URI_TESTS }}
+          CI: true
+      run: |
+        echo 'Testing Server routes'
+        yarn test
+
+    - name: Build React
+      run: |
+        echo 'Building React Application...'
+        cd client
+        yarn build
+
