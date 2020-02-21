@@ -35,11 +35,19 @@ $btn-colors: (
   }
 }
 
+	
+  
 #banner {
-  position: fixed;
+	
+	position: fixed;
   top: -5px;
   padding-left: 20px;
+//   FIX THIS
+	// @media only screen and (height: 500px) {
+	// 			width: 0;
 
+	
+	// }
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
     /* Adjusting position of the banner to the top left corner */
@@ -71,6 +79,8 @@ $btn-colors: (
     width: 150px;
   }
 }
+
+
 
 // extenders
 .animate {

@@ -11,6 +11,8 @@
 <br/>
 [![Slack channel #HackMerced](https://img.shields.io/badge/slack-hackmerced-brightgreen.svg?logo=slack?style=plastic)](https://hackmerced2019.slack.com)
 [![Twitter](https://img.shields.io/badge/twitter-@hackmerced-blue.svg?style=plastic)](https://twitter.com/hackmerced)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/HackMerced/HackMerced-V) 
+![HackMerced Build CI](https://github.com/HackMerced/HackMerced-V/workflows/HackMerced%20Build%20CI/badge.svg)
 
 ---
 

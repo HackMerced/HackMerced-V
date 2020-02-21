@@ -1,6 +1,8 @@
 const router = require("express").Router();
-const Attendees = require("../models").models.Attendees;
 const { Keccak } = require("sha3");
+const axios = require("axios");
+
+const Attendees = require("../models").models.Attendees;
 
 /**
  * @api {get} /api/attendees Get Attendee
@@ -19,7 +21,6 @@ const { Keccak } = require("sha3");
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
-
 router.get("/attendees", async (request, response) => {
   await Attendees.findOne({ email: request.query.email }).then(user => {
     return user
@@ -49,7 +50,6 @@ router.get("/attendees", async (request, response) => {
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
-
 router.patch("/attendees", async (request, response) => {
   await Attendees.findOne({ email: request.body.email }).then(async user => {
     if (user) {
@@ -113,18 +113,18 @@ router.patch("/attendees", async (request, response) => {
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
  */
-
 router.post("/attendees", async (request, response) => {
-  //console.log(request.body)
   await Attendees.findOne({ email: request.body.email }).then(async user => {
-    if (user) {
+    if (user !== null) {
       return response.status(400).json({ email: "Email already exists" });
     } else {
       await Attendees.insertMany(request.body, (error, docs) => {
         if (error) {
-          response.send(error);
+            return response.status(500).send(error);
         } else {
-          response.send({ secret: process.env.JWT_SECRET });
+        return res
+          .status(200)
+          .json({ submitted: "Application successfully submitted!", secret: process.env.JWT_SECRET });
         }
       });
     }

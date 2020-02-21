@@ -1,7 +1,30 @@
-#App-sign-up {
+.App-sign-up {
+  color: magenta;
+  min-height: 92vh;
+}
+
+.toast-success, .toast-error {
+  color: #fcf6f4;
+  background-color: #99544c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Toastify__toast-body {
+  flex: none;
+}
+
+.Toastify__progress-bar,
+.Toastify__progress-bar--animated,
+.Toastify__progress-bar--default {
+  background: white;
+}
+
+#body {
   background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
   padding: 10%;
-  font-family: 'Moon', bold;
+  font-family: "Moon", bold;
+}
 
     #formID {
       border: white;
@@ -9,12 +32,11 @@
       border-width: 10px;
     }
 
-    label {
-      margin: 10%;
-      font-size: 30px;
-      font-weight: bolder;
-
-    }
+label {
+  margin: 10%;
+  font-size: 30px;
+  font-weight: bolder;
+}
 
     :placeholder-shown {
       font-size: 20px;
@@ -31,15 +53,15 @@
       position: relative;
     }
 
-    #applications {
-      font-size: 60px;
-      font-family: 'Moon';
-      font-weight: bolder;
-      text-align: center;
-      overflow: hidden;
-      padding-bottom: 8%;
-      margin-top: 5%;
-    }
+#applications {
+  font-size: 30px;
+  font-family: "Moon";
+  font-weight: bolder;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 8%;
+  margin-top: 5%;
+}
 
     h5 {
       font-size: 20px;
@@ -47,81 +69,80 @@
       left: 15px;
     }
 
-
-    select {
-      border: 10px solid;
-      width: 100%;
-      max-width: 50em;
-      text-align: center;
-      appearance: none;
-      outline: 0;
-
-    }
+select {
+  border: 10px solid;
+  width: 100%;
+  max-width: 50em;
+  text-align: center;
+  appearance: none;
+  outline: 0;
+}
 
     ::placeholder {
       color: black;
       font-style: bold;
     }
 
-    .first-hackathon{
-      font-size: 30px;
-      font-weight: bolder;
-      margin: 20%;
-      cursor: pointer;
-      width: 50%;
-      position: relative;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      background:transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top:1.5%;
-    }
+.first-hackathon {
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 20%;
+  cursor: pointer;
+  width: 50%;
+  position: relative;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5%;
+}
 
-    input[type=text],
-    input[type=email],
-    input[type=url],
-    input[type=number] {
-      width: 80%;
-      padding: 15px;
-      margin: 15px 0 22px 0;
-      display: inline-block;
-      background: rgb(204, 203, 203);
-      cursor: auto;
-      border-style: inset;
-      border-radius: 5px;
-      position: relative;
-      left: 10%;
-      overflow:hidden;
-      border-width: 10px;
-      border-color: black;
-      background: transparent;
-      text-align: left;
-    }
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[list="universities"] {
+  width: 80%;
+  padding: 15px;
+  margin: 15px 0 22px 0;
+  display: inline-block;
+  background: rgb(204, 203, 203);
+  cursor: auto;
+  border-style: inset;
+  border-radius: 5px;
+  position: relative;
+  left: 10%;
+  overflow: hidden;
+  border-width: 10px;
+  border-color: black;
+  background: transparent;
+  text-align: left;
+}
 
-    label:after {
-      content: " *";
-      color: pink;
-    }
+.required:after {
+  content: " *";
+  color: pink;
+}
 
-    .gender{
-      position: relative;
-        width: 200px;
-        padding: 10px;
-        margin: 0 auto;
-        border-radius: 5px;
-        display: inline-block;
-        background:transparent;
-        color: black;
-        outline: none;
-        cursor: pointer;
-        font-weight: bold;
-        left: 10%;
-        margin-top:1.5%;
-    }
+.gender {
+  position: relative;
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: inline-block;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  left: 10%;
+  margin-top: 1.5%;
+}
 
     .gender:after {
       content: "";
@@ -135,38 +156,39 @@
       background: pink;
     }
 
-    .gender .dropdown {
-      background:transparent;
-    }
+.gender .dropdown {
+  background: transparent;
+}
 
-    .ethnicity {
-      position: relative;
-      width: 200px;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      background: transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      left: 8%;
-      margin-top:1.5%;
-    }
 
-    .university {
-      position: relative;
-      width: 50%;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      background:transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top:1.5%;
-    }
+.ethnicity {
+  position: relative;
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  left: 8%;
+  margin-top: 1.5%;
+}
+
+.university {
+  position: relative;
+  width: 50%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5%;
+}
 
     .year-in-college {
       position: relative;
@@ -196,96 +218,69 @@
       margin-top: 1.5%;
     }
 
-    .first-hackathon  {
-      position: relative;
-      width: 20%;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      background:transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top:1.5%;
-    }
+.first-hackathon {
+  position: relative;
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5%;
+}
 
-    .shirt-size {
-      position: relative;
-      width: 20%;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      background:transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top:1.5%;
-    }
+.t-shirt {
+  position: relative;
+  width: 20%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5%;
+}
 
-    p#privacy, #conduct{
-      font-size: 1.5em;
-      margin: 0 0 1em;
-      display: inline-block;
-      margin-top: 2%;
-      width: 80%;
-      padding: 15px;
-      margin: 5px 0 10px 0;
-      position: relative;
-      left: 10%;
-      overflow: hidden;
-    }
+p#privacy,
+#conduct {
+  font-size: 1.5em;
+  margin: 0 0 1em;
+  display: inline-block;
+  margin-top: 2%;
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  position: relative;
+  left: 10%;
+  overflow: hidden;
+}
 
     a {
       color: blue;
     }
 
-    #code-of-conduct, #affiliation-with-mlh {
-      div {
-        display: grid;
-        grid-template-areas: ". . . . . . left right . . . . . .";
+#code-of-conduct,
+#affiliation-with-mlh {
+  div {
+    display: grid;
+    grid-template-areas: ". . . . . . left right . . . . . .";
 
-        input[type=checkbox] {
-          grid-area: left;
-          cursor: pointer;
-          margin: 0% 25% 10%;
-        }
-
-        span {
-          grid-area: right;
-          overflow: hidden;
-          margin: 0% 0% 5%;
-          padding:0% 0% 10%;
-          
-        }
-      }
+    input[type="checkbox"] {
+      grid-area: left;
+      cursor: pointer;
+      margin: 0% 25% 10%;
     }
 
-    #submit {
-      width: 270px;
-      background-color: #9a544c;
-      padding: 10px;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 24px;
-      transition-duration: 0.25s;
-      border: none;
-      text-align: center;
-      text-decoration: none;
-
-      
-      justify-content:center;
-     
-      max-width: 300px;
-      margin: 3% auto;
+    span {
+      grid-area: right;
       overflow: hidden;
-
-      &:hover {
-        box-shadow: 10px 10px 10px black;
-        
-      }
+      margin: 0% 0% 5%;
+      padding: 0% 0% 10%;
     }
 
     .popup {
@@ -295,7 +290,338 @@
       text-align: center;
     }
 
+  justify-content: center;
+
+  max-width: 300px;
+  margin: 3% auto;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 10px 10px 10px black;
+  }
 }
 
+.popup {
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
 
+//MOBILE CODE
+
+
+@media all and (max-width: 641px) {
+  #body {
+    background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
+    color: white;
+    padding: 10%;
+    font-family: 'Moon', bold;
+  }
+  
+  #formID {
+    border: white;
+    border-style: solid;
+    border-width: 0px;
+  }
+  
+  label {
+    margin: 10%;
+    font-size: 20px;
+    font-weight: bolder;
+  
+  }
+  
+  :placeholder-shown {
+    font-size: 20px;
+    width: 80%;
+    text-align: left;
+  }
+  
+  #firstYes {
+    font-size: medium;
+  }
+  
+  #form {
+    margin: auto;
+    position: relative;
+  }
+  
+  #applications {
+    font-size: 275%;
+    font-family: 'Moon';
+    font-weight: bolder;
+    text-align: center;
+    overflow: hidden;
+    padding-bottom: 8%;
+    margin-top: 0%;
+    
+  }
+  
+  h5 {
+    font-size: 20px;
+    position: relative;
+    left: 15px;
+  }
+  
+  
+  select {
+    border: 10px solid;
+    width: 100%;
+    max-width: 50em;
+    text-align: center;
+    appearance: none;
+    outline: 0;
+  
+  }
+  
+  ::placeholder {
+    color: black;
+    font-style: bold;
+  }
+  
+  .first-hackathon{
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 20%;
+    cursor: pointer;
+    width: 50%;
+    position: relative;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background:transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top:1.5%;
+  }
+  
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=number] {
+    width: 80%;
+    padding: 15px;
+    margin: 15px 0 22px 0;
+    display: inline-block;
+    background: rgb(204, 203, 203);
+    cursor: auto;
+    border-style: inset;
+    border-radius: 5px;
+    position: relative;
+    left: 10%;
+    overflow:hidden;
+    border-width: 10px;
+    border-color: black;
+    background: transparent;
+    text-align: left;
+  }
+  
+  label:after {
+    content: " *";
+    color: pink;
+  }
+  
+  .gender{
+    position: relative;
+      width: 200px;
+      padding: 10px;
+      margin: 0 auto;
+      border-radius: 5px;
+      display: inline-block;
+      background:transparent;
+      color: black;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+      left: 10%;
+      margin-top:1.5%;
+  }
+  
+  .gender:after {
+    content: "";
+    width: 0;
+    height: 0;
+    right: 16px;
+    top: 50%;
+    margin-top: -6px;
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    background: pink;
+  }
+  
+  .gender .dropdown {
+    background:transparent;
+  }
+  
+  .ethnicity {
+    position: relative;
+      width: 200px;
+      padding: 10px;
+      margin: 0 auto;
+      border-radius: 5px;
+      display: inline-block;
+      background:transparent;
+      color: black;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+      left: 10%;
+      margin-top:1.5%;
+  }
+  
+  .university {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background:transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top:1.5%;
+  }
+  
+  .yearincollege {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background:transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top:1.5%;
+  }
+  
+  .schoolstanding {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background:transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top:1.5%;
+  }
+  
+  .first-hackathon  {
+    position: relative;
+      width: 200px;
+      padding: 10px;
+      margin: 0 auto;
+      border-radius: 5px;
+      display: inline-block;
+      background:transparent;
+      color: black;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+      left: 10%;
+      margin-top:1.5%;
+  }
+  
+  .t-shirt {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background:transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top:1.5%;
+  }
+  
+  p#privacy, #conduct{
+    font-size: 1.5em;
+    margin: 0 0 1em;
+    display: inline-block;
+    margin-top: 2%;
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 10px 0;
+    position: relative;
+    left: 10%;
+    overflow: hidden;
+  }
+  
+  a {
+    color: blue;
+  }
+  
+  #code-of-conduct, #affiliation-with-mlh {
+    div {
+      display: grid;
+      grid-template-areas: ". . . . . . left right . . . . . .";
+  
+      input[type=checkbox] {
+        grid-area: left;
+        cursor: pointer;
+        margin: 0% 25% 10%;
+      }
+  
+      span {
+        grid-area: right;
+        overflow: hidden;
+        margin: 0% 0% 5%;
+        padding:0% 0% 10%;
+        
+      }
+    }
+  }
+  
+  #submit {
+    width: 270px;
+    background-color: #9a544c;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px;
+    transition-duration: 0.25s;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+  
+    
+    justify-content:center;
+   
+    max-width: 300px;
+    margin: 3% auto;
+    overflow: hidden;
+  
+    &:hover {
+      box-shadow: 10px 10px 10px black;
+      
+    }
+  }
+  
+  .popup {
+   
+    position: relative;
+    justify-content:center;
+    text-align: center;
+  }
+
+
+}
 
