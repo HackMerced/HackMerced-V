@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 import "./navigation-bar.scss";
 
@@ -7,9 +7,8 @@ class NavigationBar extends React.Component {
   render() {
     const isMobile = window.innerWidth <= 500;
     if (isMobile) {
-      return (null);
-    }
-    else {
+      return null;
+    } else {
       return (
         <header id="navigation-bar">
           <div>
@@ -21,34 +20,38 @@ class NavigationBar extends React.Component {
             </a>
           </div>
           <section id="navigation-items">
-            <a
+            <Link
+              smooth
               className="navigation btn btn-orange btn-border-o"
-              href="#sponsors"
+              to="/#sponsors"
               alt="Our Sponsors <3"
             >
               <button className="link">Sponsors</button>
-            </a>
-            <a
+            </Link>
+            <Link
+              smooth
               className="navigation btn btn-orange btn-border-o"
-              href="#faq"
+              to="/#faq"
               alt="Frequently Asked Questions"
             >
               <button className="link">FAQ</button>
-            </a>
-            <a
+            </Link>
+            <Link
+              smooth
               className="navigation btn btn-orange btn-border-o"
-              href="#schedule"
+              to="/#schedule"
               alt="HackMerced Schedule"
             >
               <button className="link">Schedule</button>
-            </a>
-            <a
+            </Link>
+            <Link
+              smooth
               className="navigation btn btn-orange btn-border-o"
-              href="/#about"
+              to="/#about"
               alt="About Us!"
             >
               <button className="link">About Us</button>
-            </a>
+            </Link>
             {/*
            <button className="navigation btn btn-orange btn-border-o">
             <Link
