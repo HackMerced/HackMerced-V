@@ -25,6 +25,7 @@ $btn-colors: (
   width: 12%;
   font-size: 2%;
   float: right;
+  
 
   .link {
     /* This adjusts the React Router links */
@@ -33,7 +34,8 @@ $btn-colors: (
     text-decoration: none; /* removes underscores of the links */
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
-      display: none;
+	  display: none;
+	 
     }
   }
 }
@@ -55,31 +57,33 @@ $btn-colors: (
   @media only screen and (max-width: 600px) {
     /* Adjusting position of the banner to the top left corner */
     width: 80px;
-    right: 10px;
+	right: 10px;
   }
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     /* Adjusting position of the banner to the top left corner */
-    width: 100px;
+	width: 100px;
+	
   }
 
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     /* Adjusting position of the banner to the top left corner */
-    width: 130px;
+	width: 130px;
   }
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
     /* Adjusting position of the banner to the top left corner */
-    width: 150px;
+	width: 150px;
   }
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     /* Adjusting position of the banner to the top left corner */
-    width: 150px;
+	width: 150px;
+	
   }
 }
 
@@ -100,6 +104,7 @@ $btn-colors: (
 	opacity: .999;
 	border-radius: 3px;
 	@extend .animate;
+	
 }
 
 .btn-border-o {
@@ -113,6 +118,8 @@ $btn-colors: (
 		border-radius: 16px;
 		height: 40px;
 		padding: 5px;
+		overflow: hidden;
+		
 	}
 
 	&:before,
