@@ -1,5 +1,5 @@
 const express = require("express");
-var cors = require('cors');
+var cors = require("cors");
 const path = require("path");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -17,12 +17,12 @@ const error = chalk.bold.yellow;
 const disconnected = chalk.bold.red;
 const termination = chalk.bold.magenta;
 
-
-if (process.env.NODE_ENV === "development") {
-  const DB_URI = process.env.MONGO_URI_TESTS;
-} else {
-  const DB_URI = process.env.MONGO_URI_HACKMERCED;
-}
+const DB_URI =
+  process.env.NODE_ENV === "development"
+    ? process.env.MONGO_URI_TESTS
+    : process.env.NODE_ENV === "localhost"
+    ? process.env.STARBUCKS
+    : process.env.MONGO_URI_HACKMERCED;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,9 +42,18 @@ app.use(
 // Render React Application
 app.use(express.static(path.join(__dirname, "/client/build/")));
 
+// Handles react router pages
+app.get('/checkin', (request, response) => response.sendFile(path.resolve('client', 'build', 'index.html')));
+app.get('/signUp', (request, response) => response.sendFile(path.resolve('client', 'build', 'index.html')));
+
 // Connect to MongoDB then open port on defined port in .env
 mongoose.connection.on("connected", function() {
-  console.log(connected("Mongoose default connection is open to", /(?=hack)(.*?)(?=\s*\?)/.exec(DB_URI)[0]));
+  console.log(
+    connected(
+      "Mongoose default connection is open to",
+      /(?=hack)(.*?)(?=\s*\?)/.exec(DB_URI)[0]
+    )
+  );
 });
 
 db().then(async () => {
@@ -70,6 +79,8 @@ db().then(async () => {
   });
 
   app.listen(process.env.PORT, () =>
-    console.log(chalk.bold.white(`Example app listening on port ${process.env.PORT}!`))
+    console.log(
+      chalk.bold.white(`Example app listening on port ${process.env.PORT}!`)
+    )
   );
 });

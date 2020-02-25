@@ -1,8 +1,76 @@
 const router = require("express").Router();
 const { Keccak } = require("sha3");
-const axios = require("axios");
 
 const Attendees = require("../models").models.Attendees;
+
+/**
+ * @api {get} /api/attendees Get Attendee
+ * @apiDescription Checks if Attendee is in database
+ * @apiVersion 1.0.0
+ * @apiName Verify Attendee(s)
+ * @apiGroup Attendee(s)
+ * @apiPermission public
+ *
+ * @apiHeader {String} Authorization Attendee's access token
+ *
+ * @apiParam  {String}             [email]      User's email
+ *
+ * @apiSuccess {Object[]} Returns user information if in database.
+ *
+ * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
+ * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
+ */
+
+router.get("/attendees", async (request, response) => {
+  await Attendees.findOne({ email: request.query.email }).then(user => {
+    return user
+      ? response.status(200).json({ user: user, status: "Application Found!" })
+      : response.status(200).json({ user: "Application Does Not Exist!" });
+  });
+});
+
+/**
+ * @api {patch} /api/attendee Update Attendee(s)
+ * @apiDescription Updates an array of Attendee(s)
+ * @apiVersion 1.0.0
+ * @apiName Update Attendee(s)
+ * @apiGroup Attendee(s)
+ * @apiPermission general
+ *
+ * @apiHeader {String} Authorization  Attendee's access token
+ *
+ * @apiParam  {Number{1-}}         [page=1]     List page
+ * @apiParam  {Number{1-100}}      [perPage=1]  Users per page
+ * @apiParam  {String}             [name]       User's name
+ * @apiParam  {String}             [email]      User's email
+ * @apiParam  {String=user,admin}  [role]       User's role
+ *
+ * @apiSuccess {Object[]} attendee(s) List of successfully registered attendee(s).
+ *
+ * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
+ * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
+ */
+
+router.patch("/attendees", async (request, response) => {
+  Attendees.findOne({ email: request.body.email }).then(user => {
+    if (user) {
+      Attendees.findOneAndUpdate(
+        { email: request.body.email },
+        request.body,
+        (error, docs) => {
+          if (error) {
+            console.log(error);
+          }
+        }
+      );
+      response
+        .status(200)
+        .json({ user: "account updated!", secret: process.env.JWT_SECRET });
+    } else {
+      return response.status(404).json({ user: "Application doesn't exist" });
+    }
+  });
+});
 
 /**
  * @api {post} /api/attendees Add new Attendee(s)

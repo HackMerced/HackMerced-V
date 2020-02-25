@@ -23,7 +23,7 @@ class SignUp extends Component {
       major: "",
       year: "",
       schoolStanding: "",
-      graduationYear: 2020,
+      graduationYear: 2021,
       dietaryRestrictions: "",
       specialNeeds: "",
       firstHackathon: true,
@@ -331,14 +331,12 @@ class SignUp extends Component {
 
     const user = this.createUser(this.state);
 
-    console.log("before posting to DB: ", user);
-
     this.setState({
       loader: ""
     });
 
     axios
-      .post("http://hackmerced.io/api/attendees", user)
+      .post("http://localhost:3852/api/attendees", user)
       .then(response => {
         if (response.data.submitted === "Application successfully submitted!") {
           this.successToast();
@@ -350,8 +348,6 @@ class SignUp extends Component {
         }
       })
       .catch(this.errorToast);
-
-    // window.location.replace("http://hackmerced.io");
   };
 
   render() {
@@ -415,6 +411,7 @@ class SignUp extends Component {
                 min={17}
                 max={100}
                 onChange={this.handleAgeChange}
+                defaultValue={18}
               ></input>
             </div>
             <div>
@@ -475,6 +472,7 @@ class SignUp extends Component {
               <select
                 className="first-hackathon"
                 onChange={this.handleFirstHackathonChange}
+                defaultValue="Yes"
                 required
               >
                 <option
@@ -539,6 +537,7 @@ class SignUp extends Component {
                 name="graduation-year"
                 ref="name"
                 placeholder="2021"
+                defaultValue={2021}
                 onChange={this.handleGraduationYearChange}
                 required
               ></input>

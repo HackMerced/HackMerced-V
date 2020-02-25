@@ -14,6 +14,7 @@
     "install:server": "yarn install",
     "start": "concurrently \"yarn start:client\" \"yarn start:server\"",
     "dev": "concurrently \"yarn start:client\" \"yarn dev:server\"",
+    "local": "concurrently \"yarn start:client\" \"NODE_ENV=localhost nodemon server.js\"",
     "start:client": "cd client && yarn build",
     "start:server": "node server.js",
     "dev:server": "nodemon server.js"
