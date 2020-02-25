@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./navigation-bar.scss";
 
@@ -7,9 +7,8 @@ class NavigationBar extends React.Component {
   render() {
     const isMobile = window.innerWidth <= 500;
     if (isMobile) {
-      return (null);
-    }
-    else {
+      return null;
+    } else {
       return (
         <header id="navigation-bar">
           <div>
@@ -49,17 +48,13 @@ class NavigationBar extends React.Component {
             >
               <button className="link">About Us</button>
             </a>
-            {/*
-           <button className="navigation btn btn-orange btn-border-o">
-            <Link
-              className="link"
-              to="login"
-              title="HackMerced Schedule"
+            <a
+              className="navigation btn btn-orange btn-border-o"
+              href="/checkin"
+              alt="Check In!"
             >
-              Login
-            </Link>
-          </button>
-        */}
+              <button className="link">Check In</button>
+            </a>
           </section>
         </header>
       );
