@@ -19,6 +19,14 @@ $btn-colors: (
   z-index: 100;
 }
 
+#desktop-view {
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    /* Adjusting position of the banner to the top left corner */
+    padding-right: 2%;
+  }
+}
+
 .navigation {
   /* This adjusts for the content inside the container */
   text-align: center;
@@ -31,6 +39,7 @@ $btn-colors: (
     color: white;
     font-weight: bold;
     text-decoration: none; /* removes underscores of the links */
+
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
       display: none;
@@ -48,6 +57,7 @@ $btn-colors: (
     /* Adjusting position of the banner to the top left corner */
     width: 80px;
     right: 10px;
+    display: none;
   }
 
   /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -56,20 +66,8 @@ $btn-colors: (
     width: 100px;
   }
 
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-    /* Adjusting position of the banner to the top left corner */
-    width: 130px;
-  }
-
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
-    /* Adjusting position of the banner to the top left corner */
-    width: 150px;
-  }
-
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
     /* Adjusting position of the banner to the top left corner */
     width: 150px;
   }
@@ -158,5 +156,70 @@ $btn-colors: (
         border-radius: 16px;
       }
     }
+  }
+}
+
+#mobile-view {
+  display: none;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  /* Adjusting position of the banner to the top left corner */
+
+  #mobile-view {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    right: 0;
+  }
+
+  .ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .line {
+    fill: none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke: #000;
+    stroke-width: 5.5;
+    stroke-linecap: round;
+  }
+
+  .ham3 .top {
+    stroke-dasharray: 40 130;
+  }
+
+  .ham3 .middle {
+    stroke-dasharray: 40 140;
+  }
+
+  .ham3 .bottom {
+    stroke-dasharray: 40 205;
+  }
+
+  .ham3.active .top {
+    stroke-dasharray: 75 130;
+    stroke-dashoffset: -63px;
+  }
+
+  .ham3.active .middle {
+    stroke-dashoffset: -102px;
+  }
+
+  .ham3.active .bottom {
+    stroke-dasharray: 110 205;
+    stroke-dashoffset: -86px;
   }
 }
