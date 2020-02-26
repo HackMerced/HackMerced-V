@@ -30,7 +30,6 @@ import BUGSEE from "../../assets/Images/bugsee.png";
 import MAGOOSH from "../../assets/Images/magoosh.png";
 import CITRIS from "../../assets/Images/citris.png";
 import WOLFRAM from "../../assets/Images/wolfram.png";
-import STICKERMULE from "../../assets/Images/sticker-mule-logo-light.png";
 
 class Sponsors extends React.Component {
   constructor(props) {

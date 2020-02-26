@@ -4,7 +4,7 @@ import Live from "../pages/Live";
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     component: Home
   },
   {
@@ -14,6 +14,10 @@ const routes = [
   {
     path: "/live",
     component: Live
+  },
+  {
+    path: "**",
+    component: Home
   }
 ];
 
