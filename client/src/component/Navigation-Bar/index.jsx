@@ -66,14 +66,16 @@ class NavigationBar extends React.Component {
           />
         </svg>
         <section id="desktop-view">
-          <div>
-            <a href="https://mlh.io/seasons/na-2020/events" id="banner">
-              <img
-                src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
-                alt="Major League Hacking 2020 Hackathon Season"
-              />
-            </a>
-          </div>
+          {window.location.pathname === "/live" ? null : (
+            <section>
+              <a href="https://mlh.io/seasons/na-2020/events" id="banner">
+                <img
+                  src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
+                  alt="Major League Hacking 2020 Hackathon Season"
+                />
+              </a>
+            </section>
+          )}
           <section id="navigation-items">
             <button
               className="navigation btn btn-orange btn-border-o"
