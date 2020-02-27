@@ -1,7 +1,4 @@
-.bg-color {
-  background-color: #46a1de;
-  transition-duration: 0.5s;
-}
+
 
 .text-color {
   color: #46a1de;
@@ -56,7 +53,7 @@
     }
 
     &.active {
-      color: #46a1de;
+      color: #3ff3f9;
 
       &:before {
         transition-duration: 0.5s;

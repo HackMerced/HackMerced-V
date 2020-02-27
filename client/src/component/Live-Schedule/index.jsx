@@ -18,10 +18,10 @@ class LiveSchedule extends Component {
         "Arduino Workshop", // Busher
         "Breakfast",
         "Accelerometers and Gyroscopes Workshop by SHPE",
-        "LinkedIn Professional Workshop by LinkedIn and ACM",
+        "MLH Capture the Flag", // Sean
         "Lunch",
         "LLNL Workshop",
-        "MLH Capture the Flag", // Sean
+        "LinkedIn Professional Workshop by LinkedIn and ACM",
         "Dinner",
         "Calligraphy Workshop by the Japanese Club",
         "GCP Workshop", // Lorenzo
@@ -45,8 +45,8 @@ class LiveSchedule extends Component {
         "4:00 AM",
         "6:00 AM",
         "8:00 AM",
-        "10:00 AM",
-        "12:00 PM",
+        "9:00 AM",
+        "11:00 AM",
         "1:00 PM",
         "3:00 PM",
         "5:00 PM",
@@ -95,7 +95,7 @@ class LiveSchedule extends Component {
 
   dayOne = ({time, name, location}) => {
     var schedule = [];
-    for (var i = 0; i < 6; ++i) {
+    for (var i = 0; i < 5; ++i) {
       schedule.push(
         <li key={i}>
           <div>
@@ -113,7 +113,7 @@ class LiveSchedule extends Component {
 
   dayTwo = ({time, name, location}) => {
     var schedule = [];
-    for (var i = 6; i < 21; ++i) {
+    for (var i = 5; i < 19; ++i) {
       schedule.push(
         <li key={i}>
           <div>
@@ -132,7 +132,7 @@ class LiveSchedule extends Component {
 
   dayThree = ({time, name, location}) => {
     var schedule = [];
-    for (var i = 21; i < name.length; ++i) {
+    for (var i = 19; i < name.length; ++i) {
       schedule.push(
         <li key={i}>
           <div>
