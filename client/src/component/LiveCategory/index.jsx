@@ -24,10 +24,10 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Social Good</h1>
-                    <p className="content">Best hack that befits the largest number of people in the largest possible way.
-                                1st Place: Anker Speaker per team member and Lifetime Package for Clerky.
-                                2nd Place: Echo Flex per team member.
+                    <h1 className="header">Sustainibility</h1>
+                    <p className="content">Best hack that focuses on creating a sustainable society that protects natural resources while ensuring social justice and economic well being for all.
+                                            1st Place: Anker PowerCord Slim 10,000mA per team member.
+                                            2nd Place: Led light strips 20 ft per team member.
                     </p>
                 </div>
                 <div className="grid-item">
