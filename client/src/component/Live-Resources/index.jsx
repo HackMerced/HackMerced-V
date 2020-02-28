@@ -37,10 +37,8 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Domain.com provides all the domain services you need from registration to hosting to SSL certificates & beyond.</ul>
+                    <ol href="https://stories.mlh.io/your-domain-com-amazon-web-services-powered-site-in-30-minutes-or-less-8828f524bb6a">Domain.com powered site in 30 minutes or less</ol>
                 </div>
 
                 {/* GITHUB */}
