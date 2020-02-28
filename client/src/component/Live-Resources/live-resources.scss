@@ -4,4 +4,30 @@
     > .logos{
         padding-bottom: 10px;
     }
+
+    > .infos{
+        background-color: brown;
+        border-style: solid;
+        border-color: white;
+        overflow: hidden;
+        padding: 10px;
+
+        > ul{
+            color:white;
+            font-size: 20px;
+            text-align: center;
+            overflow: hidden;
+            
+        }
+        > ol{
+            color: blue;
+            font-size: 20px;
+            font-family: "Dosis", sans-serif;
+            overflow: hidden;
+        }
+    }
+}
+
+.resourceLink {
+    color: blue;
 }

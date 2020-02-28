@@ -72,6 +72,12 @@ class LiveResources extends Component {
                         </img>
                     </a>
                 </div>
+                <div class="infos">
+                    <ul>Radar is geofencing reinvented. Their developer-friendly, privacy-first SDKs and APIs will help you build amazing location-aware hacks!</ul>
+                    <ol href="https://radar.io/blog/radar-student-hackathon-playbook"  target="_blank" rel="noopener noreferrer">Radar Student Hackathon Playbook</ol>
+                    <ol href="https://mlh.io/?link=radar-api"  target="_blank" rel="noopener noreferrer">Radar API Documentation</ol>
+                    <ol href="https://mlh.io/?link=radar-sdk"  target="_blank" rel="noopener noreferrer">Radar SDK Documentation</ol>
+                </div>
              
           
 
