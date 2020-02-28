@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
 .container {
   width: 100%;
   display: flex;
@@ -14,8 +8,6 @@
   font-family: 'Roboto', sans-serif;
   font-size: 100%;
 }
-
-/* card */
 
 .card {
   max-width: 400px;
@@ -29,21 +21,6 @@
   color: white;
   cursor: default;
 }
-
-// .card:hover {
-//   transition: background .4s ease, color .4s ease;
-//   background: none;
-//   color: #2d3436;
-// }
-
-// .card:hover .divider {
-//   border: 1px solid #dfe6e9;
-// }
-
-// .card:hover .btn-default {
-//   background: transparent;
-//   color: #0984e3;
-// }
 
 .card img {
   width: 100px;
