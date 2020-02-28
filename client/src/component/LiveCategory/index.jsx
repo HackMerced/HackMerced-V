@@ -66,9 +66,9 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Best Design</h1>
-                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
-                                           fostering their inner creativity towards their real-world applications.
+                    <h1 className="header">Best Domain Registered with Domain.com</h1>
+                    <p className="content">Domain.com provides all the domain services you need from registration to hosting to SSL certificates and beyond.
+                                           Each hacker will receive a FREE domain name and year of domain privacy from Domain.com for their project this weekend!Prize: Domain.com Backpacks 
                     </p>
                 </div>
                 <div className="grid-item">
