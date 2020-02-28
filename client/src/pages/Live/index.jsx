@@ -25,9 +25,11 @@ class Live extends Component {
         <section id="live-instagram">
           <Instagram/>
         </section>
-        <section id="live-slack"></section>
+        <section id="live-slack">
+          <button id="submit" onClick={() => {window.location.href = "https://join.slack.com/t/hackmerced-v/shared_invite/enQtODUyNzkxMDY2NjkyLTZiODAyZjNiYTFjZTlkYTQ0NDVhOGQ5OTI3OTEzNjAxMDBiZTdjY2QyMTI0ZGE4MTlhMmNhMGYyNzQzOGNhZTI"}}>Slack</button>
+        </section>
         <section id="live-devpost">
-          <button onClick={() => {window.location.href = "https://hackmerced-v.devpost.com"}}>Devpost Submission</button>
+          <button id="submit" onClick={() => {window.location.href = "https://hackmerced-v.devpost.com"}}>Devpost Submission</button>
         </section>
         <section id="live-container">
           <LiveContainer />
