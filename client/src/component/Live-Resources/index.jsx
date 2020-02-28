@@ -28,7 +28,7 @@ class LiveResources extends Component {
                     <ol href=""></ol>
                     <ol href=""></ol>
                 </div>
-                
+
                 {/* DOMAIN.COM */}
                 <div class="logos">
                     <a href="https://www.domain.com/mlh#consent-modal" target="_blank" rel="noopener noreferrer">
@@ -43,18 +43,16 @@ class LiveResources extends Component {
                     <ol href=""></ol>
                 </div>
 
-                  {/* GITHUB */}
-                  <div class="logos">
+                {/* GITHUB */}
+                <div class="logos">
                     <a href="https://education.github.com/students?utm_source=mlh" target="_blank" rel="noopener noreferrer">
                         <img src={Github}>
                         </img>
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Millions of developers use GitHub to build personal projects, support their businesses, and work together on open source technologies.</ul>
+                    <ol href="https://guides.github.com/activities/hello-world/">Learn to use GitHub</ol>
                 </div>
 
                 {/*UIPATH */}
@@ -65,25 +63,27 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Join the #AutomationFirst movement with UiPath, the leading platform in automation technology known as Robotic Process Automation (RPA). Create robots to automate repetitive tasks in your hacks. (Windows Only).</ul>
+                    <ol href="http://hackp.ac/uipath-download">Download the UiPath Community Edition</ol>
+                    <ol href="http://hackp.ac/robot-packs">Download a UiPath Robot Pack</ol>
+                    <ol href="https://stories.mlh.io/make-robots-automate-your-life-or-at-least-your-email-d728342257e4">Make Robots Automate Your Life (or at Least Your Email)</ol>
+                    <ol href="http://hackp.ac/uipath-forum">Join the UiPath Community Forum</ol>
+                    <ol href="http://hackp.ac/uipathgo">Join UiPath Go! to gets answers and build ideas</ol>
                 </div>
-    
 
-                 {/*BLOCKSTACK */}
-                 <div class="logos">
+
+                {/*BLOCKSTACK */}
+                <div class="logos">
                     <a href="http://hackp.ac/blockstack" target="_blank" rel="noopener noreferrer">
                         <img src={blockstack}>
                         </img>
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Build blockchain-powered apps in as little as an hour. Everything you need, from auth to data storage, ready and in production. 100% Javascript — zero backend development.</ul>
+                    <ol href="http://hackp.ac/blockstack-hackathon-guide">Blockstack Hackathon Guide</ol>
+                    <ol href="http://hackp.ac/bs-api-docs">Blockstack API Docs</ol>
+                    <ol href="http://hackp.ac/blockstack-apps">Popular Blockstack Apps</ol>
                 </div>
 
                 {/*MONGODB*/}
@@ -94,10 +94,11 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>MongoDB Atlas makes it easy to host data in the cloud. Deploy your hack with a full managed MongoDB instance across various cloud poviders like Google Cloud!</ul>
+                    <ol href="http://hackp.ac/getting-started-with-mongodb">Getting started with MongoDB Atlas
+</ol>
+                    <ol href="http://hackp.ac/mongodb-sample-data">Sample Data for Atlas Clusters</ol>
+                    <ol href="http://hackp.ac/mongodb-connect-cluster">Connecting to a MongoDB Atlas Cluster</ol>
                 </div>
 
                 {/*RADAR */}
@@ -109,12 +110,12 @@ class LiveResources extends Component {
                 </div>
                 <div class="infos">
                     <ul>Radar is geofencing reinvented. Their developer-friendly, privacy-first SDKs and APIs will help you build amazing location-aware hacks!</ul>
-                    <ol href="https://radar.io/blog/radar-student-hackathon-playbook"  target="_blank" rel="noopener noreferrer">Radar Student Hackathon Playbook</ol>
-                    <ol href="https://mlh.io/?link=radar-api"  target="_blank" rel="noopener noreferrer">Radar API Documentation</ol>
-                    <ol href="https://mlh.io/?link=radar-sdk"  target="_blank" rel="noopener noreferrer">Radar SDK Documentation</ol>
+                    <ol href="https://radar.io/blog/radar-student-hackathon-playbook" target="_blank" rel="noopener noreferrer">Radar Student Hackathon Playbook</ol>
+                    <ol href="https://mlh.io/?link=radar-api" target="_blank" rel="noopener noreferrer">Radar API Documentation</ol>
+                    <ol href="https://mlh.io/?link=radar-sdk" target="_blank" rel="noopener noreferrer">Radar SDK Documentation</ol>
                 </div>
-             
-          
+
+
 
 
 
