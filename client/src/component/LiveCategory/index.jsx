@@ -85,6 +85,13 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
+                    <h1 className="header"> Best use of Blockstack </h1>
+                    <p className="content">Create an app using the Blockstack Platform. Each winning team member will receive a pair of Apple BeatsX Earphones.
+                                           The opportunity with Blockstack doesn't end with the event. Any app built with Blockstack during a hackathon that successfully registers for the App Mining program will receive an additional $200 reward.
+                                            Prize: BeatsX Headphones 
+                    </p>
+                </div>
+                <div className="grid-item">
                     <h1 className="header">Best Design</h1>
                     <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
                                            fostering their inner creativity towards their real-world applications.
