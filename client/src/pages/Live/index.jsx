@@ -32,7 +32,13 @@ class Live extends Component {
           <button id="submit" onClick={() => {window.location.href = "https://join.slack.com/t/hackmerced-v/shared_invite/enQtODUyNzkxMDY2NjkyLTZiODAyZjNiYTFjZTlkYTQ0NDVhOGQ5OTI3OTEzNjAxMDBiZTdjY2QyMTI0ZGE4MTlhMmNhMGYyNzQzOGNhZTI"}}>Slack</button>
         </section>
         <section id="live-devpost">
-          <button id="submit" onClick={() => {window.location.href = "https://hackmerced-v.devpost.com"}}>Devpost Submission</button>
+          <button id="submit" onClick={() => {window.location.href = "https://hackmerced-v.devpost.com/submissions"}}>Devpost Submission</button>
+        </section>
+        <section id="live-categories">
+          <button id="submit" onClick={() => {window.location.href = "https://hackmerced-v.devpost.com/#prizes"}}>Prize Categories</button>
+        </section>
+        <section id="live-resources">
+          <button id="submit" onClick={() => {window.location.href = "https://hack.mlh.io/software/"}}>Hacker Resources</button>
         </section>
         <section id="live-container">
           <LiveContainer />
