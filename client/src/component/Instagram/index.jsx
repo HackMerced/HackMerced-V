@@ -8,7 +8,7 @@ class Instagram extends Component {
     return (
       <section id="instagram">
         <InstagramEmbed
-          url="https://www.instagram.com/p/B9Dx1nkA7Mh/"
+          url="https://www.instagram.com/p/B9GmIWIAOss/"
           maxWidth={320}
           hideCaption={false}
           containerTagName="div"
