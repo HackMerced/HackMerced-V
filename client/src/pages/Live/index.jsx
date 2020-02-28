@@ -20,7 +20,7 @@ class Live extends Component {
           <Logo />
         </section>
         <section id="live-timer">
-          <LiveCountdown/>
+          <LiveCountdown timeTillDate="3 1 2020, 9:00 am" timeFormat="MM DD YYYY, h:mm a" />
         </section>
         <section id="live-twitter">
           <Twitter/>

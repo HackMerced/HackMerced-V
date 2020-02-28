@@ -1,15 +1,15 @@
 #live {
-  background-image: linear-gradient(#8D78A1, #A05952, #D15F2A);
+  background-image: linear-gradient(#8d78a1, #a05952, #d15f2a);
   padding-top: 15vh;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 50vh auto 69vh;
   grid-auto-columns: max-content;
   grid-template-areas:
-    "logo timer twitter"
+    "logo timer timer"
+    "container container twitter"
     "container container instagram"
     "container container devpost"
     "container container slack"
-    "container container ."
     "container container ."
     "container container ."
     "container container ."
@@ -20,6 +20,7 @@
 
 #live-logo {
   grid-area: logo;
+  width: 300px;
 }
 
 #live-timer {
