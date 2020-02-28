@@ -6,9 +6,6 @@ import "./live-category.scss";
 class LiveCategory extends Component {
     render() {
 
-
-
-
         return (
 
             <div className="grid-container">
