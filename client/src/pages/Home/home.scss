@@ -1,9 +1,3 @@
 #home {
-  display: grid;
-  grid-template-areas:
-    "Title"
-    "About"
-    "Schedule"
-    "FAQ"
-    "Sponsors";
+  scroll-snap-type: mandatory;
 }

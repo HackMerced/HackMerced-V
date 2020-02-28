@@ -1,0 +1,87 @@
+#live {
+  background-image: linear-gradient(#8d78a1, #a05952, #d15f2a);
+  padding-top: 15vh;
+  display: grid;
+  grid-template-columns: 50vh auto 50vh;
+  grid-auto-columns: max-content;
+  grid-template-areas:
+    "logo timer timer"
+    "container container twitter"
+    "container container instagram"
+    "container container devpost"
+    "container container slack"
+    "container container resources"
+    "container container categories"
+    "container container ."
+    "container container ."
+    "container container ."
+    "container container .";
+
+  @media only screen and (max-width: 1100px) {
+    grid-template-columns: 50vh auto;
+    grid-template-areas:
+      "logo timer"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "resources categories"
+      "slack devpost";
+  }
+}
+
+#submit {
+  margin-left: 6vh;
+}
+
+#live-logo {
+  grid-area: logo;
+  width: 300px;
+}
+
+#live-timer {
+  grid-area: timer;
+  grid-template-columns: 20%;
+}
+
+#live-twitter {
+  grid-area: twitter;
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
+}
+
+#live-slack {
+  grid-area: slack;
+}
+
+#live-instagram {
+  grid-area: instagram;
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
+}
+
+#live-devpost {
+  grid-area: devpost;
+}
+
+#live-container {
+  grid-area: container;
+}
+
+#live-categories {
+  grid-area: categories;
+}
+
+#live-resources {
+  grid-area: resources;
+}

@@ -8,6 +8,8 @@ $white: #fff;
 }
 
 #title {
+  scroll-snap-align: start;
+
   > #content {
     position: relative;
     overflow-y: hidden;

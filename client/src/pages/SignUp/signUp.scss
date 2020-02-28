@@ -3,7 +3,8 @@
   min-height: 92vh;
 }
 
-.toast-success, .toast-error {
+.toast-success,
+.toast-error {
   color: #fcf6f4;
   background-color: #99544c;
   font-weight: bold;
@@ -84,7 +85,7 @@ select {
   font-style: bold;
 }
 
-.first-hackathon {
+#first-hackathon {
   font-size: 30px;
   font-weight: bolder;
   margin: 20%;
@@ -129,7 +130,7 @@ input[list="universities"] {
   color: pink;
 }
 
-.gender {
+#gender {
   position: relative;
   width: 200px;
   padding: 10px;
@@ -145,7 +146,7 @@ input[list="universities"] {
   margin-top: 1.5%;
 }
 
-.gender:after {
+#gender:after {
   content: "";
   width: 0;
   height: 0;
@@ -157,12 +158,11 @@ input[list="universities"] {
   background: pink;
 }
 
-.gender .dropdown {
+#gender .dropdown {
   background: transparent;
 }
 
-
-.ethnicity {
+#ethnicity {
   position: relative;
   width: 200px;
   padding: 10px;
@@ -177,7 +177,7 @@ input[list="universities"] {
   margin-top: 1.5%;
 }
 
-.university {
+#university {
   position: relative;
   width: 50%;
   padding: 10px;
@@ -191,7 +191,7 @@ input[list="universities"] {
   margin-top: 1.5%;
 }
 
-.yearincollege {
+#year-in-college {
   position: relative;
   width: 20%;
   padding: 10px;
@@ -205,7 +205,7 @@ input[list="universities"] {
   margin-top: 1.5%;
 }
 
-.schoolstanding {
+#school-standing {
   position: relative;
   width: 20%;
   padding: 10px;
@@ -219,7 +219,7 @@ input[list="universities"] {
   margin-top: 1.5%;
 }
 
-.first-hackathon {
+#first-hackathon {
   position: relative;
   width: 20%;
   padding: 10px;
@@ -233,7 +233,7 @@ input[list="universities"] {
   margin-top: 1.5%;
 }
 
-.t-shirt {
+#shirt-size {
   position: relative;
   width: 20%;
   padding: 10px;
@@ -318,61 +318,57 @@ a {
 
 //MOBILE CODE
 
-
 @media all and (max-width: 641px) {
   #body {
     background-image: linear-gradient(#8d78a1, #b69087, #d15f2a);
     color: white;
     padding: 10%;
-    font-family: 'Moon', bold;
+    font-family: "Moon", bold;
   }
-  
+
   #formID {
     border: white;
     border-style: solid;
     border-width: 0px;
   }
-  
+
   label {
     margin: 10%;
     font-size: 20px;
     font-weight: bolder;
-  
   }
-  
+
   :placeholder-shown {
     font-size: 20px;
     width: 80%;
     text-align: left;
   }
-  
+
   #firstYes {
     font-size: medium;
   }
-  
+
   #form {
     margin: auto;
     position: relative;
   }
-  
+
   #applications {
     font-size: 275%;
-    font-family: 'Moon';
+    font-family: "Moon";
     font-weight: bolder;
     text-align: center;
     overflow: hidden;
     padding-bottom: 8%;
     margin-top: 0%;
-    
   }
-  
+
   h5 {
     font-size: 20px;
     position: relative;
     left: 15px;
   }
-  
-  
+
   select {
     border: 10px solid;
     width: 100%;
@@ -380,15 +376,14 @@ a {
     text-align: center;
     appearance: none;
     outline: 0;
-  
   }
-  
+
   ::placeholder {
     color: black;
     font-style: bold;
   }
-  
-  .first-hackathon{
+
+  #first-hackathon {
     font-size: 30px;
     font-weight: bolder;
     margin: 20%;
@@ -398,18 +393,18 @@ a {
     padding: 10px;
     margin: 0 auto;
     border-radius: 5px;
-    background:transparent;
+    background: transparent;
     color: black;
     outline: none;
     cursor: pointer;
     font-weight: bold;
-    margin-top:1.5%;
+    margin-top: 1.5%;
   }
-  
-  input[type=text],
-  input[type=email],
-  input[type=url],
-  input[type=number] {
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="number"] {
     width: 80%;
     padding: 15px;
     margin: 15px 0 22px 0;
@@ -420,35 +415,35 @@ a {
     border-radius: 5px;
     position: relative;
     left: 10%;
-    overflow:hidden;
+    overflow: hidden;
     border-width: 10px;
     border-color: black;
     background: transparent;
     text-align: left;
   }
-  
+
   label:after {
     content: " *";
     color: pink;
   }
-  
-  .gender{
+
+  #gender {
     position: relative;
-      width: 200px;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      display: inline-block;
-      background:transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      left: 10%;
-      margin-top:1.5%;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background: transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top: 1.5%;
   }
-  
-  .gender:after {
+
+  #gender:after {
     content: "";
     width: 0;
     height: 0;
@@ -459,108 +454,109 @@ a {
     border-style: solid;
     background: pink;
   }
-  
-  .gender .dropdown {
-    background:transparent;
+
+  #gender .dropdown {
+    background: transparent;
   }
-  
-  .ethnicity {
-    position: relative;
-      width: 200px;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      display: inline-block;
-      background:transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      left: 10%;
-      margin-top:1.5%;
-  }
-  
-  .university {
+
+  #ethnicity {
     position: relative;
     width: 200px;
     padding: 10px;
     margin: 0 auto;
     border-radius: 5px;
     display: inline-block;
-    background:transparent;
+    background: transparent;
     color: black;
     outline: none;
     cursor: pointer;
     font-weight: bold;
     left: 10%;
-    margin-top:1.5%;
+    margin-top: 1.5%;
   }
-  
-  .yearincollege {
+
+  #university {
     position: relative;
     width: 200px;
     padding: 10px;
     margin: 0 auto;
     border-radius: 5px;
     display: inline-block;
-    background:transparent;
+    background: transparent;
     color: black;
     outline: none;
     cursor: pointer;
     font-weight: bold;
     left: 10%;
-    margin-top:1.5%;
+    margin-top: 1.5%;
   }
-  
-  .schoolstanding {
+
+  #year-in-college {
     position: relative;
     width: 200px;
     padding: 10px;
     margin: 0 auto;
     border-radius: 5px;
     display: inline-block;
-    background:transparent;
+    background: transparent;
     color: black;
     outline: none;
     cursor: pointer;
     font-weight: bold;
     left: 10%;
-    margin-top:1.5%;
+    margin-top: 1.5%;
   }
-  
-  .first-hackathon  {
-    position: relative;
-      width: 200px;
-      padding: 10px;
-      margin: 0 auto;
-      border-radius: 5px;
-      display: inline-block;
-      background:transparent;
-      color: black;
-      outline: none;
-      cursor: pointer;
-      font-weight: bold;
-      left: 10%;
-      margin-top:1.5%;
-  }
-  
-  .t-shirt {
+
+  #school-standing {
     position: relative;
     width: 200px;
     padding: 10px;
     margin: 0 auto;
     border-radius: 5px;
     display: inline-block;
-    background:transparent;
+    background: transparent;
     color: black;
     outline: none;
     cursor: pointer;
     font-weight: bold;
     left: 10%;
-    margin-top:1.5%;
+    margin-top: 1.5%;
   }
-  
-  p#privacy, #conduct{
+
+  #first-hackathon {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background: transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top: 1.5%;
+  }
+
+  #shirt-size {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+    background: transparent;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    left: 10%;
+    margin-top: 1.5%;
+  }
+
+  p#privacy,
+  #conduct {
     font-size: 1.5em;
     margin: 0 0 1em;
     display: inline-block;
@@ -572,32 +568,32 @@ a {
     left: 10%;
     overflow: hidden;
   }
-  
+
   a {
     color: blue;
   }
-  
-  #code-of-conduct, #affiliation-with-mlh {
+
+  #code-of-conduct,
+  #affiliation-with-mlh {
     div {
       display: grid;
       grid-template-areas: ". . . . . . left right . . . . . .";
-  
-      input[type=checkbox] {
+
+      input[type="checkbox"] {
         grid-area: left;
         cursor: pointer;
         margin: 0% 25% 10%;
       }
-  
+
       span {
         grid-area: right;
         overflow: hidden;
         margin: 0% 0% 5%;
-        padding:0% 0% 10%;
-        
+        padding: 0% 0% 10%;
       }
     }
   }
-  
+
   #submit {
     width: 270px;
     background-color: #9a544c;
@@ -610,27 +606,21 @@ a {
     border: none;
     text-align: center;
     text-decoration: none;
-  
-    
-    justify-content:center;
-   
+
+    justify-content: center;
+
     max-width: 300px;
     margin: 3% auto;
     overflow: hidden;
-  
+
     &:hover {
       box-shadow: 10px 10px 10px black;
-      
     }
   }
-  
+
   .popup {
-   
     position: relative;
-    justify-content:center;
+    justify-content: center;
     text-align: center;
   }
-
-
 }
-

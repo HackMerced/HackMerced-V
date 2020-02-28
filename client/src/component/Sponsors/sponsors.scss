@@ -1,6 +1,7 @@
 #sponsors {
   background-color: #9a544c;
   color: white;
+  scroll-snap-align: start;
 
   img {
     display: block;
@@ -201,7 +202,7 @@
     position: relative;
     top: 20%;
   }
-  
+
   #StickerMule {
     width: 70%;
     position: relative;

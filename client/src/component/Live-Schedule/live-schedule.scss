@@ -1,8 +1,5 @@
-#schedule {
-  background-image: url("../../assets/Images/schedule.png");
-  background-position: center;
-  background-size: cover;
-  scroll-snap-align: start;
+#live-schedule {
+  background-color: #9a544c;
 }
 
 ul#schedule-body {
@@ -63,7 +60,7 @@ ul#schedule-body {
 
 .event-location {
   font-size: 0.8em;
-  color: #ffdec7;
+  color: #ffb994;
   margin-left: 70px;
 }
 

@@ -1,0 +1,49 @@
+@mixin flex {
+	display: flex;
+	flex-direction: column;
+}
+
+p {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.card-masonry {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-container {
+  @include flex;
+  width: 320px;
+  margin: 5%;
+  list-style-type: none;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 2px 2px 10px #eae9e9;
+}
+
+img {
+  border-radius: 4px 4px 0 0;
+  max-width: 100%;
+  order: 1;
+}
+
+.card-container--content {
+  @include flex;
+  order: 2;
+  padding: 0 2rem 2rem;
+}
+
+.card-header--title {
+  color: darkcyan;
+  font-size: 1.5rem;
+}
+
+.card-date {
+	color: darken(darkgray, 20%);
+	font-size: .875rem;
+	font-style: italic;
+  margin-bottom: 0.125rem;
+}
