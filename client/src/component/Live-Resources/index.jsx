@@ -22,13 +22,25 @@ class LiveResources extends Component {
                         </img>
                     </a>
                 </div>
-
+                <div class="infos">
+                    <ul></ul>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                </div>
+                
                 {/* DOMAIN.COM */}
                 <div class="logos">
                     <a href="https://www.domain.com/mlh#consent-modal" target="_blank" rel="noopener noreferrer">
                         <img src={Domain}>
                         </img>
                     </a>
+                </div>
+                <div class="infos">
+                    <ul></ul>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
                 </div>
 
                   {/* GITHUB */}
@@ -38,6 +50,12 @@ class LiveResources extends Component {
                         </img>
                     </a>
                 </div>
+                <div class="infos">
+                    <ul></ul>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                </div>
 
                 {/*UIPATH */}
                 <div class="logos">
@@ -46,7 +64,12 @@ class LiveResources extends Component {
                         </img>
                     </a>
                 </div>
-
+                <div class="infos">
+                    <ul></ul>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                </div>
     
 
                  {/*BLOCKSTACK */}
@@ -56,6 +79,12 @@ class LiveResources extends Component {
                         </img>
                     </a>
                 </div>
+                <div class="infos">
+                    <ul></ul>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                </div>
 
                 {/*MONGODB*/}
                 <div class="logos">
@@ -63,6 +92,12 @@ class LiveResources extends Component {
                         <img src={mongodb}>
                         </img>
                     </a>
+                </div>
+                <div class="infos">
+                    <ul></ul>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
+                    <ol href=""></ol>
                 </div>
 
                 {/*RADAR */}
