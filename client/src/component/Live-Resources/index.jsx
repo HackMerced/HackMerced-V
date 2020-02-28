@@ -51,10 +51,8 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Millions of developers use GitHub to build personal projects, support their businesses, and work together on open source technologies.</ul>
+                    <ol href="https://guides.github.com/activities/hello-world/">Learn to use GitHub</ol>
                 </div>
 
                 {/*UIPATH */}
