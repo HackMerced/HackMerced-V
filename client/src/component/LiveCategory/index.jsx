@@ -79,9 +79,9 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Best Design</h1>
-                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
-                                           fostering their inner creativity towards their real-world applications.
+                    <h1 className="header">Best use of MongoDB Atlas </h1>
+                    <p className="content"> Create a hack using MongoDB Atlas to host a database in the cloud! Automate the provisioning and deployment process with ease, while focusing all your efforts on your hack.
+                                             Projects built using MongoDB Atlas will be eligible to win an AirCharge Plus.Prize: Branded MongoDB AirCharge Plus 
                     </p>
                 </div>
                 <div className="grid-item">
