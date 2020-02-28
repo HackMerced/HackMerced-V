@@ -23,9 +23,9 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Bring your project to the next level using Google Cloud Platform's infinitely scalable virtual machines, world class databases and analytics, and powerful machine learning technologies.</ul>
+                    <ol href="https://cloud.google.com/products/">All Google Cloud Products & Services</ol>
+                    <ol href="https://cloud.google.com/docs/">Google Cloud Documentation</ol>
                     <ol href=""></ol>
                 </div>
 
