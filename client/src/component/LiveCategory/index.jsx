@@ -37,10 +37,9 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Social Good</h1>
-                    <p className="content">Best hack that befits the largest number of people in the largest possible way.
-                                1st Place: Anker Speaker per team member and Lifetime Package for Clerky.
-                                2nd Place: Echo Flex per team member.
+                    <h1 className="header"> Good Begineer Hack</h1>
+                    <p className="content">Hackathons are meant for everyone, especially for first-time hackers. This prize is specific to hackers taking their first steps in the wonderful world of competitive hacking! Each winning team member will receive a Limited
+                                        Edition Makey Makey Kit to automate your software and go above and beyond!
                     </p>
                 </div>
                 <div className="grid-item">
