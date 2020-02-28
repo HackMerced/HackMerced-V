@@ -57,7 +57,15 @@ class LiveResources extends Component {
                     </a>
                 </div>
 
-               
+                {/*MONGODB*/}
+                <div class="logos">
+                    <a href="http://hackp.ac/mongodb-signup" target="_blank" rel="noopener noreferrer">
+                        <img src={mongodb}>
+                        </img>
+                    </a>
+                </div>
+
+             
              
           
 
