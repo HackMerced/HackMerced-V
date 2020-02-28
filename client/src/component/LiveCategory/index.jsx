@@ -54,9 +54,9 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Best Design</h1>
-                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
-                                           fostering their inner creativity towards their real-world applications.
+                    <h1 className="header">Best use of Google Cloud</h1>
+                    <p className="content">Build your hackathon project with a suite of secure storage, powerful compute, and integrated data analytics products provided by Google Cloud. See full list of products here: g.co/cloud. Each winning team member will receive a Google Home Mini.
+                                           Prize: Google Home Mini
                     </p>
                 </div>
                 <div className="grid-item">
