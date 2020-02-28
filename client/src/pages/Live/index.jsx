@@ -26,7 +26,9 @@ class Live extends Component {
           <Instagram/>
         </section>
         <section id="live-slack"></section>
-        <section id="live-devpost"></section>
+        <section id="live-devpost">
+          <button onClick={() => {window.location.href = "https://hackmerced-v.devpost.com"}}>Devpost Submission</button>
+        </section>
         <section id="live-container">
           <LiveContainer />
         </section>
