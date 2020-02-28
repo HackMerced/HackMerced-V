@@ -49,11 +49,47 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
+                    <h1 className="header">Best Use of DigitalOcean </h1>
+                    <p className="content">$2,000 DigitalOcean Credit
+                    </p>
+                </div>
+                <div className="grid-item">
                     <h1 className="header">Best Design</h1>
                     <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
                                            fostering their inner creativity towards their real-world applications.
                     </p>
                 </div>
+                <div className="grid-item">
+                    <h1 className="header">Best Design</h1>
+                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
+                                           fostering their inner creativity towards their real-world applications.
+                    </p>
+                </div>
+                <div className="grid-item">
+                    <h1 className="header">Best Design</h1>
+                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
+                                           fostering their inner creativity towards their real-world applications.
+                    </p>
+                </div>
+                <div className="grid-item">
+                    <h1 className="header">Best Design</h1>
+                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
+                                           fostering their inner creativity towards their real-world applications.
+                    </p>
+                </div>
+                <div className="grid-item">
+                    <h1 className="header">Best Design</h1>
+                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
+                                           fostering their inner creativity towards their real-world applications.
+                    </p>
+                </div>
+                <div className="grid-item">
+                    <h1 className="header">Best Design</h1>
+                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
+                                           fostering their inner creativity towards their real-world applications.
+                    </p>
+                </div>
+
             </div>
         );
     }
