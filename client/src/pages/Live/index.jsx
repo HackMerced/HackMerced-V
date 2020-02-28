@@ -4,7 +4,8 @@ import "./live.scss";
 import Logo from "../../component/HackM-Logo";
 import LiveContainer from "../../component/Live-Container";
 import Twitter from "../../component/Twitter";
-import Instagram from "../../component/Instgram";
+import Instagram from "../../component/Instagram";
+import LiveCountdown from "../../component/Countdown";
 
 class Live extends Component {
   constructor(props) {
@@ -18,7 +19,9 @@ class Live extends Component {
         <section id="live-logo">
           <Logo />
         </section>
-        <section id="live-timer"></section>
+        <section id="live-timer">
+          <LiveCountdown/>
+        </section>
         <section id="live-twitter">
           <Twitter/>
         </section>

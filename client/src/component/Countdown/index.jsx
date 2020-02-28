@@ -1,91 +1,70 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
 import "./countdown.scss";
 
-class Countdown extends Component {
+export default class LiveCountdown extends Component {
+
+  constructor(props) {
+    super(props);
+    this.tick = this.tick.bind(this);
+    this.getNewTimerState = this.getNewTimerState.bind(this);
+    this.state = this.getNewTimerState();
+  }
+
+  getNewTimerState() {
+    let diffMs = (new Date('March 1, 2020 09:00:00 PST') - new Date()); // milliseconds between now & Christmas
+
+    let diffDays = Math.floor(diffMs / 86400000); // days
+    let diffHrs = Math.floor(((diffMs % 86400000) / 3600000) + (diffDays*24)); // hours
+    let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+    let diffSecs = Math.round(((diffMs % 86400000) % 3600000) % 60000 / 1000); // seconds
+
+    if(diffSecs < 0) {
+      diffSecs = 0;
+    }
+    if(diffMins < 0) {
+      diffMins = 0;
+    }
+    if(diffHrs < 0) {
+      diffHrs = 0;
+    }
+
+    return {
+      seconds: diffSecs, // responsible for the seconds
+      minutes: diffMins, // responsible for the minutes
+      hours: diffHrs, // responsible for the hours
+      // days: diffDays, // responsible for the days
+    };
+  }
+
+  tick() {
+    this.setState(this.getNewTimerState());
+  }
+
+  componentDidMount() {
+    // update every second
+    this.interval = setInterval(this.tick, 1000);
+  }
+
   render() {
+
+    // If it is within 36 hours of the hackathon show the countdown. To enable the 36 hour check, replace 'true' with 'showTimer'
+    const startTimer = (new Date() < new Date('February 26, 2020 21:00:00 PST')) ? false : true;
+
+    if(startTimer)
+      return (
+        <div className="Timer transparent">
+          <div className="time"><span>{this.state.hours}</span><br/>HRS</div>
+          <div className="time"><span>{this.state.minutes}</span><br/>MINS</div>
+          <div className="time"><span>{this.state.seconds}</span><br/>SECS</div>
+        </div>
+      );
+
     return (
-      <div class="countdown">
-        <div class="bloc-time hours" data-init-value="24">
-          <span class="count-title">Hours</span>
-
-          <div class="figure hours hours-1">
-            <span class="top">2</span>
-            <span class="top-back">
-              <span>2</span>
-            </span>
-            <span class="bottom">2</span>
-            <span class="bottom-back">
-              <span>2</span>
-            </span>
-          </div>
-
-          <div class="figure hours hours-2">
-            <span class="top">4</span>
-            <span class="top-back">
-              <span>4</span>
-            </span>
-            <span class="bottom">4</span>
-            <span class="bottom-back">
-              <span>4</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="bloc-time min" data-init-value="0">
-          <span class="count-title">Minutes</span>
-
-          <div class="figure min min-1">
-            <span class="top">0</span>
-            <span class="top-back">
-              <span>0</span>
-            </span>
-            <span class="bottom">0</span>
-            <span class="bottom-back">
-              <span>0</span>
-            </span>
-          </div>
-
-          <div class="figure min min-2">
-            <span class="top">0</span>
-            <span class="top-back">
-              <span>0</span>
-            </span>
-            <span class="bottom">0</span>
-            <span class="bottom-back">
-              <span>0</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="bloc-time sec" data-init-value="0">
-          <span class="count-title">Seconds</span>
-
-          <div class="figure sec sec-1">
-            <span class="top">0</span>
-            <span class="top-back">
-              <span>0</span>
-            </span>
-            <span class="bottom">0</span>
-            <span class="bottom-back">
-              <span>0</span>
-            </span>
-          </div>
-
-          <div class="figure sec sec-2">
-            <span class="top">0</span>
-            <span class="top-back">
-              <span>0</span>
-            </span>
-            <span class="bottom">0</span>
-            <span class="bottom-back">
-              <span>0</span>
-            </span>
-          </div>
-        </div>
+      <div className="Timer">
+        <div className="time"><span>{'36'}</span><br/>HRS</div>
+        <div className="time"><span>{'0'}</span><br/>MINS</div>
+        <div className="time"><span>{'0'}</span><br/>SECS</div>
       </div>
     );
   }
 }
-
-export default Countdown;
