@@ -35,7 +35,13 @@ class LiveResources extends Component {
                     </a>
                 </div>
 
-            
+                {/*UIPATH */}
+                <div class="logos">
+                    <a href="http://hackp.ac/uipath-download" target="_blank" rel="noopener noreferrer">
+                        <img src={UiPath}>
+                        </img>
+                    </a>
+                </div>
 
              
           
