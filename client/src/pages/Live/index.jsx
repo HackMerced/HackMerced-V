@@ -4,7 +4,8 @@ import "./live.scss";
 import Logo from "../../component/HackM-Logo";
 import LiveContainer from "../../component/Live-Container";
 import Twitter from "../../component/Twitter";
-import Instagram from "../../component/Instgram";
+import Instagram from "../../component/Instagram";
+import LiveCountdown from "../../component/Countdown";
 
 class Live extends Component {
   constructor(props) {
@@ -18,16 +19,20 @@ class Live extends Component {
         <section id="live-logo">
           <Logo />
         </section>
-        <section id="live-timer"></section>
+        <section id="live-timer">
+          <LiveCountdown/>
+        </section>
         <section id="live-twitter">
           <Twitter/>
         </section>
         <section id="live-instagram">
           <Instagram/>
         </section>
-        <section id="live-slack"></section>
+        <section id="live-slack">
+          <button id="submit" onClick={() => {window.location.href = "https://join.slack.com/t/hackmerced-v/shared_invite/enQtODUyNzkxMDY2NjkyLTZiODAyZjNiYTFjZTlkYTQ0NDVhOGQ5OTI3OTEzNjAxMDBiZTdjY2QyMTI0ZGE4MTlhMmNhMGYyNzQzOGNhZTI"}}>Slack</button>
+        </section>
         <section id="live-devpost">
-          <button onClick={() => {window.location.href = "https://hackmerced-v.devpost.com"}}>Devpost Submission</button>
+          <button id="submit" onClick={() => {window.location.href = "https://hackmerced-v.devpost.com"}}>Devpost Submission</button>
         </section>
         <section id="live-container">
           <LiveContainer />

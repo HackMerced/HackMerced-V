@@ -5,9 +5,17 @@
   grid-template-columns: auto auto auto;
   grid-auto-columns: max-content;
   grid-template-areas:
-    "twitter timer logo"
-    "instagram container container"
-    "instagram container container";
+    "logo timer twitter"
+    "container container instagram"
+    "container container devpost"
+    "container container slack"
+    "container container ."
+    "container container ."
+    "container container ."
+    "container container ."
+    "container container ."
+    "container container ."
+    "container container .";
 }
 
 #live-logo {
@@ -16,6 +24,7 @@
 
 #live-timer {
   grid-area: timer;
+  grid-template-columns: 20%;
 }
 
 #live-twitter {
@@ -37,4 +46,3 @@
 #live-container {
   grid-area: container;
 }
-
