@@ -5,6 +5,10 @@ import GCP from "../../assets/Images/googleCloud.png"
 import Domain from "../../assets/Images/Domain.com-logo.png"
 import Github from "../../assets/Images/github.png"
 import UiPath from "../../assets/Images/uipath.png"
+import blockstack from "../../assets/Images/blockstack.png"
+import mongodb from "../../assets/Images/mongodb.png"
+import radar from "../../assets/Images/radar.png"
+
 
 class LiveResources extends Component {
     render() {
@@ -43,6 +47,17 @@ class LiveResources extends Component {
                     </a>
                 </div>
 
+    
+
+                 {/*BLOCKSTACK */}
+                 <div class="logos">
+                    <a href="http://hackp.ac/blockstack" target="_blank" rel="noopener noreferrer">
+                        <img src={blockstack}>
+                        </img>
+                    </a>
+                </div>
+
+               
              
           
 
