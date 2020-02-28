@@ -72,9 +72,10 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Best Design</h1>
-                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
-                                           fostering their inner creativity towards their real-world applications.
+                    <h1 className="header">Best UiPath Automation Hack </h1>
+                    <p className="content">Build an automation hack using UiPath! Each winning team member will receive a UiPath/MLH
+                                           Branded Backpack and an opportunity to interview for a UiPath Internship in 2020 with a high recommendation!
+                                           Prize: Skip the internship line with UiPath and a UiPath/MLH Branded Backpack
                     </p>
                 </div>
                 <div className="grid-item">
