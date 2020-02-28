@@ -31,10 +31,9 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Social Good</h1>
-                    <p className="content">Best hack that befits the largest number of people in the largest possible way.
-                                1st Place: Anker Speaker per team member and Lifetime Package for Clerky.
-                                2nd Place: Echo Flex per team member.
+                    <h1 className="header">Moon Shot</h1>
+                    <p className="content">Best hack that is the craziest, the most out-of-this-world project at HackMerced 2020. It doesn't need to fit any category. Take risks. Make the impossible.
+                                           Two winners: Year subscription to Egghead.io, tutorials for badass web developers!
                     </p>
                 </div>
                 <div className="grid-item">
