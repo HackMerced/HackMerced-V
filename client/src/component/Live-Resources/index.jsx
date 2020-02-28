@@ -27,6 +27,17 @@ class LiveResources extends Component {
                     </a>
                 </div>
 
+                  {/* GITHUB */}
+                  <div class="logos">
+                    <a href="https://education.github.com/students?utm_source=mlh" target="_blank" rel="noopener noreferrer">
+                        <img src={Github}>
+                        </img>
+                    </a>
+                </div>
+
+            
+
+             
           
 
 
