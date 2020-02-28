@@ -1,14 +1,11 @@
-
-
 .text-color {
   color: #46a1de;
   transition-duration: 0.5s;
 }
 
 .wrapper {
-  min-width: 600px;
-  max-width: 900px;
   margin: 0 auto;
+  padding: 0 5%;
 }
 
 .tabs {
@@ -53,7 +50,7 @@
     }
 
     &.active {
-      color: #3ff3f9;
+      color: #ffb994;
 
       &:before {
         transition-duration: 0.5s;
@@ -66,10 +63,10 @@
 }
 
 .tab__content {
-  background-color: transparent;
   position: relative;
   width: 100%;
   border-radius: 5px;
+  margin-bottom: 4%;
 
   > li {
     width: 100%;

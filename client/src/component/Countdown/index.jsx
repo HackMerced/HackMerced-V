@@ -1,70 +1,129 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import moment from "moment";
+
 import "./countdown.scss";
 
-export default class LiveCountdown extends Component {
+const SVGCircle = ({ radius }) => (
+  <svg className="countdown-svg">
+    <path
+      fill="none"
+      stroke="#ffb994"
+      stroke-width="4"
+      d={describeArc(50, 50, 48, 0, radius)}
+    />
+  </svg>
+);
 
-  constructor(props) {
-    super(props);
-    this.tick = this.tick.bind(this);
-    this.getNewTimerState = this.getNewTimerState.bind(this);
-    this.state = this.getNewTimerState();
-  }
+// From stackoverflow: https://stackoverflow.com/questions/5736398/how-to-calculate-the-svg-path-for-an-arc-of-a-circle
+function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+  var angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
 
-  getNewTimerState() {
-    let diffMs = (new Date('March 1, 2020 09:00:00 PST') - new Date()); // milliseconds between now & Christmas
+  return {
+    x: centerX + radius * Math.cos(angleInRadians),
+    y: centerY + radius * Math.sin(angleInRadians)
+  };
+}
 
-    let diffDays = Math.floor(diffMs / 86400000); // days
-    let diffHrs = Math.floor(((diffMs % 86400000) / 3600000) + (diffDays*24)); // hours
-    let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-    let diffSecs = Math.round(((diffMs % 86400000) % 3600000) % 60000 / 1000); // seconds
+function describeArc(x, y, radius, startAngle, endAngle) {
+  var start = polarToCartesian(x, y, radius, endAngle);
+  var end = polarToCartesian(x, y, radius, startAngle);
 
-    if(diffSecs < 0) {
-      diffSecs = 0;
-    }
-    if(diffMins < 0) {
-      diffMins = 0;
-    }
-    if(diffHrs < 0) {
-      diffHrs = 0;
-    }
+  var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
 
-    return {
-      seconds: diffSecs, // responsible for the seconds
-      minutes: diffMins, // responsible for the minutes
-      hours: diffHrs, // responsible for the hours
-      // days: diffDays, // responsible for the days
-    };
-  }
+  var d = [
+    "M",
+    start.x,
+    start.y,
+    "A",
+    radius,
+    radius,
+    0,
+    largeArcFlag,
+    0,
+    end.x,
+    end.y
+  ].join(" ");
 
-  tick() {
-    this.setState(this.getNewTimerState());
-  }
+  return d;
+}
+
+// Stackoverflow: https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+function mapNumber(number, in_min, in_max, out_min, out_max) {
+  return (
+    ((number - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+  );
+}
+
+class LiveCountdown extends Component {
+  state = {
+    days: undefined,
+    hours: undefined,
+    minutes: undefined,
+    seconds: undefined
+  };
 
   componentDidMount() {
-    // update every second
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(() => {
+      const { timeTillDate, timeFormat } = this.props;
+      const then = moment(timeTillDate, timeFormat);
+      const now = moment();
+      const countdown = moment(then - now);
+      const days = countdown.format("D");
+      const hours = countdown.format("HH");
+      const minutes = countdown.format("mm");
+      const seconds = countdown.format("ss");
+      this.setState({ days, hours, minutes, seconds });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 
   render() {
-
-    // If it is within 36 hours of the hackathon show the countdown. To enable the 36 hour check, replace 'true' with 'showTimer'
-    const startTimer = (new Date() < new Date('February 26, 2020 21:00:00 PST')) ? false : true;
-
-    if(startTimer)
-      return (
-        <div className="Timer transparent">
-          <div className="time"><span>{this.state.hours}</span><br/>HRS</div>
-          <div className="time"><span>{this.state.minutes}</span><br/>MINS</div>
-          <div className="time"><span>{this.state.seconds}</span><br/>SECS</div>
-        </div>
-      );
+    const { days, hours, minutes, seconds } = this.state;
+    const daysRadius = mapNumber(days, 30, 0, 0, 360);
+    const hoursRadius = mapNumber(hours, 24, 0, 0, 360);
+    const minutesRadius = mapNumber(minutes, 60, 0, 0, 360);
+    const secondsRadius = mapNumber(seconds, 60, 0, 0, 360);
 
     return (
-      <div className="Timer">
-        <div className="time"><span>{'36'}</span><br/>HRS</div>
-        <div className="time"><span>{'0'}</span><br/>MINS</div>
-        <div className="time"><span>{'0'}</span><br/>SECS</div>
-      </div>
+      <section id="countdown">
+        <div className="countdown-wrapper">
+          {days && (
+            <div className="countdown-item">
+              <SVGCircle radius={daysRadius} />
+              {days}
+              <span id="days">days</span>
+            </div>
+          )}
+          {hours && (
+            <div className="countdown-item">
+              <SVGCircle radius={hoursRadius} />
+              {hours}
+              <span id="hours">hours</span>
+            </div>
+          )}
+          {minutes && (
+            <div className="countdown-item">
+              <SVGCircle radius={minutesRadius} />
+              {minutes}
+              <span id="minutes">minutes</span>
+            </div>
+          )}
+          {seconds && (
+            <div className="countdown-item">
+              <SVGCircle radius={secondsRadius} />
+              {seconds}
+              <span id="seconds">seconds</span>
+            </div>
+          )}
+        </div>
+      </section>
     );
   }
 }
+
+export default LiveCountdown;
