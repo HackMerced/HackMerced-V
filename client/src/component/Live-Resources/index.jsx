@@ -65,9 +65,9 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Join the #AutomationFirst movement with UiPath, the leading platform in automation technology known as Robotic Process Automation (RPA). Create robots to automate repetitive tasks in your hacks. (Windows Only).</ul>
+                    <ol href="http://hackp.ac/uipath-download"></ol>
+                    <ol href="http://hackp.ac/robot-packs"></ol>
                     <ol href=""></ol>
                 </div>
     
@@ -80,10 +80,10 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>Build blockchain-powered apps in as little as an hour. Everything you need, from auth to data storage, ready and in production. 100% Javascript — zero backend development.</ul>
+                    <ol href="http://hackp.ac/blockstack-hackathon-guide">Blockstack Hackathon Guide</ol>
+                    <ol href="http://hackp.ac/bs-api-docs">Blockstack API Docs</ol>
+                    <ol href="http://hackp.ac/blockstack-apps">Popular Blockstack Apps</ol>
                 </div>
 
                 {/*MONGODB*/}
