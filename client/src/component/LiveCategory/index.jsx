@@ -43,10 +43,9 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Social Good</h1>
-                    <p className="content">Best hack that befits the largest number of people in the largest possible way.
-                                1st Place: Anker Speaker per team member and Lifetime Package for Clerky.
-                                2nd Place: Echo Flex per team member.
+                    <h1 className="header">Good Hardware Hack</h1>
+                    <p className="content">Hackers at their core tinkers. This prize is specific to hackers who embrace the ever-revolving bond between software and hardware. Each winning team member will receive an Arduino to concentrate on making 
+                                           their ideas a reality. It’s the ultimate tinkering tool!
                     </p>
                 </div>
             </div>
