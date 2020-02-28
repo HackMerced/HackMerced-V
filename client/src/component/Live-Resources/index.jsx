@@ -65,7 +65,13 @@ class LiveResources extends Component {
                     </a>
                 </div>
 
-             
+                {/*RADAR */}
+                <div class="logos">
+                    <a href="http://hackp.ac/radar" target="_blank" rel="noopener noreferrer">
+                        <img src={radar}>
+                        </img>
+                    </a>
+                </div>
              
           
 
