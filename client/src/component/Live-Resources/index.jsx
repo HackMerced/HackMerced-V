@@ -94,10 +94,11 @@ class LiveResources extends Component {
                     </a>
                 </div>
                 <div class="infos">
-                    <ul></ul>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
-                    <ol href=""></ol>
+                    <ul>MongoDB Atlas makes it easy to host data in the cloud. Deploy your hack with a full managed MongoDB instance across various cloud poviders like Google Cloud!</ul>
+                    <ol href="http://hackp.ac/getting-started-with-mongodb">Getting started with MongoDB Atlas
+</ol>
+                    <ol href="http://hackp.ac/mongodb-sample-data">Sample Data for Atlas Clusters</ol>
+                    <ol href="http://hackp.ac/mongodb-connect-cluster">Connecting to a MongoDB Atlas Cluster</ol>
                 </div>
 
                 {/*RADAR */}
