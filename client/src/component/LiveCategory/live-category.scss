@@ -1,0 +1,20 @@
+* {
+    overflow: hidden; 
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    grid-gap: 6%;
+    height: auto;
+    width: auto;
+  };
+
+  .grid-item{
+    text-align: center;
+    overflow: hidden; 
+    min-width: 0;
+    background-color: white;
+  }

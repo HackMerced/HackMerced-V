@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./live-container.scss";
 import LiveSchedule from "../Live-Schedule";
 import LiveMap from "../Live-Map";
+import LiveCategory from "../LiveCategory"
 
 class LiveContainer extends Component {
   constructor(props) {
@@ -96,7 +97,7 @@ class LiveContainer extends Component {
             {this.state.map === "active" ? <LiveMap/> : null}
           </li>
           <li id="categories-tab-content" className={this.state.categories}>
-
+            {this.state.categories === "active" ? <LiveCategory/> : null}
           </li>
           <li id="resources-tab-content" className={this.state.resources}>
 
