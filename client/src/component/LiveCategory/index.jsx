@@ -92,9 +92,12 @@ class LiveCategory extends Component {
                     </p>
                 </div>
                 <div className="grid-item">
-                    <h1 className="header">Best Design</h1>
-                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
-                                           fostering their inner creativity towards their real-world applications.
+                    <h1 className="header">Most Creative Radar.io Hack </h1>
+                    <p className="content">Build the most creative hack using Radar, the location API that allows 
+                                          you to add location context, like Geofences, to your hacks with just a few lines of code.
+                                           Create awesome projects like a Pokemon Go clone, or Foursquare with ease. Each winning team member 
+                                           will be eligible to win a Tile Sticker Smart Tracker and a chance to be featured by Radar.
+                                           Prize: Tile Sticker Smart Tracker and a chance to be featured on Radar's Blog
                     </p>
                 </div>
 
