@@ -20,7 +20,7 @@ class Twitter extends Component {
           }}
           options={{
             username: "hackmerced",
-            height: "400"
+            height: "350"
           }}
           onLoad={() => console.log("Timeline is loaded!")}
         />
