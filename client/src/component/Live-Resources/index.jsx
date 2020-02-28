@@ -28,7 +28,7 @@ class LiveResources extends Component {
                     <ol href=""></ol>
                     <ol href=""></ol>
                 </div>
-                
+
                 {/* DOMAIN.COM */}
                 <div class="logos">
                     <a href="https://www.domain.com/mlh#consent-modal" target="_blank" rel="noopener noreferrer">
@@ -43,8 +43,8 @@ class LiveResources extends Component {
                     <ol href=""></ol>
                 </div>
 
-                  {/* GITHUB */}
-                  <div class="logos">
+                {/* GITHUB */}
+                <div class="logos">
                     <a href="https://education.github.com/students?utm_source=mlh" target="_blank" rel="noopener noreferrer">
                         <img src={Github}>
                         </img>
@@ -66,14 +66,16 @@ class LiveResources extends Component {
                 </div>
                 <div class="infos">
                     <ul>Join the #AutomationFirst movement with UiPath, the leading platform in automation technology known as Robotic Process Automation (RPA). Create robots to automate repetitive tasks in your hacks. (Windows Only).</ul>
-                    <ol href="http://hackp.ac/uipath-download"></ol>
-                    <ol href="http://hackp.ac/robot-packs"></ol>
-                    <ol href=""></ol>
+                    <ol href="http://hackp.ac/uipath-download">Download the UiPath Community Edition</ol>
+                    <ol href="http://hackp.ac/robot-packs">Download a UiPath Robot Pack</ol>
+                    <ol href="https://stories.mlh.io/make-robots-automate-your-life-or-at-least-your-email-d728342257e4">Make Robots Automate Your Life (or at Least Your Email)</ol>
+                    <ol href="http://hackp.ac/uipath-forum">Join the UiPath Community Forum</ol>
+                    <ol href="http://hackp.ac/uipathgo">Join UiPath Go! to gets answers and build ideas</ol>
                 </div>
-    
 
-                 {/*BLOCKSTACK */}
-                 <div class="logos">
+
+                {/*BLOCKSTACK */}
+                <div class="logos">
                     <a href="http://hackp.ac/blockstack" target="_blank" rel="noopener noreferrer">
                         <img src={blockstack}>
                         </img>
@@ -110,12 +112,12 @@ class LiveResources extends Component {
                 </div>
                 <div class="infos">
                     <ul>Radar is geofencing reinvented. Their developer-friendly, privacy-first SDKs and APIs will help you build amazing location-aware hacks!</ul>
-                    <ol href="https://radar.io/blog/radar-student-hackathon-playbook"  target="_blank" rel="noopener noreferrer">Radar Student Hackathon Playbook</ol>
-                    <ol href="https://mlh.io/?link=radar-api"  target="_blank" rel="noopener noreferrer">Radar API Documentation</ol>
-                    <ol href="https://mlh.io/?link=radar-sdk"  target="_blank" rel="noopener noreferrer">Radar SDK Documentation</ol>
+                    <ol href="https://radar.io/blog/radar-student-hackathon-playbook" target="_blank" rel="noopener noreferrer">Radar Student Hackathon Playbook</ol>
+                    <ol href="https://mlh.io/?link=radar-api" target="_blank" rel="noopener noreferrer">Radar API Documentation</ol>
+                    <ol href="https://mlh.io/?link=radar-sdk" target="_blank" rel="noopener noreferrer">Radar SDK Documentation</ol>
                 </div>
-             
-          
+
+
 
 
 
