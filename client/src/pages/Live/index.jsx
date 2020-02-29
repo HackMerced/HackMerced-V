@@ -37,6 +37,12 @@ class Live extends Component {
         <section id="live-devpost">
           <button id="submit" onClick={() => {window.location.href = "https://hackmerced-v.devpost.com"}}>Devpost Submission</button>
         </section>
+        <section id="live-categories">
+         <button id="submit" onClick={() => {window.location.href = "https://hackmerced-v.devpost.com/#prizes"}}>Prize Categories</button>
+       </section>
+       <section id="live-resources">
+         <button id="submit" onClick={() => {window.location.href = "https://hack.mlh.io/software/"}}>Hacker Resources</button>
+       </section>
         <section id="live-container">
           <LiveContainer />
         </section>

@@ -11,7 +11,8 @@
     "container container instagram"
     "container container devpost"
     "container container slack"
-    "container container ."
+    "container container resources"
+    "container container categories"
     "container container ."
     "container container ."
     "container container ."
@@ -64,4 +65,12 @@
 
 #live-container {
   grid-area: container;
+}
+
+#live-categories {
+  grid-area: categories;
+}
+
+#live-resources {
+  grid-area: resources;
 }
