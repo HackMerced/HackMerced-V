@@ -12,7 +12,7 @@ import "./footer.scss";
 
 const Footer = () => {
   return (
-    <section id="footer">
+    <footer className="footer">
       <section className="Footer-container">
         <nav className="Footer-social">
           <a
@@ -68,7 +68,7 @@ const Footer = () => {
           © 2020 HackMerced. All Rights Reserved.
         </span>
       </section>
-    </section>
+    </footer>
   );
 };
 export default Footer;
