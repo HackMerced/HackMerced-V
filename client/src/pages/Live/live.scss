@@ -11,11 +11,31 @@
     "container container instagram"
     "container container devpost"
     "container container slack"
+    "container container resources"
+    "container container categories"
     "container container ."
     "container container ."
     "container container ."
     "container container ."
     "container container .";
+
+  @media only screen and (max-width: 1100px) {
+    grid-template-columns: 50vh auto;
+    grid-template-areas:
+      "logo timer"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "container container"
+      "resources categories"
+      "slack devpost";
+  }
 }
 
 #submit {
@@ -48,6 +68,10 @@
 
 #live-twitter {
   grid-area: twitter;
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
 }
 
 #live-slack {
@@ -56,6 +80,10 @@
 
 #live-instagram {
   grid-area: instagram;
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
 }
 
 #live-devpost {
@@ -64,4 +92,12 @@
 
 #live-container {
   grid-area: container;
+}
+
+#live-categories {
+  grid-area: categories;
+}
+
+#live-resources {
+  grid-area: resources;
 }

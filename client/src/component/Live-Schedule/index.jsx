@@ -21,11 +21,11 @@ class LiveSchedule extends Component {
         "MLH Capture the Flag", // Sean
         "Lunch",
         "LLNL Workshop",
+        "MLH Cupstacking", // Sean
         "LinkedIn Professional Workshop by LinkedIn and ACM",
         "Dinner",
         "Calligraphy Workshop by the Japanese Club",
         "GCP Workshop", // Lorenzo
-        "MLH Cupstacking", // Sean
         "Midnight Snack",
         "How to Deploy Your Project Workshop", // Adrian
         "Devpost Submissions",
@@ -49,11 +49,11 @@ class LiveSchedule extends Component {
         "11:00 AM",
         "1:00 PM",
         "3:00 PM",
+        "4:00 PM",
         "5:00 PM",
         "7:00 PM",
         "7:30 PM",
         "9:00 PM",
-        "10:00 PM",
         "12:00 AM",
         "4:00 AM",
         "7:00 AM",
@@ -77,11 +77,11 @@ class LiveSchedule extends Component {
         "SSB 110",
         "SSB 120",
         "SSB 110",
+        "COB 129",
         "SSB 110",
         "SSB 120",
         "SSB 110",
         "SSB 110",
-        "COB 129",
         "SSB 120",
         "SSB 110",
         "",

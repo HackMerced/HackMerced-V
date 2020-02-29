@@ -42,6 +42,11 @@ app.use(
 // Render React Application
 app.use(express.static(path.join(__dirname, "/client/build/")));
 
+// Handles react router pages
+app.get('/home', (request, response) => response.sendFile(path.resolve('client', 'build', 'index.html')));
+app.get('/live', (request, response) => response.sendFile(path.resolve('client', 'build', 'index.html')));
+app.get('/signUp', (request, response) => response.sendFile(path.resolve('client', 'build', 'index.html')));
+
 // Connect to MongoDB then open port on defined port in .env
 mongoose.connection.on("connected", function() {
   console.log(connected("Mongoose default connection is open to", /(?=hack)(.*?)(?=\s*\?)/.exec(DB_URI)[0]));
