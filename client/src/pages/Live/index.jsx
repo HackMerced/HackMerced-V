@@ -20,16 +20,16 @@ const Live = () => (
       <div className="live__content">
         <section className="live__content__details">
           <LiveContainer />
+        </section>
+        <section className="live__content__social">
+          <Twitter/>
+          <Instagram/>
           <nav className="external-links">
             <a className="button" href="https://join.slack.com/t/hackmerced-v/shared_invite/enQtODUyNzkxMDY2NjkyLTZiODAyZjNiYTFjZTlkYTQ0NDVhOGQ5OTI3OTEzNjAxMDBiZTdjY2QyMTI0ZGE4MTlhMmNhMGYyNzQzOGNhZTI">Slack</a>
             <a className="button" href="https://hackmerced-v.devpost.com/submissions">Devpost Submission</a>
             <a className="button" href="https://hackmerced-v.devpost.com/#prizes">Prize Categories</a>
             <a className="button" href="https://hack.mlh.io/software/">Hacker Resources</a>
           </nav>
-        </section>
-        <section className="live__content__social">
-          <Twitter/>
-          <Instagram/>
         </section>
       </div>
     </div>
