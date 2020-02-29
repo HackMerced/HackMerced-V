@@ -95,14 +95,14 @@ class LiveCountdown extends Component {
           {days && (
             <div className="countdown-item">
               <SVGCircle radius={daysRadius} />
-              {days}
+              {days - 1}
               <span id="days">days</span>
             </div>
           )}
           {hours && (
             <div className="countdown-item">
               <SVGCircle radius={hoursRadius} />
-              {hours}
+              {~~hours + 10}
               <span id="hours">hours</span>
             </div>
           )}
