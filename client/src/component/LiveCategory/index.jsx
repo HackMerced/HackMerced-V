@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-
 import "./live-category.scss";
-
 
 class LiveCategory extends Component {
     render() {
-
         return (
-
             <div className="grid-container">
                     <div className="grid-item">
                     <h1 className="header">Social Good</h1>
@@ -44,7 +40,7 @@ class LiveCategory extends Component {
                 </div>
                 <div className="grid-item">
                     <h1 className="header">Good Hardware Hack</h1>
-                    <p className="content">Hackers at their core tinkers. This prize is specific to hackers who embrace the ever-revolving bond between software and hardware. Each winning team member will receive an Arduino to concentrate on making 
+                    <p className="content">Hackers at their core tinkers. This prize is specific to hackers who embrace the ever-revolving bond between software and hardware. Each winning team member will receive an Arduino to concentrate on making
                                            their ideas a reality. It’s the ultimate tinkering tool!
                     </p>
                 </div>
@@ -61,14 +57,14 @@ class LiveCategory extends Component {
                 </div>
                 <div className="grid-item">
                     <h1 className="header">Best Design</h1>
-                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into 
+                    <p className="content">Each winning team member would win an annual membership to Sketch, a 3D modeling computer program for a wide range of drawing applications into
                                            fostering their inner creativity towards their real-world applications.
                     </p>
                 </div>
                 <div className="grid-item">
                     <h1 className="header">Best Domain Registered with Domain.com</h1>
                     <p className="content">Domain.com provides all the domain services you need from registration to hosting to SSL certificates and beyond.
-                                           Each hacker will receive a FREE domain name and year of domain privacy from Domain.com for their project this weekend!Prize: Domain.com Backpacks 
+                                           Each hacker will receive a FREE domain name and year of domain privacy from Domain.com for their project this weekend!Prize: Domain.com Backpacks
                     </p>
                 </div>
                 <div className="grid-item">
@@ -81,30 +77,28 @@ class LiveCategory extends Component {
                 <div className="grid-item">
                     <h1 className="header">Best use of MongoDB Atlas </h1>
                     <p className="content"> Create a hack using MongoDB Atlas to host a database in the cloud! Automate the provisioning and deployment process with ease, while focusing all your efforts on your hack.
-                                             Projects built using MongoDB Atlas will be eligible to win an AirCharge Plus.Prize: Branded MongoDB AirCharge Plus 
+                                             Projects built using MongoDB Atlas will be eligible to win an AirCharge Plus.Prize: Branded MongoDB AirCharge Plus
                     </p>
                 </div>
                 <div className="grid-item">
                     <h1 className="header"> Best use of Blockstack </h1>
                     <p className="content">Create an app using the Blockstack Platform. Each winning team member will receive a pair of Apple BeatsX Earphones.
                                            The opportunity with Blockstack doesn't end with the event. Any app built with Blockstack during a hackathon that successfully registers for the App Mining program will receive an additional $200 reward.
-                                            Prize: BeatsX Headphones 
+                                            Prize: BeatsX Headphones
                     </p>
                 </div>
                 <div className="grid-item">
                     <h1 className="header">Most Creative Radar.io Hack </h1>
-                    <p className="content">Build the most creative hack using Radar, the location API that allows 
+                    <p className="content">Build the most creative hack using Radar, the location API that allows
                                           you to add location context, like Geofences, to your hacks with just a few lines of code.
-                                           Create awesome projects like a Pokemon Go clone, or Foursquare with ease. Each winning team member 
+                                           Create awesome projects like a Pokemon Go clone, or Foursquare with ease. Each winning team member
                                            will be eligible to win a Tile Sticker Smart Tracker and a chance to be featured by Radar.
                                            Prize: Tile Sticker Smart Tracker and a chance to be featured on Radar's Blog
                     </p>
                 </div>
-
             </div>
         );
     }
 }
-
 
 export default LiveCategory;

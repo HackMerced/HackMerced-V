@@ -22,7 +22,7 @@
     text-align: center;
     padding: 20px 20px 25px 20px;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
     cursor: pointer;
     color: white;
     font-weight: bold;
@@ -50,7 +50,7 @@
     }
 
     &.active {
-      color: #ffb994;
+      color: white;
 
       &:before {
         transition-duration: 0.5s;

@@ -22,6 +22,9 @@ class Live extends Component {
         <section id="live-timer">
           <LiveCountdown timeTillDate="3 1 2020, 9:00 am" timeFormat="MM DD YYYY, h:mm a" />
         </section>
+        <section id="live-feed">
+        <h1>Live Feed</h1>
+        </section>
         <section id="live-twitter">
           <Twitter/>
         </section>

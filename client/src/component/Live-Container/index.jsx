@@ -55,6 +55,7 @@ class LiveContainer extends Component {
           >
             Map
           </li>
+          {/*
           <li
             id="categories-tab"
             className={this.state.categories}
@@ -89,6 +90,7 @@ class LiveContainer extends Component {
           >
             Resources
           </li>
+          */}
         </ul>
         <ul className="tab__content">
           <li id="schedule-tab-content" className={this.state.schedule}>
@@ -97,12 +99,14 @@ class LiveContainer extends Component {
           <li id="map-tab-content" className={this.state.map}>
             {this.state.map === "active" ? <LiveMap/> : null}
           </li>
+          {/*
           <li id="categories-tab-content" className={this.state.categories}>
             {this.state.categories === "active" ? <LiveCategory/> : null}
           </li>
           <li id="resources-tab-content" className={this.state.resources}>
             {this.state.resources === "active" ? <LiveResources/> : null}
           </li>
+          */}
         </ul>
       </section>
     );
