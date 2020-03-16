@@ -91,11 +91,12 @@ $btn-colors: (
 }
 
 .btn-border-o {
+  overflow: hidden;
   background-color: transparent;
   color: #b8b8b8;
-  overflow: hidden;
 
   div.link {
+    overflow: hidden;
     background-color: transparent;
     border-color: rgba(0, 0, 0, 0);
     border-radius: 16px;
@@ -105,6 +106,7 @@ $btn-colors: (
 
   &:before,
   &:after {
+    overflow: hidden;
     content: "";
     border-style: solid;
     position: absolute;

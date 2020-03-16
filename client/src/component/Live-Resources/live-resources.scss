@@ -1,49 +1,49 @@
-@mixin flex {
-	display: flex;
-	flex-direction: column;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-p {
-	font-size: 1rem;
-	line-height: 1.5;
-}
-
-.card-masonry {
+.container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%;
 }
 
-.card-container {
-  @include flex;
-  width: 320px;
-  margin: 5%;
-  list-style-type: none;
-  border: 1px solid #eeeeee;
-  border-radius: 4px;
-  background: #ffffff;
-  box-shadow: 2px 2px 10px #eae9e9;
+.card {
+  max-width: 400px;
+  max-height: 800px;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #dfe6e9;
+  padding-bottom: 35px;
+  border-radius: 5px;
+  background: #2d3436;
+  color: white;
+  cursor: default;
 }
 
-img {
-  border-radius: 4px 4px 0 0;
-  max-width: 100%;
-  order: 1;
+.card img {
+  width: 100px;
+  margin: 20px 0;
 }
 
-.card-container--content {
-  @include flex;
-  order: 2;
-  padding: 0 2rem 2rem;
+.card-text {
+  padding: 0 15px;
 }
 
-.card-header--title {
-  color: darkcyan;
-  font-size: 1.5rem;
+.divider {
+  border: 1px solid #636e72;
+  margin: 40px 0;
 }
 
-.card-date {
-	color: darken(darkgray, 20%);
-	font-size: .875rem;
-	font-style: italic;
-  margin-bottom: 0.125rem;
+.btn {
+  padding: 12px 17px;
+  text-decoration: none;
+}
+
+.btn-default {
+  color: #fff;
+  background: #0984e3;
+  border: 2px solid #0984e3;
+  border-radius: 5px;
 }
