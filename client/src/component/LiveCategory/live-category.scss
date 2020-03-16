@@ -1,4 +1,4 @@
-.grid-container {
+.live-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -7,9 +7,9 @@
     width: auto;
   };
 
-  .grid-item{
+  .live-grid-item{
     text-align: center;
     //overflow: hidden;
     min-width: 0;
-    background-color: white;
+    //background-color: white;
   }

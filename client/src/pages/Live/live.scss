@@ -2,28 +2,57 @@
   background-image: linear-gradient(#8d78a1, #a05952, #d15f2a);
   padding-top: 15vh;
   display: grid;
-  grid-template-columns: 55vh auto 69vh 10px;
   grid-auto-columns: max-content;
-  grid-template-areas:
-    "logo timer timer"
-    "container container feed"
-    "container container twitter"
-    "container container instagram"
-    "container container devpost"
-    "container container slack"
-    "container container resources"
-    "container container categories"
-    "container container ."
-    "container container ."
-    "container container ."
-    "container container .";
+    grid-template-columns: auto;
+    grid-template-areas:
+      "logo"
+      "timer"
+      "container"
+      "container"
+      "container"
+      "container"
+      "container"
+      "container"
+      "container"
+      "container"
+      "resources"
+      "categories"
+      "slack"
+      "devpost";
+
+    @media only screen and (min-width: 1024px) {
+    grid-template-columns: 55vh auto 69vh 10px;
+    grid-template-areas:
+      "logo timer timer"
+      "container container feed"
+      "container container twitter"
+      "container container instagram"
+      "container container devpost"
+      "container container slack"
+      "container container resources"
+      "container container categories"
+      "container container ."
+      "container container ."
+      "container container ."
+      "container container .";
+  }
 }
 
 #submit {
   //margin-left: 6vw;
+  @media only screen and (max-width: 1024px) {
+    width: 72vh;
+    margin-left: 1.5vh;
+  }
+
+  @media only screen and (max-width: 375px) {
+    width: 100vh;
+    margin-left: 1.5vh;
+  }
 }
 
 #live-logo {
+  width: 35vh;
   padding-top: 50px;
   padding-left: 10px;
   grid-area: logo;
@@ -31,6 +60,7 @@
 
 #live-timer {
   grid-area: timer;
+  width: 35vh;
   grid-template-columns: 20%;
 }
 
@@ -45,10 +75,22 @@
     border-radius: 5px;
   }
   padding-bottom: 6px;
+  @media only screen and (max-width: 1024px) {
+  display: none;
+  }
+  @media only screen and (max-width: 375px) {
+  display: none;
+  }
 }
 
 #live-twitter {
   grid-area: twitter;
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+  @media only screen and (max-width: 375px) {
+    display: none;
+  }
 }
 
 #live-slack {
@@ -57,6 +99,12 @@
 
 #live-instagram {
   grid-area: instagram;
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+  @media only screen and (max-width: 375px) {
+    display: none;
+  }
 }
 
 #live-devpost {
