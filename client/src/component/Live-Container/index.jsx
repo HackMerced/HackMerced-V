@@ -19,7 +19,7 @@ class LiveContainer extends Component {
 
   render() {
     return (
-      <section className="wrapper">
+      <section className="live-container">
         <ul className="tabs">
           <li
             id="schedule-tab"

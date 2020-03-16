@@ -286,6 +286,25 @@ a {
   }
 }
 
+
+.button {
+  width: 270px;
+  background-color: #9a544c;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  -webkit-transition-duration: .25s;
+  transition-duration: .25s;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  max-width: 300px;
+  overflow: hidden;
+}
+
 #submit {
   //width: 270px;
   background-color: #9a544c;

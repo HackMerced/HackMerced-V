@@ -84,7 +84,7 @@ class LiveCountdown extends Component {
 
   render() {
     const { days, hours, minutes, seconds } = this.state;
-    const daysRadius = mapNumber(days, 30, 0, 0, 360);
+    const daysRadius = mapNumber(days, 29, 0, 0, 360);
     const hoursRadius = mapNumber(hours, 24, 0, 0, 360);
     const minutesRadius = mapNumber(minutes, 60, 0, 0, 360);
     const secondsRadius = mapNumber(seconds, 60, 0, 0, 360);
@@ -95,14 +95,14 @@ class LiveCountdown extends Component {
           {days && (
             <div className="countdown-item">
               <SVGCircle radius={daysRadius} />
-              {days}
+              {days - 1}
               <span id="days">days</span>
             </div>
           )}
           {hours && (
             <div className="countdown-item">
               <SVGCircle radius={hoursRadius} />
-              {hours}
+              {~~hours + 10}
               <span id="hours">hours</span>
             </div>
           )}
