@@ -74,7 +74,7 @@ db().then(async () => {
     });
   });
 
-  app.listen(process.env.PORT, () =>
-    console.log(chalk.bold.white(`Example app listening on port ${process.env.PORT}!`))
+  app.listen(process.env.PORT, process.env.HOST, () =>
+    console.log(chalk.bold.white(`HackMerced V listening on port ${process.env.PORT}!`))
   );
 });
